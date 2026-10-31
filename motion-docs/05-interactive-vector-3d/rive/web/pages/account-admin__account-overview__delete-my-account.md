@@ -1,0 +1,33 @@
+---
+source: https://rive.app/docs/account-admin/account-overview/delete-my-account
+title: "Delete My Account"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Delete My Account
+
+Deleting your account is permanent and removes all your data after 90 days.
+
+## Before you can delete
+
+You need to remove all workspaces from your account first:
+
+1. Go to [rive.app/account](https://rive.app/account?utm_source=docs\&utm_medium=content)
+2. For each workspace you own:
+   * Click "Manage Workspace"
+   * If it's a paid plan, click "Cancel Plan" first
+   * Then click "Delete Workspace"
+3. Once all workspaces are removed, you can delete your account
+
+## What happens to your data
+
+* Your account and data are deleted 90 days after cancellation
+* Files you contributed to other people's workspaces are **not** deleted
+* Content others have remixed from your Marketplace uploads is **not** deleted
+
+## If you own a workspace with members
+
+Deleting your account suspends access for everyone in your workspace. If you want the workspace to continue, transfer ownership to another admin before deleting your account. See [Transfer Workspace Ownership](/docs/account-admin/workspaces/managing-workspaces#transferring-workspace-ownership).
+
+If you delete your account and later want to use the same email address, you won't be able to create a new account. [Contact support](https://forms.rive.app/support?utm_medium=support_page) to restore your account instead. Note: we cannot guarantee your files will still be available.

@@ -1,0 +1,12 @@
+# npm dist-tags fetched 2026-10-28 from https://registry.npmjs.org/-/package/<pkg>/dist-tags
+@theatre/core {"dev":"0.7.0-dev.3","latest":"0.7.2","rc":"0.6.0-rc.4","insiders":"0.6.1-insiders.4c37567"}
+@theatre/studio {"dev":"0.7.0-dev.3","latest":"0.7.2","rc":"0.6.0-rc.4","insiders":"0.6.1-insiders.4c37567"}
+@theatre/r3f {"latest":"0.7.2","dev":"0.7.0-dev.3","0.4.0-insiders.3d1beddb":"0.4.0-insiders.3d1beddb","insiders":"0.6.1-insiders.4c37567","rc":"0.6.0-rc.4"}
+
+# npm publish times (registry.npmjs.org/@theatre/core time field, fetched 2026-10-28)
+0.7.0 2023-08-10
+0.7.1 2024-04-11
+0.7.2 2024-05-19 (latest; registry modified 2024-05-19)
+# GitHub: 0 releases; repo last push 2024-08-14; main HEAD 6ea82b9 (2024-04-11); not archived
+
+# @theatre/r3f@0.7.2 peerDependencies (registry /latest, 2026-10-28): @react-three/fiber ^8.13.6, three >=0.155.0, react >=17.0.2 -> R3F v9 / React 19 NOT in peer range

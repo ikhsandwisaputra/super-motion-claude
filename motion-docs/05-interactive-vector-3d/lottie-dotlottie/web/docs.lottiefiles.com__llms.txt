@@ -1,0 +1,75 @@
+---
+source: https://docs.lottiefiles.com/llms.txt
+title: "llms.txt"
+fetched: 2026-10-28
+---
+
+# LottieFiles Developer Documentation
+
+> Comprehensive documentation for LottieFiles API, Creator tools, and integrations. Build amazing animations with our developer tools and APIs.
+
+## What this is
+
+LottieFiles developer and platform documentation: MCP (Model Context Protocol), Creator, plugins, runtimes, format specs, and tools for working with Lottie animations.
+
+## When to use this
+
+- Connect an AI assistant to LottieFiles via the LottieFiles MCP server
+- Author animations in Creator using either the Creator Local MCP or the Creator WebMCP
+- Embed and play animations with official runtimes
+- Build Creator plugins
+- Understand the Lottie and dotLottie file formats
+
+## When NOT to use this
+
+**Do not scrape or enumerate the lottiefiles.com animation library/marketplace.** This documentation site has no catalog of animations. To search and fetch animation files, use:
+
+- The LottieFiles MCP server
+- The LottieFiles browser UI at https://lottiefiles.com
+
+For product/marketplace overview, see: https://lottiefiles.com/llms.txt
+
+For player docs, see: https://docs.lottiefiles.com/en/runtimes/index.md
+For Lottie and dotLottie file format docs, see: https://docs.lottiefiles.com/en/format/index.md
+
+## Hosted MCP Server
+
+**Endpoint:** `https://mcp.lottiefiles.com/mcp`
+**Protocol:** Streamable HTTP
+**Authentication:** OAuth with either DCR or CIMD
+
+**Documentation:**
+- [MCP Introduction](https://docs.lottiefiles.com/en/platform/mcp.md)
+- [MCP Connection Guide](https://docs.lottiefiles.com/en/platform/mcp/connect.md)
+- [MCP Tools Reference](https://docs.lottiefiles.com/en/platform/mcp/tools.md)
+- [MCP Security](https://docs.lottiefiles.com/en/platform/mcp/security.md)
+
+## Creator MCP
+
+- [Lottie Creator MCP](https://docs.lottiefiles.com/en/creator/13_ai-tools/lottie-creator-mcp.md)
+
+## Docs API
+
+Search this documentation and read pages as Markdown over a public, read-only HTTP API. No authentication.
+
+- [OpenAPI description](https://docs.lottiefiles.com/openapi.json)
+- Search: `GET https://docs.lottiefiles.com/api/search?q={terms}`
+- Read a page: `GET https://docs.lottiefiles.com/api/page?path=/en/platform/mcp`, or append `.md` to any page URL
+- [Developer portal](https://docs.lottiefiles.com/en/developers.md)
+
+## Documentation areas
+
+- [Documentation](https://docs.lottiefiles.com/en/index.md): Documentation for dotLottie players, Lottie Creator, file formats, and developer tools â everything you need to build with Lottie animations.
+- [Welcome to Lottie Creator](https://docs.lottiefiles.com/en/creator/index.md)
+- [Creator API](https://docs.lottiefiles.com/en/creator-api/index.md): Reference for the Creator API used by plugins and integrations.
+- [Creator Plugins](https://docs.lottiefiles.com/en/creator-plugins/index.md): Build powerful plugins for Lottie Creator
+- [Developer Portal](https://docs.lottiefiles.com/en/developers/index.md): Start building with LottieFiles â quickstarts, APIs, SDKs, access and credentials, and machine-readable resources for AI agents.
+- [File Format](https://docs.lottiefiles.com/en/format/index.md): Quick comparison and guidance on Lottie formats
+- [Integrations](https://docs.lottiefiles.com/en/integrations/index.md)
+- [Platform](https://docs.lottiefiles.com/en/platform/index.md): Connect AI assistants and applications to LottieFiles with the hosted MCP server, GraphQL API, and developer platform tools.
+- [dotLottie Players](https://docs.lottiefiles.com/en/runtimes/index.md): High-performance Lottie players for web, mobile, and desktop platforms
+- [Tools](https://docs.lottiefiles.com/en/tools/index.md): Libraries and utilities for creating and transforming Lottie animations
+
+## Optional
+
+- [Full documentation inventory](https://docs.lottiefiles.com/sitemap.xml)

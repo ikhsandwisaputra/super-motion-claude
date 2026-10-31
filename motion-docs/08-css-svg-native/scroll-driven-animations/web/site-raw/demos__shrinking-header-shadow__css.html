@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-driven Animations: Shadow on header after scroll (Scroll-Timeline)</title>
+
+	<!-- Shared styles and scripts, applied to each page -->
+	<link rel="stylesheet" href="/shared/styles.css">
+	<script src="/shared/scripts.js"></script>
+
+	<!-- Page specific styles. The code for the scroll-driven animations is kept in a local style block for your reading convenience -->
+	<link rel="stylesheet" href="../shared/styles.css">
+	<style>
+		@keyframes adjust-info {
+			to {
+				grid-template-columns: 4em 1fr;
+				gap: 1rem;
+				height: 4.75rem;
+			}
+		}
+		@keyframes shrink-name {
+			to { font-size: 1.5rem; }
+		}
+		@keyframes add-shadow {
+			to { box-shadow: 0 5px 5px -3px rgba(0,0,0,.26); }
+		}
+		@keyframes move-button {
+			to { translate: 0% 40%; }
+		}
+		@keyframes move-and-fade-background {
+			to {
+				translate: 0% -5%;
+				scale: 0.96;
+				opacity: 0.3;
+			}
+		}
+
+		@supports (animation-timeline: scroll()) {
+			.info {
+				animation: adjust-info linear both;
+			}
+			.info h2 {
+				animation: shrink-name linear both;
+			}
+			header {
+				animation: add-shadow linear both;
+			}
+			#button-edit  {
+				animation: move-button linear both;
+			}
+			.bg  {
+				animation: move-and-fade-background linear both;
+			}
+			.info, .info h2, header, #button-edit, .bg {
+				animation-timeline: scroll();
+				animation-range: 0 150px;
+			}
+
+			header {
+				position: fixed;
+				left: 0;
+				right: 0;
+			}
+			header + * {
+				margin-top: 190px;
+			}
+		}
+
+		@supports not (animation-timeline: scroll()) {
+			header {
+				box-shadow: 0 5px 5px -3px rgba(0,0,0,.26);
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- metabox -->
+	<div id="metabox">
+		<button id="version-selector" popovertarget="version-selector-popover" data-activeversion="1/2" data-activelang="css">🔀</button>
+		<div id="version-selector-popover" popover anchor="version-selector">
+		  <h1>Version selector</h1>
+		  <p>This demo has several versions:</p>
+		  <ol>
+			<li data-lang="css" data-selected><a href="/demos/shrinking-header-shadow/css/">CSS using <code>scroll-timeline</code></a></li>
+			<li data-lang="css"><a href='/demos/shrinking-header-shadow/css/view-timeline'>CSS using <code>view-timeline</code></a></li>
+		  </ol>
+		</div>
+		<a class="button" href="/" title="To index">🏠</a>
+		<button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+		<dialog id="infobox">
+			<form method="dialog"><button id="infobox-close" tabindex="0" title="Close dialog">❌</button></form>
+			<h1>About this demo</h1>
+			<p>This demo features a header bar that shrinks as you scroll down. Simultaneously, the contents of the header bar also shrink and adjust position. Furthermore, a shadow is also added to the header as it is shrinking.</p>
+
+			<h2>The Code + Explanation</h2>
+			<p>Each element that needs to be animated – the title, the header itself, the background image, etc. – has its own animation attached.</p>
+			<pre><code>@keyframes adjust-info {
+	to {
+		grid-template-columns: 4em 1fr;
+		gap: 1rem;
+		height: 4.75rem;
+	}
+}
+@keyframes shrink-name {
+	to { font-size: 1.5rem; }
+}
+@keyframes add-shadow {
+	to { box-shadow: 0 5px 5px -3px rgba(0,0,0,.26); }
+}
+@keyframes move-button {
+	to { translate: 0% 40%; }
+}
+@keyframes move-and-fade-background {
+	to {
+		translate: 0% -10%;
+		scale: 0.96;
+		opacity: 0;
+	}
+}
+
+.info {
+	animation: adjust-info linear both;
+}
+.info h2 {
+	animation: shrink-name linear both;
+}
+header {
+	animation: add-shadow linear both;
+}
+#button-edit  {
+	animation: move-button linear both;
+}
+.bg  {
+	animation: move-and-fade-background linear both;
+}</code></pre>
+			<p>All of these animations are hooked onto a Scroll Timeline.</p>
+			<pre><code>.info, h2, header, #button-edit, .bg {
+	animation-timeline: scroll();
+	animation-range: 0 150px;
+}</code></pre>
+			<p>By using <code>scroll()</code> without any arguments, the Scroll Timeline will follow the nearest scroller, which is the document’s scroller. It will track it in the <code>block</code> direction.</p><p>By setting the <code>animation-range</code> to <code>0 150px</code>, these animations run from start to finish as you scroll <code>150px</code> down the page.</p>
+		</dialog>
+	</div>
+
+	<!-- The actual demo -->
+	<header>
+		<div class="limited">
+			<div class="bg"></div>
+			<div class="info">
+				<img src="https://brm.us/avatar" alt="Bramus" height="200" width="200" class="avatar">
+				<div>
+					<h2>Bramus Van Damme</h2>
+					<ul class="meta">
+						<li>Developer Relations Engineer</li>
+						<li>bramus</li>
+						<li>he/him</li>
+					</ul>
+				</div>
+			</div>
+			<a href="#" class="button button--circle" id="button-edit">✎</a>
+		</div>
+	</header>
+	<main class="limited">
+		<div class="col">
+			<div class="warning">
+				<p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+			</div>
+			<div class="box" style="height: 20vh"></div>
+			<div class="box" style="height: 5vh"></div>
+			<div class="box"></div>
+			<div class="box" style="height: 50vh"></div>
+			<div class="box"></div>
+			<div class="box" style="height: 35vh"></div>
+		</div>
+		<div class="col">
+			<div class="box" style="height: 10vh"></div>
+			<div class="box"></div>
+			<div class="box" style="height: 4vh"></div>
+		</div>
+	</main>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+---
+source: https://rive.app/docs/editor/animate-mode/interpolation-easing
+title: "Interpolation (Easing)"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Interpolation (Easing)
+
+[YouTube video player](https://www.youtube.com/embed/9xguOdcuhOo)
+
+When you set two keys on a property, the value in between those keys is automatically calculated. This is called interpolation. Interpolation settings can be customized to create dramatically different results.
+
+You can set the easing on your keys by either using the Interpolation panel to the right of the Timeline, or by using the Graph Editor, which you can toggle on via the shortcut near the Timeline options.
+
+## Using the Interpolation panel
+
+The Interpolation panel appears to the right of the timeline when you select any number of keys on the timeline.
+
+![Image](https://mintcdn.com/rive/LTt3dbNyEAMvuJ4M/images/editor/animate-mode/dfb3cbee-603c-4fd5-932f-ad07defaaca2.webp?fit=max\&auto=format\&n=LTt3dbNyEAMvuJ4M\&q=85\&s=b8535b60d95d92497d022373b49950de)
+
+The interpolation graph is a visual representation of how the value will change over time from the selected key to the next with the x-axis representing time and the y-axis representing the change in the chosen property.
+
+You can choose which interpolation type to use by selecting any of the icons above the graph.
+
+### Linear
+
+![Image](https://ucarecdn.com/992113a2-f03d-43be-9f22-d638fa48ba70/)
+
+Linear is the default interpolation type, and it creates a constant rate of change from one key value to the next.
+
+### Cubic
+
+![Image](https://ucarecdn.com/c37db072-f932-4bbd-8232-19b6ef59e901/)
+
+Cubic interpolation uses a curve to interpolate between key values. It gives you two handles that can be dragged to customize the curve.
+
+You can drag the handles as far as you want on the Y-axis. If you drag the handles outside of the graph, the graph view will update to ensure that the handles are always in view.
+
+The default cubic curve creates a gentle curve from the first key to the next, which results in the value changing slowly at the start and end, and changing the most in the middle.
+
+### Hold
+
+![Image](https://ucarecdn.com/39d5d86c-d390-4500-acdb-ad57d3e89539/)
+
+Hold doesn't interpolate values between keys. It simply holds the current value until the next key is reached, where the next value is set instantly.
+
+### Elastic
+
+Elastic overshoots the value and oscillates before settling on it. **Amplitude** controls how far it overshoots, and **Period** controls how quickly it settles.
+
+### Interpolation field
+
+A text field below the preview graph represents the interpolation in a numerical format. A total of four values (typically between 0 and 1) represent the position of the handles – two for the inward curve, and two for the outward curve. You can see how these values change by dragging the handles within the preview window.
+
+Use this field if you wish to set specific easing values, perhaps defined in a design language for a specific brand, for instance. The field also makes it easy to copy and paste values across files and tools.
+
+When inputting values manually, use a comma or a space to separate each of the four values.
+
+![Image](https://ucarecdn.com/b8f9898c-ea40-404f-8749-daf1fec86325/)
+
+## Default interpolation
+
+You can set a default interpolation to control the interpolation used by new keys.
+
+There are two ways to set the default interpolation:
+
+### Set a selected key as the default
+
+Select a key, then open the interpolation options in the Inspector and click Set as default.
+
+![Set current interpolation as default](https://mintcdn.com/rive/3en3pp_PhhXDHQuO/images/editor/animate-mode/interpolation-set-as-default.png?fit=max\&auto=format\&n=3en3pp_PhhXDHQuO\&q=85\&s=4023cc6f6f48dc8cdd46aef2f309e60d)
+
+### Set the default from the Inspector
+
+Deselect everything on the stage. The Inspector shows the default interpolation options for new keys.
+
+Choose the interpolation you want new keys to use by default.
+
+![Set default interpolation from inspector](https://mintcdn.com/rive/3en3pp_PhhXDHQuO/images/editor/animate-mode/interpolation-set-default.png?fit=max\&auto=format\&n=3en3pp_PhhXDHQuO\&q=85\&s=e09be657700fbec3ea1e17105eb2f207)
+
+## The Graph Editor
+
+[YouTube video player](https://www.youtube.com/embed/yfC6_1yS_vE)
+
+Rive's Graph Editor visually represents how an object's properties change over time. Using this graph, we can edit the rate of change and the values being interpolated.
+
+### Enabling the Graph Editor
+
+Use the Graph Editor button on the timeline to enable the Graph Editor. You'll notice that the Graph Editor replaces the timeline.
+
+Note that only objects that are selected will appear on the Graph Editor.
+
+### Using the Graph Editor
+
+The Graph Editor gives a visual representation of the current interpolation. You have two ways to edit the interpolation on the graph.
+
+#### Using cubic interpolation
+
+Cubic interpolation describes the easing function applied between one key and the next, much like a cubic Bezier easing curve in CSS. It shapes how fast the value changes over time, but it always lands exactly on the values you keyed. Adjust a Cubic curve from the Interpolation Panel; the Graph Editor shows the curve, but you set it from the panel.
+
+#### Using cubic value
+
+Cubic Value gives you draggable Bezier handles directly on the Graph Editor, similar to After Effects. Because Rive stores the X and Y position of each handle, it uses a little more data than Cubic, but it gives you much more control over the motion, including the ability to overshoot a value before settling on the final key.
+
+That overshoot is the key difference. Cubic interpolation can only move between the values you key, so animating a property from 0 to 0 produces no motion at all. Cubic Value lets you pull the handles so the curve travels past 0 and back, creating real movement even when the start and end values are identical. This makes Cubic Value ideal for bounces, anticipation, and other effects that need to push beyond the final value.

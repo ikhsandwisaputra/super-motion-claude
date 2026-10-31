@@ -1,0 +1,2 @@
+# npm dist-tags fetched 2026-10-28 from https://registry.npmjs.org/-/package/<pkg>/dist-tags
+animejs {"latest":"4.5.0","beta":"5.0.0-beta.2"}

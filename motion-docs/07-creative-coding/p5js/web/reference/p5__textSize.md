@@ -1,0 +1,90 @@
+---
+source: https://p5js.org/reference/p5/textSize/
+title: "textSize"
+fetched: 2026-10-28
+---
+
+Sets or gets the current text size.
+
+The `textSize()` function is used to specify the size of the text that will be rendered on the canvas. When called with an argument, it sets the text size to the specified value (which can be a number representing pixels or a CSS-style string, e.g., '32px', '2em'). When called without an argument, it returns the current text size in pixels.
+
+## Examples
+
+## Syntax
+
+`textSize(size)``textSize()`
+
+## Parameters
+
+size
+
+Number: The size to set for the text.
+
+## Returns
+
+Number: If no arguments are provided, the current text size in pixels.
+
+Notice any errors or typos? [Please let us know](https://github.com/processing/p5.js/issues). Please feel free to edit [src/type/textCore.js](https://github.com/processing/p5.js/blob/v2.3.3/src/type/textCore.js#L1297) and open a pull request!
+
+---
+
+## Related References
+
+* [textToContours
+
+  Returns an array of arrays of points outlining a string of text written using the font.](https://p5js.org/reference/p5.Font/textToContours/)
+* [textToModel
+
+  Converts text into a 3D model that can be rendered in WebGL mode.](https://p5js.org/reference/p5.Font/textToModel/)
+* [textToPaths
+
+  Returns a flat array of path commands that describe the outlines of a string of text.](https://p5js.org/reference/p5.Font/textToPaths/)
+* [textToPoints
+
+  Returns an array of points outlining a string of text written using the font.](https://p5js.org/reference/p5.Font/textToPoints/)
+
+## Example code (extracted)
+
+```js
+function setup() {
+  createCanvas(600, 200);
+  background(240);
+
+  // Set the text size to 48 pixels
+  textSize(48);
+  textAlign(CENTER, CENTER);
+  textFont("Georgia");
+
+  // Draw text using the current text size
+  fill(0);
+  text("Hello, p5.js!", width / 2, height / 2);
+
+  // Retrieve and display the current text size
+  let currentSize = textSize();
+  fill(50);
+  textSize(16);
+  text("Current text size: " + currentSize, width / 2, height - 20);
+}
+```
+
+```js
+function setup() {
+  createCanvas(100, 100);
+
+  background(200);
+
+  // Top.
+  textSize(12);
+  text('Font Size 12', 10, 30);
+
+  // Middle.
+  textSize(14);
+  text('Font Size 14', 10, 60);
+
+  // Bottom.
+  textSize(16);
+  text('Font Size 16', 10, 90);
+
+  describe('The text "Font Size 12" drawn small, "Font Size 14" drawn medium, and "Font Size 16" drawn large.');
+}
+```

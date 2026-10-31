@@ -1,0 +1,167 @@
+{
+ "version": 1,
+ "about": "Taste replay golden set (motion-eye/scripts/replay.py). Each item is a lesson that must survive every change to the eye's rules, the taste formulas or the kiblat. Change the bands only on purpose, with a line in history (replay.py --update -m).",
+ "refs": {
+  "kiblat": "my-ref/_eye/kiblat/kiblat.json",
+  "explainer_ref": "video-breakdowns/2026-10-28_claude-motion-graphics-skill/_eye/WhatsApp Video 2026-10-28 at 22.44.40/dna.json"
+ },
+ "posters_per_film": 8,
+ "drift_warn": 6,
+ "films": [
+  {
+   "id": "video-2",
+   "role": "good",
+   "path": "aset/video-2/out/video2_full.mp4",
+   "verdict": "Ikhsan 2026-10-29: 'video 2 itu bagus walaupun belum sempurna'",
+   "checks": [
+    {
+     "ref": "kiblat",
+     "min": 82
+    },
+    {
+     "ref": "explainer_ref",
+     "min": 90
+    }
+   ],
+   "must_not_tell": [
+    "Satu latar gelap sepanjang film",
+    "Lumpur gelap",
+    "Look template 'dark mode + aksen neon/pastel'",
+    "Teks kecil di ruang kosong yang gelap",
+    "Neon/glow di latar gelap"
+   ],
+   "known": "flashes 4x in 1 s at 108.1 s (known defect of the liked film, trim before publishing) — not a taste lesson, not asserted"
+  },
+  {
+   "id": "video-3",
+   "role": "bad",
+   "path": "aset/video-3/out/v3_source_cut.mp4",
+   "verdict": "Ikhsan 2026-10-29: 'neon sampah, kinetic teks tidak enak, font jelek … asal jadi, konsepnya tidak menyatu'",
+   "checks": [
+    {
+     "ref": "kiblat",
+     "max": 78
+    },
+    {
+     "ref": "explainer_ref",
+     "max": 76
+    }
+   ],
+   "must_tell": [
+    "Satu latar gelap sepanjang film",
+    "Lumpur gelap",
+    "Look template 'dark mode + aksen neon/pastel'",
+    "Teks kecil di ruang kosong yang gelap"
+   ],
+   "lesson": "video-3: one dark field + neon accents + 3 type families = 'neon sampah'; these five tells are that lesson and must keep firing on this film",
+   "not_asserted": "'Hierarki tipe tanggung' depends on which frames are sampled (fires with 4 posters, not with 8) and was relaxed on purpose in the kiblat calibration (case-video3.md) — not a replay lesson"
+  }
+ ],
+ "pairs": [
+  {
+   "good": "video-2",
+   "bad": "video-3",
+   "ref": "kiblat",
+   "margin": 10
+  },
+  {
+   "good": "video-2",
+   "bad": "video-3",
+   "ref": "explainer_ref",
+   "margin": 15
+  }
+ ],
+ "kiblat_members": {
+  "dir": "my-ref",
+  "ref": "kiblat",
+  "posters": 4,
+  "min_median": 75,
+  "min_each": 50
+ },
+ "posters": [
+  {
+   "id": "v4-hook",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00159.jpg",
+   "min": 75
+  },
+  {
+   "id": "v4-clean",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00228.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-snap",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00489.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-stairs",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00564.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-minimal",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00705.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-kinetic-wide",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_00990.jpg",
+   "min": 75
+  },
+  {
+   "id": "v4-soft",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_01098.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-depth",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_01335.jpg",
+   "min": 80
+  },
+  {
+   "id": "v4-taste",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/v4_sf_01665.jpg",
+   "min": 85
+  },
+  {
+   "id": "kiblat-1022",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/kiblat_1022_t26.7.png",
+   "min": 75
+  },
+  {
+   "id": "kiblat-1006",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/kiblat_1006_t19.2.png",
+   "min": 70
+  },
+  {
+   "id": "kiblat-1023",
+   "role": "good",
+   "path": "my-ref/_eye/replay/frames/kiblat_1023_t4.0.png",
+   "min": 70
+  },
+  {
+   "id": "neg-dark-mud-neon",
+   "role": "bad",
+   "synthetic": "neg_dark_mud_neon",
+   "max": 65
+  },
+  {
+   "id": "neg-clutter",
+   "role": "bad",
+   "synthetic": "neg_clutter",
+   "max": 65
+  }
+ ]
+}

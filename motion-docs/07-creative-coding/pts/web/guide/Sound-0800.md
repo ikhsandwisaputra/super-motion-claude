@@ -1,0 +1,220 @@
+---
+source: https://ptsjs.org/guide/Sound-0800
+title: "Sound"
+fetched: 2026-10-28
+---
+
+# Sound
+
+Audio and visual forms complement each other, giving us new opportunities to create unique expressions. Pts simplifies a subset of Web Audio API to help you with common tasks like playbacks and visualizations.
+
+Before we dive in, let's review a snippet of using Pts' Sound functions. It's pretty straightforward.
+
+```
+// Load sound and attach analyzer
+Sound.load( "/assets/spacetravel.mp3" ).then( s => {
+  sound = s.analyze(bins);
+});
+
+// ...
+
+// Visualize frequencies (within animate loop)
+sound.freqDomainTo( space.size ).forEach( (t, i) => {
+  form.fill( colors[i%5] ).point( t, 30 );
+});
+```
+
+Here is the result. Click play button to start.
+
+![js:sound_simple](https://ptsjs.org/guide/assets/bg.png)
+
+##### Music snippet from [*Space Travel Clichés*](https://soundcloud.com/mrgreenh/space-travel-cliches) by Mr Green H.
+
+How about something more elaborate? Let's try a silly and fun visualization.
+
+![js:sound_visual](https://ptsjs.org/guide/assets/bg.png)
+
+##### Click play button and move your pointer around the character. Music snippet from [*Space Travel Clichés*](https://soundcloud.com/mrgreenh/space-travel-cliches) by Mr Green H.
+
+### Input
+
+Let's get some sounds to begin! Do you want to load from a sound file, receive microphone input, or generate audio dynamically? Pts offers four handy static functions for these.
+
+1. Use [`Sound.load`](https://ptsjs.org/docs/?p=Play_Sound#function_static_load) to load a sound file with a URL or a specific `<audio>` element. The Promise resolves when enough data has loaded to play through, but playback does not start automatically. You can check if the audio file is ready to play by accessing [`.playable`](https://ptsjs.org/docs/?p=Play_Sound#accessor_playable) property.
+
+```
+Sound.load( "/path/to/hello.mp3" ).then( s => sound = s );
+Sound.load( audioElem ).then( s => sound = s ); // load from <audio> element
+```
+
+2. Use [`Sound.loadAsBuffer`](https://ptsjs.org/docs/?p=Play_Sound#function_static_loadAsBuffer) to decode the entire file into an [`AudioBuffer`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer). This does not stream, but it can provide more consistent analysis and replay behavior across browsers.
+
+```
+Sound.loadAsBuffer( "/path/to/hello.mp3" ).then( s => sound = s );
+```
+
+3. Use [`Sound.generate`](https://ptsjs.org/docs/?p=Play_Sound#function_static_generate) to create a sound. You may also generate sounds using other libraries like Tone.js. Read more in Advanced section below.
+
+```
+let sound = Sound.generate( "sine", 120 ); // sine oscillator at 120Hz
+```
+
+4. Use [`Sound.input`](https://ptsjs.org/docs/?p=Play_Sound#function_static_input) to get audio from default input device (usually microphone). This will return a Promise object which will resolve when the input device is ready, or reject if the device is unavailable or permission is denied.
+
+```
+let sound;
+Sound.input().then( s => sound = s ).catch( err => ... ); // default input device
+Sound.input( constraints ).then( s => sound = s ); // advanced use cases
+```
+
+Here's a basic demo of getting audio from microphone:
+
+![js:sound_mic](https://ptsjs.org/guide/assets/bg.png)
+
+##### You may first need to allow this page to access microphone, and then click the record button. We also make the recording stop when the pointer leave the demo area so that your microphone is not always on.
+
+You can then [`start`](https://ptsjs.org/docs/?p=Play_Sound#function_start) and [`stop`](https://ptsjs.org/docs/?p=Play_Sound#function_stop) playing the sound like this:
+
+```
+sound.start();
+sound.stop();
+sound.toggle(); // toggle between start and stop
+sound.playing; // boolean to indicate if sound is playing
+sound.volume = 0.5; // change the volume (default is 1)
+```
+
+##### Browsers commonly block audible playback until the user interacts with the page, so start sound from a click or another user gesture.
+
+### Analyze
+
+Using the [`analyze`](https://ptsjs.org/docs/?p=Play_Sound#function_analyze) function, we can attach an analyzer to keep track of the data in our Sound instance.
+
+```
+sound.analyze( 128 ); // Call once to initiate the analyzer
+```
+
+This will create an analyzer with 128 bins (more on that later) and default decibel range and smoothing values. See [`analyze`](https://ptsjs.org/docs/?p=Play_Sound#function_analyze) docs for description of the advanced options.
+
+There are two common ways to analyze sound data. First, we can represent sounds as snapshots of sound waves, which correspond to variations in air pressure over time. This is called the time-domain, as it measures amplitudes of the "waves" over time steps.
+
+To get the time domain data at current time step, call the [`timeDomain`](https://ptsjs.org/docs/?p=Play_Sound#function_timeDomain) function.
+
+```
+// get an uint typed array of 128 values (corresponds to bin size above)
+let td = sound.timeDomain();
+```
+
+Optionally, use the [`timeDomainTo`](https://ptsjs.org/docs/?p=Play_Sound#function_timeDomainTo) function to map the data to another range, such as a rectangular area. You can then apply various Pts functions to transform and visualize waveforms in a few lines of code.
+
+```
+// fit data into a 200x100 area, starting from position (50, 50)
+let td = sound.timeDomainTo( [200, 100], [50, 50] );
+
+form.points( td ); // visualize as points
+```
+
+Since you'll typically call these functions on every animation frame, you can optionally pass the resulting `Group` back in the last parameter to reuse it, which avoids creating new objects per frame:
+
+```
+let td; // keep a reference across frames
+td = sound.timeDomainTo( [200, 100], [50, 50], [0, 0], td ); // reused
+```
+
+In the following example, we map the data to a normalized circle and then re-map it to draw colorful lines.
+
+```
+sound.timeDomainTo( [Const.two_pi, 1] ).map( t => ... );
+```
+
+![js:sound_time](https://ptsjs.org/guide/assets/bg.png)
+
+##### Click to play and visualize sounds of drum, tambourine, and flute from Philharmonia Orchestra.
+
+In a similar way, we can access the frequency domain data by [`freqDomain`](https://ptsjs.org/docs/?p=Play_Sound#function_freqDomain) and [`freqDomainTo`](https://ptsjs.org/docs/?p=Play_Sound#function_freqDomainTo). The frequency bins are calculated by an algorithm called Fast Fourier Transform (FFT). The FFT size is 2 times the bin size and both need to be powers of 2. (Recall that we set bin size to 128 earlier). You can quickly test it with a single line of code:
+
+```
+form.points( sound.freqDomainTo( space.size ) );
+```
+
+The following is a basic frequency-domain example for your reference.
+
+![js:sound_frequency](https://ptsjs.org/guide/assets/bg.png)
+
+The interplay of sounds and shapes offer many possibilities indeed. Make good use of your imagination to create something beautiful, fun, and unexpected!
+
+### Advanced
+
+If media-element analysis behaves differently across target browsers, load and decode the whole file with [`loadAsBuffer`](https://ptsjs.org/docs/?p=Play_Sound#function_static_loadAsBuffer). This uses an [`AudioBuffer`](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer) instead of a streaming `<audio>` element.
+
+```
+Sound.loadAsBuffer( "/path/to/hello.mp3" ).then( s => sound = s );
+```
+
+`AudioBuffer` doesn't support streaming and its source node can only be played once. Pts recreates the buffer for you when you call [`start`](https://ptsjs.org/docs/?p=Play_Sound#function_start) or [`toggle`](https://ptsjs.org/docs/?p=Play_Sound#function_toggle) again, so replay just works. If you want to prepare a replay manually, use the convenient [`createBuffer`](https://ptsjs.org/docs/?p=Play_Sound#function_createBuffer) function without parameter to re-use the previous buffer.
+
+```
+// optionally, prepare a replay manually by reusing the loaded buffer
+sound.createBuffer();
+```
+
+For custom use cases with other libraries, you can create an instance using [`Sound.from`](https://ptsjs.org/docs/?p=Play_Sound#function_static_from) static method. Here's an example using Tone.js:
+
+```
+const synth = new Tone.Synth().toDestination();
+const context = Tone.getContext().rawContext;
+const tap = context.createGain();
+synth.connect( tap );
+const sound = Sound.from( tap, context ).analyze( 128 );
+```
+
+The following demo generates audio using [Tone.js](https://tonejs.github.io/) and then visualizes it with Pts:
+
+[![screenshot](https://ptsjs.org/guide/assets/tone.png)](https://ptsjs.org/guide/js/examples/tone.html)
+
+##### Click image to open tone.js demo. See [source code here](https://github.com/williamngan/pts/blob/master/guide/js/examples/tone.html).
+
+If needed, you can also directly access the following properties in a Sound instance to make full use of the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API).
+
+* `.ctx` to access the `AudioContext` instance
+* `.node` to access the `AudioNode` instance
+* `.stream` to access the `MediaStream` instance if applicable
+* `.source` to access the `HTMLMediaElement` if you're playing from a sound file
+* `.buffer` to access or set the `AudioBuffer` if you're using [`loadAsBuffer`](https://ptsjs.org/docs/?p=Play_Sound#function_static_loadAsBuffer)
+
+Also note that calling [`start`](https://ptsjs.org/docs/?p=Play_Sound#function_start) function will connect the AudioNode to the destination of the AudioContext, while [`stop`](https://ptsjs.org/docs/?p=Play_Sound#function_stop) will disconnect it.
+
+Web Audio covers a wide range of topics. Here are a few pointers for you to dive deeper:
+
+* [Web Audio API book](https://webaudioapi.com/book/) and [samples](https://webaudioapi.com/samples/) by Boris Smus
+* [tone.js](https://tonejs.github.io/) is a framework for creating interactive music in the browser
+* [tonal.js](https://github.com/danigb/tonal) is a functional music theory library for javascript
+* [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) on Web Audio API
+
+### Cheatsheet
+
+Creating and playing a [`Sound`](https://ptsjs.org/docs/?p=Play_Sound) instance
+
+```
+Sound.load( "path/file.mp3" ).then( d => s = d ); // from file
+Sound.loadAsBuffer( "path/file.mp3" ).then( d => s = d ); // using AudioBuffer instead
+Sound.input().then( d => s = d ); // get microphone input
+s = Sound.generate( "sine", 120 ); // sine wave at 120hz
+s = Sound.from( node, context ); // advanced use case
+
+s.start();
+s.stop();
+s.toggle();
+```
+
+Getting time domain and frequency domain data
+
+```
+s.analyze( 256 ); // Create analyzer with 256 bins
+
+s.timeDomain();
+s.timeDomainTo( area, position ); // map to a area [w, h] from position [x, y]
+
+s.freqDomain();
+s.freqDomainTo( [10, 5] ); // map to a 10x5 area
+g = s.freqDomainTo( area, position, trim, g ); // reuse a Group across frames
+```

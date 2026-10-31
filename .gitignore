@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+
+# --- ditambahkan sebelum migrasi ke Linux (2026-10-31) ---
+.mcp.json
+.claude/settings.local.json
+node_modules/
+# media besar -> Google Drive
+aset/
+# clone repo referensi -> lihat motion-docs/_repos-manifest.tsv
+motion-docs/**/repo-*/
+motion-docs/_shared/mdn-content/
+# export WhatsApp (bisa berisi data pribadi) -> jangan ke GitHub
+my-ref/*WhatsApp*.zip

@@ -1,0 +1,141 @@
+---
+source: https://rive.app/docs/cli/getting-started
+title: "Getting Started"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Getting Started
+
+Install the Rive CLI and build your first project.
+
+Install the Rive CLI, create a project, and open the live preview. By the end of this guide, you'll have a `.riv` file you can load with the Rive Runtimes.
+
+**1. Install the CLI**
+
+The CLI runs on macOS with Apple Silicon, on Linux x86\_64, and on Windows.
+
+**Installer**
+
+```bash theme={null}
+curl -fsSL https://releases.rive.app/cli/install.sh | sh
+```
+
+Add the CLI to your `PATH` so the `rive` command is available in every new
+shell, then reload your current shell to pick it up:
+
+```bash theme={null}
+echo 'export PATH="$HOME/.rive/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+```
+
+**Windows**
+
+```powershell theme={null}
+irm https://releases.rive.app/cli/install.ps1 | iex
+```
+
+**Homebrew**
+
+```bash theme={null}
+brew install --cask rive-app/tap/rive-cli
+```
+
+`rive update`, `rive switch` and `rive uninstall` need the installer build
+under `~/.rive`, so they do not work with a Homebrew install. Manage a
+Homebrew install with `brew` instead, using `brew upgrade` and
+`brew uninstall --cask rive-cli`.
+
+Run `rive doctor` to check your install.
+
+**2. Create a project**
+
+```bash theme={null}
+rive create myproject
+```
+
+That writes a `rive.yaml`, an `AGENTS.md` and `CLAUDE.md` for coding agents, a
+`.gitignore`, and
+a `scene.rml` holding the same frame the Editor gives a new file: an artboard, a
+timeline, and a state machine that plays it on load. A shape you add and key
+starts animating without any further setup.
+
+Everything else you drop in the folder is picked up by extension: `.luau`
+scripts, `.wgsl` shaders, images and fonts. The generated `rive.yaml` sets `name`
+and turns the build logs on; everything else in
+[rive.yaml](/docs/cli/reference/project-config) is optional.
+
+**3. Open the preview window**
+
+```bash theme={null}
+rive myproject
+```
+
+This opens a window showing the scene and watches the directory. Save any file
+and it rebuilds and reloads, writing `myproject/build/myproject.riv`, the file
+you can load with a [runtime](/docs/runtimes/getting-started).
+
+A new project has nothing drawn in it yet, so you get a dark rectangle. Keep this
+running in one terminal while you edit in another.
+
+To build without opening a window, use `rive myproject --once`. To check that the
+project compiles without writing anything, use `--verify`.
+
+## Starting from a file in your Rive account
+
+If the work already exists in your Rive account, download it into a project:
+
+```bash theme={null}
+rive create myproject --from-remote-file
+rive myproject
+```
+
+The CLI lists your projects and files to pick from, and `rive ls` prints the same ids
+non-interactively when you need them for a script. `rive.yaml`
+records the link, so [`rive push`](/docs/cli/reference/project-config#pushing-to-a-rive-file)
+sends your edits back and `rive pull` brings down changes made in the Editor. This
+requires a logged in session with `rive login`.
+
+## Starting from an exported .rev
+
+You can also convert a `.rev` exported from the Editor, which doesn't require a logged in session:
+
+```bash theme={null}
+rive create myproject --from-rev=myfile.rev # --from-rev takes a path to the .rev
+rive myproject
+```
+
+The scene comes out as `scene.rml`, and every script, shader and asset is written as
+its own file, laid out the way the Editor's **Assets** panel had them. You also get
+the usual `rive.yaml`, `AGENTS.md` and `.gitignore`, so it is an ordinary project
+from that point on.
+
+The project name has to be empty or new. Omit it and the `.rev`'s own name is used, so
+`myfile.rev` becomes `myfile/`.
+
+## Signing in
+
+You don't need to sign in to create, preview, or build projects locally. Sign in when you need to publish a file or export a `.rev` to open in the Rive Editor:
+
+```bash id="bmt6er" theme={null}
+rive login
+```
+
+An account is required for `--publish`, which signs the file through Rive's API, and `--rev`, which exports a `.rev`. Everything else runs locally and works signed out and offline.
+
+> [!WARNING]
+>
+> A file containing scripts that is destined for the web must be built with
+> `--publish`. Unsigned scripts are rejected by the CDN and the web runtimes. A file with no scripts is unaffected.
+
+`--publish` may add a watermark to the graphic. A clean `.riv` needs two things: the
+project bound to a file in your Rive account, and that file in a workspace on the
+[Cadet plan or higher](https://rive.app/pricing). Bind the project with
+[`rive push`](/docs/cli/reference/project-config#pushing-to-a-rive-file).
+
+## More resources
+
+* [RML](/docs/runtimes/advanced-topic/rml) - the markup that describes a scene
+* [AI Agents](/docs/cli/agents) - hand the project to Claude Code or Cursor
+* [Examples](/docs/cli/examples) - sample projects to start from, rendering without a window, and CI
+* [Commands](/docs/cli/reference/commands) - every command and flag

@@ -1,0 +1,141 @@
+---
+source: https://rive.app/docs/runtimes/react-native/error-handling
+title: "Error Handling"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Error Handling
+
+Handling errors in Rive React Native
+
+## Error handling
+
+> [!NOTE]
+>
+> This page only applies to the [new
+> runtime](https://github.com/rive-app/rive-nitro-react-native) - not the legacy
+> runtime.
+
+### Hook errors
+
+The loading hooks return an `error` instead of throwing. Check it alongside the loading state:
+
+```tsx theme={null}
+const { riveFile, error: fileError } = useRiveFile(require('./assets/my_file.riv'));
+const { instance, error: instanceError } = useViewModelInstance(riveFile, { async: true });
+const { value: health, error: healthError } = useRiveNumber('health', instance);
+
+if (fileError || instanceError) {
+  return <Text>{(fileError ?? instanceError)!.message}</Text>;
+}
+```
+
+* `useRiveFile` sets `error` when the file can't be loaded or decoded.
+* `useViewModelInstance` sets `error` when the requested view model, artboard, or instance doesn't exist. With `required: true`, it throws instead, so you can handle it with an error boundary.
+* The property hooks (`useRiveNumber`, `useRiveTrigger`, and so on) set `error` when the property path can't be found or read.
+
+### Imperative APIs
+
+Wrap Rive operations in try/catch blocks to handle errors. For example, when loading a file:
+
+```js theme={null}
+try {
+  const riveFile = await RiveFileFactory.fromURL(
+    "https://cdn.rive.app/animations/vehicles.riv",
+    undefined // referenced assets
+  );
+  // Use the riveFile...
+} catch (error) {
+  // Handle errors that occur during Rive file loading
+  console.error("Error loading Rive file:", error);
+}
+```
+
+### View-based errors
+
+Use the `onError` callback prop to handle errors during view configuration or runtime operations:
+
+```js theme={null}
+<RiveView
+  file={riveFile}
+  onError={(error) => {
+    // error.type contains the error type enum value
+    // error.message contains a descriptive error message
+    console.error(`Rive Error [${error.type}]: ${error.message}`);
+  }}
+/>
+```
+
+#### Error types
+
+The following error types may occur during view operations:
+
+| Error Type | Value | Description |
+| - | - | - |
+| `RiveErrorType.Unknown` | 0 | An unknown error occurred |
+| `RiveErrorType.FileNotFound` | 1 | The specified Rive file could not be found |
+| `RiveErrorType.MalformedFile` | 2 | The Rive file is malformed or corrupted |
+| `RiveErrorType.IncorrectArtboardName` | 3 | The specified artboard name does not exist |
+| `RiveErrorType.IncorrectStateMachineName` | 4 | The specified state machine name does not exist |
+| `RiveErrorType.ViewModelInstanceNotFound` | 6 | The specified view model instance was not found |
+| `RiveErrorType.IncorrectStateMachineInputName` | 8 | The specified state machine input name does not exist |
+
+> [!WARNING]
+>
+> In `0.5.0` and later, view errors are always reported as `RiveErrorType.Unknown`. Use `error.message` for details. The specific error types are only reported in `0.4.x`.
+
+In `0.4.x`, you can use these error types to provide specific error handling:
+
+```js theme={null}
+import { RiveView, RiveErrorType } from "@rive-app/react-native";
+
+<RiveView
+  file={riveFile}
+  artboardName="MainArtboard"
+  onError={(error) => {
+    switch (error.type) {
+      case RiveErrorType.IncorrectArtboardName:
+        console.error("Artboard not found:", error.message);
+        // Handle missing artboard (e.g., use default artboard)
+        break;
+      case RiveErrorType.IncorrectStateMachineName:
+        console.error("State machine not found:", error.message);
+        // Handle missing state machine
+        break;
+      case RiveErrorType.MalformedFile:
+        console.error("Corrupted file:", error.message);
+        // Handle corrupted file (e.g., show error UI)
+        break;
+      default:
+        console.error("Rive error:", error.message);
+    }
+  }}
+  style={{ width: "100%", height: 400 }}
+/>;
+```
+
+> [!NOTE]
+>
+> If no `onError` handler is provided, errors are logged with `console.error`.
+
+### Android runtime initialization
+
+On Android, the Rive native library is automatically initialized at app startup. In rare cases (ABI mismatch, missing native libraries, etc.), this initialization can fail. Use `RiveRuntime.getStatus()` to check whether initialization succeeded:
+
+```ts theme={null}
+import { RiveRuntime } from '@rive-app/react-native';
+
+const { isInitialized, error } = RiveRuntime.getStatus();
+if (!isInitialized) {
+  console.error('Rive failed to initialize:', error);
+}
+```
+
+> [!NOTE]
+>
+> On iOS, the runtime requires no explicit initialization — `getStatus()` will always return `{ isInitialized: true }`.
+
+> [!WARNING]
+>
+> **Advanced:** If you need full control over when initialization happens, you can disable automatic initialization by adding `Rive_RiveRuntimeAndroidSkipSetup=true` to `android/gradle.properties` and calling `RiveRuntime.initialize()` yourself. This is not recommended for most apps — only use this if you have a specific reason to defer initialization.

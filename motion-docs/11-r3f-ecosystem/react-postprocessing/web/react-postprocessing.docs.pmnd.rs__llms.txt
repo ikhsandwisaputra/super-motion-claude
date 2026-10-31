@@ -1,0 +1,75 @@
+---
+source: https://react-postprocessing.docs.pmnd.rs/llms.txt
+title: "llms.txt"
+fetched: 2026-10-28
+---
+
+# React Postprocessing
+
+## Documentation
+
+- [Custom effects](/custom-effects): Wrapping your own effects, or postprocessing's, as components
+- [EffectComposer](/effect-composer)
+- [EffectGroup](/effect-group): Explicit effect grouping with a pass-level enable toggle
+- [Introduction](/introduction): What is React Postprocessing and how you can use it
+- [Selection](/selection): Selection/Select
+- [ASCII](/effects/ascii)
+- [Autofocus](/effects/autofocus)
+- [Bloom](/effects/bloom)
+- [BrightnessContrast](/effects/brightness-contrast)
+- [ChromaticAberration](/effects/chromatic-aberration)
+- [ColorAverage](/effects/color-average)
+- [ColorDepth](/effects/color-depth)
+- [DepthOfField](/effects/depth-of-field)
+- [Depth](/effects/depth)
+- [Dot Screen](/effects/dot-screen)
+- [FXAA](/effects/fxaa)
+- [Glitch](/effects/glitch)
+- [GodRays](/effects/god-rays)
+- [Grid](/effects/grid)
+- [Halftone](/effects/halftone)
+- [HueSaturation](/effects/hue-saturation)
+- [Kuwahara](/effects/kuwahara)
+- [LensDistortion](/effects/lens-distortion)
+- [Lensflare](/effects/lensflare)
+- [Linocut](/effects/linocut)
+- [LUT](/effects/lut)
+- [Noise](/effects/noise)
+- [Outline](/effects/outline)
+- [Pixelation](/effects/pixelation)
+- [Ramp](/effects/ramp)
+- [Scanline](/effects/scanline)
+- [SelectiveBloom](/effects/selective-bloom)
+- [Sepia](/effects/sepia)
+- [Sharpness](/effects/sharpness)
+- [ShockWave](/effects/shockwave)
+- [SMAA](/effects/smaa)
+- [SSAO](/effects/ssao)
+- [Texture](/effects/texture)
+- [TiltShift2](/effects/tilt-shift-2)
+- [TiltShift](/effects/tilt-shift)
+- [ToneMapping](/effects/tone-mapping)
+- [Vignette](/effects/vignette)
+- [Water](/effects/water)
+- [DepthPicking](/passes/depth-picking)
+- [N8AO](/passes/n8ao)
+
+## MCP Server
+
+This documentation is available via Model Context Protocol (MCP) server at https://docs.pmnd.rs/api/mcp
+
+Configure in your MCP client:
+```json
+{
+  "mcpServers": {
+    "pmndrs": {
+      "type": "http",
+      "url": "https://docs.pmnd.rs/api/mcp"
+    }
+  }
+}
+```
+
+---
+
+For full documentation content, see llms-full.txt

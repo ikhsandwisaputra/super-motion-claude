@@ -1,0 +1,17 @@
+{
+  "name": "motion-video",
+  "private": true,
+  "description": "Code-generated motion graphics renderer (three.js + canvas), rendered frame by frame in headless Edge.",
+  "type": "commonjs",
+  "dependencies": {
+    "@fontsource/anton": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/kaushan-script": "^5.3.0",
+    "@fontsource/permanent-marker": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "@fontsource/silkscreen": "^5.3.0",
+    "@fontsource/vt323": "^5.3.0",
+    "three": "^0.186.1"
+  }
+}

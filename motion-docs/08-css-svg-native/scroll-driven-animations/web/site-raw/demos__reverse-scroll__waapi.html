@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-driven Animations: Reverse scrolling columns (JS + WAAPI)</title>
+
+	<!-- Shared styles and scripts, applied to each page -->
+	<link rel="stylesheet" href="/shared/styles.css">
+	<script src="/shared/scripts.js"></script>
+
+	<!-- Page specific styles -->
+	<link rel="stylesheet" href="../shared/styles.css">
+
+	<!-- Page specific scripts -->
+	<script type="module">
+		// As we're about to shift content out of .columns, we need it to hide its overflow
+		document.querySelector(".columns").style.overflowY = "hidden";
+
+		// Set up timeline
+		const timeline = new ScrollTimeline({
+			source: document.documentElement,
+		});
+
+		// Loop all eligible columns
+		document.querySelectorAll(".column-reverse").forEach(($column) => {
+			// Flip item order in reverse columns
+			$column.style.flexDirection = "column-reverse";
+
+			// Hook Animation
+			$column.animate(
+				{
+					transform: [
+						"translateY(calc(-100% + 100vh))",
+						"translateY(calc(100% - 100vh))"
+					]
+				},
+				{
+					fill: "both",
+					timeline
+				}
+			);
+		});
+	</script>
+</head>
+
+<body>
+	<!-- metabox -->
+	<div id="metabox">
+		<button id="version-selector" popovertarget="version-selector-popover" data-activeversion="2/2" data-activelang="js">🔀</button>
+		<div id="version-selector-popover" popover anchor="version-selector">
+		  <h1>Version selector</h1>
+		  <p>This demo has several versions:</p>
+		  <ol>
+			<li data-lang="css"><a href="/demos/reverse-scroll/css/">CSS <code>scroll-timeline</code></a></li>
+			<li data-lang="js" data-selected><a href="/demos/reverse-scroll/waapi/">JavaScript WAAPI + <code>ScrollTimeline</code></a></li>
+		  </ol>
+		</div>
+		<a class="button" href="/" title="To index">🏠</a>
+		<button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+		<dialog id="infobox">
+			<form method="dialog"><button id="infobox-close" tabindex="0" title="Close dialog">❌</button></form>
+			<h1>About this demo</h1>
+			<p>This demo features three content columns. The central column follows regular scroll, yet the two surrounding ones scroll in the opposite direction.</p>
+
+			<h2>The Code / Explanation</h2>
+
+			<h3>Base layout</h3>
+
+			<p>As for the basic layout, there is one <code>.columns</code> wrapper containing three nested <code>.column</code> elements. The columns that should reverse scroll, get the class <code>.column-reverse</code> added as well.</p>
+
+			<pre><code>&lt;div class=&quot;columns&quot;&gt;
+	&lt;div class=&quot;column column-reverse&quot;&gt;&mldr;&lt;/div&gt;
+	&lt;div class=&quot;column&quot;&gt;&mldr;&lt;/div&gt;
+	&lt;div class=&quot;column column-reverse&quot;&gt;&mldr;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+			<p>The basic layout is done using CSS Grid, and inside each <code>.column</code>, the contained <code>.column__item</code> elements are positioned using CSS Flexbox</p>
+
+			<pre><code>/* Three column layout */
+.columns {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}</code></pre>
+
+			<h3>Scroll-driven animations</h3>
+
+			<p>In browsers that support CSS Scroll-driven animations, the <code>.column-reverse</code> columns their starting position is set to <code>-100% + 100vh</code>. That way their bottom edge touches the bottom edge of the viewport. The end position of the animation is a translation in the opposite direction: <code>100%</code> down, but minus <code>100vh</code> to keep it on-screen.</p>
+
+			<p>To prevent the wrapping <code>.columns</code> from growing by doing that translation, its content is prevented from bleeding out of it using the <code>overflow</code> property.</p>
+
+			<p>Finally, as the columns will be scrolling in a reversed direction, the order for the items inside each column needs to be reversed as well. That way the first item will be at the bottom of the reversed column.</p>
+
+			<p>The animation is attached to a <code>ScrollTimeline</code> that tracks the root scroller.</p>
+
+			<pre><code>// As we're about to shift content out of .columns, we need it to hide its overflow
+document.querySelector(".columns").style.overflowY = "hidden";
+
+// Set up timeline
+const timeline = new ScrollTimeline({
+	source: document.documentElement,
+});
+
+// Loop all eligible columns
+document.querySelectorAll(".column-reverse").forEach(($column) => {
+	// Flip item order in reverse columns
+	$column.style.flexDirection = "column-reverse";
+
+	// Hook Animation
+	$column.animate(
+		{
+			transform: [
+				"translateY(calc(-100% + 100vh))",
+				"translateY(calc(100% - 100vh))"
+			]
+		},
+		{
+			fill: "both",
+			timeline
+		}
+	);
+});</code></pre>
+		</dialog>
+	</div>
+
+	<div class="warning">
+		<p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+	</div>
+
+	<div class="columns">
+		<div class="column column-reverse">
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/1.04213a58.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Cyber Blue</span> <span>2011</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/2.3ff1fdb6.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Gnostic Will</span> <span>2012</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/3.b606be87.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>French Kiss</span> <span>2013</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/4.24fd614c.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Half Life</span> <span>2014</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/5.d13f5e61.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Love Boat</span> <span>2015</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/6.786c7db4.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Golden Ray</span> <span>2016</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/7.df95fe5c.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Blame Game</span> <span>2017</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/8.e7faf38e.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Lone Dust</span> <span>2018</span> </figcaption>
+			</figure>
+		</div>
+		<div class="column">
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/9.ea63bab4.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Lucky Wood</span> <span>2019</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/10.57de09c7.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Good Earth</span> <span>2020</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/11.ba790930.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Empty Words</span> <span>2021</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/12.c3a8d893.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Nonage Line</span> <span>2009</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/13.3bd52250.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Blue Hell</span> <span>2010</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/14.b7263516.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Cold Blood</span> <span>2011</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/15.55bda21b.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Tulip Heat</span> <span>2012</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/16.eb88393b.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Red Wrath</span> <span>2013</span> </figcaption>
+			</figure>
+		</div>
+		<div class="column column-reverse">
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/17.3450839a.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Bold Human</span> <span>2014</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/18.763d23f6.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Loyal Royal</span> <span>2015</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/19.be25549f.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Lone Cone</span> <span>2016</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/20.d7a9356b.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Dutch Green</span> <span>2017</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/21.4c8813a5.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Valley Hill</span> <span>2018</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/22.ec97ea6e.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Kale Hale</span> <span>2019</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/23.49e8893a.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Fake Cake</span> <span>2020</span> </figcaption>
+			</figure>
+			<figure class="column__item">
+				<div class="column__item-imgwrap">
+					<img src="https://tympanus.net/Development/ColumnScroll/24.057dafba.jpg" alt="" title="" height="" width="" />
+				</div>
+				<figcaption class="column__item-caption"> <span>Book Belly</span> <span>2021</span> </figcaption>
+			</figure>
+		</div>
+	</div>
+</body>
+
+</html>

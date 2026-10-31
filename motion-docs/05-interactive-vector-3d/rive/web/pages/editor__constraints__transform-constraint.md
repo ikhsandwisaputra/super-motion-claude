@@ -1,0 +1,70 @@
+---
+source: https://rive.app/docs/editor/constraints/transform-constraint
+title: "Transform Constraint"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Transform Constraint
+
+The Transform Constraint allows its owner to copy all the transformation properties from a target object, regardless of their hierarchical relationships. These properties include Position, Rotation, and Scale.
+
+[YouTube video player](https://www.youtube.com/embed/pJfWNtVBrvM)
+
+## How to create a Transform Constraint
+
+**1. Add a Transform Constraint to an object**
+
+Use the Constraints section of the Inspector to add a Transform Constraint to an object.
+
+![Image](https://ucarecdn.com/17a0bf31-0430-46cd-9980-2650a08a27cb/)
+
+**2. Choose a target**
+
+Use the new constraint's fly-out menu to select a target for this constraint.
+
+![Image](https://ucarecdn.com/c5320720-2332-4c4a-8784-cda0aee1423b/)
+
+**3. Test that the Transform Constraint is working**
+
+Manipulating the target object now causes the constrained object to copy Position, Rotation, and Scale properties.
+
+![Image](https://ucarecdn.com/ced5a14f-0add-4300-bdee-2738983c46b3/)
+
+## Strength
+
+The Strength property determines how much the constrained object is affected.
+
+A Strength of 0% means the constraint won't have any effect.
+
+A Strength of 50% means half the value from the target will be applied.
+
+![50% Strength](https://ucarecdn.com/73b4a724-6707-4cd0-80a0-5e6813327a5a/)
+
+## Transform Space
+
+### Source Space
+
+Choose whether this constraint should use World or Local coordinates for the Source Space.
+
+### Destination Space
+
+Choose whether this constraint should use World or Local coordinates for the Destination Space.
+
+## Example: mechanical arm
+
+Consider the package resting on the table and the mechanical arm below.
+
+![Image](https://mintcdn.com/rive/LTt3dbNyEAMvuJ4M/images/editor/constraints/6c362145-62a9-4af2-8986-5751d1846cc7.webp?fit=max\&auto=format\&n=LTt3dbNyEAMvuJ4M\&q=85\&s=911139eedd0f78f8d691e44f6cfba4bd)
+
+Add a Transform Constraint to the package and a target group at the end of the arm.
+
+![Image](https://ucarecdn.com/86ac428d-ed87-4846-b448-4504214ed127/)
+
+The target group is a child of the arm hierarchy, so it moves with the arm.
+
+With a Strength of 100%, all the transform properties of the package match the target. Notice how the package moves and rotates correctly with the movement of the arm.
+
+![Image](https://ucarecdn.com/411ce58c-031c-4f34-88c4-a7f40a5efbc0/)
+
+Set the Strength to 0% to make the arm drop the package.

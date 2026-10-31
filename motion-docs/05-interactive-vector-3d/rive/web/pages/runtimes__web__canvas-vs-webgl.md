@@ -1,0 +1,83 @@
+---
+source: https://rive.app/docs/runtimes/web/canvas-vs-webgl
+title: "Canvas vs WebGL2"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Canvas vs WebGL2
+
+Choose between the @rive-app/webgl2 and @rive-app/canvas runtime packages.
+
+Rive's web runtime comes in two main packages: [`@rive-app/webgl2`](https://www.npmjs.com/package/@rive-app/webgl2) and [`@rive-app/canvas`](https://www.npmjs.com/package/@rive-app/canvas). They expose the same API. The only difference is how they draw.
+
+**For most use cases, use `@rive-app/webgl2`.** It draws with the Rive Renderer, the same renderer as the Rive Editor, so everything you can author in Rive renders the way you designed it. `@rive-app/canvas` uses the browser's own 2D renderer, which brings its own advantages (particularly for performance), but it does not yet support every Editor feature.
+
+Switching is a one-line import change, so you can try both and measure against your own content.
+
+## Comparison
+
+| | `@rive-app/webgl2` (recommended) | `@rive-app/canvas` |
+| - | - | - |
+| Draws with | The [Rive Renderer](https://rive.app/renderer?utm_source=docs\&utm_medium=content) on WebGL2 | The browser's [Canvas2D](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) API |
+| [Vector Feathering](/docs/editor/fundamentals/fill-and-stroke#vector-feathering) | ✅ Supported | ❌ Not yet supported; planned for a future release |
+| Editor fidelity | ✅ The same renderer the Rive Editor uses | 🟡 Matches for nearly all content (see [Fill Rules](#fill-rules)) |
+| Blend modes | 🟡 All blend modes, but anything other than **Normal** is expensive (see [Performance](#performance)) | ✅ All blend modes, at no extra cost |
+| Graphics per page | 🟡 Bound by the browser's WebGL context limit (see [WebGL Context Limits](#webgl-context-limits)) | ✅ No practical limit |
+
+## Other notable tradeoffs
+
+### WebGL context limits
+
+Note that if you're using `@rive-app/webgl2`, browsers cap how many WebGL contexts a page can hold at once. The exact number varies by browser and device, and the oldest context is typically dropped once the cap is reached — which limits how many `new Rive({...})` instances you can run. See [WebGL Context Limits](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/WebGL_context_limits) for more details.
+
+If you show several graphics on one page, set `useOffscreenRenderer: true` on each Rive object. Every instance then shares a single offscreen context instead of creating its own, which keeps you under the cap:
+
+```javascript theme={null}
+const r = new rive.Rive({
+  src: "https://cdn.rive.app/animations/vehicles.riv",
+  canvas: document.getElementById("canvas"),
+  artboard: "Truck",
+  stateMachine: "bumpy",
+  useOffscreenRenderer: true,
+});
+```
+
+This limit does not apply to `@rive-app/canvas`.
+
+### Fill rules
+
+`@rive-app/canvas` uses the Canvas2D renderer, which offers the non-zero and even-odd [fill rules](/docs/editor/fundamentals/fill-and-stroke#fill-rule), so Rive's clockwise fill rule draws as non-zero. The result is identical unless a path has self-intersecting, reversed, or overlapping contours. This applies to both fills and clipping paths.
+
+## Performance
+
+Today, `@rive-app/webgl2` draws through a multisample anti-aliasing (MSAA) path.
+
+The Rive Renderer has a faster path to draw that relies on a GPU capability Metal and Vulkan already expose to native apps. On web browsers, it comes from [`WEBGL_shader_pixel_local_storage`](https://www.khronos.org/registry/webgl/extensions/WEBGL_shader_pixel_local_storage/), a draft WebGL extension that Rive is helping to standardize. As browsers adopt it, `@rive-app/webgl2` will pick it up automatically and draw faster.
+
+Until then, blend modes are where you may notice a difference. On the MSAA path, any blend mode other than **Normal** forces the renderer to re-read the frame as it draws, and that cost adds up quickly on mobile browsers. `@rive-app/canvas` has no equivalent cost, because Canvas2D blends natively.
+
+In practice:
+
+* Blend modes on mobile are the case where `@rive-app/canvas` can be meaningfully faster. If your file leans on them and does not use Vector Feathering, it is worth comparing the two.
+* Measure on real devices. Swapping packages is a one-line change, so testing both is cheap.
+
+## Canvas package variants
+
+Two variants of the canvas package are available if you have specific bundling needs.
+
+### `@rive-app/canvas-lite`
+
+[`@rive-app/canvas-lite`](https://www.npmjs.com/package/@rive-app/canvas-lite) is the smallest Rive web package. It has the same API and renderer as `@rive-app/canvas`, but drops the text, layout, audio, and scripting engines to save space.
+
+Use it when your files do not rely on those features. If a file does use them, the affected content will not appear.
+
+### `@rive-app/canvas-single`
+
+[`@rive-app/canvas-single`](https://www.npmjs.com/package/@rive-app/canvas-single) bundles `rive.wasm` directly into the JavaScript file, so loading Rive takes one network request instead of two.
+
+Use it when you want to avoid a separate WASM request. The tradeoff is a larger JavaScript bundle.
+
+## Deprecated package
+
+`@rive-app/webgl` is deprecated and receives no updates after `v2.37.0`. Move to `@rive-app/webgl2`, or to `@rive-app/canvas` if your file does not need the Rive Renderer. Neither move requires API changes — see the [migration guide](/docs/runtimes/web/migration-guides).

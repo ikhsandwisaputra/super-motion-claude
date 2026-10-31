@@ -1,0 +1,47 @@
+---
+source: https://rive.app/docs/game-runtimes/unreal/runtime-asset-swapping
+title: "Runtime Asset Swapping"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Runtime Asset Swapping
+
+Swap image assets at runtime in Unreal via data binding.
+
+## Overview
+
+To change a Rive file's images at runtime in Unreal, bind a `UTexture` to a ViewModel image property exposed via data binding in the Rive editor.
+
+> [!WARNING]
+>
+> The Rive renderer requires image textures to use **premultiplied alpha** (AlphaComposite-style blending). Textures authored with straight alpha can show:
+>
+> * Dark or black fringes around transparent edges
+> * Incorrect compositing against the background
+> * Loss of alpha
+> * Overly bright / oversaturated images
+>
+> Export or preprocess textures with premultiplied alpha before using them at runtime.
+
+### Blueprint
+
+Call **Set Image Value** (category *Rive → Data Binding*) on your `RiveViewModel` reference. Enter the image property name (as exposed on the ViewModel via data binding) and pick the source texture from the *In Image* dropdown.
+
+![Setting an image property via databinding](https://mintcdn.com/rive/ZTVf4gcrrSPE8RSz/images/unreal/ImageSwapDatabinding1.png?fit=max\&auto=format\&n=ZTVf4gcrrSPE8RSz\&q=85\&s=4a857b37e1a9b97736df5ea5da682933)
+
+### C++
+
+```cpp theme={null}
+#include "Rive/RiveViewModel.h"
+
+// ViewModel is a URiveViewModel*, Texture is any UTexture*
+ViewModel->SetImageValue(TEXT("MyImageProperty"), Texture);
+```
+
+`SetImageValue` accepts any `UTexture` and notifies the state machine that the bound property changed. The property name must match the image property as exposed on the ViewModel via data binding.
+
+## Troubleshooting
+
+* **Image doesn't update:** confirm the property name matches the ViewModel image property as exposed via data binding, and that your `RiveViewModel` is the one driving the artboard instance on screen.
+* **Image looks wrong (dark fringes, incorrect alpha, oversaturation):** verify the source texture uses premultiplied alpha.

@@ -1,0 +1,747 @@
+---
+source: https://rive.app/docs/runtimes/web/rive-parameters
+title: "Rive Parameters"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Rive Parameters
+
+API docs for the Rive instance.
+
+This page is a **reference** for constructor options, types, and instance methods on the high-level **`Rive`** class, as well as a number of other exported classes. For walkthroughs and samples, use the guides below and link back here when you need exact signatures.
+
+**Related guides**
+
+* [Getting started](/docs/runtimes/web/web-js) — start here for a walkthrough of loading Rive into your web applications
+* [Artboards](/docs/runtimes/web/artboards) — choosing artboards to load from the `.riv` file
+* [Layout](/docs/runtimes/web/layouts) — see how to layout your Rive graphic within the canvas and make it responsive to size changes
+* [State machine playback](/docs/runtimes/web/state-machines) — handle playback controls for the Rive state machine
+* [Loading assets](/docs/runtimes/web/loading-assets) — handle asset loading for your Rive file
+* [Caching a Rive file](/docs/runtimes/web/caching-a-rive-file) — **`RiveFile`** + **`riveFile`** for multiple instances
+* [Data binding](/docs/runtimes/web/data-binding) — **`autoBind`**, view models, `bindViewModelInstance`
+* [Playing audio](/docs/runtimes/web/playing-audio) — handling audio assets and controlling volume levels
+* [Focus](/docs/runtimes/web/focus) — keyboard navigation with Tab and arrow keys, **`tabIndex`**, **`focusOptions`**
+* [Text and key input](/docs/runtimes/web/text-and-key-input) — keyboard listeners and text inputs in the graphic
+
+## `Rive` constructor parameters
+
+You can set any of the following parameters on the Rive object when instantiating:
+
+```typescript theme={null}
+export interface RiveParameters {
+  canvas: HTMLCanvasElement | OffscreenCanvas; // required
+  src?: string; // one of src, buffer, or riveFile is required
+  buffer?: ArrayBuffer; // one of src, buffer, or riveFile is required
+  riveFile?: RiveFile; // one of src, buffer, or riveFile is required
+  artboard?: string;
+  stateMachine?: string; // strongly recommended setting this property
+  layout?: Layout;
+  autoplay?: boolean;
+  autoBind?: boolean;
+  useOffscreenRenderer?: boolean;
+  enableRiveAssetCDN?: boolean;
+  shouldDisableRiveListeners?: boolean;
+  isTouchScrollEnabled?: boolean;
+  dispatchPointerExit?: boolean;
+  enableMultiTouch?: boolean;
+  drawingOptions?: DrawOptimizationOptions;
+  onLoad?: EventCallback;
+  onLoadError?: EventCallback;
+  onPlay?: EventCallback;
+  onPause?: EventCallback;
+  onStop?: EventCallback;
+  onAdvance?: EventCallback;
+  assetLoader?: AssetLoadCallback;
+  enablePerfMarks?: boolean;
+  tabIndex?: number;
+  focusOptions?: RiveFocusOptions;
+  semanticsMode?: SemanticMode; // experimental
+  semanticsOptions?: RiveSemanticsOptions; // experimental
+  enableGPUCanvas?: boolean; // experimental, @rive-app/webgl2 only
+
+  // Deprecated parameters
+  animations?: string | string[]; // deprecated in favor of stateMachine
+  stateMachines?: string | string[]; // deprecated in favor of stateMachine
+  automaticallyHandleEvents?: boolean; // deprecated along with Rive Events
+  onLoop?: EventCallback; // deprecated in favor of state machines and data binding
+  onStateChange?: EventCallback; // deprecated in favor of state machine actions and data binding
+}
+```
+
+* `canvas` - *(required)* Provide a `<canvas>` element to draw Rive animations onto.
+* To load a `.riv` file, one of the following is required:
+  * `src` - *(optional)* Hosted URL or app-relative public path to the `.riv` file. See a minimal example on the [Getting started](/docs/runtimes/web/web-js#loading-rive-files) guide.
+  * `buffer` - *(optional)* `ArrayBuffer` of `.riv` bytes.
+  * `riveFile` - *(optional)* Provide a loaded **`RiveFile`** across instances. See [Caching a Rive file](/docs/runtimes/web/caching-a-rive-file) for more details.
+* `artboard` - *(optional)* Name of the artboard to use. If not provided, it will pull the default artboard from the exported `.riv` file.
+* `stateMachine` - *(strongly recommended)* Name of the state machine to play (i.e. `"State Machine 1"`) from the `.riv` file. Added in `v2.41.0` to replace the plural `stateMachines` parameter.
+
+> [!NOTE]
+>
+> If you do not pass `stateMachine`, or the deprecated `stateMachines` or `animations` parameters, Rive will currently play the first linear animation it finds on the artboard. In the next major version of the JS runtime (v3), Rive will play the artboard's default state machine when one exists.
+
+* `layout` - *(optional)* Provide a [`new Layout()`](/docs/runtimes/web/layouts) instance. See that guide for fit modes, alignment, bounds, and responsive layout.
+* `autoplay` - *(optional)* If true, the animation will automatically start playing when loaded. Defaults to false.
+* `autoBind` - *(optional)* When set to `true`, Rive will automatically look for a default view model and view model instance to bind to the artboard. Defaults to false.
+* `useOffscreenRenderer` - *(optional)* Boolean flag to determine whether to use a shared offscreen WebGL2 context rather than create its own WebGL2 context for this instance of Rive. This is only relevant for WebGL-based runtimes such as `@rive-app/webgl2`. If you are displaying multiple Rive instances on a page, it is highly encouraged to set this flag to `true`. Defaults to `false`.
+* `enableRiveAssetCDN` - *(optional)* Allow the runtime to automatically load assets (i.e. fonts) hosted in Rive's CDN. Defaults to true.
+* `shouldDisableRiveListeners` - *(optional)* Boolean flag to disable setting up Rive Listeners on the `<canvas>` element, thus preventing any event listeners from being set up on the element.
+  * **Note:** Rive Listeners by default are not set up on a `<canvas>` element if there is no playing state machine, or a state machine without any Rive Listeners set up on the state machine
+* `isTouchScrollEnabled` - *(optional)* For Rive Listeners, allows scrolling behavior to still occur on canvas elements when a touch/drag action is performed on touch-enabled devices. Otherwise, scroll behavior may be prevented on touch/drag actions on the canvas by default.
+* `dispatchPointerExit` - *(optional)* For Rive Listeners, dispatches a pointer exit event when the pointer exits the canvas. This can be useful for ensuring hover states are properly reset when the user's cursor leaves the canvas area. Defaults to true.
+* `enableMultiTouch` - *(optional)* Enables multi-touch support for Rive Listeners. When enabled, the runtime will track and respond to multiple simultaneous touch points on touch-enabled devices. Defaults to false.
+* `drawingOptions` - *(optional)* An enum (`DrawOptimizationOptions`) that provides drawing optimization options. This can be used to configure rendering performance optimizations. The default is `DrawOptimizationOptions.DrawOnChanged`, which will only submit a draw command if the artboard has visually updated.
+  * `DrawOptimizationOptions.DrawOnChanged` - Only submit a draw command if the artboard has visually updated
+  * `DrawOptimizationOptions.AlwaysDraw` - Always submit a draw command, even if the artboard has not visually updated.
+* `onLoad` - *(optional)* Callback that gets fired when the .riv file loads.
+* `onLoadError` - *(optional)* Callback that gets fired when an error occurs loading the .riv file.
+* `onPlay` - *(optional)* Callback that gets fired when the animation starts playing.
+* `onPause` - *(optional)* Callback that gets fired when the animation pauses.
+* `onStop` - *(optional)* Callback that gets fired when the animation stops playing.
+* `onAdvance` - *(optional)* Callback that gets fired every frame when the Artboard has advanced.
+* `assetLoader` - *(optional)* Callback to load assets. Full patterns and examples in the [loading assets](/docs/runtimes/web/loading-assets) guide.
+* `enablePerfMarks` - *(optional)* Emits `performance.mark` / `performance.measure` entries for key Rive startup and render events for performance profiling purposes. False by default. Also available on `RuntimeLoader` and `RiveFile`.
+* `tabIndex` - *(optional)* The tab index to set on the `<canvas>` when the graphic has focus nodes and the canvas has no `tabindex` of its own (or its `tabindex` is `-1`). Defaults to `0`. Alternatively, you may set the `tabindex` attribute directly on the `<canvas>` itself. See [Focus](/docs/runtimes/web/focus#setting-the-tab-index).
+* `focusOptions` - *(optional)* Options for keyboard [focus](/docs/runtimes/web/focus) management.
+  * `allowFocusInterrupt` - When `true`, the canvas takes browser focus whenever the graphic goes from having no focused node to having one, even if the user's focus is elsewhere on the page. Defaults to `false`. See [Allowing Rive to take browser focus](/docs/runtimes/web/focus#allowing-rive-to-take-browser-focus).
+* `semanticsMode` - *(optional, experimental)* Whether to build an accessible DOM overlay for the graphic's [semantics](/docs/runtimes/web/semantics). Either `SemanticMode.Disabled` or `SemanticMode.Enabled`. Defaults to `SemanticMode.Disabled`.
+* `semanticsOptions` - *(optional, experimental)* Options for the accessibility overlay. See [Semantics](/docs/runtimes/web/semantics).
+  * `riveCanvasLabel` - *(optional)* The `aria-label` applied to the overlay's container element. Defaults to `"Rive animation"`.
+* `enableGPUCanvas` - *(optional, experimental)* Render GPU Canvas content — 3D and shaders — on this instance. `@rive-app/webgl2` only, and cannot be combined with `useOffscreenRenderer: true`. Ignored when you pass a `riveFile`, which carries its own mode. False by default. See [GPU Canvas](/docs/runtimes/web/gpu-canvas).
+
+> [!WARNING]
+>
+> `semanticsMode` and `semanticsOptions` are experimental and may encounter breaking behavior changes without a major version bump.
+
+### Deprecated parameters
+
+> [!WARNING]
+>
+> As of `v2.41.0` the parameters below are deprecated. They still work, and nothing has been removed, but using one logs a one-time `[Rive]`-prefixed console warning, and each will eventually be removed in a future major version.
+
+* `stateMachines` - Use `stateMachine` with a single state machine name instead. Support for playing multiple state machines at once is going away.
+* `animations` - Name of a timeline animation to load from the `.riv` file. Use `stateMachine` to play a state machine instead.
+* `automaticallyHandleEvents` - Enable Rive Events to be handled by the runtime. For example, if during the render loop an `OpenUrlEvent` is detected, the browser may try to open the specified URL in the payload. Defaults to `false`. Deprecated along with the rest of the [Rive Events](/docs/runtimes/web/rive-events) surface — use [data binding](/docs/runtimes/web/data-binding) instead.
+* `onLoop` - Callback that gets fired when the animation completes a loop. Loop events are only reported for linear animation playback, which is itself deprecated. Use a state machine to control playback and [data binding](/docs/runtimes/web/data-binding) to react to changes.
+* `onStateChange` - Callback that gets fired when a state change occurs. Use [data binding](/docs/runtimes/web/data-binding) (view model property observers) or [state machine actions](/docs/editor/state-machine/states#actions) to react to changes from your graphic instead.
+
+## APIs
+
+The following APIs are available on a `Rive` instance after construction.
+
+***
+
+### Data Binding (View Models)
+
+View model APIs on `Rive` are documented in depth on the [data binding](/docs/runtimes/web/data-binding) guide. For a quick reference on available APIs on the `Rive` instance, see below:
+
+* `viewModelInstance` (getter) — currently bound instance, if any. This is available if `autoBind` is `true` and there is a default View Model instance to reference. From an instance, you can get a reference to view model properties based on type:
+  * `.number(path: string): ViewModelInstanceNumber`
+  * `.boolean(path: string): ViewModelInstanceBoolean`
+  * `.string(path: string): ViewModelInstanceString`
+  * `.color(path: string): ViewModelInstanceColor`
+  * `.trigger(path: string): ViewModelInstanceTrigger`
+  * `.enum(path: string): ViewModelInstanceEnum`
+  * `.list(path: string): ViewModelInstanceList`
+  * `.image(path: string): ViewModelInstanceAssetImage`
+  * `.font(path: string): ViewModelInstanceAssetFont`
+  * `.artboard(path: string): ViewModelInstanceArtboard`
+  * `.viewModel(path: string): ViewModelInstance`
+  * `.viewModelName` - Getter property to return the name of the `ViewModel` the instance is created from
+  * `.properties` - Getter property to return the list of properties available on this `ViewModel`
+* `viewModelCount` (getter)
+* `viewModelByIndex(index: number): ViewModel | null` - returns a `ViewModel` specified by index from the `.riv` file, or null if it doesn't exist or the file isn't loaded yet
+* `viewModelByName(name: string): ViewModel | null` - returns a `ViewModel` specified by name, or null if it doesn't exist or the file isn't loaded yet
+* `defaultViewModel(): ViewModel | null` - returns the default `ViewModel` for the file, or null if it doesn't exist or the file isn't loaded yet
+* `bindViewModelInstance(instance: ViewModelInstance | null): void` - Sets and binds a main `ViewModelInstance` to the state machine. Note that this is taken care of automatically if `autoBind` is `true`.
+* `setViewModelInstance(instance: ViewModelInstance | null): void` - Sets a main `ViewModelInstance` to the state machine, but does not bind it. Call `bind()` to flush this change.
+* `setGlobalViewModelInstance(name: string, instance: ViewModelInstance): boolean` - Sets (or replaces) the `ViewModelInstance` occupying the global view model slot named `name`, but does not bind it. Call `bind()` to flush this change. Returns `false` if `name` does not match a global view model in the file.
+* `globalViewModelInstance(name: string): ViewModelInstance | null` - Returns the `ViewModelInstance` currently occupying the named global view model slot, or `null` if none has been set or created yet. This is a pure read — it never creates an instance.
+* `globalViewModelNames(): string[]` - Names of the file's global view models, in file order. Use these with `setGlobalViewModelInstance()` / `globalViewModelInstance()`.
+* `bind(): void` - Flushes any set main `ViewModelInstance` and global `ViewModelInstance`s to the state machine. When a state machine is running, it also creates default view model instances for the main and global view models on the file if they were not set yet. This is taken care of automatically if `autoBind` is `true`.
+* `enums(): DataEnum[]` - List of enums defined in the file
+* `getBindableArtboard(name: string): BindableArtboard | null` - Returns a named artboard as a `BindableArtboard`, which exposes data-binding APIs. Once you have a bindable artboard, you can set the `.viewModel` property on that artboard to bind a `ViewModelInstance`. Bindable artboards can be set as a value to an artboard property on a different ViewModel. Returns `null` if the artboard doesn't exist or the file isn't loaded.
+* `getDefaultBindableArtboard(): BindableArtboard | null` - Returns the file's default artboard as a `BindableArtboard`, or `null` if not available.
+
+***
+
+### Playback
+
+Examples and UX-oriented discussion: [State machine playback](/docs/runtimes/web/state-machines).
+
+#### play()
+
+`play(names?: string | string[], autoplay?: true): void`
+
+Plays a specified state machine via the passed-in name. Useful if you have either programmatically called `pause()` or `stop()` or set `autoplay: false` when instantiating Rive. If no name is passed in, it plays all instantiated state machines (or the default linear animation if a state machine is not instantiated).
+
+#### pause()
+
+`pause(names?: string | string[]): void`
+
+Pauses a specified state machine via the passed-in name. If no name is passed in, it pauses all instantiated timeline animations or state machines.
+
+#### stop()
+
+`stop(names?: string | string[]): void`
+
+Stops a specified state machine via the passed-in name. If no name is passed in, it stops all instantiated timeline animations or state machines.
+
+#### reset()
+
+```typescript theme={null}
+interface RiveResetParameters {
+  artboard?: string;
+  stateMachine?: string;
+  autoplay?: boolean;
+  autoBind?: boolean;
+
+  // Deprecated parameters
+  animations?: string | string[];
+  stateMachines?: string | string[];
+}
+
+reset(params?: RiveResetParameters): void
+```
+
+Resets the artboard and state machine from the start (or entry state). Cleans up existing artboard/animation/state machine instances first. Playback after reset follows `autoplay` and `autoBind`, and `stateMachine` takes priority over the deprecated plural parameters exactly as it does on the constructor. Example: [State machine playback](/docs/runtimes/web/state-machines).
+
+***
+
+### Canvas size and layout
+
+Use these APIs to respond to canvas or window resize changes to ensure Rive content scales and renders clearly.
+
+#### resizeDrawingSurfaceToCanvas()
+
+`resizeDrawingSurfaceToCanvas(customDevicePixelRatio?: number): void`
+
+Sets the canvas element’s `width` and `height` from its CSS layout size and device pixel ratio (or your optional `customDevicePixelRatio`). Reduces blur on high-DPI displays. Calls `resizeToCanvas()` and updates **`devicePixelRatioUsed`**. If `layout.fit` is set to `Fit.Layout`, artboard width/height are adjusted from the layout.
+
+> [!NOTE]
+>
+> In a future major version of this runtime, this API may be called internally on initialization by default, with an option to opt-out if you have specific `width` and `height` properties you want to set on the canvas.
+
+See the [layout](/docs/runtimes/web/layouts) guide for examples on usage.
+
+#### resizeToCanvas()
+
+`resizeToCanvas(): void`
+
+Sets layout bounds (`minX`, `minY`, `maxX`, `maxY`) from the current canvas pixel width and height. Call when the canvas backing store size changes.
+
+#### resetArtboardSize()
+
+`resetArtboardSize(): void`
+
+Restores artboard dimensions to the file's original values.
+
+#### devicePixelRatioUsed
+
+Getter/setter for the device pixel ratio (DPR) value applied when sizing the drawing surface (updated by `resizeDrawingSurfaceToCanvas()`).
+
+#### bounds
+
+Artboard axis-aligned bounds, or `undefined` if the artboard is not ready.
+
+#### layout (get/set)
+
+Get this property to return the current `Layout` instance (treat as immutable; use `new Layout({...})` or `copyWith` to change). Set this property to replace the layout. Examples: [Layout](/docs/runtimes/web/layouts).
+
+#### artboardWidth / artboardHeight
+
+Getters/setters for logical artboard dimensions. If the artboard is not loaded and you have not set a value, you may see `0`.
+
+Avoid setting these manually when using [`resizeDrawingSurfaceToCanvas()`](#resizedrawingsurfacetocanvas) with `Fit.Layout`, because the runtime sets width/height from the canvas.
+
+***
+
+### Audio
+
+#### volume
+
+Getter/setter for artboard audio volume. The default value is `1.0`, which means the volume is set by the default level for that artboard.
+
+See the [playing audio](/docs/runtimes/web/playing-audio) guide for more details on controlling volume levels.
+
+***
+
+### Events
+
+In addition to the event callbacks you can set in the `Rive` constructor (i.e. `onLoad`), you can also subscribe to events using the `on` and `off` methods for more controlled Rive event subscription.
+
+#### on()
+
+`on(type: EventType, callback: EventCallback): void`
+
+Subscribe to runtime events (similar to `addEventListener`).
+
+> [!NOTE]
+>
+> `on()` itself is not deprecated, but subscribing with `EventType.RiveEvent`, `EventType.StateChange`, or `EventType.Loop` is, and each logs a one-time console warning. Every other `EventType` is unaffected, and `off()` never warns.
+
+#### off()
+
+`off(type: EventType, callback: EventCallback): void`
+
+Unsubscribe using the same `EventType` and callback reference passed to `on()`.
+
+#### removeAllRiveEventListeners()
+
+`removeAllRiveEventListeners(type?: EventType): void`
+
+Removes all listeners for a given `EventType`, or all types if `type` is omitted.
+
+#### Event types and payload
+
+```typescript theme={null}
+export enum EventType {
+  Load = "load",
+  LoadError = "loaderror",
+  Play = "play",
+  Pause = "pause",
+  Stop = "stop",
+  /** @deprecated Only reported for timeline animations. Use data binding instead. */
+  Loop = "loop",
+  Advance = "advance", // Called each frame after state machine advance
+  /** @deprecated Use data binding or state machine actions instead. */
+  StateChange = "statechange",
+  /** @deprecated Use data binding instead. */
+  RiveEvent = "riveevent",
+}
+```
+
+The `Event` type is `{ type: EventType; data?: ... }`. The shape of `data` depends on `type`:
+
+* **Load** — `RiveFile`  (the loaded file handle) or the string "buffer" indicating a load from an ArrayBuffer
+* **LoadError** — `string` (error message)
+* **Play**, **Pause**, **Stop** — `string[]` (names of the animations or state machines affected)
+* **Advance** — `number` (elapsed seconds for that frame)
+* **Loop** — *(deprecated in `v2.41.0`)* `LoopEvent` (`{ animation: string; type: LoopType }`). `LoopType` is `OneShot`, `Loop`, or `PingPong`. Both the `LoopEvent` interface and the `LoopType` enum are deprecated alongside the event.
+* **StateChange** — *(deprecated in `v2.41.0`)* `string[]` (state names that changed)
+* **RiveEvent** — *(deprecated in `v2.41.0`)* custom or built-in Rive event payload (for example open-URL events)
+
+For **`EventType.RiveEvent`** listener examples, see [Rive Events](/docs/runtimes/web/rive-events). Prefer [Data binding](/docs/runtimes/web/data-binding) for new work where it applies.
+
+***
+
+### File and lifecycle
+
+When using Rive to load different Rive content, or to cleanup resources when Rive is no longer needed, the following APIs may be useful.
+
+#### load()
+
+```typescript theme={null}
+interface RiveLoadParameters {
+  src?: string;
+  buffer?: ArrayBuffer;
+  riveFile?: RiveFile;
+  autoplay?: boolean;
+  autoBind?: boolean;
+  artboard?: string;
+  stateMachine?: string;
+  useOffscreenRenderer?: boolean;
+  shouldDisableRiveListeners?: boolean;
+  tabIndex?: number;
+  semanticsMode?: SemanticMode;
+  semanticsOptions?: RiveSemanticsOptions;
+  enableGPUCanvas?: boolean;
+
+  // Deprecated parameters
+  animations?: string | string[];
+  stateMachines?: string | string[];
+}
+
+load(params: RiveLoadParameters): void
+```
+
+Replaces the current `.riv` source and reinitializes the instance. This also stops current playback and clears the previous file reference. One of `src`, `buffer`, or `riveFile` must be provided (same rule as the constructor) when resetting. WASM is typically already loaded, so you usually only pay network cost if you point at a new `.riv` hosted location.
+
+#### cleanup()
+
+`cleanup(): void`
+
+Stops the render loop and disposes artboard, animations, state machines, renderer, file handle, listeners, and view model instance references. Call when the Rive instance is no longer needed to avoid memory leaks.
+
+#### cleanupInstances()
+
+`cleanupInstances(): void`
+
+Disposes only artboard, timeline animation, and state machine instances. The file and renderer remain valid so you can switch artboards or re-init via `reset()` / `load()`.
+
+#### deleteRiveRenderer()
+
+`deleteRiveRenderer(): void`
+
+Deletes the underlying renderer object, releasing GPU/WebGL resources. Call this only after `cleanup()` when you need a full teardown — for example, when removing a WebGL canvas from the DOM entirely. In most cases `cleanup()` alone is sufficient.
+
+***
+
+### Rendering loop
+
+#### stopRendering()
+
+`stopRendering(): void`
+
+Stops scheduling frames. Does not change play/pause/stop state of animations. Resume with `startRendering()`. This is useful for situations when the `<canvas>` is not visible.
+
+#### startRendering()
+
+`startRendering(): void`
+
+Starts the render loop if it was stopped with `stopRendering()`. No-op if already running.
+
+#### drawFrame()
+
+`drawFrame(): void`
+
+Advances and draws one frame. Use this when you need an explicit draw after certain updates, but typically you do not need to manually call this API.
+
+#### `resolveAnimationFrame()`
+
+Not a method on the high-level **`Rive`** class, but available for using the low-level APIs when constructing a render loop from scratch. On the loaded **`RiveCanvas`** (`@rive-app/canvas-advanced` / `@rive-app/webgl2-advanced`), call **`rive.resolveAnimationFrame()`** after drawing when using the browser’s **`requestAnimationFrame`** yourself. The high-level **`Rive`** instance uses **`drawFrame()`** and its internal loop instead. Full loop example: [Low-level API — Integrating Rive into Existing rAF Loop](/docs/runtimes/web/low-level-api-usage#integrating-rive-into-existing-raf-loop).
+
+***
+
+### Rive Listeners
+
+In most cases, listeners are automatically set up and handled during instantiation. See the guide on Rive [listeners](/docs/editor/state-machine/listeners) for more details.
+The following APIs are available if you need specific control over Rive intercepting input events on the canvas.
+
+#### setupRiveListeners()
+
+`setupRiveListeners(options?: { isTouchScrollEnabled?: boolean }): void`
+
+(Re)attaches pointer/touch listeners on the canvas for active state machines that use Rive Listeners. Called automatically when appropriate; use after dynamic changes if listeners must be refreshed. Optional `isTouchScrollEnabled` overrides the instance default for this setup only.
+
+#### removeRiveListeners()
+
+`removeRiveListeners(): void`
+
+Removes listener callbacks installed for Rive Listeners on the canvas.
+
+***
+
+### Focus
+
+Keyboard focus is wired up automatically when the playing state machine has focus nodes. See the [Focus](/docs/runtimes/web/focus) guide for keyboard behavior and the `tabIndex` and `focusOptions` parameters.
+
+#### clearFocus()
+
+`clearFocus(): void`
+
+Clears focus from the focus nodes of every playing state machine that has them. This does not move browser focus off the `<canvas>`.
+
+***
+
+### Deprecated
+
+The following APIs on the `Rive` instance are deprecated. They may still work but for future-proofing your Rive graphics, we recommend migrating away from these patterns.
+
+Setting state machine inputs and text runs directly are deprecated. Use [Data binding](/docs/runtimes/web/data-binding) for new work where possible.
+
+#### stateMachineInputs()
+
+`stateMachineInputs(stateMachineName: string): StateMachineInput[] | undefined`
+
+Returns inputs for an **instantiated** state machine with the given name, or `undefined` if the file is not loaded yet. See the below interface on getting/setting values and firing trigger inputs.
+
+```typescript theme={null}
+export enum StateMachineInputType {
+  Number = 56,
+  Trigger = 58,
+  Boolean = 59,
+}
+
+class StateMachineInput {
+  public readonly type: StateMachineInputType;
+  public get name(): string;
+  public get value(): number | boolean;
+  public set value(value: number | boolean);
+  public fire(): void; // trigger inputs only
+  public delete(): void; // clears the wrapper’s reference to the native input
+}
+```
+
+***
+
+#### Nested Artboard paths
+
+For inputs and text runs on **nested artboards**, use a path string (for example `"parentArtboard"` or `"group/nested"`) to set input and text run values.
+
+* `setBooleanStateAtPath(inputName: string, value: boolean, path: string): void`
+* `setNumberStateAtPath(inputName: string, value: number, path: string): void`
+* `fireStateAtPath(inputName: string, path: string): void`
+* `getTextRunValueAtPath(textName: string, path: string): string | undefined`
+* `setTextRunValueAtPath(textName: string, value: string, path: string): void`
+
+Prefer data binding with [Nested Property Paths](/docs/runtimes/web/data-binding#nested-property-paths) for nested artboard properties.
+
+***
+
+#### getTextRunValue() / setTextRunValue()
+
+`getTextRunValue(textRunName: string): string | undefined`
+
+`setTextRunValue(textRunName: string, textValue: string): void`
+
+These target named text runs on the **currently active** artboard. Console warnings are emitted when the run cannot be resolved.
+
+Prefer data binding with [Text data binding](/docs/runtimes/web/data-binding#reading-and-writing-properties) for new work where possible.
+
+***
+
+#### scrub()
+
+`scrub(animationNames?: string | string[], value?: number): void`
+
+Scrubs the specified timeline animations to the given time; if none are specified, scrubs all of them. Deprecated in `v2.41.0` — use a state machine to control playback instead.
+
+***
+
+## Debugging and inspection
+
+Once Rive is instantiated, you can inspect various properties of the playing instance by reading some of the following properties/getters on the `Rive` instance.
+
+### `contents`
+
+`get contents(): RiveFileContents | undefined`
+
+When the file has finished loading, `contents` describes artboards, animations, state machines, and each state machine’s inputs. If not loaded, `undefined`.
+
+```typescript theme={null}
+// Documented shape; types may not be exported from the package
+interface RiveFileContents {
+  artboards: {
+    name: string;
+    animations: string[];
+    stateMachines: {
+      name: string;
+      inputs: { name: string; type: StateMachineInputType; initialValue?: boolean | number }[];
+    }[];
+  }[];
+}
+```
+
+### `enableFPSCounter()` / `disableFPSCounter()`
+
+Enable FPS readouts for the current instance.
+
+```typescript theme={null}
+type FPSCallback = (fps: number) => void;
+
+enableFPSCounter(fpsCallback?: FPSCallback): void;
+disableFPSCounter(): void;
+```
+
+Without a callback, a fixed-position FPS readout may be injected in the corner of the viewport.
+
+### Performance profiling marks
+
+When instantiating `Rive`, set `enablePerfMarks: true` to emit `performance.mark` and `performance.measure` entries for key events like WASM initialization and file loading. This should give you
+insight into where time is being spent during Rive startup and can be used in conjunction with browser profiling tools. Marks emitted may include:
+
+* Time fetching WASM
+* Time instantiating Rive and the renderer
+* Time parsing and loading `.riv` file setup
+* Time rendering the first few frames on the canvas
+
+Check the [Performance panel](https://developer.chrome.com/docs/devtools/performance/overview#capture_and_analyze_a_performance_report) in Chrome DevTools to see these marks on the flame chart.
+See the [Preloading WASM](/docs/runtimes/web/preloading-wasm) guide and the [Caching a Rive File](/docs/runtimes/web/caching-a-rive-file) guide for more information on ways to optimize Rive load times.
+
+### `source`
+
+Getter — current `src` string (if any).
+
+### `activeArtboard`
+
+Name of the active artboard, or `""` if none.
+
+### `animationNames` / `stateMachineNames`
+
+All animation and state machine names on the **active** artboard.
+
+### `playingAnimationNames` / `playingStateMachineNames`
+
+Currently playing animations or state machines on the active artboard.
+
+### `pausedAnimationNames` / `pausedStateMachineNames`
+
+Currently paused animations or state machines on the active artboard.
+
+### `isPlaying` / `isPaused` / `isStopped`
+
+Aggregate playback flags for instantiated animations and state machines.
+
+***
+
+## Related exports (module)
+
+The following below are named exports from the same package.
+
+### `RiveFile`
+
+`RiveFile` lets you parse a `.riv` file once and share the result across multiple `Rive` instances — avoiding redundant network fetches and parse overhead. See the full usage guide at [Caching a Rive file](/docs/runtimes/web/caching-a-rive-file).
+In many cases, you may want to load a `RiveFile` before actually rendering the graphic on a canvas. This is useful if you want to preload Rive WASM and the `.riv` file ahead of rendering, or to get certain `.riv` file data.
+
+#### `RiveFile` constructor parameters
+
+```typescript theme={null}
+interface RiveFileParameters {
+  src?: string;           // URL or public path to the .riv file
+  buffer?: ArrayBuffer;   // raw .riv bytes
+  assetLoader?: AssetLoadCallback;
+  enableRiveAssetCDN?: boolean;
+  enablePerfMarks?: boolean;
+  enableGPUCanvas?: boolean; // experimental
+  onLoad?: EventCallback;
+  onLoadError?: EventCallback;
+}
+```
+
+One of `src` or `buffer` is required.
+
+`enableGPUCanvas` is *(optional, experimental)*. A file's rendering mode is fixed at import and has no setter, so set it here and re-import the file to change it. A GPU Canvas file also cannot be shared across `Rive` instances. See [GPU Canvas](/docs/runtimes/web/gpu-canvas).
+
+```typescript theme={null}
+const riveFile = new RiveFile({ src: ‘/my-animation.riv’ });
+await riveFile.init(); // resolves when the file is parsed and ready
+```
+
+Calling `.init()` starts loading and parsing of the `.riv` file. Resolves when the file is ready to be passed to `new Rive({ riveFile })`. If you provide `onLoad` / `onLoadError` callbacks in the `RiveFile` parameters, those fire at the same point.
+
+#### `on()` / `off()`
+
+`on(type: EventType, callback: EventCallback): void`
+`off(type: EventType, callback: EventCallback): void`
+
+Subscribe or unsubscribe from `EventType.Load` and `EventType.LoadError` events on the file itself. Mirrors the same API on the `Rive` instance.
+
+#### `getBindableArtboard()`
+
+`getBindableArtboard(name: string): BindableArtboard | null`
+
+Returns a `BindableArtboard` by name. Returns `null` if the artboard doesn’t exist.
+
+Once you have a bindable artboard, you can set the `.viewModel` property on that artboard to bind a `ViewModelInstance`. Bindable artboards can be set as a value to an artboard property on a different ViewModel.
+
+#### `getDefaultBindableArtboard()`
+
+`getDefaultBindableArtboard(): BindableArtboard | null`
+
+Returns the default artboard as a `BindableArtboard`, or `null` if not available.
+
+#### `viewModelByName()`
+
+`viewModelByName(name: string): ViewModel | null`
+
+Returns a `ViewModel` from the file by name, or `null` if it doesn’t exist or the file isn’t loaded yet. Equivalent to the `Rive` class's `.viewModelByName()` API, but accessible directly on the file handle before a `Rive` instance is created.
+
+#### `globalViewModelNames()`
+
+`globalViewModelNames(): string[]`
+
+Names of the file's [global view models](/docs/runtimes/web/data-binding#global-view-models), in file order. Equivalent to the `Rive` class's `.globalViewModelNames()` API, but accessible directly on the file handle before a `Rive` instance is created.
+
+#### `cleanup()`
+
+`cleanup(): void`
+
+Unconditionally releases the underlying WASM file handle and all associated listeners. Call when the `RiveFile` is no longer needed and you want to free memory.
+
+***
+
+### `RuntimeLoader`
+
+`RuntimeLoader` is a singleton that manages loading and caching the Rive WASM binary for all Rive instances on the page. Control where the Rive WASM is loaded from and when with this class.
+
+#### `enablePerfMarks`
+
+`static enablePerfMarks: boolean`
+
+When `true`, emits `performance.mark` / `performance.measure` entries for WASM initialization timing. Set before the first `getInstance()` / `awaitInstance()` call. Also available on `RiveFile` and the `Rive` constructor parameter `enablePerfMarks`.
+
+#### `getInstance()`
+
+`static getInstance(callback: (rive: RiveCanvas) => void): void`
+
+Provides the loaded WASM runtime via callback, initiating load if it hasn’t started yet. The callback fires immediately if the runtime is already loaded.
+
+```typescript theme={null}
+RuntimeLoader.getInstance((runtime) => {
+  // runtime is a RiveCanvas — the low-level WASM module
+});
+```
+
+#### `awaitInstance()`
+
+`static awaitInstance(): Promise<RiveCanvas>`
+
+Promise-based alternative to `getInstance()`. Resolves with the runtime when loading is complete.
+
+```typescript theme={null}
+const runtime = await RuntimeLoader.awaitInstance();
+```
+
+#### `setWasmUrl()` / `getWasmUrl()`
+
+`static setWasmUrl(url: string): void`
+`static getWasmUrl(): string`
+
+Override the default/primary URL from which the WASM binary is fetched. Call `setWasmUrl()` **before** any `Rive` or `RiveFile` is constructed, as WASM is fetched on first use. By default, Rive pulls from the [UNPKG CDN](https://unpkg.com/) for the version of the package you have installed.
+
+```typescript theme={null}
+RuntimeLoader.setWasmUrl(‘/static/rive.wasm’);
+```
+
+#### `setWasmFallbackUrl()` / `getWasmFallbackUrl()`
+
+`static setWasmFallbackUrl(url: string | null): void`
+`static getWasmFallbackUrl(): string | null`
+
+Configures a fallback WASM URL to try if the primary URL fails to load. Defaults to pulling from [jsdelivr](https://www.jsdelivr.com/). Pass `null` to disable fallback behavior.
+
+#### `setWasmBinary()` / `getWasmBinary()`
+
+`static setWasmBinary(value: ArrayBuffer | null): void`
+`static getWasmBinary(): ArrayBuffer | null`
+
+Supply the WASM binary as an in-memory `ArrayBuffer` instead of fetching it from a URL — useful for environments without network access or for bundling WASM inline. When supplied, this is used instead of fetching from the primary URL. Pass `null` to clear.
+
+***
+
+### `RiveFont`
+
+`RiveFont` is a static-only utility class (never instantiated) for configuring **fallback fonts** — fonts Rive tries when the primary font is missing a glyph. This is useful for multilingual content where a single font doesn't cover all required Unicode ranges.
+
+#### `setFallbackFontCallback()`
+
+`static setFallbackFontCallback(fontCallback: FallbackFontsCallback | null): void`
+
+```typescript theme={null}
+type FallbackFontsCallback = (
+  missingGlyph: number,
+  weight: number
+) => FontWrapper | FontWrapper[] | null | undefined;
+```
+
+`FallbackFontsCallback` is invoked by the runtime when a glyph cannot be found in the active font. Set this callback to handle the missing glyph codepoint and the current font weight. Return a single `FontWrapper`, an array of `FontWrapper`s, or `null`/`undefined` to indicate no fallback is available. `FontWrapper` is the type returned by `decodeFont`.
+
+This API registers a callback that is invoked whenever the runtime encounters a missing glyph. When an array of fonts is returned from this callback, Rive works through them in order until a match is found. Call  `RiveFont.setFallbackFontCallback(null)` to clear any previously registered callback.
+
+See [fallback fonts](/docs/runtimes/web/fonts#fallback-fonts) for more details.
+
+***
+
+### Utility decoders
+
+`decodeAudio`, `decodeImage`, and `decodeFont` decode raw bytes into asset wrapper classes you can pass to `assetLoader`. See [Loading assets](/docs/runtimes/web/loading-assets) for more details.
+
+#### decodeImage() / decodeFont() / decodeAudio()
+
+`async decodeImage(bytes: Uint8Array): Promise<ImageWrapper>`
+
+`async decodeFont(bytes: Uint8Array): Promise<FontWrapper>`
+
+`async decodeAudio(bytes: Uint8Array): Promise<AudioWrapper>`

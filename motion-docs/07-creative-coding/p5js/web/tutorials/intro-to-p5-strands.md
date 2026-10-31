@@ -1,0 +1,867 @@
+---
+source: https://p5js.org/tutorials/intro-to-p5-strands/
+title: "p5.strands: Introduction to Shaders"
+fetched: 2026-10-28
+---
+
+By Luke Plowden
+
+## Introduction
+
+**p5.strands** is a new way of writing shaders using JavaScript in p5.js. While many shader effects *could* be created with the p5.js 2D renderer, shaders are best for applying complex effects to many objects. Like any medium, shaders also offer their own creative possibilities!
+
+Before p5.js 2.0, you could already use [GLSL](https://p5js.org/tutorials/intro-to-glsl/) to write shaders. Shaders run in parallel on the GPU to create visual effects. The GPU can run many similar operations in parallel, much more quickly than the CPU.
+
+When you write a p5.js sketch, you are giving the CPU a sequence of instructions. When you add a shader - using p5.strands or GLSL - you are giving instructions to the GPU to run many times at once, simultaneously. For example, in a fragment shader, that means many calculations for each pixel.
+
+Drawing to the screen (rendering) can take advantage of parallel operations. Shaders make it possible to create visuals that would otherwise be too slow or difficult, like realistic lighting simulations, post-processing effects, and rendering complex geometries. Learning shaders is valuable for anyone interested in graphics programming. This could be for game development, VFX for films, or for any kind of digital arts. It’s also a fun and unique way to think using computers.
+
+To learn how **p5.strands** works, we’ll create a 3D sketch using 4 different shaders, each illustrating different concepts. The code will be built incrementally throughout the tutorial, with the complete code available at the end.
+
+## What is a Shader?
+
+Shaders are GPU programs written in specialized languages like GLSL for WebGL. There are two main types:
+
+* **Vertex shaders:** transform the vertices of shapes (*where* to draw something)
+* **Fragment shaders:** define the color of each pixel (*how* to draw something)
+
+##### Info
+
+A fragment shader is sometimes referred to as a pixel shader.
+
+A vertex shader and a fragment shader are both required to render anything in WebGL mode. Fortunately, p5.js provides some default shaders that you can use, so you don’t need to write your own. Consider this sketch:
+
+Even without explicitly setting it, a shader is used which calculates the lighting and shading of the fill for the sphere, and another does the stroke.
+
+##### Tip
+
+Try uncommenting the 2nd line in `draw` to use `baseColorShader()` instead.
+
+When we instead use the `baseColorShader`, the sphere fill is now a solid white color, not affected by lighting.
+
+The filters available when you call `filter()` are also shaders which p5.js provides for you.
+
+Part of the fun of WebGL is that you can write your own shaders, and it unlocks a lot of possibilities for creating which would be difficult to achieve with p5’s default 2D renderer. They can also run a lot faster. In the next section, we will start the main part of the tutorial and learn how to use the new p5.js shading language.
+
+## What is p5.strands?
+
+p5.strands takes its name from the way shaders process information in parallel, rather than sequentially.
+
+In the rest of p5.js, we’re accustomed to writing instructions that run sequentially, one after another. We might call `circle(10, 10)` and tell the canvas, “Draw a white circle at point `(10, 10)`.” We then continue giving instructions, layer by layer, drawing each shape on top of the previous ones.
+
+Instead, shaders apply a set of instructions across all vertices or pixels simultaneously. Each vertex or pixel independently follows the same rules, but produces a unique result based on its position. Rather than explicitly drawing the circle, we instead ask each pixel individually, “Are you within a circle centered at `(10, 10)`? If so, change your color.”
+
+The “strands” also refer to access points into the shader pipeline that let you modify specific aspects of rendering without building the entire shader from scratch.
+
+To summarise, p5.strands is a JavaScript-based shading language which sits on top of GLSL. It allows you to write shaders in a regular `.js` file without writing GLSL in string literals. It also removes some setup code in the process, and integrates with the rest of p5.js, to bring learning and using shaders closer to the core of p5.js.
+
+## Getting started with p5.strands
+
+### The setup
+
+Let’s build a minimal shader example to introduce p5.strands’ key concepts. With p5.strands, you can modify sections (known as “strands”) of ready-made shaders using JavaScript.
+
+In this sketch, you should see a yellow sphere.
+
+### What’s happening here?
+
+1. Shaders: p5.js already uses shaders behind the scenes in WebGL mode. p5.strands exposes parts of these shaders so you can modify them.
+2. Strands: A “strand” is a specific part of a shader you can modify. In our example, getFinalColor is a strand that lets you change an object’s final color.
+3. Modifying shaders: The pattern works like this:
+
+* Choose a build function, e.g. `buildColorShader()`, `buildMaterialShader()`, `buildFilterShader()`, `buildStrokeShader()`
+* Pass in your callback function
+* Inside your callback, use the strand blocks such as `finalColor` to override different parts of the default shader’s behavior.
+
+4. Vectors: Shaders work with vectors — collections of numbers that represent colors, positions, etc. In p5.strands, you can create vectors using array syntax `[x, y, z, w]` or the `vec4()` function.
+
+* For example, `[1, 1, 0, 1]` made a 4-element vector representing a color. The elements are Red, Green, Blue, and Alpha, all ranging between 0 and 1.
+
+### Available shaders
+
+p5.strands provides the following builder functions. Click the links below for their reference which tells us what functions are available for overriding.
+
+* [`buildColorShader`](https://p5js.org/reference/p5/buildColorShader/): Builds the default shader type in WebGL mode.
+* [`buildMaterialShader`](https://p5js.org/reference/p5/buildMaterialShader/): Builds the type of shader automatically applied if you have any lights in the scene.
+* [`buildNormalShader`](https://p5js.org/reference/p5/buildNormalShader/): Builds a default shader normally applied by calling `normalMaterial()`. Often used in visually debugging geometry.
+* [`buildStrokeShader`](https://p5js.org/reference/p5/buildStrokeShader/): Builds a shader type used to shade the geometry of strokes in 3D modes.
+* [`buildFilterShader`](https://p5js.org/reference/p5/buildFilterShader/): Builds a shader type for post-processing such as those provided by p5.js, like `filter(BLUR)`.
+
+Now that we’ve built our first p5.strands modification, let’s create a more complex scene! We’ll use `buildColorShader` and `buildStrokeShader` to create 3D objects, then apply post-processing with `buildFilterShader` to enhance the final result.
+
+## Building a scene
+
+### Instancing particles
+
+Because the GPU excels at parallel computation, it can draw thousands or even millions of particles simultaneously. We can do this with a technique called **GPU Instancing**.
+
+In GPU instancing, we ask the GPU to draw multiple copies of the same object, each with a unique ID (from 0 to n-1). We can then position each instance based on its ID. For example, placing objects at coordinates `[ID, 0, 0]` would create a line of objects along the x-axis.
+
+In p5.js, instancing is available via optional parameters for `endShape` and `model`. It does also require a custom shader to work. In our case, let’s use `model` and build a sphere shape.
+
+```` ```
+function setup(){
+  particleModel =
+      buildGeometry(createSphere);
+}
+
+function createSphere(){
+    sphere(10, 4, 2);
+}
+
+function draw(){
+  shader(instancingShader);
+  //make 10 instances of our model
+  model(particleModel, 10);
+}
+``` ````
+
+Let’s start by offsetting instances along the x-axis using `baseColorShader()`:
+
+The `worldInputs` block contains data about the current vertex: `position`, `normal`, `texCoord`, and `color`. The “world” part indicates that this runs after JavaScript transformations like `translate()` or `scale()` have been applied.
+
+##### World Space vs. Object Space
+
+Moving in world space is like moving relative to the entire scene, while object transformations are relative to the object’s center.
+
+Now let’s distribute our particles in a more interesting pattern: placing them randomly on a sphere:
+
+The `noise()` function is used to generate pseudorandom values based on the instance ID.
+
+#### Adding movement to the particles
+
+Strands provides a function, `millis()`, that returns the number of milliseconds since a sketch started running. It will give the same value as the [standard p5.js `millis()` function](https://p5js.org/reference/p5/millis/). We can use it to change each particle’s position over time.
+
+By adding `millis() / 10000` to the phi angle and modifying the radius with `sin()`, we create animated particles that move around a pulsing, stretched sphere. Play around and see what other shapes you can create.
+
+##### Experiment!
+
+Try replacing `sin()` with `tan()`, `acosh()`, or combinations of functions. Small changes in shader code often create dramatically different visual effects, so experimentation goes a long way.
+
+#### Standard p5.js variables available
+
+Some of the well-known p5.js global variables are made available to your shader when you use p5.strands.
+
+Within a strands callback function, you can use any of these directly:
+
+* Dimensions: [width](https://p5js.org/reference/p5/width/), [height](https://p5js.org/reference/p5/height/), [displayWidth](https://p5js.org/reference/p5/displayWidth/), [displayHeight](https://p5js.org/reference/p5/displayHeight/), [windowWidth](https://p5js.org/reference/p5/windowWidth/), [windowHeight](https://p5js.org/reference/p5/windowHeight/).
+* Time and frameCount: [deltaTime](https://p5js.org/reference/p5/deltaTime/), [frameCount](https://p5js.org/reference/p5/frameCount/).
+* Pointer (mouse, touch, etc.): [mouseIsPressed](https://p5js.org/reference/p5/mouseIsPressed/), [mouseX](https://p5js.org/reference/p5/mouseX/), [mouseY](https://p5js.org/reference/p5/mouseY/), [pmouseX](https://p5js.org/reference/p5/pmouseX/), [pmouseY](https://p5js.org/reference/p5/pmouseY/), [pwinMouseX](https://p5js.org/reference/p5/pwinMouseX/), [pwinMouseY](https://p5js.org/reference/p5/pwinMouseY/), [winMouseX](https://p5js.org/reference/p5/winMouseX/), [winMouseY](https://p5js.org/reference/p5/winMouseY/).
+
+These are all numbers except `mouseIsPressed`, which is a boolean.
+
+These values are automatically passed from p5.js into your shader using “uniform variables” (“uniforms”, for short), behind the scenes for your convenience. This is an information-passing mechanism you don’t need to understand for now, but which we’ll see again, later.
+
+### Fresnel effect
+
+If you’ve ever seen a material in a 3D render which appears to glow at the edges, or noticed how the light reflections appear to change on virtual water as you move your viewpoint, you were seeing the Fresnel effect. This effect changes how materials look when viewed at an angle.
+
+The Fresnel effect will be checking which parts of the shape are pointing away from the camera. For this reason, it is helpful for us to work in camera space. In camera space, also known as view space:
+
+* The camera is positioned at the origin `(0, 0, 0)`
+* The camera looks along the negative Z-axis
+* All 3D positions are relative to the camera’s perspective
+
+##### Camera Space
+
+Like Object Space and World Space, Camera space is another relative view of the virtual world. In Camera Space, the current camera is positioned at `(0, 0, 0)`, so everything else is positioned relative to it.
+
+This perspective makes it easier to determine how surfaces appear to the viewer:
+
+```` ```
+function fresnelCallback() {
+
+  cameraInputs.begin();
+  // The normal vector on
+  // the sphere's surface
+  let normalVector = normalize(
+                       cameraInputs.normal);
+  // This creates a vector pointing from
+  // the surface to the camera
+  let viewVector = normalize(
+                     cameraInputs.position);
+  // ...
+  cameraInputs.end();
+}
+``` ````
+
+The line `let viewVector = normalize(-cameraInputs.position)` might seem counterintuitive, so let’s break it down:
+
+1. In camera space, the camera is at `(0, 0, 0)`
+2. cameraInputs.position gives us the position of the current vertex being processed
+3. When we negate this (`-cameraInputs.position`), we get a vector pointing from the vertex toward the camera
+4. `normalize()` converts this to a “unit vector” (i.e., a vector with length of 1), making it useful for direction calculations regardless of distance
+
+#### Calculating the Fresnel factor
+
+The core of the Fresnel effect is comparing two directions:
+
+1. The surface normal (where the surface is “pointing”)
+2. The view direction (where the camera is relative to the surface)
+
+```` ```
+let base = 1 - dot(normalVector, viewVector);
+let fresnel = pow(base, 2);
+``` ````
+
+The dot product between these directions measures how directly the surface at any point is facing the camera. Technically, it returns the cosine of the angle between them. What this really tells us is that, when the dot product of two vectors is:
+
+* **Equal to 1**, the vectors point in the same direction
+* **Equal to 0**, the vectors are perpendicular
+* **Equal to -1**, the vectors are pointing in opposite directions.
+
+For points where the surface faces directly at the camera, the normal and view vector will be nearly parallel, giving a dot product close to 1. At grazing angles, for example at the top of a sphere, the dot product would be closer to 0.
+
+By doing `1 - dot(normalVector, viewVector)`, we are inverting this relationship so that faces at the edge are closer to 1. This will help us make highlights around the edge of the object.
+
+We raise this value to a power with `pow(base, 2)` to make the transition more dramatic - darkening the center more rapidly and creating a sharper glow at the edges.
+
+#### Applying the effect to the color
+
+```` ```
+let col = mix([0, 0, 0],
+              [1, 0.5, 0.7],
+              fresnel);
+cameraInputs.color = [col, 1];
+``` ````
+
+The `mix()` function in GLSL is similar to p5.js’s lerp function. The color should now interpolate between `[0, 0, 0]` (black) when the object faces the camera, and the value of `fresnel` is close to 0, to a pinkish color `[1, 0.5, 0.7]` at its edges when `fresnel` is closer to one.
+
+As a note, `cameraInputs` is a means of making changes inside of the **vertex shader**, which is usually where we will do calculations which rely on the position of vertices. Therefore, we are setting the **vertex color** at this point. The fragment shader will interpolate between vertices to make sure that the pixels between them look continuous.
+
+Notice the returned value above: `[col, 1]`. This is one of the ways in which vectors are prioritised as the main data type in shader languages, including p5.strands. We are able to construct a 4-component vector (`RGBA`) from a 3-component vector(`RGB`) plus a float (alpha). This is a hallmark of shader languages.
+
+##### Tip
+
+Try using `mouseX` and `mouseY` for an interactive, color-changing effect instead of the hardcoded pink. You will probably want to divide them down by their respective `width` and `height` to get values in a 0 to 1 range.
+
+#### Fine-tuning
+
+These variables give you some control over the end result.
+
+* `fresnelPower`: Higher values create a sharper transition from center to edge
+* `fresnelBias`: Shifts the center of the effect
+* `fresnelScale`: Amplifies the strength of the effect overall
+
+##### Tip
+
+Instead of leaving these fresnel variables hard-coded, try having them change over time or based on mouse position by incorporating some mix of the following into their calculation:
+
+* `sin()`, `cos()`
+* `millis()`
+* `mouseX`, `mouseY`
+* `width`, `height`
+
+## Post-processing
+
+Filter shaders are built in much the same way as any other shader in p5.strands. The only difference is that we are only concerned with the fragment shader in filters, the one which decides the color of what’s on the screen. They work by taking a snapshot of the sketch every frame, and sending it through a fragment shader to manipulate the color. Some effects are only possible through post-processing in this way.
+
+For the filter shader built with `buildFilterShader()` there is only one hook block available, `filterColor`. This makes available these properties: `texCoord`, `canvasSize`, `texelSize`, and `canvasContent` - the snapshot of the sketch mentioned above. Its `set()` method allows us to set the color of the pixel being prepared.
+
+### Pixelating effect
+
+We can achieve a pixelation effect by sampling the color of the scene at fewer points than there are real pixels. If you are not familiar with texture coordinates, also known as UV coordinates, try setting `filterColor.set([filterColor.texCoord, 0, 1])` - this will expand to a 4-element vector, using the x and y of the 2D `texCoord` as red and green values, respectively, setting blue to 0, and setting alpha (opacity) to 1.
+
+The top-left corner of the screen is now black, as it has a value of `(0, 0)` in texture coordinates. Down in the bottom-left, it’s green, showing that the texture coordinates are `(0, 1)`, and there is red in the top-right with a value of `(1, 0)`.
+
+With that in mind, let’s manipulate the texture coordinates, so that more pixels will sample their color from the same place on the original texture. We do this proportionally to `filterColor.canvasSize` to get square pixels.
+
+This is the entire code for our pixelating shader. Put this filter at the bottom of our draw function to pixelate the entire scene by calling `filter(pixelShader)`. We also need to use `buildFilterShader(pixelateCallback)` to construct the shader as before.
+
+### Bloom
+
+In post-processing, “bloom” is an effect which makes the brightest parts of an image bleed out and cause the surrounding pixels to light up. This produces the sense that light is emitting from parts of the scene, but without any expensive lighting calculations.
+
+Bloom works by taking a blurred version of the image and setting some threshold values. Anything above that threshold (i.e., the brightest parts of an image) will be added to the original, non-blurred version of the image. This creates a glow around the original objects.
+
+We could write the shader to produce the blurred image, but p5.js already provides us with a `filter(BLUR)` which we can use. We will have to approach this effect slightly differently. Firstly, we will need to create a `p5.Framebuffer` object to capture the contents of the canvas before we blur it.
+
+```` ```
+let originalImage;
+async function setup() {
+  // previous code...
+  originalImage = createFramebuffer();
+}
+function draw() {
+  // Draw the previous code to a
+  // framebuffer, so that we can
+  // store it before our  blur is
+  //  applied.
+  originalImage.begin();
+  // previous code...
+  originalImage.end();
+
+  imageMode(CENTER);
+  image(originalImage, 0, 0);
+
+  // changing this value affects the
+  // spread of the bloom
+  filter(BLUR, 15);
+}
+``` ````
+
+At this point, the sketch should look identical. However, we can now use this framebuffer in our bloom shader. We’ll pass this texture data from our sketch into the shader using a “uniform” variable.
+
+We do this by calling the following in the function we pass to `buildFilterShader()`:
+
+```` ```
+const ogImage = uniformTexture(originalImage)
+``` ````
+
+This line does two things, representing the two halfs of a bridge between your sketch and your shader:
+
+1. It declares a uniform variable in the shader called `ogImage` which expects to receive a value from outside the shader.
+2. It causes your sketch to set that uniform variable **every frame** using [setUniform()](https://p5js.org/reference/p5.Shader/setUniform/) on the shader, passing the value of `originalImage`.
+
+Here’s our `bloomCallback` function with this original canvas image being received by the shader and sampled from:
+
+```` ```
+function bloomCallback() {
+  // Receive the original image for use
+  // in our shader.
+  const ogImage = uniformTexture(originalImage)
+
+  filterColor.begin();
+  // Get our textures converted into
+  // vector values.
+  const blurred =
+    getTexture(filterColor.canvasContent,
+               filterColor.texCoord);
+  const original =
+    getTexture(ogImage,
+               filterColor.texCoord);
+
+  const intensity = max(original, 0.3) *
+                        1.5;
+  // Overlay the blurred image
+  const bloom = original +
+                blurred * intensity;
+  filterColor.set([bloom.rgb, 1]);
+  filterColor.end();
+}
+``` ````
+
+In the calculation of the variable `intensity`, we have two magic numbers:
+
+```` ```
+const intensity = max(original, 0.2) * 8;
+``` ````
+
+* The `0.2` inside of `max` acts as *a kind* of threshold. Areas which are full black in the blurred image will not be affected by bloom, as they will ultimately be multiplying by 0.
+* The `8` multiplies the overall strength of the effect.
+
+Feel free to adjust these to find something which looks good, or control them with mouse and time inputs!
+
+We only select the `.rgb` components of the bloom, as otherwise our alpha will be higher than 1 which gives unexpected results. Since we have selected only some components, we have an opportunity to try ‘swizzling’. Swizzling is a feature of GLSL and other shader languages which lets us select whichever components of a vector to construct a new one.
+
+Any combination of `.rgba`, `.xyzw`, or `.stpq` (for texture coordinates) can be accessed, or set like this. Each of these sets are an alias for the others, they ultimately just select value `[0, 1, 2, 3]` in array terms. In other words writing `col.xyzw` is the same as writing `col.rgba`.
+
+Try changing it to `.grg` or any other combination, for some last minute color changes. This will construct a new vector `[col.g, col.g, col.r, 1]`. For example `[col.yyy, 1]` produces a greyscale output, as the `rgb` values are all the same.
+
+##### Hint
+
+Try ‘swizzling’ the return value and writing something like `filterColor.set([col.ggr, 1])`.
+
+## Review
+
+We have written 4 shaders and learned to manipulate vertex and fragment shaders in p5.strands.
+
+* **Basic Color Shader** - We started with a simple modification of the base color shader, learning how to access and modify the final color of an object. This took place in the *fragment shader*.
+* **Instanced Particles** - We tried our hand at GPU instancing and rendered hundreds of particles. We moved objects in world space in the *vertex shader*.
+* **Fresnel Edge Highlighting** - We made a more advanced effect to make a glowing edge on 3D objects. We set the color of each vertex based on its position, so we did this in the *vertex shader*, in *camera space*.
+* **Post-processing** - We used two filter shaders to tie the scene together. These only required us to modify a *fragment shader*.
+
+The finished code for this project is posted below, with the example sketch.
+
+### What’s next?
+
+Many GLSL examples can be ported to p5.strands, as a large amount of the language features are supported. We have functions to construct GLSL types by doing `vec4(1.0)`, so some helper functions can be copied, such as the random function we used earlier. Find some example effects you wish to create, and write the code strand by strand.
+
+For more resources on shaders, try:
+
+* [p5.js](https://p5js.org/tutorials/intro-to-shaders/), for a similar p5.js tutorial using GLSL
+* [p5.js shaders](https://itp-xstory.github.io/p5js-shaders/#/), a shader guide by Casey Conchinha and Louise Lessél.
+* [Shadertoy](https://www.shadertoy.com/), a massive online collection of shaders that are written in a browser editor.
+* [The Book of Shaders](http://www.thebookofshaders.com/), a shader guide by Patricio Gonzalez Vivo and Jen Lowe.
+
+## Final Code
+
+## Example code (extracted)
+
+```js
+let myShader;
+
+function lightingSetup() {
+  ambientLight(80, 80, 140);
+  const pointX = cos(millis() / 750) * 100;
+  const pointZ = sin(millis() / 750) * 100;
+  pointLight(80, 80, 255, pointX, -60, pointZ);
+}
+
+function setup() {
+  createCanvas(200, 200, WEBGL);
+  pixelDensity(1);
+}
+
+function draw() {
+  background(100);
+  // shader(baseColorShader());
+  lightingSetup();
+  sphere(80);
+}
+```
+
+```js
+let firstShader;
+
+// Our callback function using p5.strands, 
+// which determines how to modify a basic shader.
+
+function firstShaderCallback() {
+  finalColor.begin();
+
+  // Yellow in RGBA (0-1 scale)
+  const myColor = [1, 1, 0, 1];
+  finalColor.set(myColor);
+
+  finalColor.end();
+} 
+
+async function setup() {
+  createCanvas(200, 200, WEBGL);
+  pixelDensity(1);
+  // p5.strands are made using a build*Shader function
+  firstShader = buildColorShader(firstShaderCallback);
+}
+
+function draw() {
+  background(0);
+  shader(firstShader);
+  sphere(80);
+}
+```
+
+```js
+let instancingShader;
+let instancingStrokeShader;
+let particleModel;
+
+function instancingCallback() {
+  worldInputs.begin();
+  
+  // Offset each instance by its ID
+  worldInputs.position.x += instanceID() * 20;
+  // Move the particles left on the screen
+  worldInputs.position.x -= 150;
+  
+  worldInputs.end();
+}
+
+async function setup() {
+  createCanvas(300, 300, WEBGL);
+  pixelDensity(1);
+  particleModel = 
+    buildGeometry(createSphere);
+  instancingShader = 
+    buildColorShader(instancingCallback);
+  instancingStrokeShader = 
+    buildStrokeShader(instancingCallback);
+}
+
+function draw() {
+  background(0);
+  orbitControl();
+  shader(instancingShader);
+  strokeShader(instancingStrokeShader);
+  model(particleModel, 16);
+}
+
+function createSphere(){
+  sphere(10, 10, 2);
+}
+```
+
+```js
+let instancingShader;
+let instancingStrokeShader;
+let particleModel;
+
+function instancingCallback() {
+  function randomPositionOnSphere() {
+    let id = instanceID();
+    let theta = noise([id, 0.1234])  * TWO_PI;
+    let phi = noise([id, 3.321]) * PI;
+    let r = 180;
+    let x = r * sin(phi) * cos(theta);
+    let y = r * cos(phi);
+    let z = r * sin(phi) * sin(theta);
+    return [x, y, z];
+  }
+  worldInputs.begin();
+  worldInputs.position += 
+    randomPositionOnSphere();
+  worldInputs.end();  
+}
+
+async function setup() {
+  createCanvas(400, 400, WEBGL);
+  pixelDensity(1);
+  particleModel = buildGeometry(createSphere);
+  instancingShader = 
+    buildColorShader(instancingCallback);
+  instancingStrokeShader = 
+    buildStrokeShader(instancingCallback);
+}
+
+function draw() {
+  background(0);
+  orbitControl();
+  shader(instancingShader)
+  fill(255, 100, 150)
+  strokeShader(instancingStrokeShader)
+  model(particleModel, 1000);
+}
+
+function createSphere(){
+  sphere(10, 4, 2);
+}
+```
+
+```js
+let instancingShader;
+let instancingStrokeShader;
+let particleModel;
+
+function instancingCallback() {
+
+  function getAnimatedSpherePosition() {
+    let id = instanceID();
+    let theta = noise([id, 0.1234])  * TWO_PI;
+    // change the particle's position 
+    // over time:
+    let phi = noise([id, 3.321]) * PI + 
+              millis() / 10000;
+
+    // Change the radius to create a more 
+    //interesting shape:
+    let r = 200 * sin(phi);
+    let x = r * sin(phi) * cos(theta);
+    // Stretch the y dimensions a little
+    let y = r * 1.5 * cos(phi);
+    let z = r * sin(phi) * sin(theta);
+    return [x, y, z];
+  }
+  
+  worldInputs.begin();
+  worldInputs.position += 
+    getAnimatedSpherePosition();
+  worldInputs.end();
+}
+
+async function setup() {
+  createCanvas(400, 400, WEBGL);
+  pixelDensity(1);
+  particleModel = buildGeometry(createSphere);
+  instancingShader = 
+    buildColorShader(instancingCallback);
+  instancingStrokeShader = 
+    buildStrokeShader(instancingCallback);
+}
+
+function draw() {
+  background(0);
+  orbitControl();
+  shader(instancingShader)
+  fill(255, 100, 150)
+  strokeShader(instancingStrokeShader)
+  model(particleModel, 1000);
+}
+
+function createSphere(){
+  sphere(10, 4, 2);
+}
+```
+
+```js
+let fresnelShader;
+
+function fresnelCallback() {
+  const fresnelPower = 2;
+  const fresnelBias = -0.1;
+  const fresnelScale = 4;
+
+  cameraInputs.begin();
+  
+  let n = normalize(cameraInputs.normal);
+  let v = normalize(-cameraInputs.position);
+  let base = 1.0 - dot(n, v);
+  let fresnel = fresnelScale * 
+      pow(base, fresnelPower) + fresnelBias;
+  let col = mix([0, 0, 0], 
+                [1, 0.5, 0.7], 
+                fresnel);
+  cameraInputs.color = [col, 1];
+  
+  cameraInputs.end();
+}
+
+async function setup() {
+  createCanvas(400, 400, WEBGL);
+  pixelDensity(1);
+  fresnelShader = buildColorShader(fresnelCallback);
+}
+
+function draw() {
+  background(0);
+  noStroke();
+  orbitControl();
+  shader(fresnelShader);
+  sphere(80);
+}
+```
+
+```js
+let pixelateShader;
+
+function pixelateCallback() {
+  filterColor.begin();  
+  let coord = filterColor.texCoord;
+                 //r, g,  b, a
+  filterColor.set([coord, 0, 1]);
+  filterColor.end();
+}
+
+async function setup() {
+  createCanvas(200, 200, WEBGL);
+  pixelDensity(1);
+  pixelateShader = buildFilterShader(pixelateCallback);
+}
+
+function draw() {
+  filter(pixelateShader);
+}
+```
+
+```js
+let pixelateShader;
+
+function pixelateCallback() {
+  const pixelCountX = 50;
+  filterColor.begin();
+  const aspectRatio = filterColor.canvasSize.x /
+                      filterColor.canvasSize.y;
+  const pixelSize = [pixelCountX, pixelCountX / aspectRatio];
+  // Sample the canvasContent texture with the 
+  // modified texCoord
+  const coord = filterColor.texCoord;
+  const modifiedCoord = floor(coord * pixelSize) / 
+                        pixelSize;
+  const col = getTexture(filterColor.canvasContent,
+                         modifiedCoord);
+  filterColor.set(col);
+  filterColor.end();
+}
+
+async function setup() {
+  createCanvas(200, 200, WEBGL);
+  pixelDensity(1);
+  pixelateShader = buildFilterShader(pixelateCallback)
+}
+
+function draw() {
+  background(0);
+  rotateY(millis()/2000)
+  sphere(90);
+  filter(pixelateShader);
+}
+```
+
+```js
+let bloomShader;
+let originalImage;
+
+function bloomCallback() {
+  // Receive the original image for use
+  // in our shader.
+  const preBlur = uniformTexture(originalImage);
+
+  filterColor.begin();
+  const blurred = getTexture(filterColor.canvasContent,
+                             filterColor.texCoord);
+  const original = getTexture(preBlur, 
+                              filterColor.texCoord);
+  
+  const intensity = max(original, 0.2) * 8;
+    
+  const bloom = original + blurred * intensity;
+  filterColor.set([bloom.rgb, 1]);
+  filterColor.end();
+}
+
+
+async function setup() {
+  createCanvas(200, 200, WEBGL);
+  pixelDensity(1);
+  originalImage = createFramebuffer();
+  bloomShader = buildFilterShader(bloomCallback);
+}
+
+function draw() {
+  // Draw the previous code to a framebuffer
+  // so that we can store it before the blur
+  originalImage.begin();
+  background(0);
+  rotateY(millis()/1000);
+  fill(40, 120, 255);
+  box(80);
+  originalImage.end();
+
+  imageMode(CENTER);
+  image(originalImage, 0, 0);
+
+  // changing this value affects the spread of the bloom
+  filter(BLUR, 20);
+  filter(bloomShader);
+}
+```
+
+```js
+let instancedShader;
+let instancedStrokeShader;
+let stars;
+let originalImage;
+let pixelateShader;
+let fresnelShader;
+let bloomShader;
+
+function fresnelShaderCallback() {
+  const fresnelPower = 2;
+  const fresnelBias = -0.1;
+  const fresnelScale = 2;
+  
+  cameraInputs.begin();
+  
+  let n = normalize(cameraInputs.normal);
+  let v = normalize(-cameraInputs.position);
+  let base = 1.0 - dot(n, v);
+  let fresnel = fresnelScale * pow(base, fresnelPower) + fresnelBias;
+  let col = mix([0, 0, 0], [1, .5, .7], fresnel);
+  cameraInputs.color = [col, 1];
+  cameraInputs.end(); 
+  
+}
+
+function starShaderCallback() {
+  const skyRadius = 250;
+  function semiSphere() {
+    let id = instanceID();
+    let theta = noise([id, 0.1234])  * TWO_PI + millis() / 100000;
+    let phi = noise([id, 3.321]) * PI + millis() / 50000;
+
+    let r = skyRadius;
+    r *= sin(phi);
+    let x = r * sin(phi) * cos(theta);
+    let y = r * 1.5 * cos(phi);
+    let z = r * sin(phi) * sin(theta);
+    return [x, y, z];
+  }
+
+  worldInputs.begin();
+  worldInputs.position += semiSphere();
+  worldInputs.end();
+
+  objectInputs.begin();
+  let size = 1 + 0.5 * sin(millis() * 0.002 + instanceID());
+  objectInputs.position *= size;
+  objectInputs.end();
+}
+
+function pixelateShaderCallback() {
+  const pixelCountX = 280;
+
+  filterColor.begin();
+  const aspectRatio = filterColor.canvasSize.x 
+                      / filterColor.canvasSize.y;
+  const pixelSize = [pixelCountX, pixelCountX 
+                                  / aspectRatio];
+
+  let coord = filterColor.texCoord;
+  coord = floor(coord * pixelSize) / pixelSize;
+
+  let col = getTexture(filterColor.canvasContent, 
+                       coord);      
+  filterColor.set(col) //[coord, 0, 1];
+  filterColor.end();
+}
+
+function bloomShaderCallback() {
+  const preBlur = uniformTexture(originalImage);
+
+  filterColor.begin();
+  const blurredCol = getTexture(
+      filterColor.canvasContent, 
+      filterColor.texCoord);
+  const originalCol = getTexture(
+      preBlur, filterColor.texCoord);
+
+  const intensity = max(originalCol, 0.1) * 12.2;
+
+  const bloom = 
+    originalCol + blurredCol * intensity;
+  filterColor.set([bloom.rgb, 1]);
+  filterColor.end();
+}
+
+async function setup(){
+  createCanvas(800, 600, WEBGL);
+  pixelDensity(1);
+  stars = buildGeometry(createSphere);
+  originalImage = createFramebuffer();
+
+  starShader = 
+    buildMaterialShader(starShaderCallback); 
+  starStrokeShader = 
+    buildStrokeShader(starShaderCallback)
+  fresnelShader = 
+    buildColorShader(fresnelShaderCallback);
+  bloomShader = 
+    buildFilterShader(bloomShaderCallback);
+  pixelateShader = 
+    buildFilterShader(pixelateShaderCallback);
+}
+
+function draw(){
+  originalImage.begin();
+  background(0);
+  orbitControl();
+
+  push()
+  strokeWeight(2)
+  stroke(255,0,0)
+  rotateX(PI/2 + millis() * 0.0005);
+  fill(255,100, 150)
+  strokeShader(starStrokeShader)
+  shader(starShader);
+  model(stars, 1000);
+  pop()
+
+  push()
+  shader(fresnelShader)
+  noStroke()
+  sphere(90);
+  filter(pixelateShader);
+  pop()
+
+  originalImage.end();
+  
+  imageMode(CENTER)
+  image(originalImage, 0, 0)
+  
+  filter(BLUR, 15)
+  filter(bloomShader);
+}
+
+function createSphere(){
+  sphere(8, 4, 2);
+}
+```

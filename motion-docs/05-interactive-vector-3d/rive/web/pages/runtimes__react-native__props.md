@@ -1,0 +1,137 @@
+---
+source: https://rive.app/docs/runtimes/react-native/props
+title: "Props"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Props
+
+Rive Component Props
+
+**New Runtime (Recommended)**
+
+The following are props you can set on the `RiveView` component:
+
+**file** `RiveFile` *required*
+
+The **riv** file to display, loaded via `useRiveFile` or `RiveFileFactory`.
+
+**hybridRef** `HybridView`
+
+The view reference setter, obtained from `useRive`.
+
+**autoPlay** `boolean` (default: true)
+
+Automatically start playing the state machine.
+
+**fit** `Fit` (default: Contain)
+
+How the Rive graphic should fit within its container.
+
+**alignment** `Alignment` (default: Center)
+
+How the Rive graphic should be aligned within its container.
+\[!NOTE] Ignored when using `Fit.Layout`.
+
+**layoutScaleFactor** `double` (default: -1)
+
+The scale factor to apply to the Rive graphic when using `Fit.Layout`. The default value of `-1` uses the device's DPI.
+\[!NOTE] This property has no effect for any other `Fit` type.
+
+**frameRate** `number | FrameRateRange`
+
+Caps how often the view renders. A number caps rendering at that many frames per second. A `FrameRateRange` (`{ minimum, maximum, preferred? }`) maps to `CAFrameRateRange` on iOS; Android caps at `preferred`, or `maximum` if `preferred` isn't set.
+
+*If not set, the view renders at the display's refresh rate.*
+
+See [Frame rate](/docs/runtimes/react-native/react-native#frame-rate).
+\[!NOTE] Requires `0.5.0` or later.
+
+**semantics** `Semantics` (default: Semantics.Off)
+
+Exposes accessibility semantics authored in the editor to the screen reader. See [Semantics](/docs/runtimes/react-native/semantics).
+\[!NOTE] Requires `0.5.0` or later. iOS only; ignored on Android.
+
+**artboardName** `String`
+
+The name of the artboard to display.
+
+*If not set, the default artboard will be used, as configured in the Editor.*
+
+**stateMachineName** `String`
+
+The name of the state machine to play.
+
+*If not set, the default state machine will be used, as configured in the Editor.*
+
+**dataBind** `ViewModelInstance | DataBindMode | DataBindByName` (default: DataBindMode.Auto)
+
+The view model instance to bind to the state machine. Can be:
+
+* A `ViewModelInstance` object (from `useViewModelInstance`)
+* `DataBindMode.Auto` (default) - automatically binds the default view model instance
+* `DataBindMode.None` - no data binding
+* `{ byName: string }` or `new DataBindByName(name)` - bind an instance of the artboard's default view model by name
+
+See the [Data Binding](/docs/runtimes/react-native/data-binding) documentation for more details.
+
+**onError** `((error: RiveError) =\> void)`
+
+Called when the view fails to configure or render, for example because of an invalid artboard or state machine name.
+
+*If not set, errors are logged with `console.error`.*
+
+See [Error Handling](/docs/runtimes/react-native/error-handling).
+
+`RiveView` also accepts standard React Native view props such as `style`.
+
+**Legacy Runtime**
+
+The following are props you can set on the Rive React component for the legacy runtime:
+
+* `children` *(optional)* - Can be used to display something positioned `absolutely` on top of the rive animation view.
+* `style` *(optional) -* Style of the rive animation view wrapper.
+  * Default: `undefined`
+  * Type: `StyleProp<ViewStyle>`
+* `resourceName` *(optional)* - A file name that matches the rive file without `.riv` extension. You should provide either `resourceName` or `url` not both at the same time.
+  * Default: `undefined`
+  * Type: `string`
+* `url` *(optional)* - A URL that provides a rive file. You should provide either `resourceName` or `url` not both at the same time.
+  * Default: `undefined`
+  * Type: `string`
+* `autoplay` *(optional)* - Opening a rive animation view or specifying new `resourceName` or `url` will make it automatically play, when it is ready.
+  * Default: `true`
+  * Type: `boolean`
+* `fit` *(optional)* - Specifies how animation should be displayed inside rive animation view
+  * Default: `Fit.Contain`
+  * Type: `Fit`
+* `alignment` *(optional)* - Specifies how animation should be aligned inside rive animation view.
+  * Default: `Alignment.None`
+  * Type: `Alignment`
+* `artboardName` *(optional)* - Specifies which animation artboard should be displayed in rive animation view.
+  * Default: `undefined`
+  * Type: `string`
+* `animationName` *(optional)* - Specifies which animation should be played when `autoplay` is set to `true`.
+  * Default: `undefined`
+  * Type: `string`
+* `stateMachineName` *(optional)* - Specifies which stateMachine should be played when `autoplay` is set to `true`.
+  * Default: `undefined`
+  * Type: `string`
+* `testID` *(optional)* - Specifies testID which could be handy in tests.
+  * Default: `undefined`
+  * Type: `string`
+* `onPlay` *(optional)* - Callback function that is called when animation or stateMachine has been started.
+  * Type: `(animationName: string, isStateMachine: boolean) => void`
+* `onPause` *(optional)* - Callback function that is called when animation or stateMachine has been paused.
+  * Type: `(animationName: string, isStateMachine: boolean) => void`
+* `onStop` *(optional)* - Callback function that is called when animation or stateMachine has been stopped.
+  * Type: `(animationName: string, isStateMachine: boolean) => void`
+* `onLoopEnd` *(optional)* - Callback function that is called when animation loop has been ended. **Note:** This callback is only invoked if playing individual animations via the `animationName` prop, and does not get invoked if playing a state machine via the `stateMachineName` prop.
+  * Type: `(animationName: string, loopMode: LoopMode) => void`
+* `onStateChanged` *(optional)* - Callback function that is called when the internal animation state has been changed. It's tightly coupled with state machines feature.
+  * Type: `(stateMachineName: string, stateName: string) => void`
+* `onError` *(optional)* - Callback function that is called when error is thrown. Allows manual handling of thrown errors that are described by `RNRiveError`.
+  * Type: `(riveError: RNRiveError) => void`
+* `onRiveEventReceived` *(optional)* - Callback function that is called when the render loop reports a Rive Event.
+  * Type: `(event: RiveGeneralEvent | RiveOpenUrlEvent) => void`

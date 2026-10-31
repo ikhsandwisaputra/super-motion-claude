@@ -1,0 +1,149 @@
+---
+source: https://rive.app/docs/editor/data-binding/migration-guide
+title: "Migration Guide"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Migration Guide
+
+Migrate from State Machine Inputs and Listening to Events at runtime to Data Binding
+
+Data binding replaces both **state machine inputs** and **runtime event listeners**, and also removes the need to directly modify elements like text runs from code.
+
+It provides more data types in a more flexible, consistent system for both sending data into Rive and reacting to changes from Rive.
+
+| | Inputs | Events | View Model Properties |
+| - | :- | :- | :- |
+| Floating point numbers | ✅ | ✅ | ✅ |
+| Booleans | ✅ | ✅ | ✅ |
+| Triggers | ✅ | ❌ | ✅ |
+| Strings | ❌ | ✅ | ✅ |
+| Enumerations (Enums) | ❌ | ❌ | ✅ |
+| Colors | ❌ | ❌ | ✅ |
+| View Model Nesting | ❌ | ❌ | ✅ |
+| Lists | ❌ | ❌ | ✅ |
+| Images | ❌ | ❌ | ✅ |
+| Artboards | ❌ | ❌ | ✅ |
+
+> [!NOTE]
+>
+> You do **not** need to update existing files. Inputs and events will continue to work as expected. Data binding is recommended for new work and future updates.
+
+## Migrating from deprecated features
+
+### State Machine Inputs
+
+State machine inputs were previously the main way to control animations from code.
+
+With data binding, you instead expose **view model properties** that can drive State machine transitions, Blend states, and Any bindable property in the editor
+
+**Step 1**
+
+Open the **hamburger menu** in the editor
+
+**Step 2**
+
+Select **Convert Inputs to View Models**
+
+**Step 3**
+
+Update your runtime code to set values on the view model instead of inputs
+
+[YouTube video player](https://www.youtube.com/embed/zo7dnTkIgHA)
+
+> [!NOTE]
+>
+> **Why are State Machine Inputs deprecated?**
+>
+> Inputs are limited to driving state machine transitions and must be used as-is.
+>
+> View model properties:
+>
+> * Can drive more than just transitions
+> * Can be transformed using [Converters](/docs/editor/data-binding/converters)
+> * Can be shared across multiple parts of a file
+> * Provide a more flexible and scalable data model
+
+### Communicating with code via events
+
+Events were previously used to send information from a Rive file back to runtime code.
+
+With data binding, you instead **listen to changes on view model properties**, including trigger and lists.
+
+> [!NOTE]
+>
+> **Why is listening for Events at runtime deprecated?**
+>
+> Events had several limitations:
+>
+> * Difficult to pass dynamic or changing data
+> * Required manual handling to work across nested artboards
+> * Represented a one-time signal rather than a persistent value
+>
+> View model properties always reflect the latest value and can be observed directly.
+
+Instead of listening for an event:
+
+* Create a **view model property**
+* Update it from your Rive file (via animation, listener, or script)
+* Subscribe to that property in your runtime
+
+For more info, see [Data Binding](/docs/runtimes/data-binding)
+
+***
+
+### Updating Text Runs at runtime
+
+Previously, updating text required:
+
+* Knowing the exact **name**
+* Knowing the **hierarchy/path**
+* Accessing the text run directly from code
+
+This approach was brittle and easy to break when files changed.
+
+With data binding:
+
+* Bind a **string property** to a text run
+* Update the value through the view model
+
+This keeps your runtime code stable even if the structure of your file changes.
+
+## Constraints vs Data Binding
+
+Constraints are still fully supported and remain the best option for many use cases.
+
+### When to use constraints
+
+Use constraints when:
+
+* You are linking one object directly to another
+* The relationship is purely visual or spatial
+* You want a simple, editor-only solution
+
+### When to use Data Binding instead
+
+Use data binding when:
+
+* The value needs to come from **runtime code**
+* Multiple elements depend on the same value
+* You want to introduce **logic or transformation** (via [Converters](/docs/editor/data-binding/converters))
+* The relationship isn’t strictly object-to-object
+
+> [!TIP]
+>
+> **Example:**
+>
+> You could:
+>
+> * Use a **constraint** to link the rotation of multiple wheels together
+>
+> Or:
+>
+> * Use a **data-bound `rotation` property** that:
+>   * Is controlled at runtime
+>   * Drives all wheels
+>   * Can be reused elsewhere (speed, effects, UI, etc.)
+
+Data binding is more flexible, while constraints are more direct.

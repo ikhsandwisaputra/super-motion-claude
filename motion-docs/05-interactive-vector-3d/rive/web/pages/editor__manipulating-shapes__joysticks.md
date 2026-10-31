@@ -1,0 +1,80 @@
+---
+source: https://rive.app/docs/editor/manipulating-shapes/joysticks
+title: "Joysticks"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Joysticks
+
+Create reusable controls for complex animations
+
+Joysticks let you control complex poses and deformations with a single handle. Use them to combine multiple animated properties into reusable controls, such as moving a character's eyes and head together.
+
+Each joystick axis controls the playback position of an assigned timeline. Moving the handle scrubs through those timelines, and you can key its position to animate the resulting poses.
+
+[YouTube video player](https://www.youtube.com/embed/PvZYDAUnLXE)
+
+## Creating a new Joystick
+
+To create a new joystick, either find the Joystick Tool in the Stage Controls Tool menu, or by hitting the J key. Once the tool is activated, click anywhere on the stage to add a new Joystick.
+
+![New Joy](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/NewJoy.gif?s=4a107e7937ec3f5eb09c070df3a1d41e)
+
+> [!TIP]
+>
+> If joysticks aren't visible on the stage, open the **View Options** menu and make sure **Joysticks** is enabled.
+
+## Joystick properties
+
+With the Joystick selected, you’ll see a number of properties that you can use in the Inspector.
+
+### Handle
+
+The Handle X and Y property describes the position that the handle is currently in. You’ll notice that these properties update as you move the handle around the Joystick.
+
+![Handle](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/Handle.gif?s=9f6d5fc45690c528c5d5b6baa7e276c8)
+
+### Position
+
+The position property describes the position of the Joystick on the stage.
+
+### Size
+
+The size property describes the size of the joystick. We can modify this property to fit our needs by making the joystick longer/shorter or wider/skinnier.
+
+![Height Width](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/Height_Width.gif?s=57b0006e0c20bd96de85bf30626421ea)
+
+### Origin
+
+The origin property sets which point of the joystick sits at its position. Values are relative to the joystick's size: `0, 0` is the top-left corner, `1, 1` is the bottom-right corner, and the default `0.5, 0.5` is the center.
+
+Changing the origin moves the joystick's bounds around its position without changing how the handle maps to the assigned timelines. For example, set the origin to `0, 0.5` to make a slider extend to the right of its position instead of centering on it.
+
+### Draw in World Space
+
+This toggle tells the joystick whether the joystick will scale with the zoom level or not. This option is useful when we need the joystick to always stay the same size, relative to the artboard.
+
+### X & Y dropdown
+
+The X & Y dropdowns allow us to assign timelines to the different axis of the Joystick.
+
+For example, this timeline animates the 3D rotation of this ship. You'll notice many keys, which would make reusing this animation within other animations tricky to achieve.
+
+![Joy Timeline](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/JoyTimeline.gif?s=fd9928246ab81b04bf72528ea88baa04)
+
+When the timeline is assigned to the X axis of the Joystick, notice that the joystick becomes a slider that only allows you to move the handle in the X direction.
+
+![Use Joy](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/UseJoy.gif?s=79f6956b946ba7c545227914098f7ce0)
+
+**Invert Toggle**
+
+After you add a timeline to an axis, you’ll notice a toggle that appears next to it. This allows you to invert the direction that the joystick scrubs through the timeline.
+
+![Invert Toggle](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/InvertToggle.gif?s=2977a8a86602bb1fcdf4b7d89791dd39)
+
+### Handle source
+
+The handle source allows you to constrain the position of the handle to another object's position properties. Use the button, then select an object you'd like to use as the handle's position source. This option is helpful when you want the mouse cursor to drive the joystick while the state machine is running.
+
+![Handle Source](https://mintcdn.com/rive/T4qlKXLQPzjSafML/images/editor/manipulating-shapes/HandleSource.gif?s=71f5ef7c523a46d39f2cbec063a9203f)

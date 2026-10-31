@@ -1,0 +1,47 @@
+---
+source: https://rive.app/docs/scripting/api-reference/interfaces/interpolator
+title: "Interpolator"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Interpolator
+
+An interpolator: eases keyframes, state transitions, layout animations and
+interpolating data converters.
+
+Rive creates an instance per owner instance: each playing animation gets one
+per keyframe, each state machine one per interpolator its transitions use,
+each artboard one per interpolator its layout styles use, and each bound
+converter its own. Transitions or layout styles that use the same
+interpolator share its instance, as do layouts that inherit their animation
+from a parent layout (including nested artboards and list items).
+
+So `transform` and `transformValue` can be called many times per frame, by
+several layouts, in any order. Compute the result from `value` (and `from`
+and `to`), the inputs and whatever `init` set up; don't keep progress in
+`self` between calls.
+
+## Methods
+
+### `init`
+
+```lua theme={null}
+init(self: T, context: Context) -> boolean
+```
+
+### `transform`
+
+```lua theme={null}
+transform(self: T, value: number) -> number
+```
+
+Maps a linear progress `value` in 0..1 to an eased one.
+
+### `transformValue`
+
+```lua theme={null}
+transformValue(self: T, from: number, to: number, value: number) -> number
+```
+
+Returns the value between `from` and `to` at linear progress `value`.

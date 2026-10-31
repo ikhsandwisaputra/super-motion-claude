@@ -1,0 +1,107 @@
+---
+source: https://rive.app/docs/editor/constraints/scroll-constraint
+title: "Scroll Constraints"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Scroll Constraints
+
+Scrolling comes to Rive in the form of two constraints; one to add scrolling to overflowed content, and another to create a scroll bar. Both constraints work in conjunction with the existing layout components. We plan to provide generalized scrolling components for quicker setup in future.
+
+***
+
+## Content scrolling
+
+To create a content scroll region, set up a hierarchy that includes:
+
+* Scroll view - the Layout that defines the area that is the scroll region
+* Scroll content - the Layout that contains the items to be scrolled (this is the Layout you will apply the Scroll Constraint to). The scroll amount will be determined by the size of this Layout. Typically you want to set this Layout to hug (or fixed)
+* Scroll items - the Layout items to be scrolled
+
+![Image](https://mintcdn.com/rive/IMrXM-oXoMvrTV9Y/images/editor/scroll-content-hierarchy.png?fit=max\&auto=format\&n=IMrXM-oXoMvrTV9Y\&q=85\&s=e21a5aa701cc124d8bf026ec841b629d)
+
+Select your Scroll content Layout and use the add action within the constraint inspector to add a Scroll Content constraint.
+
+![Image](https://mintcdn.com/rive/KnNrDuhU1mIj7cOb/images/editor/layouts/1ee7adc4-4698-4f6d-a0e7-8ec73f53c492.webp?fit=max\&auto=format\&n=KnNrDuhU1mIj7cOb\&q=85\&s=126ee3c4a0d0d31671b627cdcca0c174)
+
+Once added, use the options fly-out to adjust the Scroll content properties.
+
+![Image](https://mintcdn.com/rive/IMrXM-oXoMvrTV9Y/images/editor/scroll-content-properties.png?fit=max\&auto=format\&n=IMrXM-oXoMvrTV9Y\&q=85\&s=2e8d2660514ce95ebdc8c7ce042a1501)
+
+#### Direction
+
+**Vertical** - Only scrolls in the vertical direction
+
+**Horizontal** - Only scrolls in the horizontal direction
+
+**All** - Scrolls in both directions
+
+#### Scroll percent X/Y (animatable)
+
+This property allows you to set the percentage scroll of the content where 0% is scrolled to the top/left and 100% is scrolled to the bottom/right. This property works when the content is set to scroll in one or all directions and can be keyed on the timeline
+
+#### Scroll index (animatable)
+
+This property allows you to set the 0 based index of the Scroll item to scroll to. This only works when scroll is set to either Vertical or Horizontal and can be keyed on the timeline.
+
+> [!TIP]
+>
+> Scroll Percent and Scroll Index both control the offset within the Scroll content area. As such, you should only set one or the other because there will be contention when both are set at the same time. For example, you should only key one of these values on a given frame in your timeline.
+
+> [!TIP]
+>
+> In order to use Scroll Percent and Scroll Index together with physical scroll dragging, you should create an empty "reset" timeline/state which you should transition to as soon as the scroll area is interacted with. One way to do this is to add a Mouse down listener to the Scroll View.
+
+#### Physics
+
+**Elastic** - An iOS style scroll with deceleration and rubber banding at the edges
+
+**Clamped** - A basic drag and drop with no physics
+
+#### Snap
+
+When enabled, the scroll content will always settle with a whole item at the top/left of the scroll area.
+
+#### Wheel / Trackpad
+
+This option is on by default. When enabled, the Scroll view scrolls with a mouse wheel or trackpad, in addition to a pointer drag. Turn it off to make the Scroll view drag-only.
+
+When scroll views are nested, such as a horizontal strip inside a vertical list, each wheel or trackpad gesture scrolls the view that matches its direction. A flick that starts in the inner view keeps scrolling the inner view instead of passing to the outer one.
+
+Once you have applied your desired properties, switch to animate mode and start playback of a State Machine to preview the applied scroll constraint. You should be able to click/drag/release, or use a mouse wheel or trackpad, within the Scroll view area to manually control the scroll.
+
+***
+
+## List scrolling
+
+In order to scroll Lists, use the same setup as described above in Content Scrolling, but rather than adding multiple Scroll items to the Scroll content layout, you can add a single List. See [Data Binding Lists](/docs/editor/data-binding/lists) for more information.
+
+There are some additional properties that apply when scrolling Lists. These will only be enabled once a List has been added to the Scroll content.
+
+#### Virtualize
+
+When enabled, the List will only generate Artboard components for the items currently in the Content view area. This improves performance when scrolling lists containing a large number of items. Note that virtualization can only be applied in one direction (either vertical or horizontal, not both).
+
+#### Carousel
+
+When enabled, the List will scroll endlessly in either direction. In order to use Carousel mode, Virtualize must be enabled.
+
+***
+
+## Creating a scroll bar
+
+To create a content bar, set up a hierarchy that includes:
+
+* Scroll Bar - the Layout that defines the area that is the scroll bar and track
+* Scroll Thumb - the Layout that defines the draggable scroll thumb
+
+![Image](https://mintcdn.com/rive/IMrXM-oXoMvrTV9Y/images/editor/scroll-bar-hierarchy.png?fit=max\&auto=format\&n=IMrXM-oXoMvrTV9Y\&q=85\&s=dd2d0a3b46839040ce6354e49d098caf)
+
+To create a scroll bar, select a Layout Component acting as the scroll bar thumb. From the constraints inspector, add a Scroll Bar Thumb constraint.
+
+![Image](https://mintcdn.com/rive/KnNrDuhU1mIj7cOb/images/editor/layouts/0c295a18-6d04-471d-ba86-c74e4988c4a9.webp?fit=max\&auto=format\&n=KnNrDuhU1mIj7cOb\&q=85\&s=c484e400fd672a537734d7a24177f51d)
+
+Use the target button within the options panel to connect a scrolling Layout. As described in the Scrolling Content section above, this should be the Layout that your Scroll Constraint was applied to.
+
+![Image](https://mintcdn.com/rive/KnNrDuhU1mIj7cOb/images/editor/layouts/2f05011a-cf88-41b5-9a96-ae4712d500d9.webp?fit=max\&auto=format\&n=KnNrDuhU1mIj7cOb\&q=85\&s=9529f1fab9a4e02cc465a8c47b04b507)

@@ -1,0 +1,107 @@
+---
+source: https://rive.app/docs/scripting/protocols/path-effect-scripts
+title: "Path Effect Scripts"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Path Effect Scripts
+
+Create custom path effects using Rive scripting
+
+Path Effects are Rive scripts that modify and transform path geometry in real-time. They give you programmatic control over the shape and structure of paths in your animations, enabling effects like warping, distortion, animation, and procedural modifications.
+
+## Creating a Path Effect
+
+[Create a new script](/docs/scripting/creating-scripts) and select **Path Effect** as the type.
+
+## Examples
+
+## Anatomy of a Path Effect Script
+
+### Methods
+
+* *init (optional)*
+  Called once when the path effect is created. Use this to set up initial state. Returns true if initialization succeeds.
+* *update (required)*
+  The core method where path transformation happens. Receives the original `PathData` and returns a modified version. This is where you manipulate the path's geometry.
+* *advance (optional)*
+  Called every frame with elapsed time in seconds. Returns true to continue receiving advance calls. Useful for animated effects that change over time.
+
+## Working with `PathData`
+
+`PathData` provides access to a path's drawing commands (`moveTo`, `lineTo`, `cubicTo`, `quadTo`, `close`). You can:
+
+* Read existing commands using indexing
+* Get the command count with `#pathData`
+* Create new paths and add commands
+* Use measurement tools like `contours()` and `measure()` for advanced operations
+
+```lua theme={null}
+type MyPathEffect = {
+  context: Context,
+}
+
+function init(self: MyPathEffect, context: Context): boolean
+  self.context = context
+  return true
+end
+
+function update(self: MyPathEffect, inPath: PathData): PathData
+  local path = Path.new()
+  return path
+end
+
+function advance(self: MyPathEffect, seconds: number): boolean
+  return true
+end
+
+-- Return a factory function that Rive uses to build the Path Effect instance.
+return function(): PathEffect<MyPathEffect>
+  return {
+    init = init,
+    update = update,
+    advance = advance,
+    context = late(),
+  }
+end
+```
+
+> [!NOTE]
+>
+> If a Path Effect script changes over time, call `markNeedsUpdate()` on the effect context from `advance()`. This tells Rive to recalculate the effect on the next frame, even when the source path itself has not changed.
+>
+> Without this, the effect may appear to freeze because Rive has no signal that the path output is changing. This is especially important for animated path effects inside nested components, where the source path may remain static while the script continues updating its own internal values.
+>
+> ```lua highlight={11} theme={null}
+> local function init(self: WaveyEffect, context: Context): boolean
+>   self.context = context
+>   self.time = 0.0
+>   return true
+> end
+>
+> local function advance(self: WaveyEffect, seconds: number): boolean
+>   self.time += seconds * math. clamp(self. speed, 0.0, 20.0)
+>
+>   if self. context then
+>     self.context: markNeedsUpdate()
+>   end
+>
+>   return true
+> end
+> ```
+
+## Adding the scripted Path Effect to a Stroke
+
+Select or add a stroke to a shape:
+
+1. Open the Options menu.
+2. Select the Effects Tab and click the '+' to add an effect.
+3. Find your effects under the Script Effects menu option.
+4. Any inputs you have defined will apepar and can be edited here.
+
+![Add Path Effect to a Stroke](https://mintcdn.com/rive/7dSyPIbQmOsAVUjI/images/scripting/add-path-effect-to-stroke.png?fit=max\&auto=format\&n=7dSyPIbQmOsAVUjI\&q=85\&s=896b962c6f4db04c2d96373376a762cc)
+
+## Adding inputs
+
+See [Script Inputs](/docs/scripting/script-inputs).

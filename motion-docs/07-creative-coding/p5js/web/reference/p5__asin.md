@@ -1,0 +1,126 @@
+---
+source: https://p5js.org/reference/p5/asin/
+title: "asin"
+fetched: 2026-10-28
+---
+
+Calculates the arc sine of a number.
+
+`asin()` is the inverse of [sin()](https://p5js.org/reference/p5/sin/). It expects input values in the range of -1 to 1. By default, `asin()` returns values in the range -π ÷ 2 (about -1.57) to π ÷ 2 (about 1.57). If the [angleMode()](https://p5js.org/reference/p5/angleMode/) is `DEGREES` then values are returned in the range -90 to 90.
+
+`asin()` can also be used in shaders with p5.strands. The following example uses `asin()` to create a smooth color transition on a shape.
+
+## Examples
+
+## Syntax
+
+`asin(value)`
+
+## Parameters
+
+value
+
+Number: value whose arc sine is to be returned.
+
+## Returns
+
+Number: arc sine of the given value.
+
+Notice any errors or typos? [Please let us know](https://github.com/processing/p5.js/issues). Please feel free to edit [src/math/trigonometry.js](https://github.com/processing/p5.js/blob/v2.3.3/src/math/trigonometry.js#L287) and open a pull request!
+
+---
+
+## Related References
+
+* [acos
+
+  Calculates the arc cosine of a number.](https://p5js.org/reference/p5/acos/)
+* [angleMode
+
+  Changes the unit system used to measure angles.](https://p5js.org/reference/p5/angleMode/)
+* [asin
+
+  Calculates the arc sine of a number.](https://p5js.org/reference/p5/asin/)
+* [atan
+
+  Calculates the arc tangent of a number.](https://p5js.org/reference/p5/atan/)
+
+## Example code (extracted)
+
+```js
+function setup() {
+  createCanvas(100, 100);
+
+  background(200);
+
+  // Calculate sin() and asin() values.
+  let a = PI / 3;
+  let s = sin(a);
+  let as = asin(s);
+
+  // Display the values.
+  text(`${round(a, 3)}`, 35, 25);
+  text(`${round(s, 3)}`, 35, 50);
+  text(`${round(as, 3)}`, 35, 75);
+
+  describe('The numbers 1.047, 0.866, and 1.047 written on separate rows.');
+}
+```
+
+```js
+function setup() {
+  createCanvas(100, 100);
+
+  background(200);
+
+  // Calculate sin() and asin() values.
+  let a = PI + PI / 3;
+  let s = sin(a);
+  let as = asin(s);
+
+  // Display the values.
+  text(`${round(a, 3)}`, 35, 25);
+  text(`${round(s, 3)}`, 35, 50);
+  text(`${round(as, 3)}`, 35, 75);
+
+  describe('The numbers 4.189, -0.866, and -1.047 written on separate rows.');
+}
+```
+
+```js
+let myShader;
+
+function setup() {
+  createCanvas(100, 100, WEBGL);
+  myShader = buildColorShader(shaderCallback);
+  describe('A sphere that smoothly shifts between green and purple.');
+}
+
+function shaderCallback() {
+  // shaderCallback runs on the GPU. millis() gives ms since start; multiply by 0.001 for seconds.
+  let t = millis() * 0.001;
+
+  // asin(sin(t)) returns a value between -PI/2 and PI/2.
+  // Dividing by PI/2 normalizes to -1 to 1, then adding 1 and multiplying by 0.5
+  // remaps to the 0 to 1 range.
+  let value = (asin(sin(t)) / (PI / 2) + 1) * 0.5;
+
+  // Each color is [R, G, B, A] with values from 0 to 1.
+  let green = [0, 1, 0.5, 1];
+  let purple = [0.5, 0, 1, 1];
+
+  finalColor.begin();
+
+  // mix() blends between green (when value = 0) and purple (when value = 1).
+  finalColor.set(mix(green, purple, value));
+
+  finalColor.end();
+}
+
+function draw() {
+  background(220);
+  shader(myShader);
+  noStroke();
+  sphere(30);
+}
+```

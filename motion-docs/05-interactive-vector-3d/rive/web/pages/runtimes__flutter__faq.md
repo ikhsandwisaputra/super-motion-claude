@@ -1,0 +1,82 @@
+---
+source: https://rive.app/docs/runtimes/flutter/faq
+title: "FAQ"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# FAQ
+
+Common Flutter runtime issues and fixes.
+
+## Where should I look first when my Flutter build fails?
+
+Start with these docs:
+
+* [Flutter runtime troubleshooting](/docs/runtimes/flutter/flutter#troubleshooting)
+* [Rive Native troubleshooting](/docs/runtimes/flutter/rive-native#troubleshooting)
+* [Building `rive_native`](/docs/runtimes/flutter/rive-native#building-rive-native)
+* [Flutter migration guide](/docs/runtimes/flutter/migration-guide)
+
+Most build issues come from setup/version mismatches, stale native artifacts, or skipped native setup. A clean rebuild usually helps:
+
+```bash theme={null}
+flutter clean
+flutter pub get
+flutter run
+```
+
+If native libraries were not downloaded, run the `rive_native` setup CLI for your target platform:
+
+```bash theme={null}
+dart run rive_native:setup --verbose --clean --platform <platform>
+```
+
+Replace `<platform>` with the platform you are building for (for example, `android` or `macos`).
+You can also provide multiple platforms as a comma-separated list (for example, `android,ios,macos`).
+
+If you still see setup errors, follow [Rive Native troubleshooting](/docs/runtimes/flutter/rive-native#troubleshooting). For Android-specific setup issues, see the [Android notes](/docs/runtimes/flutter/rive-native#android).
+
+## `LateInitializationError: Field 'makeFlutterFactory' has not been initialized`
+
+If you see an error like `LateInitializationError: Field 'makeFlutterFactory' has not been initialized`, make sure you initialize Rive before showing any Rive widgets.
+
+Call `await RiveNative.init()` early (for example in `main()`), before creating or using `Factory.flutter`/`Factory.rive`.
+
+```dart theme={null}
+import 'package:flutter/widgets.dart';
+import 'package:rive/rive.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await RiveNative.init();
+  runApp(const MyApp());
+}
+```
+
+## "Too many active WebGL contexts" warnings on web
+
+Every `Factory.rive` widget that owns its texture holds a live WebGL context, and browsers cap those. Exhausting the cap can also cause blank or frozen Rive widgets and CanvasKit context-loss errors. See [WebGL contexts (web)](/docs/runtimes/flutter/flutter#webgl-contexts-web) for how contexts are released and reused.
+
+To stay under the cap:
+
+* Draw multiple widgets into one shared texture with a [RivePanel](/docs/runtimes/flutter/flutter#rivepanel) — one context in total.
+* Dispose Rive widgets you no longer show — that releases their WebGL contexts.
+
+Set `RiveNative.debugRenderTextureLogging = true` to confirm you're hitting the cap: it logs texture create, reuse, and release with live WebGL context counts.
+
+## How to enable 16KB page support on Android?
+
+Rive Flutter `0.14.x` includes 16KB page support by default.
+
+If you're on `0.13.x`, you need to specify the NDK version used by setting `rive.ndk.version=28.1.13356709` in your `gradle.properties` file.
+
+This gives you 16KB page support and flexibility to control the NDK used for future updates.
+
+For additional context, see [rive-flutter issue #479](https://github.com/rive-app/rive-flutter/issues/479).
+
+## Why do I get `Failed to lookup symbol` in iOS release builds with SPM?
+
+If an IPA build reports `Failed to lookup symbol` errors, Xcode may be stripping some required global symbols.
+
+In Xcode, select the **Runner** target, open **Build Settings** > **Strip Style**, and change **All Symbols** to **Non-Global Symbols**.

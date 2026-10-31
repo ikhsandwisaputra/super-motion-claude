@@ -1,0 +1,266 @@
+---
+source: https://www.react-spring.dev/docs/getting-started
+title: "Getting started | React Spring"
+fetched: 2026-10-28
+---
+
+# [Getting started](https://www.react-spring.dev/docs/getting-started#getting-started)
+
+React Spring is a library for building interactive, data-driven, and animated UI components. It can animate HTML, SVG, Native Elements, Three.js, and more.
+
+By the end of this quick guide, you'll have installed React Spring and created your first web-based animation! This animation will see a normal div move across the screen.
+
+## [Install](https://www.react-spring.dev/docs/getting-started#install)
+
+React Spring can be installed with any package manager. Here's how to install it with [Yarn](https://yarnpkg.com/en/):
+
+### [For react >= 19](https://www.react-spring.dev/docs/getting-started#for-react--19)
+
+```jsx
+yarn add @react-spring/web
+```
+
+### [For react < 19](https://www.react-spring.dev/docs/getting-started#for-react--19-1)
+
+```jsx
+yarn add @react-spring/web@9
+```
+
+## [The Animated Element](https://www.react-spring.dev/docs/getting-started#the-animated-element)
+
+The actual component that handles animation is our `animated` component. This is just a higher-order
+component (HOC) if you're familiar with that pattern. If you're not see this explanation from the
+`react.js` docs:
+
+> a higher-order component is a function that takes a component and returns a new component.
+
+So really, it's just a fancy wrapper. To use it, we need to import it:
+
+```jsx
+import { animated } from '@react-spring/web'
+```
+
+We use our animated component like any other JSX element and to ensure we can see it, we'll add some styling:
+
+```jsx
+import { animated } from '@react-spring/web'
+
+export default function MyComponent() {
+
+return (
+
+<animated.div
+      style={{
+        width: 80,
+        height: 80,
+        background: '#ff6d6d',
+        borderRadius: 8,
+      }}
+    />
+
+)
+
+}
+```
+
+Now we're ready to add our hook & animate the component!
+
+## [The Hook](https://www.react-spring.dev/docs/getting-started#the-hook)
+
+Meet your first hook, our signature hook really – `useSpring`, first we need to import it:
+
+```jsx
+import { useSpring, animated } from '@react-spring/web'
+```
+
+To use `useSpring`, we treat it like any other hook:
+
+```jsx
+import { useSpring, animated } from '@react-spring/web'
+
+export default function MyComponent() {
+
+const springs = useSpring({
+
+from: { x: 0 },
+
+to: { x: 100 },
+
+})
+
+return (
+
+<animated.div
+      style={{
+        width: 80,
+        height: 80,
+        background: '#ff6d6d',
+        borderRadius: 8,
+      }}
+    />
+
+)
+
+}
+```
+
+We use the keywords `from` and `to` to define the start and end values of our animation.
+So in this instance, we're starting with an `x` value of 0 and ending with a value of 100.
+
+## [Your First Animation](https://www.react-spring.dev/docs/getting-started#your-first-animation)
+
+`useSpring` doesn't actually animate anything though. It just returns `SpringValues` that we pass to
+our animated component. So that when the springs are applied and the component is mounted it will
+move to the right. These springs are passed to the animated component like so:
+
+[Open Sandbox](https://codesandbox.io/api/v1/sandboxes/define?undefined&environment=create-react-app "Open in CodeSandbox")
+
+###
+
+```jsx
+import { useSpring, animated } from '@react-spring/web'
+
+export default function MyComponent() {
+
+const springs = useSpring({
+
+from: { x: 0 },
+
+to: { x: 100 },
+
+})
+
+return (
+
+<animated.div
+      style={{
+        width: 80,
+        height: 80,
+        background: '#ff6d6d',
+        borderRadius: 8,
+        ...springs,
+      }}
+    />
+
+)
+
+}
+```
+
+And there we have it! Your first animated component.
+
+## [Reacting to events](https://www.react-spring.dev/docs/getting-started#reacting-to-events)
+
+Very rarely do you find yourself only needing an animation to occur only on mount,
+we normally want animations to occur on a user interaction. Whether that's
+`mouseenter`, `click`, `keydown` or any event that could occur. So how do we do
+this very common use-case?
+
+`useSpring` can take two types of first argument, a `config` object and a `function`.
+We're going to explore the latter in more detail, we'll start by changing the notation of our hook.
+
+```jsx
+import { useSpring, animated } from '@react-spring/web'
+
+export default function MyComponent() {
+
+const [springs, api] = useSpring(() => ({
+
+from: { x: 0 },
+
+}))
+
+return (
+
+<animated.div
+      style={{
+        width: 80,
+        height: 80,
+        background: '#ff6d6d',
+        borderRadius: 8,
+        ...springs,
+      }}
+    />
+
+)
+
+}
+```
+
+When we provide a function to `useSpring` we get an array returned, with the first
+argument as our `springs` which we're already used to (as this is returned when you
+provide only a config object) and the second argument is the `api` that controls
+these springs.
+
+We'll start with a very basic user interaction, the `onClick` event by creating a
+handler and in that handler we'll use the `api.start` method. The `start` method starts
+our animation with the configuration we provide to it, like so:
+
+[Open Sandbox](https://codesandbox.io/api/v1/sandboxes/define?undefined&environment=create-react-app "Open in CodeSandbox")
+
+###
+
+```jsx
+import { useSpring, animated } from '@react-spring/web'
+
+export default function MyComponent() {
+
+const [springs, api] = useSpring(() => ({
+
+from: { x: 0 },
+
+}))
+
+const handleClick = () => {
+
+api.start({
+
+from: {
+
+x: 0,
+
+},
+
+to: {
+
+x: 100,
+
+},
+
+})
+
+}
+
+return (
+
+<animated.div
+      onClick={handleClick}
+      style={{
+        width: 80,
+        height: 80,
+        background: '#ff6d6d',
+        borderRadius: 8,
+        ...springs,
+      }}
+    />
+
+)
+
+}
+```
+
+The `api` value has many different methods that we can use to control our animation.
+We can `stop` our animations, we can `set` them (to change the value without animation)
+and much more.
+
+## [Next Steps](https://www.react-spring.dev/docs/getting-started#next-steps)
+
+Whilst this was a brief introduction to `react-spring`, through this tutorial you've
+learnt about these three key areas:
+
+* the `animated` component and how to use it with HTML elements
+* the `useSpring` hook with either a configuration object or with a function
+* how to use the `api` object to control your animation and react to events
+
+From here, you could learn how to use our other hooks or more about the configuration
+objects we pass to the animation hooks.

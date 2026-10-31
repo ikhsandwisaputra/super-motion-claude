@@ -1,0 +1,36 @@
+---
+source: https://rive.app/docs/editor/text/text-input
+title: "Text Input"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Text Input
+
+Add editable text fields that users can type into at runtime.
+
+A text input is an editable text field, like a search bar, login form, or chat box. Users can click or tab into it, type, select text, and paste, without you building any of that behavior yourself.Each text input is a [Stateful Component](/docs/editor/data-binding/stateful-components) built from Rive's bundled Text Input library. Its appearance and value are view model properties. This means you can key them in [animate mode](/docs/editor/fundamentals/design-vs-animate-mode), bind them with [Data Binding](/docs/editor/data-binding/overview), and react to typing with [listeners](/docs/editor/state-machine/listeners#text-input).Tip**Example - Personalized greeting**Let's say you're building a sign-up card that greets the user by name. Add a text input for the name and bind its **Value** to a `name` string property on your view model. Then bind a [Text Run](/docs/editor/text/text-runs) in the greeting to the same property. As the user types, the greeting updates, and your app can read `name` from the view model at runtime.## Creating a text input**Step 1**Open the text tools menu in the toolbar and select **Text Input**.**Step 2**Click the artboard to create a single-line input, or drag to create a multiline input at the size you drew\.A click creates a 200 × 40 single-line field with its text centered vertically. A drag creates a multiline field with its text aligned to the top and extra top and bottom padding.Draw over an existing [Layout](/docs/editor/layouts/layouts-overview) to add the input to that layout. Draw over the bare artboard to place the input at that spot, inside its own absolutely positioned layout.To try the input, switch to [animate mode](/docs/editor/fundamentals/design-vs-animate-mode), select a state machine, and play it. Click the field to focus it, then type. Click anywhere outside the field, including the empty space around the artboard, to remove focus. This works the same way in the editor and at runtime.> [!TIP]
+>
+> Press `Esc` while placing an input to cancel it.## Configuring a text inputSelect a text input to edit its properties in the **Text Input** section of the Inspector.### AlignmentUse the alignment toggles at the top of the section to set the horizontal and vertical alignment of the text inside the field.### Value- **Value:** The text in the field. Set it to give the field a starting value, or bind it to read and write the text at runtime.
+- **Font:** The font, size, and weight.
+- **Text color:** The color of the typed text.
+- **Multiline:** Allows the text to wrap onto multiple lines and the user to enter line breaks. Turn it off for single-line fields like search bars.
+- **Obscure:** Masks the text as bullets. Use it for password fields.### Limits- **Max Characters:** The most characters the field accepts.
+- **Max Lines:** The most lines the field accepts. Lines are counted as they wrap on screen, not by line breaks.Set either to `0` for no limit. You can set them in the Inspector or bind them. The bundled Text Input component also exposes both as view model properties.Once the field reaches a limit, typing and `Enter` stop adding text, and a paste keeps only the part that fits. The limits only apply to what the user enters. Text set through a data binding is never trimmed.### Placeholder- **Placeholder:** Text shown when the field is empty, such as "Search" or "Email address."
+- **Placeholder color:** The color of the placeholder text.### Selection- **Cursor color:** The color of the text cursor.
+- **Selection color:** The highlight color behind selected text.
+- **Selection radius:** The corner radius of the selection highlight.### Container- **Background color:** The fill color of the field.
+- **Stroke color:** The border color and width.
+- **Padding:** Space between the border and the text. Set horizontal and vertical padding, or switch to individual edges.
+- **Corner radius:** Rounds the corners of the field. Corners are linked by default; unlink them to set each corner separately.### FocusClick **Focus** at the bottom of the section to fire the input's focus trigger. While the state machine plays, this focuses the field. Bind the trigger to focus the field from your own logic, such as when a form opens.> [!NOTE]
+>
+> Every property in the section can be keyed and bound like any other view model property. Hover a property and click the bind button to [bind it](/docs/editor/data-binding/binding-data).## Responding to text inputAdd a listener to react when the user interacts with a text input:- **Text Input:** Fires when text is entered while the field has focus.
+- **Focus** and **Blur:** Fire when the field gains or loses focus. Use them to animate a focus ring or show a hint.See [Listeners](/docs/editor/state-machine/listeners) for setting up listeners and their actions. In scripts, use [`ListenerContext`](/docs/scripting/api-reference/artboards/listener-context) to check for a text input event and read its [`TextInput`](/docs/scripting/api-reference/artboards/text-input) data.> [!TIP]
+>
+> To read the field's text in your app, bind **Value** to a string property on your view model rather than handling each keystroke.## Runtime supportText input needs keyboard and text input from the host app, so it's only available in runtimes that pass that input to Rive.
+
+\> <table><thead><tr><th>**Runtime**</th>
+\>                                 <th>**Version**</th></tr></thead>
+\>                         <tbody /></table>
+
+See [Feature Support](/docs/feature-support) for the full list of features by runtime.

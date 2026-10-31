@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-driven Animations: Reverse scrolling columns (CSS)</title>
+
+	<!-- Shared styles and scripts, applied to each page -->
+	<link rel="stylesheet" href="/shared/styles.css">
+	<script src="/shared/scripts.js"></script>
+
+	<!-- WebFonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,900;1,100&display=swap" rel="stylesheet">
+
+	<!-- Page specific styles. The code for the scroll-driven animations is kept in a local style block for your reading convenience -->
+	<link rel="stylesheet" href="../shared/styles.css">
+	<style>
+		@keyframes empty {
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+			}
+		}
+
+		@keyframes fade-out {
+			to {
+				opacity: 0;
+			}
+		}
+
+		@keyframes clip-in {
+			from {
+				clip-path: inset(0% 0% 0% 100%);
+			}
+
+			to {
+				clip-path: inset(0% 0% 0% 0%);
+			}
+		}
+
+		@keyframes clip-out {
+			from {
+				clip-path: inset(0% 0% 0% 0%);
+			}
+
+			to {
+				clip-path: inset(0% 100% 0% 0%);
+			}
+		}
+
+		.card {
+			view-timeline: --card inline;
+			animation: empty linear forwards;
+			animation-timeline: --card;
+		}
+
+		.card {
+			& h2 {
+				animation: clip-in linear backwards, clip-out linear forwards;
+				animation-timeline: --card;
+				animation-range: entry 50% entry 100%, exit 0% exit 50%;
+			}
+
+			& footer {
+				animation: fade-in linear both, fade-out linear both;
+				animation-timeline: --card;
+				animation-range: cover 40% cover 50%, cover 50% cover 60%;
+			}
+		}
+	</style>
+
+	<!-- Page specific scripts -->
+	<script type="module">
+		import { trackProgress } from 'https://esm.sh/@bramus/sda-utilities@1';
+
+		document.querySelectorAll('.card:has(h2)').forEach($card => {
+			const model = $card.querySelector(':scope > model-viewer');
+
+			trackProgress($card.getAnimations()[0], (progress) => {
+				model.orientation = `0deg 0deg ${progress * (-360 - 90)}deg`;
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<!-- metabox -->
+	<div id="metabox">
+		<button id="version-selector" disabled title="This page has no alternative versions">🔀</button>
+		<a class="button" href="/" title="To index">🏠</a>
+		<button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+		<dialog id="infobox">
+			<form method="dialog"><button id="infobox-close" tabindex="0" title="Close dialog">❌</button></form>
+			<h1>About this demo</h1>
+
+			<p>This demo is a shoe explorer that features 3D-models of several shoes. The 3D-models are linked to a Scroll-Driven Animation, so that they rotate as you scroll.</p>
+
+			<h2>The Code / Explanation</h2>
+
+			<p>Each <code>.card</code> has a 3D-model (<code>.glb</code>) loaded that is displayed through <a href="https://modelviewer.dev/"><code>&lt;model-viewer&gt;</code></a>. The model is set to non-interactive, so you can’t directly control it.</p>
+
+			<p>A View Timeline is attached to each <code>.card</code>, which is used to drive all animation effects: the footer fading in and the title revealing itself.</p>
+
+			<pre><code>.card {
+	view-timeline: --card inline;
+
+	& h2 {
+		animation: clip-in linear backwards, clip-out linear forwards;
+		animation-timeline: --card;
+		animation-range: entry 50% entry 100%, exit 0% exit 50%;
+	}
+
+	& footer {
+		animation: fade-in linear both, fade-out linear both;
+		animation-timeline: --card;
+		animation-range: cover 40% cover 50%, cover 50% cover 60%;
+	}
+}</code></pre>
+
+			<p>To sync the progress of the animation effect, the <code>trackProgress</code> helper from <a href="https://www.npmjs.com/package/@bramus/sda-utilities">the <code>@bramus/sda-utilities</code> package</a> is used. It constantly reads the animation’s progress in a <code>requestAnimationFrame</code>.</p>
+
+			<pre><code>const trackProgress = (animation, cb, precision = 5) => {
+	let progress = 0;
+	const updateValue = () => {
+		if (animation && animation.currentTime) {
+			let newProgress = animation.effect.getComputedTiming().progress * 1;
+			if (animation.playState === "finished") newProgress = 1;
+			newProgress = Math.max(0.0, Math.min(1.0, newProgress)).toFixed(precision);
+
+			if (newProgress != progress) {
+				progress = newProgress;
+				cb(progress);
+			}
+		}
+		requestAnimationFrame(updateValue);
+	};
+	requestAnimationFrame(updateValue);
+}</code></pre>
+
+			<p>This helper is hooked up to an empty animation that is attached to the card. The resulting <code>progress</code> value is used for the rotation of the 3D-model</p>
+
+			<pre><code>.card {
+	animation: empty linear forwards;
+	animation-timeline: --card;
+}</code></pre>
+
+			<pre><code>import { trackProgress } from 'https://esm.sh/@bramus/sda-utilities@1';
+
+document.querySelectorAll('.card:has(h2)').forEach($card => {
+	const model = $card.querySelector(':scope > model-viewer');
+
+	trackProgress($card.getAnimations()[0], (progress) => {
+		model.orientation = `0deg 0deg ${progress * (-360 - 90)}deg`;
+	});
+});</code></pre>
+
+		</dialog>
+	</div>
+
+	<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+	<div class="cards">
+		<div class="card">
+			<h1>3D Shoe Explorer</h1>
+			<em>Scroll Me ↔</em>
+		</div>
+
+		<div class="card">
+			<h2>Nike Air Max 90</h2>
+			<model-viewer alt="Nike Air Max 90" src="../shared/nike_air_max_90.glb"></model-viewer>
+			<footer>
+				<p>3D Model <a href="https://skfb.ly/ou8Yp" target="_top">“Nike Air Max 90”</a> by StudioAira! – <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_top">CC BY-NC 4.0</a>.</p>
+			</footer>
+		</div>
+
+		<div class="card">
+			<h2>All-Stars Chuck Taylor</h2>
+			<model-viewer alt="All-Stars Chuck Taylor" src="../shared/all-stars_chuck_taylor.glb"></model-viewer>
+			<footer>
+				<p><a href="https://skfb.ly/6UXnq" target="_top"></a>"All-Stars Chuck Taylor" by yanix – <a href="http://creativecommons.org/licenses/by/4.0/" target="_top">CC BY 4.0</a></p>
+			</footer>
+		</div>
+
+		<div class="card">
+			<h2>Sneakers Adidas Yellow & Black</h2>
+			<model-viewer alt="Sneakers Adidas Yellow & Black" src="../shared/sneakers_adidas_yellow__black.glb"></model-viewer>
+			<footer>
+				<p><a href="https://skfb.ly/6UXnq" target="_top">"Sneakers Adidas Yellow & Black"</a> by mr.pinoux – <a href="http://creativecommons.org/licenses/by/4.0/" target="_top">CC BY 4.0</a></p>
+			</footer>
+		</div>
+
+		<div class="card">
+			<h2>DC shoe 250k f &8k tx</h2>
+			<model-viewer alt="DC shoe 250k f &8k tx" src="../shared/dc-250k.glb"></model-viewer>
+			<footer>
+				<p><a href="https://skfb.ly/6UXnq" target="_top">"DC shoe 250k f &8k tx"</a> by Meerschaum Digital – <a href="http://creativecommons.org/licenses/by/4.0/" target="_top">CC BY 4.0</a></p>
+			</footer>
+		</div>
+	</div>
+
+	<div class="warning">
+		<p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+	</div>
+</body>
+
+</html>

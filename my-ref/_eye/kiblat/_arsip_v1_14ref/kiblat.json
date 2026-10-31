@@ -1,0 +1,251 @@
+{
+ "name": "kiblat",
+ "members": [
+  "WhatsApp Video 2026-10-29 at 15.10.05",
+  "WhatsApp Video 2026-10-29 at 15.10.06",
+  "WhatsApp Video 2026-10-29 at 15.10.18 (1)",
+  "WhatsApp Video 2026-10-29 at 15.10.18",
+  "WhatsApp Video 2026-10-29 at 15.10.21 (1)",
+  "WhatsApp Video 2026-10-29 at 15.10.21 (2)",
+  "WhatsApp Video 2026-10-29 at 15.10.21",
+  "WhatsApp Video 2026-10-29 at 15.10.22 (1)",
+  "WhatsApp Video 2026-10-29 at 15.10.22 (2)",
+  "WhatsApp Video 2026-10-29 at 15.10.22",
+  "WhatsApp Video 2026-10-29 at 15.10.23 (1)",
+  "WhatsApp Video 2026-10-29 at 15.10.23 (2)",
+  "WhatsApp Video 2026-10-29 at 15.10.23",
+  "WhatsApp Video 2026-10-29 at 15.10.24"
+ ],
+ "n": 14,
+ "summary": {
+  "shot_median": 2.0,
+  "cuts_per_10s": 3.035,
+  "transitions": 2.0,
+  "colour_fields": 3.0,
+  "colour_step_dE": 37.0,
+  "shot_L_range": 91.8,
+  "L50": 46.5,
+  "contrast": 46.55,
+  "ink_contrast": 69.0,
+  "chroma": 7.35,
+  "mud_frames": 0.195,
+  "neon_frames": 0.01,
+  "glow_halo": 0.185,
+  "colours_used": 3.0,
+  "accent_hues": 1.0,
+  "accent_hues_film": 6.5,
+  "negative_space": 0.725,
+  "empty_frames": 0.31,
+  "crowded_frames": 0.055,
+  "one_star": 0.69,
+  "eye_jump": 0.2185,
+  "eye_jump_big": 0.33,
+  "energy_mean": 0.0404,
+  "punch": 7.65,
+  "burst_share": 0.29,
+  "hold_share": 0.29,
+  "camera_alive": 0.185,
+  "cut_sync": 0.695,
+  "impacts_per_min": 0.0,
+  "flash_max_per_s": 1.5,
+  "snd_onsets_per_s": 2.505,
+  "snd_bright_onsets": 0.28,
+  "snd_boomy_onsets": 0.0,
+  "snd_silence_share": 0.125,
+  "snd_dyn_range_db": 18.75,
+  "snd_tempo_bpm": 131.0,
+  "snd_beat_strength": 0.465,
+  "duration": 21.55
+ },
+ "spread": {
+  "shot_median": [
+   1.425,
+   2.875
+  ],
+  "cuts_per_10s": [
+   1.8075,
+   3.595
+  ],
+  "transitions": [
+   1.0,
+   4.0
+  ],
+  "colour_fields": [
+   2.0,
+   4.75
+  ],
+  "colour_step_dE": [
+   20.175,
+   44.025
+  ],
+  "shot_L_range": [
+   52.9,
+   94.575
+  ],
+  "L50": [
+   16.625,
+   87.85
+  ],
+  "contrast": [
+   33.7,
+   64.5
+  ],
+  "ink_contrast": [
+   52.475,
+   84.375
+  ],
+  "chroma": [
+   5.225,
+   13.5
+  ],
+  "mud_frames": [
+   0.1375,
+   0.2275
+  ],
+  "neon_frames": [
+   0.01,
+   0.02
+  ],
+  "glow_halo": [
+   0.0425,
+   0.655
+  ],
+  "colours_used": [
+   3.0,
+   3.75
+  ],
+  "accent_hues": [
+   1.0,
+   1.0
+  ],
+  "accent_hues_film": [
+   5.25,
+   7.0
+  ],
+  "negative_space": [
+   0.495,
+   0.815
+  ],
+  "empty_frames": [
+   0.17,
+   0.435
+  ],
+  "crowded_frames": [
+   0.005,
+   0.0875
+  ],
+  "one_star": [
+   0.5925,
+   0.7575
+  ],
+  "eye_jump": [
+   0.2038,
+   0.2685
+  ],
+  "eye_jump_big": [
+   0.26,
+   0.3675
+  ],
+  "energy_mean": [
+   0.0261,
+   0.0471
+  ],
+  "punch": [
+   5.65,
+   13.85
+  ],
+  "burst_share": [
+   0.1775,
+   0.3425
+  ],
+  "hold_share": [
+   0.2525,
+   0.4125
+  ],
+  "camera_alive": [
+   0.08,
+   0.3725
+  ],
+  "cut_sync": [
+   0.6075,
+   0.8575
+  ],
+  "impacts_per_min": [
+   0.0,
+   0.0
+  ],
+  "flash_max_per_s": [
+   1.0,
+   2.75
+  ],
+  "snd_onsets_per_s": [
+   2.3525,
+   2.7125
+  ],
+  "snd_bright_onsets": [
+   0.14,
+   0.47
+  ],
+  "snd_boomy_onsets": [
+   0.0,
+   0.0
+  ],
+  "snd_silence_share": [
+   0.1,
+   0.16
+  ],
+  "snd_dyn_range_db": [
+   12.375,
+   21.975
+  ],
+  "snd_tempo_bpm": [
+   112.925,
+   161.5
+  ],
+  "snd_beat_strength": [
+   0.3275,
+   0.5375
+  ]
+ },
+ "signature": [
+  "mud_frames",
+  "neon_frames",
+  "colours_used",
+  "accent_hues",
+  "accent_hues_film",
+  "crowded_frames",
+  "eye_jump",
+  "eye_jump_big",
+  "impacts_per_min",
+  "snd_onsets_per_s",
+  "snd_boomy_onsets",
+  "snd_silence_share"
+ ],
+ "free": [
+  "shot_median",
+  "cuts_per_10s",
+  "transitions",
+  "colour_fields",
+  "colour_step_dE",
+  "shot_L_range",
+  "L50",
+  "contrast",
+  "ink_contrast",
+  "chroma",
+  "glow_halo",
+  "negative_space",
+  "empty_frames",
+  "one_star",
+  "energy_mean",
+  "punch",
+  "burst_share",
+  "hold_share",
+  "camera_alive",
+  "cut_sync",
+  "flash_max_per_s",
+  "snd_bright_onsets",
+  "snd_dyn_range_db",
+  "snd_tempo_bpm",
+  "snd_beat_strength"
+ ]
+}

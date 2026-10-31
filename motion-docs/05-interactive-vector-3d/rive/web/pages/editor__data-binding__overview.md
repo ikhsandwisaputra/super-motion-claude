@@ -1,0 +1,40 @@
+---
+source: https://rive.app/docs/editor/data-binding/overview
+title: "Data Binding Overview"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Data Binding Overview
+
+Connect editor elements to data and code using View Models
+
+[YouTube video player](https://www.youtube.com/embed/M6goAzrDop4)
+
+Data binding connects data stored in View Models to properties in your Rive scene.
+
+When data changes, your scene updates automatically. Likewise, changes made in your scene can be written back to your data.
+
+For example, you might:
+
+* Bind an enemy's X and Y position so it can be controlled at runtime.
+* Bind the color of multiple icons to a single color property.
+* Bind a `health` value to a health bar in the UI and to the character.
+* Swap images, artboards, or components based on your application's state.
+
+## Why use Data Binding?
+
+Data binding lets you organize your data independently from your scene hierarchy.
+
+For example, you might have a `health` property stored at the top level of your data, while the health bar that displays it is nested several layers deep inside components.
+
+Once the property is bound, the hierarchy no longer matters. You can move elements, reorganize components, or rename properties without rewriting runtime code.
+
+## Core concepts
+
+1. [View Models](/docs/editor/data-binding/view-models) define the structure of your data.
+2. View Model Instances store actual values for that data.
+3. [Bindings](/docs/editor/data-binding/binding-data) connect View Model data to properties in your scene.
+4. [Data can be updated](/docs/editor/data-binding/controlling-data) from the Editor, runtime code, state machines, or scripting.
+5. Listeners, runtime code, and scripts can respond when data changes.
+6. When data changes, bound elements automatically update to reflect the new values.

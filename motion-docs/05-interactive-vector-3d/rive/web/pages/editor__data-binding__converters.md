@@ -1,0 +1,275 @@
+---
+source: https://rive.app/docs/editor/data-binding/converters
+title: "Converters"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Converters
+
+Transform and adapt data before it’s applied to a binding using built-in and custom converters.
+
+[YouTube video player](https://www.youtube.com/embed/td59TXa_xQI)
+
+Converters transform values before they are applied to a binding.
+
+Use them to adapt your data to match the property you're binding to—for example, converting numbers to strings, mapping values between ranges, or smoothing changes over time.
+
+## Adding a Converter
+
+![Build and apply a converter](https://mintcdn.com/rive/shJEooiaOJYFix28/images/editor/data-binding/converters/add-converter.gif?s=8841522330a6d2fbe5281b570ba4a561)
+
+**1. Create a Converter**
+
+In the Assets panel, click the `+` button and select a [converter type](#converter-types).
+
+**2. Set Converter Options**
+
+With the converter selected, update the settings in the right sidebar.
+
+> [!NOTE]
+>
+> Most options can be data bound.
+
+**3. Apply your Converter**
+
+When setting or updating a binding, set the **Converter** field..
+
+## Converter types
+
+Converters can be used individually or combined into [groups](#converter-groups) to perform more complex transformations.
+
+Each converter has its own set of properties, many of which can be bound to other View Model properties.
+This allows converter behavior to update dynamically. For example, you could bind the maximum value of a range map, a multiplier in a formula, or the padding amount in a string converter.
+
+| Category | Converter | Description |
+| - | - | - |
+| String | [Pad](#pad) | Add padding to a string |
+| | Trim | Remove leading or trailing whitespace |
+| | Convert to String | Convert a value to a string |
+| | Remove Trailing Zeros | Remove unnecessary decimal zeros |
+| | [String Template](#string-template) | Build text from a template and view model values |
+| Number | Round | Round to the nearest value |
+| | Calculate | Perform simple calculations |
+| | [Range Map](#range-map) | Map a value from one range to another |
+| | [Interpolator](#numeric-interpolator) | Smoothly interpolate between values |
+| | [Formula](#formula) | Evaluate a custom expression |
+| | Convert to Number | Convert a value to a number |
+| Boolean | Toggle | Invert a boolean value |
+| List | [Number to List](#number-to-list) | Generate a list of components based on a number |
+| | List to Length | Get the number of items in a list |
+| Color | [Interpolator](#color-interpolator) | Smoothly interpolate between colors |
+| Script | [Converter Scripts](#converter-scripts) | Create your own custom converters |
+
+### Pad
+
+Pads a string to a target length by repeating a value at the start or end.
+
+If the string is shorter than the specified length, the pad value is repeated and added until the target length is reached.
+
+**Example:**
+
+* **Value:** 1
+* **Pad:** "0"
+* **Direction:** Start
+* **Length:** 3
+
+**Result**: "001"
+
+***
+
+### String template
+
+Builds text by filling placeholders in a template with view model values.
+
+The converter takes a template string as its input, such as `You scored ${score} of ${total}`, and replaces each placeholder with the value of a matching argument. Each argument is a **Number** or **String** that you bind to a view model property.
+
+Store the template in a view model String property so you can swap it at runtime. This is useful for localization, where word order changes between languages. You can also format numbers within placeholders.
+
+**1. Create the template property**
+
+Add a String property to your view model and set its value to `You scored ${score} of ${total}`. Add Number properties for `score` and `total` to hold the values you want to insert.
+
+**2. Create the converter**
+
+In the Assets panel, click the `+` button and select **String** > **Template**.
+
+**3. Add arguments**
+
+Under **Arguments**, click **Add Argument** and choose **Number** or **String**. Add an argument for each value you want to insert. For this example, add two Number arguments.
+
+**4. Name and bind each argument**
+
+Name the arguments `score` and `total`, and bind each argument's value to the corresponding view model property.
+
+**5. Apply the converter**
+
+Bind your text to the String property that holds the template, and set **Converter** to your string template.
+
+**Example:**
+
+* **Template:** `You scored ${score} of ${total}`
+* **Arguments:** `score` (Number) bound to a Number property with a value of `10`, `total` (Number) bound to a Number property with a value of `12`
+
+**Result:** "You scored 10 of 12"
+
+> [!TIP]
+>
+> Templates let translations reorder values without changing the arguments. For example, `${score} of ${total}` can be translated into a template that places `${total}` before `${score}`.
+
+#### Placeholders
+
+A placeholder can refer to an argument by name, by position, or by order.
+
+| Placeholder | Uses |
+| - | - |
+| `${score}` | The argument named `score` |
+| `${0}` | The argument at position 0 (the first argument) |
+| `${}` | The next argument in order. The first `${}` uses the first argument, the second uses the second, and so on. |
+
+#### Formatting numbers
+
+Add a colon and a printf-style format after the placeholder name to control how a Number argument is displayed.
+
+| Placeholder | Value | Result |
+| - | - | - |
+| `${score}` | `3.14159` | `3.14159` |
+| `${score:%.1f}` | `3.14159` | `3.1` |
+| `${score:%,d}` | `1234567` | `1,234,567` |
+| `${score:%05.2f}` | `3.14159` | `03.14` |
+
+Without a format, numbers show up to 6 decimal places with trailing zeros removed. The `,` flag adds thousands separators.
+
+#### Syntax
+
+Use **Syntax** to choose how placeholders are written:
+
+* `${name}` (default)
+* `{name}`
+* `{{name}}`
+* **Custom**: set your own **Open** and **Close** delimiters. Each delimiter is 1 to 4 symbols and can't include letters, digits, spaces, `_`, `\`, or `:`.
+
+To show a delimiter as literal text, put a backslash before it. For example, `\${score}` displays `${score}` instead of the value.
+
+***
+
+### Range map
+
+Maps a number from one range to another.
+
+Use Range Map when you want to take an input value and convert it into a different scale.
+
+**Example**
+
+Convert a slider value (0–100) into an opacity value (0–1):
+
+* **Input**: 50
+* **Input range**: 0 → 100
+* **Output range**: 0 → 1
+
+**Result**:
+0.5
+
+***
+
+### Numeric interpolator
+
+![interpolate a shape](https://mintcdn.com/rive/shJEooiaOJYFix28/images/editor/data-binding/converters/numeric-interpolator.gif?s=e05769a6899552b4ed807f669d174ada)
+
+Smoothly transitions between number values over time, easing changes instead of jumping instantly.
+
+***
+
+### Formula
+
+![Generate a formula](https://mintcdn.com/rive/shJEooiaOJYFix28/images/editor/data-binding/converters/formula.gif?s=5960a96fe0e23031773e3ff51a2c4dae)
+
+Formula lets you perform custom calculations using values from your View Model or the input.
+
+You can create a formula in two ways:
+
+**Writing it directly**
+
+```lua theme={null}
+random({{NumberConvertersVM/circleX}} / {Input}) + 2
+```
+
+> [!NOTE]
+>
+> `{Input}` refers to the incoming value, while `{{...}}` references View Model properties.
+
+**Using the editor**
+
+Click the + button to add values, operations, and functions. This builds the formula for you and generates the equivalent expression.
+
+> [!TIP]
+>
+> **Formulas don't need inputs**
+>
+> The following formula would output a random number, regardless of input.
+>
+> ```lua theme={null}
+>   random(2)
+> ```
+
+#### Random mode
+
+When using `random()` in your formula, the Random Mode determines when a new random value is generated.
+
+* **Once** — Generates a random value only when the formula first runs
+* **Source Change** — Generates a new value each time the input changes
+* **Always** — Continuously generates new values while the input changes and during interpolation
+
+***
+
+### Number to list
+
+The Number to List converter allows you to generate a specified number of Components based on a number.
+
+See [Lists](/docs/editor/data-binding/lists#view-model-number-with-converter) for more information.
+
+***
+
+### Color interpolator
+
+![interpolate a color](https://mintcdn.com/rive/shJEooiaOJYFix28/images/editor/data-binding/converters/color-interpolator.gif?s=09c4aea11229bce97512288eaae21680)
+
+Smoothly transitions between color values over time, easing changes instead of jumping instantly.
+
+***
+
+### Converter Scripts
+
+Scripting lets you create your own custom converters when you need behavior that isn’t covered by the built-in converters.
+
+See [Converter Scripts](/docs/scripting/protocols/converter-scripts) for more information.
+
+## Converter groups
+
+![Build and converter group](https://mintcdn.com/rive/shJEooiaOJYFix28/images/editor/data-binding/converters/group.gif?s=b1e04253c0c0413018d7b59c9086bfbe)
+
+Converter groups let you chain multiple converters together, where the output of one becomes the input of the next.
+
+**1. Create a Converter Group**
+
+In the Assets panel, click the `+` button and select Converter > Group.
+
+**2. Add a Converter to Your Group**
+
+With the group selected, add the `+` button in the right sidebar and select an existing or new converter.
+
+When binding a value, your converter group can now be used just like an individual converter.
+
+### How execution works
+
+Converters run from top to bottom:
+
+* The first converter receives the original input
+* Each converter passes its result to the next
+* The final output is the result of the last converter
+
+### Reordering converters
+
+Drag a converter up or down to change when it runs.
+
+Earlier converters affect all converters that follow.

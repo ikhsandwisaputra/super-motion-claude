@@ -1,0 +1,62 @@
+---
+source: https://paperjs.org/tutorials/getting-started/paperscript-interoperability
+title: "Paper.js — PaperScript Interoperability"
+fetched: 2026-10-28
+---
+
+# PaperScript Interoperability
+
+Both PaperScript and JavaScript have access to the Window scope, therefore you can use window.globals from the JavaScript and globals from PaperScript to pass information back and forth.
+
+## JavaScript
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/paper.js"></script>
+<script type="text/paperscript" canvas="myCanvas">
+	// Create a Paper.js Path to draw a line into it:
+	var path = new Path();
+	path.strokeColor = 'black';
+	var start = new Point(100, 100);
+	path.moveTo(start);
+
+  // Use the global variables a and b defined in the JavaScript
+	path.lineTo(start + [ globals.a, globals.b ]);
+
+  // Define a global function inside the window scope.
+  globals.lineTo = function(c,d) {
+  	path.lineTo(new Point(c, d));
+  }
+</script>
+
+<script type="text/javascript">
+  // To avoid race problem, the following should not be in window.onload as the PaperScript might run before.
+  window.globals = { a:50, b:-50 };
+
+  // Update the path from the JavaScript code.
+  window.onload = function() {
+    document.getElementById('lineToBtn').onclick = function() {
+      let x = Number(document.getElementById('x').value);
+      let y = Number(document.getElementById('y').value);
+      window.globals.lineTo(x,y);
+    };
+  };
+</script>
+</head>
+<body>
+  <input type="range" id="x" from="0" to="150" default="75"></input>
+  <input type="range" id="y" from="0" to="150" default="75" ></input>
+  <button type="number" id="lineToBtn">LineTo</button>
+  <br>
+  <canvas id="myCanvas" resize></canvas>
+</body>
+</html>
+```
+
+## Limitations
+
+The scopes of multiple PaperScript is different and can collides. If you create two functions with the same name in two PaperScripts, the second will overwrite the first one.
+
+Thus you might want to create another variable in the window for each PaperScript running to avoid the confusion.

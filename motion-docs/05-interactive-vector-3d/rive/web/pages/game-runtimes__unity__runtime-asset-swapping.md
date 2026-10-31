@@ -1,0 +1,147 @@
+---
+source: https://rive.app/docs/game-runtimes/unity/runtime-asset-swapping
+title: "Runtime Asset Swapping"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Runtime Asset Swapping
+
+For most dynamic asset swapping use cases, we recommend [data binding](/docs/game-runtimes/unity/data-binding). Data binding changes only the bound property, so different parts of the graphic can use different images or fonts.
+
+> **[Data Binding Images](/docs/game-runtimes/unity/data-binding#images)**
+>
+> Swap a specific image property at runtime without replacing the file-level asset.
+
+> **[Data Binding Fonts](/docs/game-runtimes/unity/data-binding#fonts)**
+>
+> Swap a specific font property at runtime so bound text can use different typefaces.
+
+This page explains how to use the `CustomAssetLoaderCallback` to swap fonts, images, or audio assets at the file level within a Rive file.
+
+This approach is useful when you want your replacement asset to be used everywhere the original appears throughout the file. For example, if you need to replace a font globally, so that all text that uses that font updates automatically, you can do so in one place instead of configuring individual property bindings for each instance.
+
+## Setting up asset loading
+
+To swap assets at runtime, provide a callback when loading your Rive file:
+
+```csharp theme={null}
+File.Load(Asset asset, CustomAssetLoaderCallback customAssetLoaderCallback);
+File.Load(TextAsset asset, CustomAssetLoaderCallback customAssetLoaderCallback);
+File.Load(byte[] riveFileByteContents, CustomAssetLoaderCallback customAssetLoaderCallback);
+```
+
+Your callback will be invoked whenever the runtime needs to load an asset. The callback should return `true` if you've handled the asset loading, or `false` to let the runtime handle it using the default loading behavior.
+
+Here's an example showing how you might swap a font at runtime:
+
+```csharp theme={null}
+private FontOutOfBandAsset m_fontOobAsset;
+private File m_file;
+FontEmbeddedAssetReference fontEmbeddedAssetReference
+
+private bool OobAssetLoaderDelegate(EmbeddedAssetReference assetReference)
+{
+    // Keep a reference to the fontEmbeddedAssetReference so we can update the font again later
+    fontEmbeddedAssetReference = assetReference as FontEmbeddedAssetReference;
+    if (fontEmbeddedAssetReference != null)
+    {
+        fontEmbeddedAssetReference.SetFont(m_fontOobAsset);
+        return true;
+    }
+    return false;
+}
+
+private void Start()
+{    
+    m_fontOobAsset.Load();  
+    m_file = Rive.File.Load(asset, OobAssetLoaderDelegate);
+
+    // You could call fontEmbeddedAssetReference.SetFont() here again to change the font
+}
+
+private void OnDestroy()
+{  
+    m_fontOobAsset.Unload();  
+    m_file.Dispose();
+}
+```
+
+#### Overload with fallback
+
+An overload of `Rive.File.Load()` includes a `fallbackToAssignedAssets` parameter.
+
+If set to `true `and your custom loader doesn't handle a certain asset, the runtime will look for references assigned to your Rive asset in the Unity Inspector and automatically load them if they exist. This is handy when you only want to replace some assets and rely on default references for the rest.
+
+```csharp theme={null}
+var file = File.Load(myRiveAsset, MyCustomAssetLoader, fallbackToAssignedAssets: true);
+```
+
+## Asset types
+
+You can swap these types of assets at runtime:
+
+* `FontOutOfBandAsset`: For font files
+
+* `ImageOutOfBandAsset`: For image files
+
+* `AudioOutOfBandAsset`: For audio files
+
+## Asset reference types
+
+When handling assets in your callback, you'll need to check the type of the `EmbeddedAssetReference` before setting the asset. Each asset type has its own reference class with specific setter methods:
+
+```csharp theme={null}
+private bool AssetLoaderDelegate(EmbeddedAssetReference assetReference)
+{
+    // Handle font assets
+    if (assetReference is FontEmbeddedAssetReference fontReference)
+    {
+        fontReference.SetFont(myFontAsset);
+        return true;
+    }
+    
+    // Handle image assets
+    if (assetReference is ImageEmbeddedAssetReference imageReference)
+    {
+        imageReference.SetImage(myImageAsset);
+        return true;
+    }
+    
+    // Handle audio assets
+    if (assetReference is AudioEmbeddedAssetReference audioReference)
+    {
+        audioReference.SetAudio(myAudioAsset);
+        return true;
+    }
+    
+    return false;
+}
+```
+
+## Memory management
+
+When working with runtime asset swapping, we recommend following these best practices:
+
+1. Always call `Load()` on your Out-Of-Band asset before using it in the callback
+
+2. Dispose of resources properly:
+
+   * Call `Unload()` on your assets when they're no longer needed
+
+   * Call `Dispose()` on the Rive file when you're done with it
+
+## Creating out-of-band assets dynamically
+
+If you have an asset that isn't in your Unity project at build time (for example, if you're loading an image from a CDN), you can create an out-of-band asset at runtime using the `OutOfBandAsset.Create<T>()` method.  Here, the `bytes` parameter should be the raw file data for the asset.
+
+This works for fonts, images, and audio, as long as you use the appropriate type (`FontOutOfBandAsset`, `ImageOutOfBandAsset`, or `AudioOutOfBandAsset`).
+
+```
+byte[] imageBytes = /* fetched from a CDN or elsewhere */;
+var myImageAsset = OutOfBandAsset.Create<ImageOutOfBandAsset>(imageBytes);
+```
+
+## Example
+
+For a demo of runtime asset swapping in Unity, see the **Image Swapping** scene in the [Rive Unity Examples repository](https://github.com/rive-app/rive-unity-examples).

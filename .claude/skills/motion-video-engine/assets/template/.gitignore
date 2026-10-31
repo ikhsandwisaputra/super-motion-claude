@@ -1,0 +1,6 @@
+.env*
+src/node_modules/
+build/frames/
+build/stills/
+build/*.wav
+out/

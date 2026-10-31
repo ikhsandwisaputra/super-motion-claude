@@ -1,0 +1,54 @@
+---
+source: https://animejs.com/documentation/timeline/timeline-methods/init
+title: "init() | Timeline methods | Timeline | Documentation | Anime.js | JavaScript Animation Engine"
+fetched: 2026-10-28
+---
+
+[Timeline](https://animejs.com/documentation/timeline "Timeline")
+
+[Methods](https://animejs.com/documentation/timeline/timeline-methods "Timeline methods")
+
+[Since 4.0.0](https://github.com/juliangarnier/anime/releases/tag/v4.0.0)
+
+# [init()](https://animejs.com/documentation/timeline/timeline-methods/init "init()")
+
+Initialises the initial values of all the elements of a timeline.
+
+Animations with specific initial values added to a timeline are not automatically set to their *from* state like a normal call to `animate()` would, instead, they are initialised when the timeline playhead reaches the element in the timeline.
+
+This is where `.init()` comes in handy, it forces a render of all the children initial state and updates their values.
+
+## [Returns](https://animejs.com/documentation/timeline/timeline-methods/init#returns)
+
+The timeline itself
+
+Can be chained with other timeline methods.
+
+## init() code example
+
+```js
+import { createTimeline } from 'animejs';
+
+const tl = createTimeline()
+.add('.square',   { x: { from: '15rem' } })
+.add('.triangle', { x: { from: '15rem' } }, 500)
+.add('.circle',   { x: { from: '15rem' } }, 1000)
+.init();
+```
+
+```html
+<div class="large row">
+  <div class="medium pyramid">
+    <div class="triangle"></div>
+    <div class="square"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+```
+
+###### Previous
+
+###### Next
+
+* [call()](https://animejs.com/documentation/timeline/timeline-methods/call "call()")
+* [play()](https://animejs.com/documentation/timeline/timeline-methods/play "play()")

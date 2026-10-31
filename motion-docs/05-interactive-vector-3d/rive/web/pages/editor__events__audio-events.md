@@ -1,0 +1,42 @@
+---
+source: https://rive.app/docs/editor/events/audio-events
+title: "Audio Events"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Audio Events
+
+[YouTube video player](https://www.youtube.com/embed/62j3fbNgxFY)
+
+Event-based audio provides the means to trigger sound effects within your animations and/or in response to user interactions. Just like existing events, they can be triggered by a keyframe on a timeline, during a state transition, or via a listener.
+
+Audio events represent the first phase of audio features in Rive — they provide an ideal way to trigger sound effects that can be layered on top of each other.
+
+Previously, triggering audio with events would require some work with one of the Rive runtimes and your application or game. The introduction of audio events directly inside the Rive editor streamlines the process of adding sound to your animations — further empowering designers, whilst simplifying the implementation for developers.
+
+> [!NOTE]
+>
+> Audio events are ideal for triggering shorter sounds in response to user interactions or to complement character animations. Whilst longer form audio — such as background music and voice overs — can also be triggered with audio events, they lack a level of control to manipulate volume, panning, and more over time.
+>
+> For use cases requiring greater control over volume and playback, consider using [Scripting](/docs/scripting/getting-started). Check out [AudioSound](/docs/scripting/api-reference/interfaces/audio-sound) and [AudioSource](/docs/scripting/api-reference/interfaces/audio-source) for more information.
+
+## Working with audio assets
+
+Audio events use sounds from the Assets panel. See [Importing Assets](/docs/editor/fundamentals/assets-overview#importing-assets) to import MP3, WAV, and FLAC files, or see [Audio Assets](/docs/editor/assets/audio) to browse Soundly sounds, create clips, and adjust asset volume.
+
+## Creating an audio event
+
+The simplest way to create an audio event is to drag your audio asset or clip directly from the [assets panel](/docs/editor/assets/audio) onto the stage. In doing so, an event is created with the preassigned asset. Alternatively, create a regular event by activating the event tool (`SHIFT + E`) and clicking on the stage. Once created, set the type setting in the inspector to Audio. Additional options to assign an asset and browse the Soundly library will be presented for audio events.
+
+## Triggering an audio event
+
+Like regular events, audio events can be triggered in a selection of different ways:
+
+* **Timeline:** Whilst in animate mode, with a timeline selected, the event inspector will surface a button to key the event. Keying an event causes it to be reported. In the context of an audio event, reporting it will start the playback of the assigned audio asset.
+* **Transitions:** Select a transition node within a State Machine and add an event via the inspector. You can choose whether the event should be reported at the start or at the end of the transition.
+* **Listeners:** Select a listener within a State Machine and add a 'report event' action via the inspector. The pointer option will determine when the audio will play. For example, a pointer down listener with an assigned audio event targeting a shape will start playback when the user clicks on the shape.
+
+### Monitoring audio
+
+Audio levels can be monitored via the VU meter at the base of the inspector. Use the VU meter to check for clipping. This may occur if multiple audio events are playing at once, causing the overall output to clip. If you notice peak levels turning red, consider lowering the volume of your audio asset to provide more headroom.

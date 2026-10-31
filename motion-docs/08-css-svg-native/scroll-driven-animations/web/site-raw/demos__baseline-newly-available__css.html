@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-driven Animations: The Road to Baseline Newly Available (CSS)</title>
+
+	<!-- Shared styles and scripts, applied to each page -->
+	<link rel="stylesheet" href="/shared/styles.css">
+	<script src="/shared/scripts.js"></script>
+
+	<!-- Page specific styles. The code for the scroll-driven animations is kept in a local style block for your reading convenience -->
+	<link rel="stylesheet" href="../shared/styles.css">
+	<style>
+		@supports (animation-timeline: view()) {
+
+			/* 1. Hoist named ViewTimelines from the timeline milestones to the page wrapper */
+			.timeline-page {
+				timeline-scope:
+					--tl-spine,
+					--tl-2014,
+					--tl-2016,
+					--tl-firefox-early,
+					--tl-2019,
+					--tl-2020,
+					--tl-2022,
+					--tl-chrome,
+					--tl-edge,
+					--tl-course,
+					--tl-safari,
+					--tl-firefox,
+					--tl-baseline,
+					--tl-baseline-hero;
+			}
+
+			.timeline-section {
+				view-timeline-name: --tl-spine;
+			}
+
+			#milestone-2014 {
+				view-timeline-name: --tl-2014;
+			}
+
+			#milestone-2016 {
+				view-timeline-name: --tl-2016;
+			}
+
+			#milestone-firefox-early {
+				view-timeline-name: --tl-firefox-early;
+			}
+
+			#milestone-2019 {
+				view-timeline-name: --tl-2019;
+			}
+
+			#milestone-2020 {
+				view-timeline-name: --tl-2020;
+			}
+
+			#milestone-2022 {
+				view-timeline-name: --tl-2022;
+			}
+
+			#milestone-chrome {
+				view-timeline-name: --tl-chrome;
+			}
+
+			#milestone-edge {
+				view-timeline-name: --tl-edge;
+			}
+
+			#milestone-course {
+				view-timeline-name: --tl-course;
+			}
+
+			#milestone-safari {
+				view-timeline-name: --tl-safari;
+			}
+
+			#milestone-firefox {
+				view-timeline-name: --tl-firefox;
+			}
+
+			#milestone-baseline {
+				view-timeline-name: --tl-baseline;
+			}
+
+			.baseline-hero {
+				view-timeline-name: --tl-baseline-hero;
+			}
+
+			/* 2. Top Page Scroll Progress Bar */
+			@keyframes scale-progress {
+				from {
+					clip-path: inset(0 100% 0 0);
+				}
+
+				to {
+					clip-path: inset(0 0% 0 0);
+				}
+			}
+
+			.scroll-progress-bar {
+				animation: scale-progress linear both;
+				animation-timeline: scroll();
+			}
+
+			/* 3. Central Timeline Spine Fill Beam */
+			@keyframes fill-spine {
+				from {
+					clip-path: inset(0 0 100% 0);
+				}
+
+				to {
+					clip-path: inset(0 0 0% 0);
+				}
+			}
+
+			.timeline-spine__fill {
+				animation: fill-spine linear both;
+				animation-timeline: --tl-spine;
+				animation-range: entry 50% exit 50%;
+			}
+
+			/* 4. Timeline Milestone Cards: Animate in over contain 30% contain 50% */
+			@keyframes card-journey {
+				from {
+					opacity: 0;
+					transform: translate3d(var(--slide-x, 0px), 32px, 0) scale(0.9);
+					filter: blur(4px);
+				}
+
+				to {
+					opacity: 1;
+					transform: translate3d(0, 0, 0) scale(1);
+					filter: blur(0px);
+				}
+			}
+
+			.timeline-item .timeline-card {
+				animation: card-journey ease-out both;
+				animation-timeline: view();
+				animation-range: contain 30% contain 50%;
+			}
+
+			/* 5. Spine Dots & Connector Arms: Scale in + Greyscale-to-Colored over contain 30% contain 50% */
+			@keyframes dot-journey {
+				from {
+					transform: scale(0.45);
+					filter: grayscale(1);
+					opacity: 0.5;
+				}
+
+				to {
+					transform: scale(1);
+					filter: grayscale(0);
+					opacity: 1;
+				}
+			}
+
+			.timeline-item .timeline-node {
+				animation: dot-journey linear both;
+				animation-timeline: view();
+				animation-range: contain 30% contain 50%;
+			}
+
+			@keyframes connector-journey {
+				from {
+					transform: scaleX(0);
+					filter: grayscale(1);
+					opacity: 0;
+				}
+
+				to {
+					transform: scaleX(1);
+					filter: grayscale(0);
+					opacity: 1;
+				}
+			}
+
+			.timeline-item .timeline-connector {
+				animation: connector-journey linear both;
+				animation-timeline: view();
+				animation-range: contain 30% contain 50%;
+			}
+
+			/* 6. Full-Width Sticky Header Text Links Highlighting */
+			@keyframes activate-nav-link {
+				0% {
+					color: var(--text-muted);
+					background-color: transparent;
+				}
+
+				20%,
+				85% {
+					color: var(--text-primary);
+					background-color: #eef2f6;
+					scroll-snap-align: center;
+				}
+
+				100% {
+					color: var(--text-muted);
+					background-color: transparent;
+				}
+			}
+
+			.timeline-pill--2014 {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-2014;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--2016 {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-2016;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--firefox-early {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-firefox-early;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--2019 {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-2019;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--2020 {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-2020;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--2022 {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-2022;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--chrome {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-chrome;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--edge {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-edge;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--course {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-course;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--safari {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-safari;
+				animation-range: contain 40% contain 80%;
+			}
+
+			.timeline-pill--firefox {
+				animation: activate-nav-link linear both;
+				animation-timeline: --tl-firefox;
+				animation-range: contain 40% contain 80%;
+			}
+
+			@keyframes activate-baseline-link {
+				from {
+					color: var(--text-muted);
+					background-color: transparent;
+				}
+
+				to {
+					color: var(--color-baseline);
+					background-color: #eff6ff;
+					scroll-snap-align: center;
+				}
+			}
+
+			.timeline-pill--baseline {
+				animation: activate-baseline-link linear both;
+				animation-timeline: --tl-baseline;
+				animation-range: entry 50% entry 85%;
+			}
+
+			/* Horizontal Scroll Shadows on Sticky Header Nav */
+			@keyframes reveal {
+				0% {
+					opacity: 0;
+				}
+
+				100% {
+					opacity: 1;
+				}
+			}
+
+			@keyframes detect-scroll {
+				from,
+				to {
+					--can-scroll: ;
+				}
+			}
+
+			.timeline-nav {
+				scroll-timeline: --nav-scroll-timeline x;
+				animation: detect-scroll;
+				animation-timeline: --nav-scroll-timeline;
+				animation-fill-mode: none;
+			}
+
+			.timeline-nav::before,
+			.timeline-nav::after {
+				animation-name: reveal;
+				animation-timeline: --nav-scroll-timeline;
+				animation-fill-mode: both;
+
+				--visibility-if-can-scroll: var(--can-scroll) visible;
+				--visibility-if-cant-scroll: hidden;
+				visibility: var(--visibility-if-can-scroll, var(--visibility-if-cant-scroll));
+			}
+
+			.timeline-nav::before {
+				animation-range: 1em 2em;
+			}
+
+			.timeline-nav::after {
+				animation-direction: reverse;
+				animation-range: calc(100% - 2em) calc(100% - 1em);
+			}
+
+			/* 7. Baseline Newly Available Full-Viewport Finale & Animated Baseline Logo */
+			@keyframes pop-finale-node {
+				from {
+					transform: scale(0.4);
+					filter: grayscale(1);
+					opacity: 0;
+				}
+
+				to {
+					transform: scale(1);
+					filter: grayscale(0);
+					opacity: 1;
+				}
+			}
+
+			.baseline-finale__node {
+				animation: pop-finale-node cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 35% cover 40%;
+			}
+
+			@keyframes reveal-baseline-hero {
+				from {
+					opacity: 0;
+					transform: translateY(2rem) scale(0.85);
+				}
+
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+				}
+			}
+
+			.baseline-hero,
+			.baseline-finale__cta {
+				animation: reveal-baseline-hero cubic-bezier(0.22, 1, 0.36, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 20% cover 45%;
+			}
+
+			@keyframes pop-logo-part {
+				from {
+					opacity: 0;
+					transform: scale(0) translateY(-6px);
+				}
+
+				to {
+					opacity: 1;
+					transform: scale(1) translateY(0);
+				}
+			}
+
+			.baseline-logo-check {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 15% cover 30%;
+			}
+
+			.baseline-logo-diamond--1 {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 20% cover 33%;
+			}
+
+			.baseline-logo-diamond--2 {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 23% cover 36%;
+			}
+
+			.baseline-logo-diamond--3 {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 26% cover 39%;
+			}
+
+			.baseline-logo-diamond--4 {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 29% cover 42%;
+			}
+
+			.baseline-logo-diamond--5 {
+				animation: pop-logo-part cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 32% cover 45%;
+			}
+
+			@keyframes pop-browser-badge {
+				from {
+					opacity: 0;
+					transform: translateY(18px) scale(0.84);
+					filter: grayscale(1);
+				}
+
+				to {
+					opacity: 1;
+					transform: translateY(0) scale(1);
+					filter: grayscale(0);
+				}
+			}
+
+			.baseline-browser-badge {
+				animation: pop-browser-badge cubic-bezier(0.22, 1, 0.36, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 30% cover 45%;
+			}
+
+			@keyframes pop-check {
+				from {
+					opacity: 0;
+					transform: scale(0) rotate(-45deg);
+				}
+
+				to {
+					opacity: 1;
+					transform: scale(1) rotate(0deg);
+				}
+			}
+
+			.baseline-browser-badge__check {
+				animation: pop-check cubic-bezier(0.34, 1.56, 0.64, 1) both;
+				animation-timeline: --tl-baseline-hero;
+				animation-range: cover 35% cover 46%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!-- metabox -->
+	<div id="metabox">
+		<button id="version-selector" popovertarget="version-selector-popover" data-activeversion="1/2" data-activelang="css">🔀</button>
+		<div id="version-selector-popover" popover anchor="version-selector">
+			<h1>Version selector</h1>
+			<p>This demo has several versions:</p>
+			<ol>
+				<li data-lang="css" data-selected><a href="/demos/baseline-newly-available/css/">CSS <code>view()</code> + <code>timeline-scope</code></a></li>
+				<li data-lang="js"><a href="/demos/baseline-newly-available/waapi/">JavaScript WAAPI + <code>ViewTimeline</code></a></li>
+			</ol>
+		</div>
+		<a class="button" href="/" title="To index">🏠</a>
+		<button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+		<dialog id="infobox">
+			<form method="dialog"><button id="infobox-close" tabindex="0" title="Close dialog">❌</button></form>
+			<h1>About this demo</h1>
+			<p>This scrolled timeline traces the 12-year journey of <strong>Scroll-Driven Animations</strong> from the earliest proposal in September 2014 to becoming <strong>Baseline Newly Available</strong> in October 2026 with the release of <strong>Firefox 159</strong>.</p>
+
+			<h2>The Code / Explanation</h2>
+			<p>As you scroll down the timeline, several Scroll-Driven Animations work together:</p>
+			<ul>
+				<li><strong>Proportional Time Gaps</strong>: The vertical spacing between milestones is proportional to elapsed time using <code>margin-top: calc(var(--years) * var(--year-gap))</code> — e.g. the 2-year gap from September 2014 to September 2016 is <code>2×</code> the 1-year gap from 2019 to 2020, and there is <code>0</code> gap between Chrome 115 and Edge 115 shipping simultaneously in July 2023.</li>
+				<li><strong>Cards &amp; Dots on <code>contain 30% contain 50%</code></strong>: Each <code>.timeline-item</code> uses an anonymous <code>view()</code> timeline over <code>contain 30% contain 50%</code> so its dot scales in and transitions from greyscale to colored while its card slides and scales into place.</li>
+				<li><strong>Baseline Newly Available Finale</strong>: At the end of the timeline, <code>.baseline-hero</code> scales up over <code>cover 20% cover 45%</code> while <code>.baseline-browser-badge</code> and the Baseline logo track <code>--tl-baseline-hero</code> from <code>cover 30%</code> to <code>cover 45%</code>.</li>
+			</ul>
+			<pre><code>.timeline-item .timeline-card,
+.timeline-item .timeline-node {
+	animation-timeline: view();
+	animation-range: contain 30% contain 50%;
+}
+
+.baseline-hero {
+	view-timeline-name: --tl-baseline-hero;
+	animation-timeline: --tl-baseline-hero;
+	animation-range: cover 20% cover 45%;
+}
+
+.baseline-browser-badge {
+	animation-timeline: --tl-baseline-hero;
+	animation-range: cover 30% cover 45%;
+}</code></pre>
+		</dialog>
+	</div>
+
+	<div class="warning">
+		<p>⚠️ Your browser does not support Scroll-driven Animations. Please use a supporting browser (Chrome 115+, Edge 115+, Safari 26+, or Firefox 159+).</p>
+	</div>
+
+	<div class="scroll-progress-bar"></div>
+
+	<main class="timeline-page">
+		<!-- Full-Width Sticky Header Bar (Text Only) -->
+		<header class="sticky-header">
+			<div class="sticky-header__inner">
+				<a href="#" class="sticky-header__brand" aria-label="Scroll-Driven Animations">
+					<img src="/favicon.svg" alt="" width="24" height="24">
+					<span>Scroll-Driven Animations</span>
+				</a>
+				<nav class="timeline-nav" aria-label="Timeline milestones">
+					<a href="#milestone-2014" class="timeline-pill timeline-pill--2014">2014 · First Proposal</a>
+					<a href="#milestone-2016" class="timeline-pill timeline-pill--2016">2016 · WICG Incubation</a>
+					<a href="#milestone-firefox-early" class="timeline-pill timeline-pill--firefox-early">2016 · Firefox Prototype</a>
+					<a href="#milestone-2019" class="timeline-pill timeline-pill--2019">2019 · CSSWG</a>
+					<a href="#milestone-2020" class="timeline-pill timeline-pill--2020">2020 · Chromium Prototype</a>
+					<a href="#milestone-2022" class="timeline-pill timeline-pill--2022">2022 · Spec Rewrite</a>
+					<a href="#milestone-chrome" class="timeline-pill timeline-pill--chrome">2023 · Chrome 115</a>
+					<a href="#milestone-edge" class="timeline-pill timeline-pill--edge">2023 · Edge 115</a>
+					<a href="#milestone-course" class="timeline-pill timeline-pill--course">2024 · Video Course</a>
+					<a href="#milestone-safari" class="timeline-pill timeline-pill--safari">2025 · Safari 26</a>
+					<a href="#milestone-firefox" class="timeline-pill timeline-pill--firefox">2026 · Firefox 159</a>
+					<a href="#milestone-baseline" class="timeline-pill timeline-pill--baseline">Baseline ’26</a>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Full-Viewport Hero Introduction (100svh) -->
+		<section class="hero-intro">
+			<span class="hero-intro__eyebrow">Scroll-Driven Animations</span>
+			<h1 class="hero-intro__title">The Road to <span>Baseline Newly Available</span></h1>
+			<span class="hero-intro__eyebrow">More than a decade in the making</span>
+			<p class="hero-intro__lead">Scroll down the timeline to explore how Scroll-Driven Animations evolved from an early 2014 proposal into an interoperable web standard shipped across every core browser engine.</p>
+		</section>
+
+		<!-- Scrolled Timeline Section -->
+		<section class="timeline-section" aria-label="Scroll-Driven Animations Chronological Timeline">
+			<!-- Central Spine & Animated Progress Fill -->
+			<div class="timeline-spine" aria-hidden="true">
+				<div class="timeline-spine__fill"></div>
+			</div>
+
+			<ol class="timeline-list">
+				<!-- 1. September 2014: Apple Proposal -->
+				<li id="milestone-2014" class="timeline-item timeline-item--csswg">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/css.svg" alt="CSSWG logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">September 2014</span>
+									<span class="timeline-card__tag">CSSWG Proposal</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Proposal for animation triggers, timebases and additive behavior</h2>
+							<p class="timeline-card__desc">Apple engineers post “Proposal for animation triggers, timebases and additive behavior” to the CSSWG mailing list and mention a prototype implementation. While still rough, this proposal forms the basis of what eventually becomes scroll-driven animations.</p>
+							<a href="https://lists.w3.org/Archives/Public/www-style/2014Sep/0135.html" target="_blank" rel="noopener noreferrer" class="timeline-card__link">www-style ↗</a>
+						</article>
+					</div>
+				</li>
+
+				<!-- 2. September 2016: WICG Incubation -->
+				<li id="milestone-2016" class="timeline-item timeline-item--wicg">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/wicg.svg" alt="WICG logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">September 2016</span>
+									<span class="timeline-card__tag">WICG Incubation</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Scroll Animations being incubated at WICG</h2>
+							<p class="timeline-card__desc">Initial specification work begins in the Web Incubator Community Group to bring declarative, off-main-thread scroll-linked animations to the web platform. The incubation is led by Mozilla and the work is based on the previous proposal by Apple. The feature is also pitched at TPAC.</p>
+							<a href="https://github.com/WICG/scroll-animations/" target="_blank" rel="noopener noreferrer" class="timeline-card__link">WICG/scroll-animations ↗</a>
+						</article>
+					</div>
+				</li>
+
+				<!-- 3. December 2016: Early Firefox Implementation -->
+				<li id="milestone-firefox-early" class="timeline-item timeline-item--firefox-early">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/firefox.svg" alt="Firefox logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">December 2016</span>
+									<span class="timeline-card__tag">Gecko Prototype</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Mozilla starts implementing ScrollTimeline in Firefox</h2>
+							<p class="timeline-card__desc">Mozilla starts work on implementing the ScrollTimeline API behind a feature flag. Over time, the work eventually comes to a halt.</p>
+							<div class="timeline-card__links">
+								<a href="https://treeherder.mozilla.org/jobs?repo=try&amp;revision=ed14a437954d" target="_blank" rel="noopener noreferrer" class="timeline-card__link">treeherder.mozilla.org ↗</a>
+								<a href="https://birtles.blog/2016/12/27/mozanime-in-2016/#proposed-scroll-linked-animations-and-started-implementation" target="_blank" rel="noopener noreferrer" class="timeline-card__link">birtles.blog ↗</a>
+							</div>
+						</article>
+					</div>
+				</li>
+
+				<!-- 2. 2019: Moved to CSSWG (3 years after 2016) -->
+				<li id="milestone-2019" class="timeline-item timeline-item--csswg">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/css.svg" alt="CSS logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">2019</span>
+									<span class="timeline-card__tag">W3C CSSWG</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Scroll Animations moved to CSSWG</h2>
+							<p class="timeline-card__desc">The specification graduates from WICG and moves into the W3C CSS Working Group repository as <code>scroll-animations-1</code> for formal standardization.</p>
+							<a href="https://github.com/w3c/csswg-drafts/tree/e5fa66e797d818fe04a2688e96f57b4f52bfed71/scroll-animations-1" target="_blank" rel="noopener noreferrer" class="timeline-card__link">w3c/csswg-drafts/scroll-animations-1 ↗</a>
+						</article>
+					</div>
+				</li>
+
+				<!-- 3. 2020: @scroll-timeline in Chromium (1 year after 2019) -->
+				<li id="milestone-2020" class="timeline-item timeline-item--proto">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/chromium.svg" alt="Chromium logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">2020</span>
+									<span class="timeline-card__tag">Chromium Prototype</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Scroll Animations with <code>@scroll-timeline</code> ready for testing in Chromium</h2>
+							<p class="timeline-card__desc">Led by Chrome Engineers at Google, an experimental prototype lands in Chromium, giving developers hands-on testing with the early <code>@scroll-timeline</code> at-rule and descriptor syntax behind a flag.</p>
+						</article>
+					</div>
+				</li>
+
+				<!-- 4. 2022: Spec Rewrite (2 years after 2020) -->
+				<li id="milestone-2022" class="timeline-item timeline-item--rewrite">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/css.svg" alt="CSS logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">2022</span>
+									<span class="timeline-card__tag">Modern API Architecture</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Rewrite of the spec to use <code>scroll-timeline</code>/<code>scroll()</code> and <code>view-timeline</code>/<code>view()</code></h2>
+							<p class="timeline-card__desc">Following discussions that started in 2021 at the CSSWG, a major specification overhaul replaces <code>@scroll-timeline</code> with ergonomic element properties and functional notations for Scroll Progress and View Progress Timelines.</p>
+							<div class="timeline-card__links">
+								<a href="https://github.com/w3c/csswg-drafts/issues/6674" target="_blank" rel="noopener noreferrer" class="timeline-card__link">w3c/csswg-drafts#6674 ↗</a>
+								<a href="https://github.com/w3c/csswg-drafts/commit/709371bf7c831f80829377fb4dc669220acad0a6" target="_blank" rel="noopener noreferrer" class="timeline-card__link">w3c/csswg-drafts@709371b ↗</a>
+							</div>
+						</article>
+					</div>
+				</li>
+
+				<!-- 5. July 2023: Chrome 115 (1.5 years after 2022) -->
+				<li id="milestone-chrome" class="timeline-item timeline-item--chrome">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/chrome.svg" alt="Chrome logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">July 2023</span>
+									<span class="timeline-card__tag">Blink Engine</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Chrome 115 ships Scroll-Driven Animations</h2>
+							<p class="timeline-card__desc">Chrome 115 launches full support for <code>scroll()</code>, <code>view()</code>, <code>scroll-timeline</code>, <code>view-timeline</code>, <code>timeline-scope</code>, and WAAPI <code>ScrollTimeline</code> &amp; <code>ViewTimeline</code>.</p>
+						</article>
+					</div>
+				</li>
+
+				<!-- 6. July 2023: Edge 115 (0 years after Chrome 115 — same engine & release!) -->
+				<li id="milestone-edge" class="timeline-item timeline-item--edge">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/edge.svg" alt="Edge logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">July 2023</span>
+									<span class="timeline-card__tag">Blink Engine</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Edge 115 ships Scroll-Driven Animations</h2>
+							<p class="timeline-card__desc">Microsoft Edge 115 releases simultaneously alongside Chrome 115, bringing hardware-accelerated Scroll-Driven Animations across the Chromium ecosystem.</p>
+						</article>
+					</div>
+				</li>
+
+				<!-- 7. May 2024: Chrome DevRel 10-part Video Course (0.83 years after July 2023) -->
+				<li id="milestone-course" class="timeline-item timeline-item--course">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon" aria-hidden="true">
+									<svg viewBox="0 0 32 32" fill="none">
+										<rect x="3" y="6" width="26" height="20" rx="5" fill="#dc2626" />
+										<polygon points="13,11 22,16 13,21" fill="#ffffff" />
+									</svg>
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">May 2024</span>
+									<span class="timeline-card__tag">Chrome DevRel</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Chrome DevRel releases a free 10-part video course</h2>
+							<p class="timeline-card__desc">A comprehensive 10-part video series dives deep into Scroll-Driven Animations, covering <code>scroll()</code>, <code>view()</code>, timeline ranges, and practical UI patterns.</p>
+							<a href="https://goo.gle/learn-scroll-driven-animations" target="_blank" rel="noopener noreferrer" class="timeline-card__link">Watch on YouTube ↗</a>
+						</article>
+					</div>
+				</li>
+				
+				<!-- 8. September 2025: Safari 26 (1.33 years after May 2024) -->
+				<li id="milestone-safari" class="timeline-item timeline-item--safari">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/safari.svg" alt="Safari logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">September 2025</span>
+									<span class="timeline-card__tag">WebKit Engine</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Safari 26 ships Scroll-Driven Animations</h2>
+							<p class="timeline-card__desc">Apple ships Scroll-Driven Animations in Safari 26 across macOS, iOS, and iPadOS, bringing native scroll-driven motion to WebKit.</p>
+						</article>
+					</div>
+				</li>
+
+				<!-- 9. October 2026: Firefox 159 (1.08 years after September 2025) -->
+				<li id="milestone-firefox" class="timeline-item timeline-item--firefox">
+					<div class="timeline-node" aria-hidden="true">
+						<span class="timeline-node__dot"></span>
+					</div>
+					<div class="timeline-card-wrap">
+						<span class="timeline-connector" aria-hidden="true"></span>
+						<article class="timeline-card">
+							<div class="timeline-card__header">
+								<div class="timeline-card__icon">
+									<img src="../shared/img/firefox.svg" alt="Firefox logo" width="40" height="40">
+								</div>
+								<div class="timeline-card__meta">
+									<span class="timeline-card__date">October 2026</span>
+									<span class="timeline-card__tag">Gecko Engine</span>
+								</div>
+							</div>
+							<h2 class="timeline-card__title">Firefox 159 completes all browser engines</h2>
+							<p class="timeline-card__desc">Mozilla ships Scroll-Driven Animations in Firefox 159, bringing native Gecko support and completing support across all major browser engines.</p>
+						</article>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<!-- 10. Full-Viewport Finale at the Bottom of the Timeline: Baseline Newly Available -->
+		<section id="milestone-baseline" class="baseline-finale" aria-label="Baseline Newly Available Milestone">
+			<div class="baseline-finale__node" aria-hidden="true">✓</div>
+			<div class="baseline-hero">
+				<div class="baseline-hero__pill">🎉 October 2026 · Baseline Milestone</div>
+				<div class="baseline-logo-wrap">
+					<svg class="baseline-logo-svg" viewBox="0 0 36 20" aria-label="Baseline Newly Available logo">
+						<path class="baseline-logo-check" d="M26 0L28 2L10 20L0 10L2 8L10 16L26 0Z" />
+						<path class="baseline-logo-diamond baseline-logo-diamond--1" d="M18 16L20 18L18 20L16 18L18 16Z" />
+						<path class="baseline-logo-diamond baseline-logo-diamond--2" d="M22 12L24 14L22 16L20 14L22 12Z" />
+						<path class="baseline-logo-diamond baseline-logo-diamond--3" d="M26 8L28 10L26 12L24 10L26 8Z" />
+						<path class="baseline-logo-diamond baseline-logo-diamond--4" d="M30 4L32 6L30 8L28 6L30 4Z" />
+						<path class="baseline-logo-diamond baseline-logo-diamond--5" d="M34 0L36 2L34 4L32 2L34 0Z" />
+					</svg>
+				</div>
+				<h2 class="baseline-hero__heading">Baseline <strong>Newly Available</strong></h2>
+				<p class="baseline-hero__desc">Twelve years after the first proposal, Scroll-Driven Animations are officially interoperable across all core browser engines!</p>
+
+				<div class="baseline-browsers">
+					<div class="baseline-browser-badge">
+						<span class="baseline-browser-badge__check" aria-hidden="true">✓</span>
+						<img src="../shared/img/chrome.svg" alt="" width="38" height="38" aria-hidden="true">
+						<span class="baseline-browser-badge__name">Chrome 115</span>
+						<span class="baseline-browser-badge__date">July 2023</span>
+					</div>
+
+					<div class="baseline-browser-badge">
+						<span class="baseline-browser-badge__check" aria-hidden="true">✓</span>
+						<img src="../shared/img/edge.svg" alt="" width="38" height="38" aria-hidden="true">
+						<span class="baseline-browser-badge__name">Edge 115</span>
+						<span class="baseline-browser-badge__date">July 2023</span>
+					</div>
+
+					<div class="baseline-browser-badge">
+						<span class="baseline-browser-badge__check" aria-hidden="true">✓</span>
+						<img src="../shared/img/safari.svg" alt="" width="38" height="38" aria-hidden="true">
+						<span class="baseline-browser-badge__name">Safari 26</span>
+						<span class="baseline-browser-badge__date">Sept 2025</span>
+					</div>
+
+					<div class="baseline-browser-badge">
+						<span class="baseline-browser-badge__check" aria-hidden="true">✓</span>
+						<img src="../shared/img/firefox.svg" alt="" width="38" height="38" aria-hidden="true">
+						<span class="baseline-browser-badge__name">Firefox 159</span>
+						<span class="baseline-browser-badge__date">Oct 2026</span>
+					</div>
+				</div>
+			</div>
+			<a href="https://scroll-driven-animations.style/" class="baseline-finale__cta">Check out more demos and tools at scroll-driven-animations.style &rarr;</a>
+		</section>
+	</main>
+</body>
+
+</html>

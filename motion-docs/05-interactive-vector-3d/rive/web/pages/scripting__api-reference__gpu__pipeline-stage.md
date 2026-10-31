@@ -1,0 +1,19 @@
+---
+source: https://rive.app/docs/scripting/api-reference/gpu/pipeline-stage
+title: "PipelineStage"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# PipelineStage
+
+A pipeline stage: a Shader, or WebGPU-style `{ module = Shader,
+entryPoint = name }`. The Shader's `@vertex`/`@fragment` functions are the
+selectable entry points; omit `entryPoint` to use the first one of that
+stage (like WebGPU).
+
+Vertex and fragment may come from different Shaders. Each file's bindings
+are numbered on its own, so on Vulkan, D3D12 and GL — which share one slot
+namespace between the stages — two files that declare different bindings
+can collide; `GPUPipeline.new` rejects that case naming both bindings.
+Declaring the same bindings in both files always works.

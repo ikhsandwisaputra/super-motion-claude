@@ -1,0 +1,34 @@
+---
+source: https://rive.app/docs/scripting/api-reference/gpu/bind-group-layout-desc
+title: "BindGroupLayoutDesc"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# BindGroupLayoutDesc
+
+Descriptor for creating a GPUBindGroupLayout. Always derived from a
+shader — the binding map walks shader → kind / visibility / texture
+metadata / native slots so callers don't have to know any of them.
+
+## Fields
+
+### `shader`
+
+Source shader. Layouts cannot be built without one.
+
+### `fragment`
+
+Fragment Shader, when the pipeline this layout serves takes its two
+stages from different files. Its bindings and slots live only in its
+own map, so a layout built without it cannot resolve them.
+
+### `groupIndex`
+
+WGSL `@group(N)` this layout describes. Valid range \[0, 4).
+
+### `dynamicUBOs`
+
+WGSL @binding values whose UBO entries should set hasDynamicOffset.
+
+### `label`

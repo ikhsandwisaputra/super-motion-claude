@@ -1,0 +1,72 @@
+---
+source: https://rive.app/docs/account-admin/pricing
+title: "Pricing"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Pricing
+
+For full details and feature comparison, see [rive.app/pricing](https://rive.app/pricing?utm_source=docs\&utm_medium=content).
+
+## Plans
+
+| Plan | Monthly | Annual (paid upfront) | Best for |
+| :- | :- | :- | :- |
+| **Free** | \$0 | \$0 | Learning Rive, personal projects |
+| **Cadet** | \$17/seat/mo | \$108/seat/year | Small teams shipping to production (3 seats max) |
+| **Voyager** | \$49/seat/mo | \$384/seat/year | Teams needing Libraries and collaboration (25 seats max) |
+| **Enterprise** | — | \$1,440/seat/year | Large organizations (\$10M+ annual revenue) |
+
+Annual billing saves money but requires full payment upfront.
+
+## What's included
+
+**Free**
+
+* Exports for runtime, with a Rive splash screen
+* 3 collaborative files
+* State Machines, Data Binding, Scripting
+
+**Cadet** (everything in Free, plus)
+
+* Exports for runtime without the splash screen
+* Unlimited files
+
+**Voyager** (everything in Cadet, plus)
+
+* Libraries
+* CDN asset hosting
+* Embed link hosting
+* \$20/seat monthly agent credits
+* Priority Community support
+
+**Enterprise** (everything in Voyager, plus)
+
+* Dedicated Slack with Rive team
+* SSO and SOC2 Type II
+* Custom S3 bucket
+* Subteam workspaces
+* Org-wide permissions
+* Onboarding and training
+* Custom runtime support
+* Centralized billing
+* \$40/seat monthly agent credits
+
+***
+
+## Legacy pricing
+
+If you're on a legacy plan, your pricing is locked in as long as your plan stays active. Adding users may move you to current pricing. If your plan cancels, legacy pricing cannot be reinstated.
+
+***
+
+## Students
+
+Rive offers a discounted Student Plan for individual students with a valid student email or documentation. The Student Plan is for personal educational work only—not for commercial use or team collaboration. Complete [this form](https://forms.rive.app/education?utm_medium=support_page) to request access to the Student Plan.
+
+Schools, universities, and non-profits should use a standard Cadet or Voyager plan.
+
+***
+
+**Questions?** [Contact support](https://forms.rive.app/support?utm_medium=support_page).

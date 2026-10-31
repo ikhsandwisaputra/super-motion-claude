@@ -1,0 +1,251 @@
+---
+source: https://rive.app/docs/scripting/wgsl-shaders
+title: "WGSL Shaders"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# WGSL Shaders
+
+Create and render custom WGSL shaders in Rive.
+
+<video />
+
+Shaders in Rive let you write custom WGSL programs that run on the GPU and render to a GPU canvas, which can then be drawn in your Rive file. They are useful for effects, procedural graphics, and visuals that go beyond what the vector renderer and standard Node scripts can produce.
+
+Rive shaders use standard WGSL, with some restrictions for compatibility across Rive's supported rendering backends. See [WGSL Support](#wgsl-support) for supported features and limitations.
+
+[YouTube video player](https://www.youtube.com/embed/ZxZg7K3fsd0)
+
+> [!NOTE]
+>
+> **What's a shader?**
+>
+> A shader is a small program that runs on the GPU. GPUs are good at running the same program across many vertices or pixels in parallel, which makes shaders useful for graphics effects.
+>
+> A typical GPU pipeline uses two shader functions:
+>
+> * **Vertex shader** - decides where vertices are drawn.
+> * **Fragment shader** - decides the color of each pixel covered by those vertices.
+
+## Creating a shader
+
+[Create a new script](/docs/scripting/creating-scripts), select **WGSL Shader** as the type, and name it `BasicShader`.
+
+> [!NOTE]
+>
+> The [AI Agent](/docs/editor/ai-agent/ai-agent) can be a helpful way to create or iterate on shader code. Describe the effect you want, then review and test the generated WGSL in your file.
+
+### Basic WGSL shader
+
+This shader draws a single large triangle that covers the render target. The parts of the triangle outside the render target are clipped, leaving the entire target covered. This is a common technique called a fullscreen triangle.
+
+The fragment shader then colors each pixel with a gradient. No vertex or index buffers are needed because the triangle's vertices are defined directly in the shader.
+
+![Basic gradient shader preview](https://mintcdn.com/rive/6G7CfckyLTsLvluV/images/scripting/shaders/basic-shader-preview.png?fit=max\&auto=format\&n=6G7CfckyLTsLvluV\&q=85\&s=5e27f60a91c5a9c7849f799f7d1c5c6a)
+
+> **[Learn by remixing](https://rive.app/community/files/28718-wgsl-shader/?utm_source=docs\&utm_medium=docs_link_card\&utm_campaign=docs_to_marketplace_links)**
+>
+> Open this file on Marketplace, then click Remix to experiment in the Rive Editor.
+
+```wgsl theme={null}
+// Fullscreen gradient using one oversized triangle and no vertex or index buffers.
+
+struct VertexOutput {
+    @builtin(position) position: vec4<f32>,
+    @location(0) uv: vec2<f32>,
+}
+
+@vertex
+fn vs_main(@builtin(vertex_index) vertexIndex: u32) -> VertexOutput {
+    // Extend beyond the viewport so clipping leaves the full screen covered.
+    var pos = array<vec2<f32>, 3>(
+        vec2<f32>(-1.0, -1.0),
+        vec2<f32>(3.0, -1.0),
+        vec2<f32>(-1.0, 3.0),
+    );
+
+    let p = pos[vertexIndex];
+
+    var out: VertexOutput;
+    out.position = vec4<f32>(p, 0.0, 1.0);
+    out.uv = p * 0.5 + vec2<f32>(0.5, 0.5);
+
+    return out;
+}
+
+@fragment
+fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> {
+    return vec4<f32>(in.uv.x, in.uv.y, 0.5, 1.0);
+}
+```
+
+### Rendering a shader with a Script
+
+```lua theme={null}
+type ShaderDemo = {
+  -- Offscreen render target for the shader output.
+  canvas: GPUCanvas?,
+
+  -- Compiled shader and render settings.
+  pipeline: GPUPipeline?,
+}
+
+function init(self: ShaderDemo, context: Context): boolean
+  -- Create a 200x200 render target.
+  self.canvas = context:gpuCanvas({ width = 200, height = 200 })
+
+  -- Get the WGSL shader asset.
+  local shader = context:shader('BasicShader')
+
+  if shader and self.canvas then
+    -- Use the shader for both vertex and fragment stages.
+    self.pipeline = GPUPipeline.new({
+      vertex = shader,
+      fragment = shader,
+
+      -- Positions come from vertex_index, so no vertex buffer is needed.
+      vertexLayout = {},
+
+      -- Match the render target format.
+      colorTargets = { { format = self.canvas.format } },
+    })
+  end
+
+  return true
+end
+
+function draw(self: ShaderDemo, renderer: Renderer)
+  if self.canvas and self.pipeline then
+    -- Render into the GPU canvas.
+    local pass = self.canvas:beginRenderPass({
+      color = {
+        { loadOp = 'clear', storeOp = 'store', clearColor = { 0, 0, 0, 1 } },
+      },
+    })
+
+    pass:setPipeline(self.pipeline)
+
+    -- Draw the fullscreen triangle.
+    pass:draw(3)
+    pass:finish()
+  end
+
+  if self.canvas then
+    local sampler = ImageSampler('clamp', 'clamp', 'bilinear')
+    renderer:drawImage(self.canvas.image, sampler, 'srcOver', 1)
+  end
+end
+
+return function(): Node<ShaderDemo>
+  return {
+    canvas = nil,
+    pipeline = nil,
+    init = init,
+    draw = draw,
+  }
+end
+```
+
+## Uniforms
+
+Uniforms pass values from a script into a shader, allowing the shader to respond to values that change at runtime. You can use uniforms for values such as colors, opacity, time, or animation parameters.
+
+<video />
+
+> **[Learn by remixing](https://rive.app/community/files/28722-shader-uniforms?utm_source=docs\&utm_medium=docs_link_card\&utm_campaign=docs_to_marketplace_links)**
+>
+> Open this file on Marketplace, then click Remix to experiment in the Rive Editor.
+
+Define the uniform data in your WGSL shader, then assign it to a bind group and binding. Bind groups organize the resources passed into a shader, while bindings identify individual resources within each group:
+
+```wgsl theme={null}
+struct Uniforms {
+    blue: f32,
+}
+
+@group(0) @binding(0)
+var<uniform> uniforms: Uniforms;
+```
+
+The shader can then use the uniform like any other value:
+
+```wgsl theme={null}
+@fragment
+fn fs_main(in: VertexOutput) -> @location(0) vec4<f32> {
+    return vec4<f32>(in.uv.x, in.uv.y, uniforms.blue, 1.0);
+}
+```
+
+On the script side, create a `GPUBuffer` containing the uniform data and add it to a `GPUBindGroup`. The bind group and slot must match the `@group` and `@binding` values declared in the shader.
+
+Bind the group to the render pass before drawing. When a uniform changes, write the new value to its buffer to make it available to the shader. Uniform values can come from script inputs, allowing them to be configured in the Editor, animated, or controlled with data binding.
+
+## Textures
+
+Textures let shaders read image data. A shader samples a texture at a set of coordinates to get the color at that location, which it can use or modify when calculating its output.
+
+<video />
+
+> **[Learn by remixing](https://rive.app/community/files/28734-shader-texture?utm_source=docs\&utm_medium=docs_link_card\&utm_campaign=docs_to_marketplace_links)**
+>
+> Open this file on Marketplace, then click Remix to experiment in the Rive Editor.
+
+To use a texture in WGSL, define a texture and sampler:
+
+```wgsl id="x8pq2m" theme={null}
+@group(0) @binding(1)
+var srcTexture: texture_2d<f32>;
+
+@group(0) @binding(2)
+var srcSampler: sampler;
+```
+
+Use `textureSample` to read a color from the texture at a set of UV coordinates:
+
+```wgsl id="y7km4q" theme={null}
+let color = textureSample(srcTexture, srcSampler, in.uv);
+```
+
+UV coordinates identify a position within the texture, typically from `0` to `1` on each axis. For example, `(0, 0)` represents one corner of the texture and `(1, 1)` the opposite corner.
+
+On the script side, add a `GPUTextureView` and `GPUSampler` to a `GPUBindGroup`. Their slots must match the `@binding` values declared in the shader.
+
+### Using an Artboard as a texture
+
+Shaders sample textures, not Rive artboards directly. To apply a shader to an artboard, first render the artboard to an offscreen canvas:
+
+```lua id="pk5m2r" theme={null}
+local srcRenderer = srcCanvas:beginFrame({
+  clearColor = Color.rgba(0, 0, 0, 0),
+})
+
+instance:draw(srcRenderer)
+srcCanvas:endFrame()
+```
+
+Call `srcCanvas.image:view()` to obtain a `GPUTextureView`, then add that view to the shader's `GPUBindGroup`. Redraw the artboard to the canvas as it changes to keep the texture up to date.
+
+The linked Marketplace example uses this technique to render an artboard through a shader that distorts its texture coordinates with animated noise.
+
+## Shader targets
+
+Rive shaders are authored in WGSL. When you export your file, Rive compiles each shader for the selected targets and includes those variants in the `.riv` file. The original WGSL source isn't included.
+
+When nothing is selected in the editor, the Inspector shows file-level **Shader Targets** options. Select the targets required by the runtimes and platforms where your file will be used:
+
+* Metal (MSL)
+* GLSL ES 300
+* WGSL
+* HLSL
+* SPIR-V
+
+The WebGPU backend uses WGSL directly.
+
+If a target is not selected, the shader isn't included for that backend and won't load when the file runs on it.
+
+![Shader Targets options in the Inspector](https://mintcdn.com/rive/nRStjFumqKra6PMN/images/scripting/shaders/shader-targets.png?fit=max\&auto=format\&n=nRStjFumqKra6PMN\&q=85\&s=a264400c1f71dcb1e1b23311acac5851)
+
+## WGSL support
+
+Rive uses standard WGSL with some restrictions to ensure shaders work across supported rendering backends. Rive supports vertex and fragment shaders, with up to four bind groups. Compute shaders and override declarations aren't supported. Some WGSL features are also unavailable, including 64-bit float and integer types, push constants, subgroup operations, and non-uniform resource indexing.

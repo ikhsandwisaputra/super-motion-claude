@@ -1,0 +1,2 @@
+https://barba.js.org/api/.github/CONTRIBUTING.md	403 Client Error: Forbidden for url: https://barba.js.org/api/.github/CONTRIBUTING.md
+https://barba.js.org/api/LICENSE.md	404 Client Error: Not Found for url: https://barba.js.org/api/LICENSE.md

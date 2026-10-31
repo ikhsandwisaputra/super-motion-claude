@@ -1,0 +1,533 @@
+---
+source: https://rive.app/docs/runtimes/apple/apple
+title: "Apple"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Apple
+
+Apple runtime for Rive. 
+
+> [!WARNING]
+>
+> Note that certain Rive features may not be supported yet for a particular runtime, or may require using the Rive Renderer.
+>
+> For more details, refer to the [feature support](/docs/feature-support/) and [choosing a renderer](/docs/runtimes/choose-a-renderer/) pages.
+
+## Overview
+
+This guide documents how to get started using the Apple runtime library. Rive runtime libraries are open-source. The source is available in its [GitHub repository](https://github.com/rive-app/rive-ios).
+
+This library contains an API for Apple apps to easily integrate their Rive assets for both UIKit/AppKit and SwiftUI. The runtime can be installed via Cocoapods or Swift Package Manager.
+
+The Apple runtime currently supports iOS 14.0+, visionOS 1.0+, tvOS 16.0+, macOS 13.1+, and Mac Catalyst 14.0+
+
+The new Apple runtime is designed as a Swift-first API leveraging Swift Concurrency, with improved multi-threading support for Rive.
+
+The entry point is the `Rive` type, which is a container for the configuration of a Rive view. This includes the file, artboard, state machine, fit, and background color.
+
+Adding a Rive view is done by creating a `RiveUIView` with a `Rive` object, and then adding it to the view hierarchy. In SwiftUI, this is as easy as calling `.view()` on a `RiveUIView` object.
+
+It is important to note that while multi-threading is supported, the calls from Rive objects must still be made on the main thread. This is enforced at compile time by marking functions and types as `@MainActor`.
+
+Most APIs are marked as `throws`, with `Error` types available for the different Rive primitives.
+
+## Getting started
+
+Follow the steps below for a quick start on integrating Rive into your Apple app.
+
+**New Runtime**
+
+**1. Install the Runtime**
+
+With CocoaPods going into [maintenance mode](https://blog.cocoapods.org/CocoaPods-Support-Plans/), we recommend using Swift Package Manager.
+
+To install via Xcode, you can follow Apple's instructions for [adding a package dependency to your app](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app), with the Apple runtime's GitHub URL: [https://github.com/rive-app/rive-ios](https://github.com/rive-app/rive-ios).
+
+Alternatively, you can add the dependency manually by adding the following to your `Package.swift` file:
+
+```swift theme={null}
+dependencies: [
+    .package(url: "https://github.com/rive-app/rive-ios", from: "6.24.0")
+]
+```
+
+Then add the dependency to your target:
+
+```swift theme={null}
+targets: [
+    .target(
+        name: "MyApp",
+        dependencies: [
+            .product(name: "RiveRuntime", package: "rive-ios")
+        ]
+    )
+]
+```
+
+**2. Import Rive**
+
+The new Apple runtime is available in the same Swift package and CocoaPods pod as the legacy runtime. Both runtime APIs are available in the same package, so you can import the runtime using the same import statement.
+
+```swift theme={null}
+import RiveRuntime
+```
+
+**3. Create a Worker**
+
+A `Worker` is what handles concurrency in the Rive runtime. This type handles starting a background thread for processing, in addition to handling global (out-of-band) assets.
+
+A `Worker` must be alive for the duration of Rive usage. A `File` creates a strong reference to a `Worker`, so a `Worker` will at least be alive for the duration of use of a `File`, unless a reference to a `Worker` is kept outside of a file.
+
+```swift theme={null}
+// In an async context
+// GPU Canvas is required for 3D content.
+let worker = try await Worker(
+    configuration: .init(enableGPUCanvas: true)
+)
+```
+
+See [GPU Canvas](/docs/runtimes/apple/gpu-canvas) for more information about this worker configuration.
+
+For more information on threading, see [Threading](#threading).
+
+**4. Load a File**
+
+Once you have created a `Worker`, you can move onto creating a `File`. Each `File` object takes a source and a worker.
+
+> [!NOTE]
+>
+> The `File` initializer is marked `@MainActor`.
+
+```swift Local File theme={null}
+let worker = try await Worker(
+    configuration: .init(enableGPUCanvas: true)
+)
+let file = try await File(source: .local("my_file", Bundle.main), worker: worker)
+```
+
+```swift Remote URL theme={null}
+let worker = try await Worker(
+    configuration: .init(enableGPUCanvas: true)
+)
+let url: URL = URL(string: "https://example.com/my_file.riv")!
+let file = try await File(source: .url(url), worker: worker)
+```
+
+```swift Data theme={null}
+let worker = try await Worker(
+    configuration: .init(enableGPUCanvas: true)
+)
+let data: Data = ...
+let file = try await File(source: .data(data), worker: worker)
+```
+
+**5. Add a View**
+
+Once you have created a `File`, you can move onto creating a `Rive` object. This object defines the configuration of a view. The most basic implementation is created with just a file; Rive will handle loading the default artboard and state machine for rendering. Additionally, if the artboard contains a default view model instance, it will be bound to the state machine automatically.
+
+Once you have created a `Rive` object, you can initialize your view. In UIKit, this is done by creating a `RiveUIView` and adding it to the view hierarchy. In SwiftUI, this is done by using the `RiveUIViewRepresentable` and `AsyncRiveUIViewRepresentable` types.
+
+```swift UIKit theme={null}
+let riveView = RiveUIView({
+    let worker = try await Worker(
+        configuration: .init(enableGPUCanvas: true)
+    )
+    let file = try await File(source: .local("my_file", Bundle.main), worker: worker)
+    return try await Rive(file: file)
+})
+view.addSubview(riveView)
+```
+
+```swift SwiftUI theme={null}
+var body: some View {
+    // After having created a `Rive` object, you can initialize your view.
+    RiveUIViewRepresentable(rive)
+}
+```
+
+```swift SwiftUI (Async) theme={null}
+var body: some View {
+    // After having created a `Rive` object, you can initialize your view.
+    AsyncRiveUIViewRepresentable {
+        let worker = try await Worker(
+            configuration: .init(enableGPUCanvas: true)
+        )
+        let file = try await File(source: .local("my_file", Bundle.main), worker: worker)
+        return try await Rive(file: file)
+    }
+}
+```
+
+The above example uses the default artboard and state machine for the file, binding authored main and global view model defaults to the state machine when available. This is the default behavior when initializing a `Rive` object without specifying an artboard or state machine.
+
+Alternatively, you can also specify which artboard and state machine to use. Documentation and examples for manually selecting which artboard to use is available in the [Artboards](/docs/runtimes/apple/artboards#choosing-an-artboard) documentation. Documentation and examples for manually selecting which state machine to use is available in the [State Machines](/docs/runtimes/apple/state-machines#getting-a-state-machine) documentation.
+
+**6. Data Binding**
+
+[Data Binding](/docs/runtimes/apple/data-binding) is a feature that allows you to dynamically update your Rive graphics from code. This includes things such as strings, numbers, booleans, and more.
+
+`Rive(file:)` creates a state machine and binds authored main and global defaults when available. For property access, create and retain the instances yourself:
+
+```swift theme={null}
+let artboard = try await file.createArtboard()
+let viewModelInstance = try await file.createViewModelInstance(
+    .viewModelDefault(from: .artboardDefault(artboard))
+)
+let stateMachine = try await artboard.createStateMachine(binding: viewModelInstance)
+let rive = try await Rive(file: file, artboard: artboard, stateMachine: stateMachine)
+```
+
+Store `viewModelInstance` in your app's model. The state machine has no instance getters, and the deprecated `rive.viewModelInstance` getter returns `nil` with these initializers. See [Global View Models](/docs/runtimes/apple/data-binding#global-view-models) for shared bindings and [setup recipe](/docs/runtimes/apple/migrating-from-legacy#setting-up-instances-for-your-app) for creating and retaining instances in your app.
+
+Once data binding is set up, you can update and listen to data binding properties at runtime.
+
+```swift Set Values theme={null}
+// Use the viewModelInstance retained during setup.
+let stringProperty = StringProperty(path: "path/to/string")
+viewModelInstance.setValue(of: stringProperty, to: "Hello, Rive")
+```
+
+```swift Get Values theme={null}
+// Use the viewModelInstance retained during setup.
+let stringProperty = StringProperty(path: "path/to/string")
+
+// Get the current value of the property
+let value = try await viewModelInstance.value(of: stringProperty)
+
+// Get a stream of values for the property, which emits a new value whenever the property changes.
+let valueStream = viewModelInstance.valueStream(of: stringProperty)
+do {
+    for try await value in valueStream {
+        print(value)
+    }
+} catch let error as ViewModelInstanceError {
+    print(error)
+} catch {
+    print(error)
+}
+```
+
+**7. Examples**
+
+For basic usage, see the [Marty](https://github.com/rive-app/rive-ios/blob/main/Example-iOS/Source/Examples/Concurrency/MartyView.swift) example in our Example app.
+
+For a more complete example, see the [Quick Start](https://github.com/rive-app/rive-ios/blob/main/Example-iOS/Source/Examples/Concurrency/QuickStartView.swift) example in our Example app, which demonstrates how to use data binding.
+
+For examples on how to pause and resume animations, as well as set frame rate, see the [Player](https://github.com/rive-app/rive-ios/blob/main/Example-iOS/Source/Examples/Concurrency/PlayerView.swift) example in our Example app.
+
+**Legacy Runtime**
+
+**1. Install the Runtime**
+
+**Swift Package Manager**
+
+To install via Swift Package Manager, in the package finder in Xcode, search for `rive-ios` or the full Github path: `https://github.com/rive-app/rive-ios`
+
+**Cocoapods**
+
+Add the following to your Podspec file:
+
+```bash theme={null}
+pod 'RiveRuntime'
+```
+
+**2. Import Rive**
+
+Add the following to the top of your file where you utilize the Rive runtime:
+
+```swift theme={null}
+import RiveRuntime
+```
+
+**3. Usage**
+
+The primary object you'll use is a `RiveViewModel`. It is responsible for creating and interacting with Rive assets.
+
+**SwiftUI**
+
+```swift Local File theme={null}
+struct AnimationView: View {
+    var body: some View {
+        RiveViewModel(fileName: "cool_rive_animation").view()
+    }
+}
+```
+
+```swift Remote URL theme={null}
+struct AnimationView: View {
+    var body: some View {
+        RiveViewModel(
+            webURL: "https://cdn.rive.app/animations/off_road_car_v7.riv"
+        ).view()
+    }
+}
+```
+
+**UIKit**
+
+You can add Rive to a view controller purely with code by making the `RiveViewModel`, telling it to create a fresh `RiveView` and then adding it to the view hierarchy.
+
+Alternatively, you can add Rive to a controller using Storyboards by making a `RiveViewModel`, and setting its view to be the `RiveView` you made in the Storyboard.
+
+```swift Programmatic theme={null}
+class AnimationViewController: UIViewController {
+var simpleVM = RiveViewModel(fileName: "cool_rive_animation")
+
+override func viewWillAppear(_ animated: Bool) {
+    let riveView = simpleVM.createRiveView()
+    view.addSubview(riveView)
+    riveView.frame = view.bounds
+}
+```
+
+```swift Storyboard theme={null}
+class AnimationViewController: UIViewController {
+    @IBOutlet weak var riveView: RiveView!
+    var simpleVM = RiveViewModel(fileName: "cool_rive_animation")
+
+    override public func viewDidLoad() {
+        simpleVM.setView(riveView)
+    }
+}
+```
+
+## Playing / pausing
+
+**New Runtime**
+
+```swift UIKit theme={null}
+let rive = try await Rive(...)
+let riveView = RiveUIView(rive: rive)
+riveView.isPaused = true // or false to resume
+```
+
+```swift SwiftUI theme={null}
+@State var isPaused = false
+var body: some View {
+    RiveUIViewRepresentable(rive)
+    .paused(isPaused)
+}
+```
+
+```swift SwiftUI (Async) theme={null}
+@State var isPaused = false
+var body: some View {
+    AsyncRiveUIViewRepresentable {
+        let worker = try await Worker()
+        let file = try await File(source: ..., worker: worker)
+        let rive = try await Rive(file: file)
+        return rive
+    }
+    .paused(isPaused)
+}
+```
+
+**Legacy Runtime**
+
+```swift theme={null}
+let viewModel = RiveViewModel(fileName: "...")
+viewModel.pause() // or play() to resume
+```
+
+## Frame rate
+
+**New Runtime**
+
+```swift UIKit theme={null}
+let rive = try await Rive(...)
+let riveView = RiveUIView(rive: rive)
+ // Set a fixed frame rate
+riveView.frameRate = .fps(30)
+ // Set a range of frame rates (Note: on < iOS 15 / macOS 14, this is the same as using .fps)
+riveView.frameRate = .range(minimum: 30, maximum: 60)
+ // Revert to the default frame rate
+riveView.frameRate = .default
+```
+
+```swift SwiftUI theme={null}
+var body: some View {
+    RiveUIViewRepresentable(rive)
+    .frameRate(.fps(30))
+    // or
+    .frameRate(.range(minimum: 30, maximum: 60))
+    // or
+    .frameRate(.default)
+}
+```
+
+```swift SwiftUI (Async) theme={null}
+var body: some View {
+    AsyncRiveUIViewRepresentable {
+        let worker = try await Worker()
+        let file = try await File(source: ..., worker: worker)
+        let rive = try await Rive(file: file)
+        return rive
+    }
+    .frameRate(.fps(30))
+    // or
+    .frameRate(.range(minimum: 30, maximum: 60))
+    // or
+    .frameRate(.default)
+}
+```
+
+**Legacy Runtime**
+
+```swift theme={null}
+let viewModel = RiveViewModel(fileName: "...")
+viewModel.setPreferredFramesPerSecond(preferredFramesPerSecond: 30)
+// or, on iOS >= 15 / macOS >= 14
+viewModel.setPreferredFrameRateRange(preferredFrameRateRange: CAFrameRateRange(minimum: 30, maximum: 60))
+```
+
+## Semantics
+
+Rive views can expose [semantics defined in the editor](/docs/editor/accessibility/semantics) to VoiceOver. Semantics are available in the New Runtime only.
+
+See [Semantics](/docs/runtimes/apple/semantics) for the available modes and more detail.
+
+## Threading
+
+**New Runtime**
+
+The new runtime supports multi-threading through the introduction of `Worker` objects.
+
+```swift theme={null}
+// In an async context
+let worker = try await Worker()
+let file = try await File(source: ..., worker: worker)
+```
+
+The `Worker` object is responsible for creating and managing the background thread for the Rive instance.
+
+Each worker shares global out-of-band assets, such as images, fonts, and audio. Query a file with `File.getAssets()` and register a replacement on its worker using the asset's `uniqueName`. The replacement applies to matching assets in files using that worker, including files already loaded and files loaded later. See [Loading Assets](/docs/runtimes/apple/loading-assets) for examples.
+
+One worker roughly equates to one background thread. If you are rendering multiple heavy Rive graphics, you can create one `Worker` per file to have each processed on its own background thread.
+
+The number of `Worker` objects is limited by system availability; specifically, a `Worker` is backed by a `DispatchQueue`, which handles the creation and reuse of threads.
+
+It is important to note that while multi-threading is supported, Rive object API calls must still be made on the main actor. This is enforced at compile time with functions and types marked as `@MainActor`.
+
+### Shared Workers
+
+To share out-of-band or referenced assets across multiple `File` objects, use a shared `Worker`. An example implementation is shown below.
+
+> [!NOTE]
+>
+> `AsyncShared` and the `Worker` extensions below are application-level helpers. They are not included with `RiveRuntime`.
+
+```swift AsyncShared.swift theme={null}
+/// Lazily creates and caches a value. Failed initialization can be retried.
+@MainActor
+final class AsyncShared<Value> {
+    private let makeValue: @MainActor () async throws -> Value
+    private var cachedValue: Value?
+    private var loadingTask: Task<Value, Error>?
+
+    init(_ makeValue: @escaping @MainActor () async throws -> Value) {
+        self.makeValue = makeValue
+    }
+
+    func value() async throws -> Value {
+        if let cachedValue {
+            return cachedValue
+        }
+
+        let task = loadingTask ?? Task {
+            defer { loadingTask = nil }
+            let value = try await makeValue()
+            cachedValue = value
+            return value
+        }
+        loadingTask = task
+
+        return try await task.value
+    }
+}
+```
+
+```swift AsyncShared+Worker.swift theme={null}
+import RiveRuntime
+
+extension AsyncShared where Value == Worker {
+    convenience init(configuration: Worker.Configuration = .init()) {
+        self.init {
+            try await Worker(configuration: configuration)
+        }
+    }
+}
+
+extension Worker {
+    @MainActor
+    private static let sharedWorker = AsyncShared<Worker>()
+
+    @MainActor
+    private static let sharedGPUCanvasWorker = AsyncShared<Worker>(
+        configuration: .init(enableGPUCanvas: true)
+    )
+
+    @MainActor
+    static func shared() async throws -> Worker {
+        try await sharedWorker.value()
+    }
+
+    @MainActor
+    static func sharedGPUCanvas() async throws -> Worker {
+        try await sharedGPUCanvasWorker.value()
+    }
+}
+```
+
+Then, when creating a `Rive` object, use `Worker.shared()` to get the shared worker.
+
+```swift theme={null}
+let worker = try await Worker.shared()
+let file = try await File(source: ..., worker: worker)
+let rive = try await Rive(file: file)
+```
+
+**Legacy Runtime**
+
+The legacy runtime is currently single-threaded on the main thread. This means that all Rive calls must be made on the main thread. It is recommended that if you are on a background thread, you should dispatch to the main queue before making any Rive calls.
+
+## Logging
+
+**New Runtime**
+
+The new runtime does not yet include logging, but will be added in the near future.
+
+**Legacy Runtime**
+
+Enabling logging is as simple as setting `RiveLogger.isEnabled` to `true`.
+
+```swift theme={null}
+RiveLogger.isEnabled = true
+```
+
+For more details on logging levels, categories, and verbose logs, see the [Logging](/docs/runtimes/logging) page.
+
+See subsequent runtime pages to learn how to control animation playback, state machines, and more.
+
+## Example app
+
+You can run our Apple example app from the Rive GitHub repository.
+
+```bash theme={null}
+git clone https://github.com/rive-app/rive-ios
+```
+
+Open the `Example-iOS` app in Xcode and be sure to select the `Preview (iOS)` or `Preview (macOS)` [scheme](https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project). The other schemes are for development purposes and require additional configuration, see[ ](https://github.com/rive-app/rive-ios/blob/main/CONTRIBUTING.md)[CONTRIBUTING.MD](https://github.com/rive-app/rive-ios/blob/main/CONTRIBUTING.md).
+
+![Image](https://mintcdn.com/rive/QEBBdwwFJOiq_hKR/images/runtimes/apple/f4e4f632-f24d-47ed-b19c-0c961da458e8.webp?fit=max\&auto=format\&n=QEBBdwwFJOiq_hKR\&q=85\&s=831969136a4931f7b93cdaf5524e7d4b)
+
+## Resources
+
+GitHub: [https://github.com/rive-app/rive-ios](https://github.com/rive-app/rive-ios)
+
+Examples:
+
+* [https://github.com/rive-app/rive-ios/tree/main/Example-iOS](https://github.com/rive-app/rive-ios/tree/main/Example-iOS)
+* [https://github.com/rive-app/rive-ios/tree/main/Demo-App](https://github.com/rive-app/rive-ios/tree/main/Demo-App)
+* Free course from Meng To: [https://designcode.io/swiftui-rive](https://designcode.io/swiftui-rive)

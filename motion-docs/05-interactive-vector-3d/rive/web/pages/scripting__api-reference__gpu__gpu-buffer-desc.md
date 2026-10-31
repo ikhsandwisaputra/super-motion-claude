@@ -1,0 +1,35 @@
+---
+source: https://rive.app/docs/scripting/api-reference/gpu/gpu-buffer-desc
+title: "GPUBufferDesc"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# GPUBufferDesc
+
+Descriptor for `GPUBuffer.new`.
+
+## Fields
+
+### `size`
+
+Size in bytes. Not checked against the shader's struct — lay a uniform
+buffer out by hand to the WGSL alignment rules (vec2 to 8, vec3/vec4
+and array elements to 16); a wrong offset reads garbage silently.
+
+### `usage`
+
+How the buffer will be used.
+
+### `data`
+
+Optional initial contents. Required when `immutable` is true; its
+length must equal `size`.
+
+### `immutable`
+
+When true the buffer is GPU-only and cannot be written after creation.
+
+### `label`
+
+Optional debug name.

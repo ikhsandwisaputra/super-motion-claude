@@ -1,0 +1,39 @@
+---
+source: https://rive.app/docs/scripting/api-reference/interfaces/property-view-model
+title: "PropertyViewModel"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# PropertyViewModel
+
+Represents a property that holds a [ViewModel](/docs/scripting/api-reference/interfaces/view-model) value.
+
+## Fields
+
+### `value`
+
+The current view model value.
+
+```lua highlight={6} theme={null}
+function init(self: VMNameNode, context: Context): boolean
+    local vm = context:viewModel()
+    if vm then
+        local nestedVMProp = vm:getViewModel("nestedVM")
+        if nestedVMProp then
+            local nestedVM = nestedVMProp.value
+            local age = nestedVM:getNumber("age")
+            if age then
+                print("nestedVM age:", age.value)
+            else
+                print("'age' property not found on nestedVM.")
+            end
+        else
+            print("'nestedVM' property not found on ViewModel.")
+        end
+    else
+        print("No ViewModel found on context.")
+    end
+    return true
+end
+```

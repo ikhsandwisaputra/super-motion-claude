@@ -1,0 +1,94 @@
+---
+source: https://rive.app/docs/scripting/api-reference/interfaces/blob
+title: "Blob"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Blob
+
+A blob asset containing raw binary data.
+
+## Fields
+
+### `size`
+
+The size of the blob data in bytes.
+
+```lua highlight={9} theme={null}
+type DrawBlob = {
+    myBlob: Blob?,
+}
+
+function init(self: DrawBlob, context: Context): boolean
+    self.myBlob = context:blob('myBlob')
+
+    if self.myBlob then
+        print('Blob size:', self.myBlob.size, 'bytes')
+    end
+
+    return true
+end
+
+return function(): Node<DrawBlob>
+    return {
+        myBlob = nil,
+        init = init,
+    }
+end
+```
+
+### `name`
+
+The name of the blob asset.
+
+```lua highlight={9} theme={null}
+type DrawBlob = {
+    myBlob: Blob?,
+}
+
+function init(self: DrawBlob, context: Context): boolean
+    self.myBlob = context:blob('myBlob')
+
+    if self.myBlob then
+        print('Blob name:', self.myBlob.name)
+    end
+
+    return true
+end
+
+return function(): Node<DrawBlob>
+    return {
+        myBlob = nil,
+        init = init,
+    }
+end
+```
+
+### `data`
+
+The raw binary data as a buffer. Read it with the `buffer` library,
+for example `buffer.readu8(blob.data, 0)`.
+
+```lua highlight={9} theme={null}
+type DrawBlob = {
+    myBlob: Blob?,
+}
+
+function init(self: DrawBlob, context: Context): boolean
+    self.myBlob = context:blob('myBlob')
+
+    if self.myBlob then
+        print('First byte:', buffer.readu8(self.myBlob.data, 0))
+    end
+
+    return true
+end
+
+return function(): Node<DrawBlob>
+    return {
+        myBlob = nil,
+        init = init,
+    }
+end
+```

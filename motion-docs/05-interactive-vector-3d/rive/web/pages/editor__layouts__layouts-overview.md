@@ -1,0 +1,118 @@
+---
+source: https://rive.app/docs/editor/layouts/layouts-overview
+title: "Overview"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Overview
+
+Layouts allow you to build responsive UI components in Rive. Make your designs fit, fill, or reflow content based on the space available.
+
+[YouTube video player](https://www.youtube.com/embed/jANBKRidBtk)
+
+Leverage Rive's layout system to accommodate a variety of use cases:
+
+* Pin items to chosen edges of a parent artboard or container.
+* Create buttons and labels that adapt to the size of the text.
+* Build lists and grids of content that reflow, animate, and scroll.
+* Combine and nest layouts to develop entire interfaces
+
+You can use these techniques to create all kinds of production-ready buttons, lists, and menus that can fluidly resize to fit any device size or orientation. Rive graphics aren’t mockups or prototypes, they’re functional graphics that can change state and be connected to real data — and because Rive runs anywhere, you can re-use the same responsive graphics on mobile apps, game engines, websites, custom devices, and more.
+
+> [!NOTE]
+>
+> Check out the [Layouts playlist](https://www.youtube.com/playlist?list=PLujDTZWVDSsGvor80PkjHaZ3hNNo6s_ef) on Rive's YouTube channel for additional Layout related tutorials
+
+***
+
+## Introduction
+
+Prior to the addition of Layouts in Rive, all objects on an Artboard were positioned in a freeform way, with few rules limiting this (one exception being [Constraints](/docs/editor/constraints/constraints-overview)). Layouts provide a rules based way to position and size your content using Rows, Columns, Grids, and Stacks.
+
+[YouTube video player](https://www.youtube.com/embed/DIPOxAqAJCU)
+
+> [!TIP]
+>
+> A Layout is a container whose position and size is bound by rules (relative to its parent Layout or children). When Rive objects (text, shapes, paths, groups, images, components, and even joysticks or bones) are placed in a Layout, they inherit the positioning rules of the Layout (**participate in the Layout**), but they can also act independently within the Layout container if desired. This allows for added freedom if you need to animate an object within a Layout.
+
+> [!TIP]
+>
+> Layouts only affect the position of other Layouts. For example, if you want to have a Row Layout, you would have a parent Layout set to a direction of Row, and all of its Layout children will be laid out in a row (and have things like their parent's padding, gap, alignment, etc. applied to their positions).
+
+***
+
+## Layout parents and children
+
+In order to create more complex UI that responds to the screen or browser size, it is important to understand that Layouts can be placed inside other Layouts. We refer to the outer Layout as the parent and the inner Layout as the child. The Layout children are typically positioned relative to their Layout parent (similar to how [Groups](/docs/editor/fundamentals/groups) work). In addition, the parent can either be sized to the children ([Hug](/docs/editor/layouts/layout-parameters#scale-types)) or the children can size to their parent ([Fill](/docs/editor/layouts/layout-parameters#scale-types)). Here is an example to help visualize how these relationships work.
+
+In the image below we will focus on the regions contained by the dashed lines. The outer green dashed line is the outermost Layout, which is set to Layout its children in a single Column. In the second row of that Column, the red dashed line is a child Layout containing the Battery indicators for various devices. This Layout is defined as a Row. This Layout has 4 child Layouts (blue dashed) set to evenly Fill the width of their parent (so that when the parent resizes, the child Layouts also resize, each to Fill 25% of the available space). Each of those 4 Layouts are set to Column and have 2 child Layouts (pink dashed) containing a trim path with a visualization of battery remaining and percentage label. By creating these simple parent-child Layouts, we can create infinitely responsive content with Rive!
+
+> **[Learn by remixing](https://rive.app/community/files/26209-layouts-example/?utm_source=docs\&utm_medium=docs_link_card\&utm_campaign=docs_to_marketplace_links)**
+>
+> Open this file on Marketplace, then click Remix to experiment in the Rive Editor.
+
+![Image](https://mintcdn.com/rive/KnNrDuhU1mIj7cOb/images/editor/layout-visualized.png?fit=max\&auto=format\&n=KnNrDuhU1mIj7cOb\&q=85\&s=b5ca293c00150630712796f5e9ba27ac)
+
+***
+
+## Absolute vs relative Layouts
+
+Layouts can exist within Rive's freeform transform space, which means that you can draw a Layout to the Artboard and position it as you would any other Rive object. This type of Layout is referred to as **Absolute** (positioned absolutely).
+
+On the other hand, when you want a Layout to participate in the flow of its parent layout, this is referred to as **Relative** (positioned relative to its parent). The position of Relative Layouts are determined by their parent via many parameters such as [layout type](/docs/editor/layouts/layout-parameters#layout-type) (Row, Column, Grid, or Stack), alignment, padding, gap, etc.
+
+Use the icon in the top right of the layout inspector to toggle between an absolute and relative layout.
+
+![Image](https://mintcdn.com/rive/KnNrDuhU1mIj7cOb/images/editor/layouts/3412f52f-c283-4617-b6c5-f5af8ad1ddcc.webp?fit=max\&auto=format\&n=KnNrDuhU1mIj7cOb\&q=85\&s=46c53838c7a95341935f1a5e2402bde9)
+
+***
+
+## Layouts and other Rive objects
+
+A Layout container will affect its children in one of two ways:
+
+* Set the child’s position
+* Set both the child’s position and size
+
+This behaviour is determined by the object type of the child. Objects that have both their position and size defined by a Layout container include:
+
+* Text
+* Images
+* Parametric shapes (rectangles, ellipses, triangles, polygons, and stars)
+* Component instances (Leaf & Layout mode)
+* Other Layouts
+
+All other objects will only have their positioned set by the layout. The [N-Slicing](/docs/editor/layouts/n-slicing) feature provides more advanced options to control the layout/scale behaviour of more advanced shapes and groups.
+
+Unlike in some other tools, Rive will provide an additional hierarchy item to represent the Layout container of an object. This helps differentiate the freeform nature of Rive with the structured Layout system. For example, an object within a Layout container can still apply additional transforms such as position, scale, and rotation to allow it to break out of the Layout. This becomes particularly powerful when coupled with constraints. Furthermore, a Layout container can house multiple objects that can be placed in front of each other.
+
+Shapes, text, and images can also participate in a Layout directly, without a wrapper Layout. Select **Layout** instead of **Node** at the top of the **Inspector** to give it its own width, height, and fit as a Layout child.
+
+***
+
+## Use cases
+
+### Building a responsive button
+
+This tutorial shows how you can build a responsive button from scratch.
+
+[YouTube video player](https://www.youtube.com/embed/dx63jfWJtLQ)
+
+### Reflow with dynamic components
+
+This tutorial explains how to build Rive files that can reposition their elements dynamically when resized.
+
+[YouTube video player](https://www.youtube.com/embed/_dE4ndRZB6U)
+
+### Grid and stack layouts
+
+This tutorial introduces the Grid and Stack layout types and builds an inventory screen that combines them: a Grid of item cards, where each card is a Stack. See [Grid](/docs/editor/layouts/layout-parameters#grid) and [Stack](/docs/editor/layouts/layout-parameters#stack) for details.
+
+[YouTube video player](https://www.youtube.com/embed/54fj9_zUemc)
+
+> [!TIP]
+>
+> If layouts aren't visible on the stage, open the **View Options** menu and make sure **Layouts** is enabled.
+>
+> ![toggle layouts visibility](https://mintcdn.com/rive/Ij2wXPG9-c5w_HuM/images/editor/interface/toggle-show-layouts.gif?s=80c3458b4ecd99987024096fd9ad5de8)

@@ -1,0 +1,176 @@
+---
+source: https://rive.app/docs/editor/text/text-modifiers
+title: "Text Modifiers"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Text Modifiers
+
+Text Modifiers let you animate or transform individual characters, words, lines, or glyphs within a text object.
+
+By combining ranges, falloff, and animated offsets, you can create effects such as text reveals, wave animations, bouncing characters, and per-letter motion.
+
+[YouTube video player](https://www.youtube.com/embed/RkahZjwf3aQ)
+
+## Modifier Group
+
+A Text Modifier Group combines a **Range** and a set of **Properties**.
+
+* **Properties** determine what changes, such as position, rotation, scale, opacity, or follow path.
+* The **Range** determines which characters, words, or lines are affected.
+
+A single modifier group can affect multiple properties that share the same range.
+
+Multiple modifier groups can be combined to create layered effects. For example, one modifier group might animate character scale while another animates position.
+
+### Adding a Modifier Group
+
+Select a text object, then click the `+` button in the **Text Modifier** panel.
+
+![Create Text Modifier Groups via the Inspector](https://mintcdn.com/rive/lCW_2ehNjFqyOfhq/images/editor/text/text-runs-modifiers-create.gif?s=cd6765433383866d9bb9e75bac4b395f)
+
+### Properties
+
+Properties determine how the text is modified.
+
+Each modifier group can modify one or more of the following properties:
+
+* **Position** - Move text along the X and Y axes.
+* **Rotation** - Rotate text around its origin.
+* **Scale** - Change the size of the text.
+* **Origin** - Adjust the pivot point used for rotation and scale.
+* **[Opacity](#opacity)** - Change the transparency of the text.
+* **[Follow Path](#follow-path)** - Align text to a path and control how glyphs follow its direction.
+* **Variables** - Adjust variable font axes such as weight or width. Requires a variable font that supports the selected axis.
+
+Multiple properties can be combined within a single modifier group to create more complex effects.
+
+#### Adding a property
+
+Select a text object, then click the `+` button in the **Modifier Group**. Each property has its own settings, which can be adjusted and animated.
+
+![Adding Properties](https://mintcdn.com/rive/SuNmfo3eMqAD4VzB/images/editor/text/add-modifier-property.gif?s=8bbecb5d4829c0eebc2a484befa63cc2)
+
+> [!TIP]
+>
+> If text modifier range or values aren't visible on the stage, open the **View Options** menu and make sure **Text Modifier Range** **Text Modifier Values** are enabled.
+>
+> ![toggle text modifier range and value visibility](https://mintcdn.com/rive/Ij2wXPG9-c5w_HuM/images/editor/interface/toggle-show-modifier-range-values.gif?s=9d0f279f1ef94c00edb4dbb384a0989b)
+
+#### Opacity
+
+The Opacity value controls the opacity of text within the modifier group's range.
+
+The Invert option controls the opacity of text outside the range:
+
+* Disabled: Text outside the range is fully transparent (0% opacity).
+* Enabled: Text outside the range is fully visible (100% opacity).
+
+![Invert Opacity](https://mintcdn.com/rive/SuNmfo3eMqAD4VzB/images/editor/text/invert-opacity.gif?s=112e06f6558568c8173d39de31b724af)
+
+#### Follow Path
+
+> [!NOTE]
+>
+> To make non-text objects follow a path, use the [Follow Path Constraint](/docs/editor/constraints/follow-path-constraint) instead.
+
+The Follow Path modifier allows text to follow the shape of a vector path. This can be used to create curved text, circular text layouts, or animated text that moves along a path.
+
+* **Follow** - The path to follow.
+* **Trim Start and End** - Defines where text begins and stops following the path. Text outside the trimmed section continues from the nearest trim point in the direction the path is facing.
+* **Offset** - Where along the path to start.
+* **Strength** - Controls how strongly the text follows the path. At 0%, text stays in its original position. At 100%, text follows the path completely. Animate Strength to transition text onto or off of a path.
+* **Auto Orient Glyphs** - Make the rotation of the glyph follow the path.
+* **Auto Orient Lines** - Rotates each line to follow the direction of the path.
+
+### Range
+
+The range can be defined as a percentage of the text length or as an index value.
+
+Ranges can be applied by character, word, or line. Open the Range Options fly-out to configure the range behavior.
+
+Tip
+
+**Example**
+
+A range with a start value of 0% and an end value of 50% affects only the first half of the text. If the modifier group applies a scale of 25%, only glyphs within the first half of the text will be scaled.
+
+You can see a visual representation of the range via a shaded area on the stage. You can configure the stage visual options in the visibility menu on the toolbar.
+
+![Apply transforms to the target text range](https://mintcdn.com/rive/lCW_2ehNjFqyOfhq/images/editor/text/text-runs-modifiers-range.gif?s=c630362d02e42913530f826ad2c5a8a8)
+
+Multiple ranges can be added to a single modifier group to create complex effects.
+
+#### Run
+
+Determines whether the modifier is applied to the entire text object or only to a specific text run.
+
+When a text object contains multiple text runs, modifiers can be limited to a single run instead of affecting all text.
+
+#### Falloff
+
+Use the falloff values to add interpolation to the applied modifier properties. For example, a modifier group that scales glyphs to 200% with a range from 0% to 100% and a falloff of 25% to 75% will gradually scale glyphs up from 100% to 200% over the first quarter of the text, and back down again over the last quarter of the text.
+
+The falloff can be visualized via the darker shading on the stage guide.
+
+![Use falloff to interpolate applied modifier properties](https://mintcdn.com/rive/lCW_2ehNjFqyOfhq/images/editor/text/text-runs-modifiers-fallof.gif?s=d8c1b0b74b27d01868534a18d7e9864d)
+
+#### Offset
+
+Use Offset to move the range along the text. Try animating the offset value to create wipe effects along a text value. For example, a scale modifier can animate the offset to make individual glyphs scale up and back down again.
+
+![Text Runs Modifiers Offset](https://mintcdn.com/rive/lCW_2ehNjFqyOfhq/images/editor/text/text-runs-modifiers-offset.gif?s=e7890ca7b6459ab6c9651c4fe309bfaa)
+
+#### Range options
+
+Additional range options can be found in the fly-out alongside the range name for more fine-grained control over the range selection behavior.
+
+**Increment**
+
+Define whether modifier properties get applied by:
+
+* Characters (with or without spaces)
+* Words
+* Lines
+
+> [!NOTE]
+>
+> The increment value will affect an index-based Range Type.
+
+**Mode**
+
+Defines how modifier values are combined when multiple ranges overlap.
+
+For example, if two overlapping ranges each apply a scale of 200%, an **Add** mode would combine them to produce a scale of 400%.
+
+> [!NOTE]
+>
+> Turn on Modifier Range Values in the visibility menu to get a numerical indication of how much a Text Modifier is affecting glyphs.
+
+**Strength**
+
+Adjust the overall influence of the modifier within the range. A value of 0% disables the modifier, while 100% applies its full effect.
+
+**Range Type**
+
+Set the range type to configure range start, end, and offset values as a percentage of the text length, or by indices. You may also want to consider which increment value to use alongside the Range Type. For example, an index value of 1 incremented by characters will target the second character, whereas an index value of 1 incremented by words will target the start of the second word.
+
+**Falloff Interpolation**
+
+Modify the falloff interpolation to define a custom cubic curve. The falloff defaults to linear interpolation.
+
+## View options
+
+Toggle visual guides on the stage via the visibility menu in the toolbar:
+
+* Text Modifier Range: Toggle the display of a shaded area on the stage to highlight the range position on a selected text object.
+* Text Modifier Range Values: Toggle the display of per-glyph values on modifier ranges to indicate the applied strength of a given modifier.
+
+![Text Runs Modifiers View Options](https://mintcdn.com/rive/lCW_2ehNjFqyOfhq/images/editor/text/text-runs-modifiers-options.gif?s=87389ff2c2cc6a2118d4b4ee20de7a86)
+
+## Use case: animating a text pendulum
+
+This simple example will get you used to animating with Text Modifiers.
+
+[YouTube video player](https://www.youtube.com/embed/Wec_F45NLoY)

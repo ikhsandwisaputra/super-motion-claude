@@ -1,0 +1,63 @@
+---
+source: https://rive.app/docs/scripting/api-reference/gpu/gpu-target
+title: "GPUTarget"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# GPUTarget
+
+Something a render pass can draw into. It promises neither sampling nor
+contents kept between frames; [GPUCanvas](/docs/scripting/api-reference/gpu/gpu-canvas) adds both.
+
+## Fields
+
+### `width`
+
+Width in pixels.
+
+### `height`
+
+Height in pixels.
+
+### `format`
+
+Pixel format of the target. MSAA resolve requires source and target to
+have identical formats — always derive GPUTexture and pipeline formats
+from this value:
+
+```lua theme={null}
+  local fmt = target.format
+  GPUPipeline.new({ colorTargets = {{ format = fmt }}, sampleCount = 4 })
+```
+
+### `sampleCount`
+
+Samples per pixel. Always 1 for a canvas; can be above 1 for
+`context:gpuTarget()` on some hosts.
+
+### `view`
+
+View of the target, for a color attachment or an MSAA resolve target.
+Nil on a frame with nothing to draw into. Read it each frame; a view
+kept across a resize errors when a pass uses it.
+
+## Methods
+
+### `beginRenderPass`
+
+```lua theme={null}
+beginRenderPass(desc: RenderPassDesc) -> GPURenderPass
+```
+
+Open a GPU render pass targeting this target. The descriptor must
+include at least one color attachment or a depthStencil attachment.
+Color attachment views default to this target's view when omitted;
+provide them explicitly when rendering to a different target (e.g.
+MSAA). The pass's sampleCount is derived from the attachments (WebGPU
+rule: all attachments share one sampleCount). Must be called during
+draw. Issue draw calls on the returned pass, then call `:finish()`. A
+pass may begin while another is open, as when a drawn artboard's own
+scripts render: it runs ahead of the pass it was begun inside, so that
+pass can sample its output. With nothing to draw into, the pass drops
+its commands.

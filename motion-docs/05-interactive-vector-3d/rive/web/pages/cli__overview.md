@@ -1,0 +1,41 @@
+---
+source: https://rive.app/docs/cli/overview
+title: "Rive CLI"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Rive CLI
+
+Create, preview, inspect, and publish Rive graphics from the command line, without opening the Editor.
+
+The Rive CLI brings Rive into your terminal. Build `.riv` files for your app or game and `.rev` files that open in the Rive Editor, with a live preview running locally as you work.
+
+Pair the CLI with your coding agent of choice to build a scene from scratch, or modify and inspect an existing Rive graphic from your account. You describe the graphic, the agent writes the scene in [Rive Markup Language (RML)](/docs/runtimes/advanced-topic/rml), and you watch the result take shape and steer it as it goes.
+
+```bash theme={null}
+rive create myproject   # scaffold a project
+rive myproject          # preview window, rebuilds as you edit
+```
+
+[YouTube video player](https://www.youtube.com/embed/G2TGQF57eoY)
+
+## What it enables
+
+* **Build with RML.** Build entire Rive scenes using Rive Markup Language (RML). The CLI
+  parses this to compile a local preview, and can build `.riv` assets from it.
+* **Check what you built.** Confirm a scene compiles, inspect what it actually
+  contains, and look up any type in the Rive object model.
+* **Pair with a coding agent.** A new project comes with instructions an agent
+  reads, so it knows how to look things up and check its own work. See
+  [AI Agents](/docs/cli/agents).
+* **Render and test without a window.** Capture frames as images, drive a scene
+  with simulated input and data, and run script tests
+* **Keep your work in version control.** A project is a folder of text and assets,
+  so it diffs and reviews with the rest of your code.
+* **Work with files in your Rive account.** Browse your workspace with `rive ls`,
+  download a file into a project with `rive create --from-remote-file`, send your edits
+  back with `rive push`, bring Editor changes down with `rive pull`, and open any file
+  in the Editor with `rive open`.
+* **Put a scene on the web.** Deploy your Rive project as a
+  web page anyone can open. Rive hosts this so you don't have to.

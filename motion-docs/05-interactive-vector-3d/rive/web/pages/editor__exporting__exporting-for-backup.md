@@ -1,0 +1,31 @@
+---
+source: https://rive.app/docs/editor/exporting/exporting-for-backup
+title: "Exporting for Backup"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Exporting for Backup
+
+> [!NOTE]
+>
+> Exporting for backup is available on paid plans. [Learn more about our plans and pricing](https://rive.app/pricing?utm_source=docs\&utm_medium=content).
+
+Exporting a file for backup is useful when you want a hard copy of your file saved to your device, if you are looking to transfer a file from one user to another, or you're trying to send in a file for a support ticket. Unlike files exported for runtime (.riv), files exported for backup (.rev) contain all of the information that is typically stripped from the file.\
+\
+To export a file for backup, you can either do this from the file browser, or from the file menu when the file is open.
+
+## Exporting from the file browser
+
+To export a backup file from the file browser, first, find the file that you want to download.
+
+![Image](https://ucarecdn.com/4a80265b-e521-476a-8bbd-476e34027443/)
+
+\
+Next, right click on the file and choose whether you want to download the file backup, or you can choose to download a specific revision of the file.
+
+## Exporting from the file menu
+
+To export a backup file, when the file is open, first, click on the file menu. Next, find the export option and select "for backup".
+
+![Image](https://ucarecdn.com/4af741f7-8925-4ab1-88de-472ea00a47e1/)

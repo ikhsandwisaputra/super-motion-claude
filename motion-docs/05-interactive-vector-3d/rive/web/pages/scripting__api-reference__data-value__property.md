@@ -1,0 +1,101 @@
+---
+source: https://rive.app/docs/scripting/api-reference/data-value/property
+title: "Property"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Property
+
+Represents a mutable property that stores a value and supports change listeners.
+
+## Fields
+
+### `value`
+
+The current value of the property.
+
+You can both read and assign to this field.
+
+```lua highlight={4,5} theme={null}
+local health = vm:getNumber("health")
+
+if health then
+  print(health.value) -- read
+  health.value = 100  -- write
+end
+```
+
+### `addListener`
+
+Registers a listener that is called whenever the property's value changes.
+
+This function has two signatures:
+
+* `addListener(callback)` — Simple form, just pass the callback function.
+* `addListener(anchor, callback)` — Pass an anchor object and a callback.
+  The anchor is stored alongside the listener and passed to the callback
+  when invoked. This is useful for preventing garbage collection of objects
+  you need to keep alive while the listener is active.
+
+**Important:** If you obtain a ViewModel or property using a local variable
+(e.g., `local vm = context:viewModel()`) and add listeners without storing
+the ViewModel elsewhere, it may be garbage collected after the function
+returns. To prevent this, either:
+
+* Store the ViewModel on `self` (e.g., `self.vm = context:viewModel()`)
+* Pass the ViewModel as the anchor parameter to `addListener`
+
+```lua highlight={8,10} theme={null}
+local health = vm:getNumber("health")
+
+if health then
+  local function onHealthChanged(prop)
+    print("New health:", prop.value)
+  end
+
+  health:addListener(onHealthChanged)
+
+  health.value = 50 -- Triggers listener
+end
+```
+
+Using the anchor parameter to keep the ViewModel alive:
+
+```lua highlight={5} theme={null}
+local vm = context:viewModel()
+local health = vm:getNumber("health")
+
+if health then
+  health:addListener(vm, function(anchor)
+    -- 'anchor' is the vm we passed, kept alive by the listener
+    print("Health changed!")
+  end)
+end
+```
+
+### `removeListener`
+
+Removes a previously registered listener.
+
+This function has two signatures:
+
+* `removeListener(callback)` — Pass the callback function to remove.
+* `removeListener(anchor, callback)` — Pass an anchor and the callback.
+  The anchor parameter is accepted for API symmetry with `addListener`,
+  but only the callback is used for matching.
+
+```lua highlight={6} theme={null}
+local health = vm:getNumber("health")
+
+if health then
+  local function onHealthChanged(prop)
+    print("New health:", prop.value)
+    health:removeListener(onHealthChanged)
+  end
+
+  health:addListener(onHealthChanged)
+
+  health.value = 50 -- Triggers listener
+end
+```

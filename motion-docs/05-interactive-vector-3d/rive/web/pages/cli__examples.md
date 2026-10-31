@@ -1,0 +1,162 @@
+---
+source: https://rive.app/docs/cli/examples
+title: "Examples"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Examples
+
+Sample projects, headless rendering, and running the CLI in CI.
+
+## Sample projects
+
+The CLI ships a number of example projects. `rive samples` opens a picker and copies the
+one you choose into a directory you name:
+
+| Sample | Shows |
+| - | - |
+| `rml_triangle` | The smallest RML document: one artboard, one shape |
+| `rml_vm_input` | RML driven by view model data, with a script input |
+| `rml_split` | The same scene split across files: view models in `data/`, referenced by id from the scene |
+| `hello_rive` | The smallest layout script: draw a moving shape each frame |
+| `pointer_reactive` | Making a scene follow the mouse: pointer to view model to data bind |
+| `input_demo` | Keyboard, text and gamepad events in a script |
+| `keyboard_menu` | A keyboard-driven menu with no script: named key filters on a focus node, view model triggers driving a state machine |
+| `text_input` | Editable text fields via the TextInput component: placeholder, obscured entry, Tab traversal |
+| `scroll_demo` | Wheel and trackpad scrolling, with a horizontal strip nested inside a vertical list |
+| `vm_debug` | Every view model property type driven by a script, plus a click listener writing one natively |
+| `remote_artboard` | Downloading a `.riv` and binding its artboard to a view model property. Run with `--allow-net` |
+| `scripted_text` | Fonts and shaped text from a script: a wrapped bilingual paragraph, a caret with its selection, animated glyphs |
+| `cursor_demo` | Asking the window for an OS cursor: hand over a button, resize across a drag |
+| `tests_demo` | Luau unit tests, run with `--test` |
+
+Each directory is a project in its own right. Where no picker can draw, as in CI,
+`rive samples` prints the list with descriptions and a ready `cp` line:
+
+```bash theme={null}
+cp -R "$(rive samples --path)/rml_triangle" myproject
+rive myproject
+```
+
+## Headless rendering
+
+`--screenshot` builds the project, renders one frame without opening a window, and
+writes a PNG. It needs no login, which makes it the check to run in CI.
+
+```bash theme={null}
+rive myproject --screenshot=out.png                    # before anything advances
+rive myproject --screenshot=out.png --advance=1s       # one second in
+rive myproject --screenshot=out.png --viewport=390x844 # at a specific size
+```
+
+> [!NOTE]
+>
+> A capture with no `--advance` is the authored rest pose, not the animation's opening
+> frame, because the state machine has not run yet. Start previews at `--advance=1`.
+
+> [!NOTE]
+>
+> `--screenshot` resolves its path against the current directory, not the project
+> directory, and a missing directory fails with only `screenshot failed: <path>`.
+> Create the directory first.
+
+## Driving a scene
+
+A screenshot of a resting scene tells you nothing about whether it responds to
+anything. Two flags drive it before the capture.
+
+`--data` sets a view model property. The path is relative to the instance bound to
+the artboard, and each segment is a property name:
+
+```bash theme={null}
+rive myproject --screenshot=full.png --data=battery/level=100
+```
+
+`--pointer` simulates a pointer at artboard coordinates. `click` is a move, a press
+and a release with a frame between each, because a state machine only sees a gesture
+when it next runs:
+
+```bash theme={null}
+rive myproject --screenshot=hover.png --pointer=move@120,60
+rive myproject --screenshot=on.png    --pointer=click@120,60 --advance=20
+```
+
+Both flags repeat, so you can set several values or play a sequence of gestures.
+
+> [!NOTE]
+>
+> Quote a `drag` value. The `>` between the two points is a shell redirection
+> otherwise:
+>
+> ```bash theme={null}
+> rive myproject --screenshot=scrolled.png --pointer='drag@200,300>200,80:12'
+> ```
+
+Tip
+
+**Example - Proving a Toggle Works**
+
+Capture the control at rest, after one click, and after two. `rest` and `on` must
+differ, or the control does nothing. `off` must match `rest`, or it only works one
+way.
+
+```bash theme={null}
+rive myproject --screenshot=rest.png
+rive myproject --screenshot=on.png  --pointer=click@120,60 --advance=20
+rive myproject --screenshot=off.png --pointer=click@120,60 --advance=1 \
+                                    --pointer=click@120,60 --advance=20
+```
+
+Add `--compare=rest.png` to the later captures and the CLI prints how many pixels
+differ, so the check is a number rather than a judgement. `--probe=<x,y>` prints the
+color at one point as `AARRGGBB`, which is enough to assert a single state.
+
+Put an `--advance` between two clicks on the same control, as above. A value a
+listener writes is not visible to the next listener until a frame has passed, so
+back-to-back clicks can both act on the old value.
+
+## Checking responsiveness
+
+A layout tree and a hand-positioned screen look identical in a single screenshot.
+Shoot the same file at two sizes and see whether anything moved:
+
+```bash theme={null}
+rive myproject --screenshot=wide.png   --viewport=900x600
+rive myproject --screenshot=narrow.png --viewport=320x700
+```
+
+`--viewport` resizes the artboard itself, rather than scaling or cropping what it
+renders. Layouts reflow into the new size, which is what makes this a real
+responsiveness check. Content at fixed coordinates stays where it is, so a design
+with no layout components looks cropped at a smaller viewport and gains empty space
+at a larger one.
+
+## In CI
+
+`--verify` compiles everything and writes nothing. `--test` runs the project's Luau
+tests. Both exit non-zero on failure, and `--format=json` gives you one JSON object
+on stdout with logs kept on stderr:
+
+```bash theme={null}
+rive myproject --verify --format=json
+rive myproject --test --format=json
+```
+
+Each kind of failure has its own exit code, so a pipeline can branch without parsing
+output. See [Exit Codes](/docs/cli/reference/commands#exit-codes).
+
+> [!NOTE]
+>
+> Publishing needs a browser sign-in, which a CI runner usually cannot do. Every other
+> mode works there. You can author, compile, test and capture in CI, then publish from
+> a machine that is signed in.
+
+## Measuring performance
+
+`--bench` builds the project, times a number of frames without opening a window, and
+reports advance and render statistics along with WASM memory growth:
+
+```bash theme={null}
+rive myproject --bench=600
+```

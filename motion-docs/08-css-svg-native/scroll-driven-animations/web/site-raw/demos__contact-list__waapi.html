@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Scroll-driven Animations: Fly-in Fly-out Contact List: WAAPI</title>
+
+	<!-- Shared styles and scripts, applied to each page -->
+	<link rel="stylesheet" href="/shared/styles.css">
+	<script src="/shared/scripts.js"></script>
+
+	<!-- Page specific styles. The code for the scroll-driven animations is kept in a local style block for your reading convenience -->
+	<link rel="stylesheet" href="../shared/styles.css">
+
+	<!-- Page specific scripts -->
+	<script type="module">
+		if (typeof ScrollTimeline !== 'undefined') {
+			document.querySelectorAll('#list-view li').forEach($li => {
+				const timeline = new ViewTimeline({
+					subject: $li,
+					axis: 'block',
+				});
+
+				$li.animate([
+					{ opacity: 0, transform: 'translateY(100%)', offset: { rangeName: 'entry', offset: CSS.percent(0) } },
+					{ opacity: 1, transform: 'translateY(0)', offset: { rangeName: 'entry', offset: CSS.percent(100) } },
+					{ opacity: 1, transform: 'translateY(0)', offset: { rangeName: 'exit', offset: CSS.percent(0) } },
+					{ opacity: 0, transform: 'translateY(-100%)', offset: { rangeName: 'exit', offset: CSS.percent(100) } },
+				], {
+					fill: 'both',
+					timeline,
+				});
+			});
+		}
+	</script>
+</head>
+<body>
+	<!-- metabox -->
+	<div id="metabox">
+		<button id="version-selector" popovertarget="version-selector-popover" data-activeversion="3/4" data-activelang="js">🔀</button>
+		<div id="version-selector-popover" popover anchor="version-selector">
+		  <h1>Version selector</h1>
+		  <p>This demo has several versions:</p>
+		  <ol>
+			<li data-lang="css"><a href="/demos/contact-list/css/">Single set of keyframes</a></li>
+			<li data-lang="css"><a href='/demos/contact-list/css/multiple-animations'>Multiple animations</a></li>
+			<li data-lang="js" data-selected><a href="/demos/contact-list/waapi/">Single animation with offset info</a></li>
+			<li data-lang="js"><a href='/demos/contact-list/waapi/multiple-animations'>Multiple animations</a></li>
+		  </ol>
+		</div>
+		<a class="button" href="/" title="To index">🏠</a>
+		<button id="infobox-toggle" title="Show Information about this demo">ℹ️</button>
+		<dialog id="infobox">
+			<form method="dialog"><button id="infobox-close" tabindex="0" title="Close dialog">❌</button></form>
+			<h1>About this demo</h1>
+			<p>This demo shows a contact list where the list entries are animated. As a list entry enters the scrollport from the bottom it slides+fades in, and as it exits the scrollport at the top it slides+fades out.</p>
+
+			<h2>The Code / Explanation</h2>
+			<p>The position of each list item is tracked using a <code>ViewTimeline</code>.</p>
+
+			<pre><code>document.querySelectorAll('#list-view li').forEach($li => {
+
+	// Create a ViewTimeline to track the li in its scroller.
+	const timeline = new ViewTimeline({
+		subject: $li,
+		axis: 'block',
+	});
+
+	…
+}</code></pre>
+
+			<p>This <code>ViewTimeline</code> is used as the timeline for both animations. However, the <code>animate-in</code> animation is attached to the <code>entry</code> range, and the <code>animate-out</code> animation to the <code>exit</code> range of the timeline.</p>
+
+			<p>Leveraging the <code>offset</code> option, it’s possible to construct 1 set of keyframes with range information included.</p>
+
+			<pre><code>$li.animate([
+	{ opacity: 0, transform: 'translateY(100%)', offset: 'entry 0%' },
+	{ opacity: 1, transform: 'translateY(0)', offset: 'entry 100%' },
+	{ opacity: 1, transform: 'translateY(0)', offset: 'exit 0%' },
+	{ opacity: 0, transform: 'translateY(-100%)', offset: 'exit 100%' },
+], {
+	fill: 'both',
+	timeline,
+});</code></pre>
+
+			<p>Be sure to compare this syntax to the one that uses <a href='/demos/contact-list/waapi/multiple-animations'>multiple animations</a>.</p>
+		</dialog>
+	</div>
+
+	<!-- page content -->
+	<div class="warning">
+		<p>⚠️ Your browser does not support Scroll-driven Animations. Please use Chrome 115 or newer.</p>
+	</div>
+
+	<main>
+
+		<div id="list-view">
+			<ul>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Adam Argyle</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Adriana Jara</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Andre Bandarra</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Alexandra White</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Ali Spivak</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Anusmita Ray</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Barry Pollard</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Bramus Van Damme</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Brendan Kenny</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Carol Rivero</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Eiji Kitamura</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Ewa Gasperowicz</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">François Beaufort</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Jack J</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Jake Archibald</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Jecelyn Yeen</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Jeremy Wagner</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Joe Medley</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Kevin Lee</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Marc Doerrenhaus</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Mariko Kosaka</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Maud Nalpas</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Matthias Rohmer</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Milica Mihajlija</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Oliver Dunk</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Patrick Kettner</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Paul Kinlan</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Pete LePage</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Philip Walton</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Rachel Andrew</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Rick Viscomi</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Robert Nyman</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Rowan Merewood</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Sam Dutton</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Sebastian Benz</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Sofia Emelianova</span>
+				</li>
+				<li>
+					<span class="avatar"></span>
+					<span class="name">Thomas Steiner</span>
+				</li>
+				<li>
+				  <span class="avatar"></span>
+				  <span class="name">Una Kravets</span>
+				</li>
+			</ul>
+		</div>
+	</main>
+</body>
+</html>

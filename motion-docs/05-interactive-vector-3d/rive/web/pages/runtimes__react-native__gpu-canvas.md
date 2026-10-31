@@ -1,0 +1,57 @@
+---
+source: https://rive.app/docs/runtimes/react-native/gpu-canvas
+title: "GPU Canvas"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# GPU Canvas
+
+Enable GPU Canvas in React Native to render 3D content.
+
+GPU Canvas enables 3D content in the React Native runtime. It is a process-wide setting: it applies to every Rive file your app loads and every `RiveView` that renders them.
+
+> [!NOTE]
+>
+> GPU Canvas is required to render 3D content. It requires `@rive-app/react-native` `0.5.3` or later.
+
+## Enabling GPU Canvas
+
+Call `RiveRuntime.setGPUCanvasEnabled(true)` before loading any Rive files, for example at app startup:
+
+```ts theme={null}
+import { RiveRuntime } from '@rive-app/react-native';
+
+RiveRuntime.setGPUCanvasEnabled(true);
+```
+
+The setting is fixed once the first Rive file is loaded. Calls made after that are ignored and log a warning.
+
+No additional configuration is required on `RiveView`.
+
+## Checking the setting
+
+Use `RiveRuntime.isGPUCanvasEnabled()` to check whether GPU Canvas is in effect:
+
+```ts theme={null}
+import { RiveRuntime } from '@rive-app/react-native';
+
+if (!RiveRuntime.isGPUCanvasEnabled()) {
+  console.warn('GPU Canvas is not available; 3D content will not render.');
+}
+```
+
+Before the first file loads, this returns the requested setting. After the first file loads, it returns the setting actually in use, which is `false` if the native SDK can't provide GPU Canvas.
+
+## Native SDK requirements
+
+GPU Canvas uses the [Apple](/docs/runtimes/apple/gpu-canvas) and Android runtimes' GPU Canvas support. The default native SDK versions bundled with `@rive-app/react-native` support it. If you [override the native SDK versions](/docs/runtimes/react-native/native-version-customization):
+
+* iOS requires Rive iOS `6.25.0` or later. Older versions fail to compile.
+* Android requires Rive Android `11.12.0` or later. With older versions, files load without GPU Canvas, a warning is logged, and `isGPUCanvasEnabled()` returns `false`.
+
+## Default behavior
+
+GPU Canvas is disabled by default. Don't call `setGPUCanvasEnabled` if your content doesn't require it.
+
+See the [GPU Canvas example](https://github.com/rive-app/rive-nitro-react-native/blob/main/example/src/demos/GPUCanvasDemo.tsx) in the example app for a complete setup.

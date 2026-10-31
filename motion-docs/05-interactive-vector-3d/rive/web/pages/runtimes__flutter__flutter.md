@@ -1,0 +1,735 @@
+---
+source: https://rive.app/docs/runtimes/flutter/flutter
+title: "Flutter"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Flutter
+
+Flutter runtime for Rive.
+
+> [!WARNING]
+>
+> Note that certain Rive features may not be supported yet for a particular runtime, or may require using the Rive Renderer.
+>
+> For more details, refer to the [feature support](/docs/feature-support/) and [choosing a renderer](/docs/runtimes/choose-a-renderer/) pages.
+
+## Overview
+
+This guide documents how to use the Rive Flutter runtime to easily integrate Rive graphics in your Flutter apps.
+
+> [!NOTE]
+>
+> There is a new major version of Rive Flutter, `0.15.x`, currently available as a dev release. See the [migration guide](/docs/runtimes/flutter/migration-guide#version-0-15-0) for what changed. Try it out and let us know what you think.
+
+> [!NOTE]
+>
+> Already using Rive Flutter? See our [Migration
+> Guide](/docs/runtimes/flutter/migration-guide) for information on adopting the
+> latest version.
+
+## Quick start
+
+See our [example app](https://github.com/rive-app/rive-flutter/tree/master/example).
+
+## Getting started
+
+Follow the steps below to integrate Rive into your Flutter apps.
+
+**1. Add the Rive package dependency**
+
+Check out Rive's [pub.dev](https://pub.dev/packages/rive) page to get the latest version.
+
+```yaml theme={null}
+# pubspec.yaml
+dependencies:
+  rive: ^0.14.11
+```
+
+**2. Import the Rive package**
+
+Import the Rive runtime library in the file you're looking to integrate Rive animations into.
+
+```dart theme={null}
+import 'package:rive/rive.dart';
+```
+
+Consider doing a named import to avoid conflicts with other libraries:
+
+```dart theme={null}
+import 'package:rive/rive.dart' as rive;
+```
+
+**3. Initialize Rive**
+
+> [!NOTE]
+>
+> You're encouraged to call `await RiveNative.init()` at the start of your app, or before you use Rive. For example, in `main.dart`. This will automatically be called the first time you load a Rive file, but if you want to ensure Rive is loaded before showing your first graphic, call it manually.
+
+```dart theme={null}
+import 'package:rive/rive.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Call init before using Rive.
+  await RiveNative.init();
+  runApp(const MyApp());
+}
+```
+
+**4. Add a Rive widget**
+
+There are several ways to render Rive graphics in Flutter. We recommend using the `RiveWidget` and optionally the `RiveWidgetBuilder`, `RivePanel`, or a manually managed shared texture.
+
+* `RiveWidget` is responsible for rendering the graphic and exposing common view configuration.
+* `RiveWidgetBuilder` handles file loading, error states, and resource management automatically.
+* `RivePanel` is a higher-level inherited widget that creates a shared texture to paint multiple `RiveWidget`s to. Only usable when using the Rive Renderer (`Factory.rive`). This can drastically improve performance when showing many Rive graphics at once by reducing the number of textures and avoiding WebGL context limitations on the web.
+* `SharedRenderTexture.create()` and `RiveSurface` let you create and place a shared texture yourself, then pass it to `RiveWidget.sharedTexture`. Use this when the widgets drawing to the texture do not share a common `RivePanel` ancestor, such as siblings, overlays, or separate routes.
+
+**Using RiveWidgetBuilder**
+
+```dart theme={null}
+class ExampleRiveBuilder extends StatefulWidget {
+  const ExampleRiveBuilder({super.key});
+
+  @override
+  State<ExampleRiveBuilder> createState() => _ExampleRiveBuilderState();
+}
+
+class _ExampleRiveBuilderState extends State<ExampleRiveBuilder> {
+  late final fileLoader = FileLoader.fromAsset("assets/vehicles.riv", riveFactory: Factory.rive);
+
+  @override
+  void dispose() {
+    fileLoader.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RiveWidgetBuilder(
+      fileLoader: fileLoader,
+      builder: (context, state) => switch (state) {
+        RiveLoading() => const Center(child: CircularProgressIndicator()),
+        RiveFailed() => ErrorWidget.withDetails(
+            message: state.error.toString(),
+            error: FlutterError(state.error.toString()),
+          ),
+        RiveLoaded() => RiveWidget(
+            controller: state.controller,
+            fit: Fit.cover,
+          )
+      },
+    );
+  }
+}
+```
+
+**Using RiveWidget directly**
+
+```dart theme={null}
+class ExampleBasic extends StatefulWidget {
+  const ExampleBasic({super.key});
+
+  @override
+  State<ExampleBasic> createState() => _ExampleBasicState();
+}
+
+class _ExampleBasicState extends State<ExampleBasic> {
+  late File file;
+  late RiveWidgetController controller;
+  bool isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+    initRive();
+  }
+
+  void initRive() async {
+    file = (await File.asset("assets/vehicles.riv", riveFactory: Factory.rive))!;
+    controller = RiveWidgetController(file);
+    setState(() => isInitialized = true);
+  }
+
+  @override
+  void dispose() {
+    file.dispose();
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!isInitialized) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    return RiveWidget(
+      controller: controller,
+      fit: Fit.cover,
+    );
+  }
+}
+```
+
+**Using RivePanel**
+
+Steps:
+
+1. Wrap the `RiveWidget`s that should draw to the same texture with a single inherited `RivePanel`.
+2. Set `useSharedTexture: true` in each `RiveWidget` that should draw to the shared texture.
+3. (Optional) Set `drawOrder` in each `RiveWidget` to control stacking. Higher values draw on top. See [Draw Order](#draw-order).
+
+```dart theme={null}
+ class ExampleRivePanel extends StatelessWidget {
+   const ExampleRivePanel({super.key});
+
+   @override
+   Widget build(BuildContext context) {
+     return const RivePanel(
+       backgroundColor: Colors.red,
+       child: ListViewExample(),
+     );
+   }
+}
+class ListViewExample extends StatefulWidget {
+  const ListViewExample({super.key});
+
+  @override
+  State<ListViewExample> createState() => _ListViewExampleState();
+}
+
+class _ListViewExampleState extends State<ListViewExample> {
+  late final fileLoader = FileLoader.fromAsset(
+    'assets/rating.riv',
+    riveFactory: Factory.rive,
+  );
+
+  @override
+  void dispose() {
+    fileLoader.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return MyRiveWidget(fileLoader: fileLoader);
+      },
+    );
+  }
+}
+class MyRiveWidget extends StatelessWidget {
+  const MyRiveWidget({super.key, required this.fileLoader});
+  final FileLoader fileLoader;
+
+  @override
+  Widget build(BuildContext context) {
+    return RiveWidgetBuilder(
+      fileLoader: fileLoader,
+      builder: (context, state) => switch (state) {
+        RiveLoading() => const Center(
+            child: Center(child: CircularProgressIndicator()),
+          ),
+        RiveFailed() => ErrorWidget.withDetails(
+            message: state.error.toString(),
+            error: FlutterError(state.error.toString()),
+          ),
+        RiveLoaded() => RiveWidget(
+            controller: state.controller,
+            fit: Fit.contain,
+            // Set this to true to draw to the nearest RivePanel
+            useSharedTexture: true,
+          )
+      },
+    );
+  }
+}
+```
+
+**Using a manual shared texture**
+
+Steps:
+
+1. Create a `SharedRenderTexture` with `SharedRenderTexture.create()`.
+2. Place its native surface in the widget tree with `RiveSurface`.
+3. Pass the same texture to each `RiveWidget` with `sharedTexture`.
+4. (Optional) Set `drawOrder` in each `RiveWidget` to control stacking. See [Draw Order](#draw-order).
+5. Dispose the texture when you are done with it.
+
+```dart theme={null}
+class ExampleManualSharedTexture extends StatefulWidget {
+  const ExampleManualSharedTexture({super.key});
+
+  @override
+  State<ExampleManualSharedTexture> createState() =>
+      _ExampleManualSharedTextureState();
+}
+
+class _ExampleManualSharedTextureState
+    extends State<ExampleManualSharedTexture> {
+  late final SharedRenderTexture sharedTexture = SharedRenderTexture.create(
+    backgroundColor: Colors.transparent,
+  );
+
+  late final fileLoader = FileLoader.fromAsset(
+    'assets/rating.riv',
+    riveFactory: Factory.rive,
+  );
+
+  @override
+  void dispose() {
+    fileLoader.dispose();
+    sharedTexture.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Row(
+          children: List.generate(
+            3,
+            (index) => Expanded(
+              child: RiveWidgetBuilder(
+                fileLoader: fileLoader,
+                builder: (context, state) => switch (state) {
+                  RiveLoading() => const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  RiveFailed() => ErrorWidget.withDetails(
+                      message: state.error.toString(),
+                      error: FlutterError(state.error.toString()),
+                    ),
+                  RiveLoaded() => RiveWidget(
+                      controller: state.controller,
+                      fit: Fit.contain,
+                      sharedTexture: sharedTexture,
+                      // Higher values draw on top
+                      drawOrder: index,
+                    ),
+                },
+              ),
+            ),
+          ),
+        ),
+        Positioned.fill(
+          child: RiveSurface(sharedTexture: sharedTexture),
+        ),
+      ],
+    );
+  }
+}
+```
+
+**5. Loading from different sources**
+
+**From Asset Bundle:**
+
+Make sure you add the Rive files to your asset bundle and reference them in `pubspec.yaml`:
+
+```yaml theme={null}
+# pubspec.yaml
+assets:
+    - assets/vehicles.riv
+```
+
+```dart theme={null}
+// Using FileLoader (with RiveWidgetBuilder)
+final fileLoader = FileLoader.fromAsset("assets/vehicles.riv", riveFactory: Factory.rive);
+
+// Using File directly
+final file = await File.asset("assets/vehicles.riv", riveFactory: Factory.rive);
+```
+
+**From URL:**
+
+```dart theme={null}
+// Using FileLoader (with RiveWidgetBuilder)
+final fileLoader = FileLoader.fromUrl("https://cdn.rive.app/animations/vehicles.riv", riveFactory: Factory.rive);
+
+// Using File directly
+final file = await File.url("https://cdn.rive.app/animations/vehicles.riv", riveFactory: Factory.rive);
+```
+
+**From Rive File:**
+
+```dart theme={null}
+// Using FileLoader (with RiveWidgetBuilder)
+final fileLoader = FileLoader.fromFile(existingFile, riveFactory: Factory.rive);
+```
+
+## Key components
+
+### `RiveWidget`
+
+`RiveWidget` is responsible for displaying Rive graphics.
+
+**Properties:**
+
+* `controller` \[**required**]: The `RiveWidgetController` that manages the Rive graphic
+* `fit`: How the artboard should fit within the widget (default: `contain`)
+* `alignment`: How the artboard should be aligned within the widget (default: `center`)
+* `hitTestBehavior`: How pointer events should be handled (default: `opaque`)
+* `cursor`: The cursor to display when hovering over the widget (default: `defer`)
+* `layoutScaleFactor`: Scale factor when using `Fit.layout` (default: `1.0`)
+* `useSharedTexture`: Whether to use the nearest inherited shared texture from a [RivePanel](#rivepanel). Defaults to false. Ignored when `sharedTexture` is provided.
+* `sharedTexture`: An explicit `SharedRenderTexture` to draw into, bypassing the ancestor-based `RivePanel` lookup. Use this with [`SharedRenderTexture` and `RiveSurface`](#sharedrendertexture-and-rivesurface) to share a texture across arbitrary parts of the widget tree.
+* `drawOrder`: Stacking order when drawing to a shared texture with `Factory.rive` (default: `1`). Higher values draw on top. See [Draw Order](#draw-order).
+* `renderResolution`: How the widget's backing texture is sized with `Factory.rive` (default: `RenderResolution.display()`). Not valid with `useSharedTexture`/`sharedTexture`. See [Render Resolution](#render-resolution).
+* `drawOptimization`: When the widget redraws (default: `DrawOptimization.drawWhenChanged`). Not valid with `useSharedTexture`/`sharedTexture`. See [Draw optimization](#draw-optimization).
+
+### `RiveWidgetBuilder`
+
+`RiveWidgetBuilder` is a higher-level widget that handles file loading, error states, and resource management automatically.
+
+**Properties:**
+
+* `fileLoader` \[**required**]: The `FileLoader` for loading the Rive file
+* `builder` \[**required**]: Function that builds the widget based on state
+* `artboardSelector`: Which artboard to use (default: `ArtboardDefault()`)
+* `stateMachineSelector`: Which state machine to use (default: `StateMachineDefault()`)
+* `dataBind`: How to bind view model data (optional)
+* `controller`: Optional custom controller builder
+* `onLoaded`: Callback when Rive state is loaded
+* `onFailed`: Callback when Rive state fails to load
+
+### `RivePanel`
+
+`RivePanel` is a widget that creates a shared texture to paint multiple `RiveWidget`s to. This is useful when using `Factory.rive` and can significantly improve performance under certain conditions.
+
+**When to use RivePanel:**
+
+* When displaying multiple `RiveWidget`s in your app and they can be drawn to the same texture
+* When you want to programmatically composite a scene that includes multiple Rive graphics (from multiple Rive files/artboards)
+* When using `Factory.rive` (will report errors with `Factory.flutter`) and want to improve performance
+* When you want to reduce the number of textures being drawn to
+* When targeting web platforms to avoid [WebGL context limits](#webgl-contexts-web) through `Factory.rive`
+
+**Performance considerations:**
+
+* **Benefits**: Drawing multiple `RiveWidget`s to the same texture can drastically improve performance by reducing texture allocation overhead
+* **Memory cost**: There is a memory cost in allocating a larger texture, though this may be offset by the reduced number of individual textures
+* **Rendering limitations**: Drawing to the same surface means you cannot interleave Rive drawing commands with Flutter's drawing commands
+* **Benchmarking recommended**: Performance characteristics vary by use case - what works for one scenario may not work for another
+
+**Usage:**
+
+```dart theme={null}
+RivePanel(
+  backgroundColor: Colors.red, // Optional background color
+  child: YourWidgetWithMultipleRiveWidgets(),
+)
+```
+
+**Important notes:**
+
+* Only works with `Factory.rive` - has no effect with `Factory.flutter`
+* Set `useSharedTexture: true` in your `RiveWidget`s to enable shared texture rendering
+* Set `drawOrder` in your `RiveWidget`s to control stacking (see [Draw Order](#draw-order))
+* Set `renderResolution` on the panel to control how its shared texture is sized (see [Render Resolution](#render-resolution))
+* Set `drawOptimization` on the panel to control when its shared texture redraws (see [Draw optimization](#draw-optimization))
+* If you need to interleave Rive content with Flutter content, consider using separate `RivePanel`s or `Factory.flutter`
+* For complex scenarios, benchmark both approaches to determine the best performance strategy
+
+### `SharedRenderTexture` and `RiveSurface`
+
+`SharedRenderTexture.create()` creates a user-owned shared texture that can be passed directly to `RiveWidget.sharedTexture`. Unlike `RivePanel`, this does not rely on inherited widget lookup, so it works when the `RiveWidget`s are siblings, live in separate subtrees, or are mounted through an `OverlayEntry`, dialog, bottom sheet, or another route.
+
+Use `RiveSurface` to place the native texture in the widget tree. The `RiveWidget`s that receive the same `SharedRenderTexture` draw into that surface, even if they are not descendants of the surface.
+
+```dart theme={null}
+late final SharedRenderTexture sharedTexture = SharedRenderTexture.create(
+  backgroundColor: Colors.transparent,
+);
+
+@override
+void dispose() {
+  sharedTexture.dispose();
+  super.dispose();
+}
+
+@override
+Widget build(BuildContext context) {
+  return Stack(
+    children: [
+      RiveWidget(
+        controller: controller,
+        sharedTexture: sharedTexture,
+      ),
+      Positioned.fill(
+        child: RiveSurface(sharedTexture: sharedTexture),
+      ),
+    ],
+  );
+}
+```
+
+**Important notes:**
+
+* This API is experimental and only works with `Factory.rive`.
+* `RiveWidget.sharedTexture` takes precedence over `useSharedTexture` when both are set.
+* You must call `dispose()` on textures created with `SharedRenderTexture.create()` to release the native texture.
+* `RiveSurface` is wrapped in `IgnorePointer` by default so pointer events are handled by the individual `RiveWidget`s. Set `ignorePointer: false` if pointer events should reach the native texture widget directly.
+* Set `renderResolution` on the `RiveSurface` to control how the shared texture is sized (see [Render Resolution](#render-resolution)).
+* Pass `drawOptimization` to `SharedRenderTexture.create()` to control when the shared texture redraws (see [Draw optimization](#draw-optimization)).
+
+### Draw Order
+
+When multiple `RiveWidget`s draw to the same shared texture - through a [RivePanel](#rivepanel) or an explicit [`sharedTexture`](#sharedrendertexture-and-rivesurface) - `RiveWidget.drawOrder` (default: `1`) controls how they stack:
+
+* Higher values draw on top.
+* Widgets with the same value stack in widget-tree order.
+* Changing `drawOrder` on a mounted widget restacks it on the next frame.
+
+> [!NOTE]
+>
+> `drawOrder` only applies when drawing to a shared texture with `Factory.rive`. When a widget owns its own texture, Flutter's normal paint order applies.
+
+### Render resolution
+
+`Factory.rive` draws content into a backing texture. `RiveWidget.renderResolution` (default: `RenderResolution.display()`) controls how that texture is sized - the same way on every platform, including web. It changes backing resolution only; layout, fit, alignment, and hit testing are unaffected.
+
+* `RenderResolution.display()` (default): layout size \* device pixel ratio \* any scale ancestors apply at paint time (for example a `FittedBox` or `Transform.scale`). Content stays sharp at its final on-screen size, and allocates for it.
+* `RenderResolution.layout(scale: 1.0)`: layout size \* device pixel ratio \* `scale`. Ancestor transforms apply at composite time, so scaling the widget up stretches the texture (softer output) instead of reallocating it - render small and let a `FittedBox` upscale cheaply.
+* `RenderResolution.fixed(width, height)`: an explicit size in physical pixels, independent of layout, device pixel ratio, and transforms. Never reallocated on resize.
+
+For shared textures the surface owns the allocation: set `renderResolution` on the [RivePanel](#rivepanel) or [RiveSurface](#sharedrendertexture-and-rivesurface). Setting it on a `RiveWidget` alongside `useSharedTexture` or `sharedTexture` throws an assertion error.
+
+> [!NOTE]
+>
+> `renderResolution` only applies with `Factory.rive`. `Factory.flutter` paints directly into Flutter's canvas at composite resolution.
+
+### Draw optimization
+
+> [!NOTE]
+>
+> Available from `rive` `0.15.0`. See the [migration guide](/docs/runtimes/flutter/migration-guide#version-0-15-0).
+
+By default, a Rive widget draws a frame only when something in its Artboard changed since the last draw. Advancing is unaffected: the widget advances while the content animates and stops once it settles. On frames that change nothing, the draw is skipped and the last drawn frame stays on screen. This applies to `Factory.rive` and `Factory.flutter`.
+
+`drawOptimization` takes a `DrawOptimization`:
+
+* `DrawOptimization.drawWhenChanged` (default): draw only when the Artboard changed.
+* `DrawOptimization.alwaysDraw`: draw on every advanced frame.
+
+```dart theme={null}
+RiveWidget(
+  controller: controller,
+  drawOptimization: DrawOptimization.alwaysDraw,
+)
+```
+
+These still redraw even when the Artboard did not change: layout and resize, `fit` and `alignment` changes, texture recreation, a new painter, and a painter calling `notifyListeners()`.
+
+**Shared textures:** a [RivePanel](#rivepanel) or [`SharedRenderTexture`](#sharedrendertexture-and-rivesurface) redraws when any widget drawing into it changed, and then redraws all of them. It also redraws when a widget moves relative to the panel or the panel resizes. Set `drawOptimization` on the `RivePanel` or pass it to `SharedRenderTexture.create()`. Setting it on a `RiveWidget` alongside `useSharedTexture` or `sharedTexture` throws an assertion error.
+
+**Lower-level widgets:** `RiveArtboardWidget`, `RiveFileWidget`, and `RiveProceduralRenderingWidget` take the same `drawOptimization` parameter. `Artboard.didChange` is `true` when the Artboard changed since it was last drawn. Drawing clears it.
+
+> [!NOTE]
+>
+> If your Artboard painter (for example a `StateMachinePainter` subclass) draws more than its Artboard in `paint`, call `notifyListeners()` when that extra content changes, or use `DrawOptimization.alwaysDraw`. Otherwise those changes do not show until the Artboard changes. A painter without an Artboard always draws.
+
+### `RiveWidgetController`
+
+`RiveWidgetController` manages the graphic.
+
+**Creating a Controller:**
+
+```dart theme={null}
+// Using default artboard and state machine
+final controller = RiveWidgetController(file);
+
+// Specifying artboard and state machine
+final controller = RiveWidgetController(
+  file,
+  artboardSelector: ArtboardSelector.byName("MyArtboard"),
+  stateMachineSelector: StateMachineSelector.byName("MyStateMachine"),
+);
+```
+
+**Data Binding:**
+
+```dart theme={null}
+// Auto-bind with default view model instance
+final viewModelInstance = controller.dataBind(DataBind.auto());
+
+// Bind by specific instance
+final viewModelInstance = controller.dataBind(DataBind.byInstance(myInstance));
+
+// Bind by name
+final viewModelInstance = controller.dataBind(DataBind.byName("MyViewModel"));
+```
+
+### File loading
+
+The `FileLoader` class provides a unified way to load Rive files from different sources.
+
+**Loading from Assets:**
+
+```dart theme={null}
+final fileLoader = FileLoader.fromAsset(
+  "assets/vehicles.riv",
+  riveFactory: Factory.rive,
+);
+```
+
+**Loading from URL:**
+
+```dart theme={null}
+final fileLoader = FileLoader.fromUrl(
+  "https://example.com/animation.riv",
+  riveFactory: Factory.rive,
+);
+```
+
+**Loading from Existing File:**
+
+```dart theme={null}
+final fileLoader = FileLoader.fromFile(
+  existingFile,
+  riveFactory: Factory.rive,
+);
+```
+
+Or you can load files directly using the `File` class:
+
+```dart theme={null}
+// Load from asset
+final file = await File.asset("assets/vehicles.riv", riveFactory: Factory.rive);
+// Load from URL
+final file = await File.url("https://example.com/animation.riv", riveFactory:
+Factory.rive);
+// Load from path
+final file = await File.path("/path/to/animation.riv", riveFactory: Factory.rive);
+// Load from bytes
+final file = await File.decode(bytes, riveFactory: Factory.rive);
+```
+
+## Error handling
+
+The Rive Flutter package provides specific exception types for different error scenarios:
+
+* `RiveFileLoaderException`: Thrown when file loading fails
+* `RiveArtboardException`: Thrown when artboard selection fails
+* `RiveStateMachineException`: Thrown when state machine selection fails
+* `RiveDataBindException`: Thrown when data binding fails
+
+## Resource management
+
+### Manual resource management (`RiveWidget`)
+
+When using `RiveWidget` directly, you are responsible for managing all resources:
+
+```dart theme={null}
+@override
+void dispose() {
+  // Dispose resources in reverse order of creation
+  viewModelInstance.dispose();
+  controller.dispose();
+  file.dispose();
+  super.dispose();
+}
+```
+
+### Automatic resource management (`RiveWidgetBuilder`)
+
+When using `RiveWidgetBuilder`, the widget automatically manages most resources. You only need to dispose the file loader:
+
+```dart theme={null}
+@override
+void dispose() {
+  fileLoader.dispose();
+  super.dispose();
+}
+```
+
+> [!NOTE]
+>
+> Because the resources are managed by the `RiveWidgetBuilder`, you will not be able to access the `RiveWidgetController` (and other state) after the widget is disposed. If you need to access the controller after the widget is disposed, consider creating the file and controller yourself.
+>
+> The exception to this is the `FileLoader`, which you control. This loader can be reused across multiple `RiveWidgetBuilder` instances. The underlying `File` will only be loaded once. The `File` will be disposed when the `FileLoader` is disposed.
+
+### WebGL contexts (web)
+
+On the web, every `Factory.rive` widget that owns its texture renders into its own WebGL context, and browsers cap live contexts (around 16, shared with Flutter's own CanvasKit surfaces).
+
+Disposing a Rive widget releases its context. A small reuse pool keeps a few canvases alive, so churn like route transitions stays cheap. Contexts the browser has evicted are detected and destroyed, never reused.
+
+Set `RiveNative.debugRenderTextureLogging = true` to log texture create, reuse, and release with live WebGL context counts.
+
+> [!TIP]
+>
+> When showing many Rive widgets at once on web, draw them into a single shared texture with a [RivePanel](#rivepanel) - one WebGL context in total instead of one per widget.
+
+## Specifying a renderer
+
+When creating a Rive `File` or `FileLoader`, you need to specify a factory to use:
+
+* `Factory.rive` for the Rive renderer
+* `Factory.flutter` for the Flutter renderer (Skia or Impeller)
+
+You can use different renderers for different graphics in your app.
+
+Some considerations when choosing a renderer:
+
+* If you plan on showing many Rive graphics that are all drawing to different Rive widgets consider using a [RivePanel](#rivepanel) with `Factory.rive` to draw multiple graphics to the same texture to reduce the overhead of allocating native render targets and textures. Or make use of `Factory.flutter`.
+* If you are showing a complex graphic, consider using `Factory.rive` to take advantage of the Rive renderer's optimizations.
+* Vector Feathering is only available with `Factory.rive`, so if you need that feature, use the Rive renderer.
+
+For more information see [Choosing a Renderer](/docs/runtimes/choose-a-renderer/).
+
+### Note on Flutter rendering
+
+[Impeller](https://docs.flutter.dev/perf/impeller) is replacing [Skia](https://skia.org/) to become the default renderer for all platforms. As such, there is a possibility of rendering and [performance](https://github.com/flutter/flutter/issues/134432) discrepancies when using the Rive Flutter runtime with platforms that use the Impeller renderer that may not have surfaced before. If you encounter any visual or performance errors at runtime compared to expected behavior in the Rive editor, we recommend trying the following steps to triage:
+
+1. Try running the Flutter app with the `--no-enable-impeller` flag to use the Skia renderer. If the visual discrepancy does not show when using Skia, it may be a rendering bug on Impeller. However, before raising a bug with the Flutter team, try the second point below👇
+
+```bash theme={null}
+flutter run --no-enable-impeller
+```
+
+2. Try running the Flutter app on the latest `master` channel. It is possible that visual bugs may be resolved on the latest Flutter commits, but not yet released in the `beta` or `stable` channel.
+3. If you are still seeing visual discrepancies with just the Impeller renderer on the latest master branch, we recommend raising a detailed issue to the [Flutter](https://github.com/flutter/flutter) Github repo with a reproducible example, and other relevant details that can help the team debug any possible issues that may be present.
+
+## Troubleshooting
+
+If you encounter issues with Rive in Flutter, consider the following:
+
+* Ensure you have called `await RiveNative.init()` before using any Rive features.
+* Check the console for any error messages related to Rive.
+* Make sure your Rive files are correctly referenced in `pubspec.yaml` and exist in the specified paths.
+* If using `RiveWidgetBuilder`, ensure you handle all possible states (loading, loaded, failed) in the builder function.
+
+### Build errors
+
+If you encounter build errors related to Rive, ensure that:
+
+* You have the correct version of the Rive package in your `pubspec.yaml`.
+* You have run `flutter pub get` to fetch the latest dependencies.
+* You have reviewed the [Flutter FAQ](/docs/runtimes/flutter/faq) for common issues and questions.
+
+If you're still having issues, please see the [Troubleshooting section](/docs/runtimes/flutter/rive-native#troubleshooting) in the Rive Native documentation.
+
+## Manually building Rive Native libraries
+
+Rive automatically downloads the native libraries for you as part of the `rive_native` plugin.
+
+However, if you need to manually build the native libraries, see the [build section](/docs/runtimes/flutter/rive-native#building-rive-native) in the Rive Native documentation.
+
+## Resources
+
+Rive Flutter:
+
+* [GitHub](https://github.com/rive-app/rive-flutter)
+* [pub.dev](https://pub.dev/packages/rive)
+* [Example app](https://github.com/rive-app/rive-flutter/tree/master/example/)
+
+Rive Native:
+
+* [Rive Native overview](/docs/runtimes/flutter/rive-native)
+* [pub.dev](https://pub.dev/packages/rive_native)

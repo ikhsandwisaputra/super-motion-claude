@@ -1,0 +1,120 @@
+---
+source: https://rive.app/docs/scripting/api-reference/data-value/property-trigger
+title: "PropertyTrigger"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# PropertyTrigger
+
+Represents a trigger property that can fire events and notify listeners.
+Unlike other [Property](/docs/scripting/api-reference/data-value/property) types, a trigger does not store a persistent value. It emits an event when fire() is called.
+
+## Fields
+
+### `addListener`
+
+Registers a listener that is invoked when the trigger fires.
+
+This function has two signatures:
+
+* `addListener(callback)` — Simple form, just pass the callback function.
+* `addListener(anchor, callback)` — Pass an anchor object and a callback.
+  The anchor is stored alongside the listener and passed to the callback
+  when invoked. This is useful for preventing garbage collection of objects
+  you need to keep alive while the listener is active.
+
+**Important:** If you obtain a ViewModel or property using a local variable
+(e.g., `local vm = context:viewModel()`) and add listeners without storing
+the ViewModel elsewhere, it may be garbage collected after the function
+returns. To prevent this, either:
+
+* Store the ViewModel on `self` (e.g., `self.vm = context:viewModel()`)
+* Pass the ViewModel as the anchor parameter to `addListener`
+
+```lua highlight={5} theme={null}
+local vmi = context:viewModel()
+if vmi then
+  local cannon = vmi:getTrigger('cannon')
+  if cannon then
+    cannon:addListener(function()
+      print("cannon fired!")
+    end)
+
+    cannon:fire()
+  end
+end
+```
+
+Using the anchor parameter to keep the ViewModel alive:
+
+```lua highlight={5} theme={null}
+local vm = context:viewModel()
+if vm then
+  local cannon = vm:getTrigger('cannon')
+  if cannon then
+    cannon:addListener(vm, function(anchor)
+      -- 'anchor' is the vm we passed, kept alive by the listener
+      print("cannon fired!")
+    end)
+  end
+end
+```
+
+### `removeListener`
+
+Removes a previously registered listener.
+Always remove listeners when they are no longer needed to avoid leaks.
+
+This function has two signatures:
+
+* `removeListener(callback)` — Pass the callback function to remove.
+* `removeListener(anchor, callback)` — Pass an anchor and the callback.
+  The anchor parameter is accepted for API symmetry with `addListener`,
+  but only the callback is used for matching.
+
+```lua highlight={17} theme={null}
+function init(self: MyNode, context: Context): boolean
+  local vmi = context:viewModel()
+  if vmi then
+    local cannon = vmi:getTrigger('cannon')
+    if cannon then
+      self.cannon = cannon
+      self.onCannonFired = onCannonFired
+      cannon:addListener(onCannonFired)
+    end
+  end
+
+  return true
+end
+
+function removeCannonListener(self: MyNode)
+  if self.cannon then
+    self.cannon:removeListener(self.onCannonFired)
+  end
+end
+```
+
+## Methods
+
+### `fire`
+
+```lua theme={null}
+fire() -> ()
+```
+
+Fires the trigger and notifies all registered listeners.
+
+```lua highlight={9} theme={null}
+local vmi = context:viewModel()
+if vmi then
+  local cannon = vmi:getTrigger('cannon')
+  if cannon then
+    cannon:addListener(function()
+      print("cannon fired!")
+    end)
+
+    cannon:fire()
+  end
+end
+```

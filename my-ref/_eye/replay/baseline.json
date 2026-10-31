@@ -1,0 +1,263 @@
+{
+ "judge": "9a6148b1ba09",
+ "ts": "2026-10-29T16:45:08",
+ "message": "first golden set: video-2/video-3 lessons, 14 kiblat members, 12 good + 2 synthetic bad posters; poster.py now caps frames failing 3 of 5 fundamentals at 64 (clutter and the video-3 look passed before)",
+ "films": {
+  "video-2": {
+   "kiblat": {
+    "score": 88,
+    "cats": {
+     "warna_seksi": 6,
+     "kontras": 10,
+     "palet": 6,
+     "neon": 6,
+     "fokus_ruang": 10,
+     "jejak_mata": 10,
+     "ritme": 10,
+     "kamera": 10,
+     "pacing": 10,
+     "poster": 10
+    },
+    "tells": [
+     "Kedip melewati batas aman (fotosensitif)"
+    ]
+   },
+   "explainer_ref": {
+    "score": 100,
+    "cats": {
+     "warna_seksi": 10,
+     "kontras": 10,
+     "palet": 10,
+     "neon": 10,
+     "fokus_ruang": 10,
+     "jejak_mata": 10,
+     "ritme": 10,
+     "kamera": 10,
+     "pacing": 10,
+     "poster": 10
+    },
+    "tells": [
+     "Kedip melewati batas aman (fotosensitif)"
+    ]
+   }
+  },
+  "video-3": {
+   "kiblat": {
+    "score": 64,
+    "cats": {
+     "warna_seksi": 2,
+     "kontras": 6,
+     "palet": 6,
+     "neon": 10,
+     "fokus_ruang": 6,
+     "jejak_mata": 10,
+     "ritme": 6,
+     "kamera": 10,
+     "pacing": 6,
+     "poster": 2
+    },
+    "tells": [
+     "Satu latar gelap sepanjang film",
+     "Lumpur gelap",
+     "Look template 'dark mode + aksen neon/pastel'",
+     "Teks kecil di ruang kosong yang gelap"
+    ]
+   },
+   "explainer_ref": {
+    "score": 60,
+    "cats": {
+     "warna_seksi": 2,
+     "kontras": 6,
+     "palet": 6,
+     "neon": 10,
+     "fokus_ruang": 6,
+     "jejak_mata": 10,
+     "ritme": 6,
+     "kamera": 10,
+     "pacing": 2,
+     "poster": 2
+    },
+    "tells": [
+     "Satu latar gelap sepanjang film",
+     "Lumpur gelap",
+     "Look template 'dark mode + aksen neon/pastel'",
+     "Teks kecil di ruang kosong yang gelap"
+    ]
+   }
+  }
+ },
+ "posters": {
+  "v4-hook": {
+   "score": 88,
+   "fails": [
+    "warna",
+    "tipe"
+   ]
+  },
+  "v4-clean": {
+   "score": 94,
+   "fails": [
+    "warna"
+   ]
+  },
+  "v4-snap": {
+   "score": 89,
+   "fails": [
+    "fokus"
+   ]
+  },
+  "v4-stairs": {
+   "score": 100,
+   "fails": []
+  },
+  "v4-minimal": {
+   "score": 94,
+   "fails": [
+    "tipe"
+   ]
+  },
+  "v4-kinetic-wide": {
+   "score": 90,
+   "fails": [
+    "kontras",
+    "ruang"
+   ]
+  },
+  "v4-soft": {
+   "score": 94,
+   "fails": [
+    "tipe"
+   ]
+  },
+  "v4-depth": {
+   "score": 100,
+   "fails": []
+  },
+  "v4-taste": {
+   "score": 99,
+   "fails": []
+  },
+  "kiblat-1022": {
+   "score": 87,
+   "fails": [
+    "tipe",
+    "zona"
+   ]
+  },
+  "kiblat-1006": {
+   "score": 83,
+   "fails": [
+    "warna"
+   ]
+  },
+  "kiblat-1023": {
+   "score": 86,
+   "fails": [
+    "tipe",
+    "murni"
+   ]
+  },
+  "neg-dark-mud-neon": {
+   "score": 64,
+   "fails": [
+    "kontras",
+    "warna",
+    "ruang",
+    "tipe"
+   ]
+  },
+  "neg-clutter": {
+   "score": 64,
+   "fails": [
+    "kontras",
+    "warna",
+    "ruang",
+    "zona"
+   ]
+  }
+ },
+ "kiblat": {
+  "WhatsApp Video 2026-10-29 at 15.10.05": {
+   "score": 96,
+   "tells": []
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.06": {
+   "score": 76,
+   "tells": [
+    "Kedip melewati batas aman (fotosensitif)"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.18 (1)": {
+   "score": 96,
+   "tells": [
+    "Hierarki tipe tanggung"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.18": {
+   "score": 80,
+   "tells": []
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.21 (1)": {
+   "score": 84,
+   "tells": [
+    "Satu latar gelap sepanjang film",
+    "Lumpur gelap",
+    "Hierarki tipe tanggung",
+    "Licin plastik (tanpa grain) di atas gelap"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.21 (2)": {
+   "score": 76,
+   "tells": [
+    "Aksen pelangi tanpa field warna",
+    "Hierarki tipe tanggung"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.21": {
+   "score": 68,
+   "tells": [
+    "Aksen pelangi tanpa field warna",
+    "Hierarki tipe tanggung"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.22 (1)": {
+   "score": 84,
+   "tells": [
+    "Aksen pelangi tanpa field warna"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.22 (2)": {
+   "score": 80,
+   "tells": [
+    "Aksen pelangi tanpa field warna"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.22": {
+   "score": 84,
+   "tells": [
+    "Hierarki tipe tanggung"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.23 (1)": {
+   "score": 92,
+   "tells": []
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.23 (2)": {
+   "score": 80,
+   "tells": [
+    "Optik nyala terus (CA saat diam)"
+   ]
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.23": {
+   "score": 84,
+   "tells": []
+  },
+  "WhatsApp Video 2026-10-29 at 15.10.24": {
+   "score": 60,
+   "tells": [
+    "Teks kecil di ruang kosong yang gelap",
+    "Kedip melewati batas aman (fotosensitif)"
+   ]
+  }
+ }
+}

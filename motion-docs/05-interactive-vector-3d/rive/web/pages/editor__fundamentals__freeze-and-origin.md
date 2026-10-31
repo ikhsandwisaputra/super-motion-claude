@@ -1,0 +1,48 @@
+---
+source: https://rive.app/docs/editor/fundamentals/freeze-and-origin
+title: "Freeze and Origin"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Freeze and Origin
+
+[YouTube video player](https://www.youtube.com/embed/nA15ZXkMb_c)
+
+When you transform objects, their children inherit the same transformations. The location where these transformations happen (sometimes called the origin, anchor point, or pivot) affects how your objects animate.
+
+For example, manipulating the scale of a group creates different results if the scale originates in the center or the bottom.
+
+You need to reposition the parent group to change the point of origin for these transformations. However, moving a parent causes all the children to move with it. The Freeze feature makes it possible to achieve this without having to rework the hierarchy structure.
+
+## Origin of a Procedural Path
+
+Procedural objects (like artboards and procedural paths) have an origin property. The origin of a procedural path determines where its properties originate from. For example, changing the width of a rectangle with its origin in the middle (50% X and 50% Y) causes it to grow from its center.
+
+![Changing the width of a rectangle with the origin centered at 50% X and 50% Y, so it grows outward from the center](https://mintcdn.com/rive/DTnv-S0T6YU6evKP/images/editor/fundamentals/freeze-origin-center.gif?s=46f9070519489cfdf50bc87b76abad54)
+
+Changing the width on a rectangle with its origin on the left side (0% X) causes it to grow from its left.
+
+![Changing the width of a rectangle with the origin on the left at 0% X, so it grows from the left](https://mintcdn.com/rive/DTnv-S0T6YU6evKP/images/editor/fundamentals/freeze-origin-left.gif?s=3c091b27c295d701d6ba184962ad486a)
+
+This is particularly useful when animating paths that have other procedural properties enabled, such as rounded corners.
+
+You can use the Freeze feature to change the Origin position on the Stage. Alternatively, set the exact value in the Inspector.
+
+## Origin of a Custom Path and Group
+
+### Freeze mode
+
+The Freeze feature allows you to move any parent object (groups, shapes, bones) without affecting the position of its children. Activate Freeze in the [Transform Tools menu](/docs/editor/interface-overview/toolbar) or use the `Y` shortcut.
+
+When Freeze Mode is active, you'll notice that your Stage is wrapped in a blue outline. You're now free to move the Origin without affecting the children.
+
+Be sure to turn off Freeze by pressing `Y` again.
+
+## Changing Origin with Align Tools
+
+You can quickly change the location of an origin with the align tools.
+
+Start by selecting the shape, then holding Option on Mac, or Alt on Windows. \
+\
+This now allows the align tool to reposition the Origin various positions.

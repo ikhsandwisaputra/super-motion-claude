@@ -1,0 +1,81 @@
+---
+source: https://animejs.com/documentation/utilities/get
+title: "get() | Utilities | Documentation | Anime.js | JavaScript Animation Engine"
+fetched: 2026-10-28
+---
+
+[Utilities](https://animejs.com/documentation/utilities "Utilities")
+
+[Since 2.0.0](https://github.com/juliangarnier/anime/releases/tag/v2.0.0)
+
+# [get()](https://animejs.com/documentation/utilities/get "get()")
+
+Returns the current value of a target's property, with optional unit conversion or removal.
+
+```js
+const value = utils.get(target, property, unit);
+```
+
+## [Parameters](https://animejs.com/documentation/utilities/get#parameters)
+
+| Name | Accepts | Description |
+| --- | --- | --- |
+| target | [Targets](https://animejs.com/documentation/animation/targets "Targets") | The targeted element |
+| property | `String` | A valid property name of the target |
+| unit (opt) | `String` | `Boolean` | Strip the unit if set to `false` or convert the unit if a valid unit `String` is passed |
+
+## [Returns](https://animejs.com/documentation/utilities/get#returns)
+
+The returned property value type or the following types if the conditions are met:
+
+| Type | Condition |
+| --- | --- |
+| `String` | The target is an `HTMLElement` or `SVGElement` and the `unit` parameter is not set to `false` or set to a valid unit `String` |
+| `Number` | The target is an `HTMLElement` or `SVGElement` and the `unit` parameter set to `false` |
+
+## get() code example
+
+```js
+import { animate, utils } from 'animejs';
+
+const [ $raw, $rem, $num ] = utils.$('.value');
+const [ $sq1, $sq2, $sq3 ] = utils.$('.square');
+
+const getValues = () => {
+  // Return the raw parsed value (string with px)
+  $raw.textContent = utils.get($sq1, 'x');
+  // Return the converted value with unit (string with rem)
+  $rem.textContent = utils.get($sq2, 'x', 'rem');
+  // Return the raw value with its unit removed (number)
+  $num.textContent = utils.get($sq3, 'x', false);
+}
+
+animate('.square', {
+  x: 270,
+  loop: true,
+  alternate: true,
+  onUpdate: getValues
+});
+```
+
+```html
+<div class="medium row">
+  <div class="square"></div>
+  <div class="padded label"><span class="raw value"></span></div>
+</div>
+<div class="medium row">
+  <div class="square"></div>
+  <div class="padded label"><span class="rem value"></span></div>
+</div>
+<div class="medium row">
+  <div class="square"></div>
+  <div class="padded label"><span class="num value"></span></div>
+</div>
+```
+
+###### Previous
+
+###### Next
+
+* [$()](https://animejs.com/documentation/utilities/dollar-sign "$()")
+* [set()](https://animejs.com/documentation/utilities/set "set()")

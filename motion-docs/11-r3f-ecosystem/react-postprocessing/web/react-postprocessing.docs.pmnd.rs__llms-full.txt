@@ -1,0 +1,1893 @@
+---
+source: https://react-postprocessing.docs.pmnd.rs/llms-full.txt
+title: "llms-full.txt"
+fetched: 2026-10-28
+---
+
+React Postprocessing
+
+Full documentation content.
+
+<page path="/custom-effects" title="Custom effects"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/custom-effects
+Description: Wrapping your own effects, or postprocessing's, as components
+
+# Custom effects
+
+Wrapping your own effects, or postprocessing's, as components
+
+Most effects from `postprocessing` are already wrapped by this library, but if you need one that isn't, or want to write your own, there are three ways to do it depending on what the effect's constructor needs.
+
+## Zero-arg effects (recommended)
+
+If the effect's constructor works with zero arguments (`new SomeEffect()`), `createEffectComponent` gives you a component with live-updating props for free - no `useMemo`/`useDispose` needed, and no reconstruction on every prop change. This is exactly how this library's own simple effects (`BrightnessContrast`, `ChromaticAberration`, `Noise`, ...) are built:
+
+```jsx
+import { SomeEffect } from 'postprocessing'
+import { createEffectComponent } from '@react-three/postprocessing'
+
+export const SomeEffectComponent = createEffectComponent(SomeEffect)
+```
+
+Every constructor option becomes a live prop that updates the existing instance in place, and `blendFunction`/`opacity` are supported automatically. `ref` resolves to the effect instance. Disposal is handled for you - unlike `<primitive>`, r3f disposes elements it constructed itself.
+
+### Custom defaults
+
+If you want different defaults than the class's own, or the constructor takes a positional argument instead of an options object, wrap it in a thin component - this is how this library's own `Pixelation` is built (its default `granularity` is `5`, not the class's own `30`):
+
+```jsx
+import { PixelationEffect } from 'postprocessing'
+import { createEffectComponent } from '@react-three/postprocessing'
+
+const PixelationImpl = createEffectComponent(PixelationEffect)
+
+export function Pixelation({ granularity = 5, ...props }) {
+  return <PixelationImpl granularity={granularity} {...props} />
+}
+```
+
+## Effects that need real constructor arguments
+
+Effects whose constructor needs more than zero arguments - e.g. `OutlineEffect(scene, camera, options)` - can't use `createEffectComponent`: it relies on r3f's `extend()`, which always constructs via `new Effect()`. Build these by hand instead: `useMemo`/`useDispose` for construction, `useLiveDefaults` for props that should update the existing instance rather than reconstruct it.
+
+```jsx
+import { useMemo } from 'react'
+import { SomeEffect } from 'postprocessing'
+import { useDispose, useLiveDefaults } from '@react-three/postprocessing'
+
+const LIVE_KEYS = ['someProp', 'anotherProp']
+
+export function SomeEffectComponent({ requiredArg, someProp, anotherProp, ref }) {
+  const effect = useMemo(() => new SomeEffect(requiredArg), [requiredArg])
+
+  useLiveDefaults(effect, { someProp, anotherProp }, LIVE_KEYS)
+  useDispose(effect)
+
+  return <primitive ref={ref} object={effect} />
+}
+```
+
+`LIVE_KEYS` should only list options that have a real setter on the class - check the effect's own source. `useLiveDefaults` resets a prop to the effect's constructor-time default when it's removed, and only calls the setter when the resolved value actually changed (some setters have side effects beyond storing the value). See `Outline.tsx` in this repo for a real example, including piercing into a nested property like `blendMode.blendFunction`.
+
+## Writing a brand new effect
+
+For effects that don't exist in `postprocessing` at all, extend `Effect` and wrap the result the same way as any other zero-arg effect:
+
+```jsx
+import { Effect } from 'postprocessing'
+import { Uniform } from 'three'
+import { createEffectComponent } from '@react-three/postprocessing'
+
+const fragmentShader = `some_shader_code`
+
+class MyCustomEffect extends Effect {
+  constructor({ param = 0.1 } = {}) {
+    super('MyCustomEffect', fragmentShader, {
+      uniforms: new Map([['param', new Uniform(param)]]),
+    })
+  }
+
+  update(renderer, inputBuffer, deltaTime) {
+    // read/write per-frame state on `this` (e.g. this.uniforms.get('param').value = ...),
+    // never on a module-level variable - that would be shared across every instance
+  }
+}
+
+export const MyCustomEffectComponent = createEffectComponent(MyCustomEffect)
+```
+]]></page>
+<page path="/effect-composer" title="EffectComposer"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effect-composer
+
+# EffectComposer
+
+The `EffectComposer` must wrap all your effects. It will manage them for you.
+
+```jsx
+<EffectComposer
+  enabled?: boolean
+  depthBuffer?: boolean
+  enableNormalPass?: boolean
+  stencilBuffer?: boolean
+  autoClear?: boolean
+  /** Whether the last pass automatically renders to the screen. Set to `false` when rendering to a target of your own (e.g. via a trailing CopyPass) instead. */
+  autoRenderToScreen?: boolean
+  /** MSAA sample count, default 4. Set to 0 to disable it, e.g. when using SMAA or FXAA instead. */
+  multisampling?: number
+  frameBufferType?: TextureDataType
+  /** For effects that support DepthDownsamplingPass */
+  resolutionScale?: number
+  renderPriority?: number
+  camera?: THREE.Camera
+  scene?: THREE.Scene
+  /** Constructs the initial pass that renders the scene - override to substitute your own RenderPass-like implementation. Defaults to `(scene, camera) => new RenderPass(scene, camera)`. */
+  renderPass?: (scene: THREE.Scene, camera: THREE.Camera) => Pass
+  /** Controls how effects are merged into EffectPass instances. `'auto'` (default) merges consecutive effects into one pass, keeping at most one convolution effect (e.g. DepthOfField) per pass - matching what postprocessing actually supports. `'all'` merges without that limit - only enable it if you've verified your specific combination works, since multiple convolution effects sharing a pass throws at render time. `'none'` disables merging entirely, giving every effect its own pass. */
+  mergeMode?: 'auto' | 'all' | 'none'
+>
+{/* your effects go here */}
+</EffectComposer>
+```
+]]></page>
+<page path="/effect-group" title="EffectGroup"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effect-group
+Description: Explicit effect grouping with a pass-level enable toggle
+
+# EffectGroup
+
+Explicit effect grouping with a pass-level enable toggle
+
+`EffectComposer` groups effects into passes automatically: consecutive effects merge into one `EffectPass`, based only on what happens to sit next to them in JSX. `EffectGroup` lets you group specific effects into one pass explicitly, regardless of what's around them, and gives that whole pass a cheap `enabled` toggle - the same thing `Pass.enabled` gives you in vanilla `postprocessing`, without reconstructing anything.
+
+```jsx
+<EffectGroup
+  enabled?: boolean // true
+>
+  {/* effects to group go here */}
+</EffectGroup>
+```
+
+```jsx
+<EffectComposer>
+  <Bloom />
+  <EffectGroup enabled={showVignetteAndNoise}>
+    <Vignette />
+    <Noise />
+  </EffectGroup>
+</EffectComposer>
+```
+
+`Bloom` still gets its own pass as usual. `Vignette` and `Noise` are merged into one pass together, positioned exactly where `EffectGroup` sits in the JSX, and toggling `enabled` turns that whole pass on or off without rebuilding it - so it's cheap to flip every frame if you need to.
+
+`ref` resolves to the underlying `EffectPass`:
+
+```jsx
+<EffectGroup ref={groupRef}>...</EffectGroup>
+```
+
+## Limitations
+
+- `EffectGroup` only groups `postprocessing` `Effect`s - things that merge into one shader pass. A handful of effects in this library (like `N8AO`) are full standalone passes, not effects, and can't be grouped this way - they take their own `enabled` prop instead.
+]]></page>
+<page path="/introduction" title="Introduction"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/introduction
+Description: What is React Postprocessing and how you can use it
+
+# Introduction
+
+What is React Postprocessing and how you can use it
+
+`react-postprocessing` is a [postprocessing](https://github.com/pmndrs/postprocessing) wrapper for [@react-three/fiber](https://github.com/pmndrs/react-three-fiber). This is not (yet) meant for complex orchestration of effects, but can save you [hundreds of LOC](https://twitter.com/0xca0a/status/1289501594698960897) for a straight forward effects-chain.
+
+```bash
+npm install @react-three/postprocessing
+```
+
+[![Bubbles demo](https://pmndrs.github.io/examples/bubbles/thumbnail.webp)](https://pmndrs.github.io/examples/bubbles) [![Take Control demo](https://pmndrs.github.io/examples/take-control/thumbnail.webp)](https://pmndrs.github.io/examples/take-control)
+
+#### Why postprocessing and not three/examples/jsm/postprocessing?
+
+From [https://github.com/pmndrs/postprocessing](https://github.com/pmndrs/postprocessing#performance)
+
+> This library provides an EffectPass which automatically organizes and merges any given combination of effects. This minimizes the amount of render operations and makes it possible to combine many effects without the performance penalties of traditional pass chaining. Additionally, every effect can choose its own blend function.
+>
+> All fullscreen render operations also use a single triangle that fills the screen. Compared to using a quad, this approach harmonizes with modern GPU rasterization patterns and eliminates unnecessary fragment calculations along the screen diagonal. This is especially beneficial for GPGPU passes and effects that use complex fragment shaders.
+
+Postprocessing also supports gamma correction out of the box, as well as WebGL2 MSAA (multi sample anti aliasing), which is react-postprocessing's default, you get high performance crisp results w/o jagged edges.
+
+#### What does it look like?
+
+Here's an example combining a couple of effects ([live demo](https://pmndrs.github.io/examples/bubbles)).
+
+[![Bubbles Demo](https://pmndrs.github.io/examples/bubbles/thumbnail.webp)](https://pmndrs.github.io/examples/bubbles)
+
+```jsx
+import React from 'react'
+import { Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing'
+import { Canvas } from '@react-three/fiber'
+
+function App() {
+  return (
+    <Canvas>
+      {/* Your regular scene contents go here, like always ... */}
+      <EffectComposer>
+        <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} />
+        <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+        <Noise opacity={0.02} />
+        <Vignette eskil={false} offset={0.1} darkness={1.1} />
+      </EffectComposer>
+    </Canvas>
+  )
+}
+```
+
+## Documentation
+
+- [react-postprocessing docs](https://docs.pmnd.rs/react-postprocessing)
+- [postprocessing docs](https://pmndrs.github.io/postprocessing/public/docs/)
+]]></page>
+<page path="/selection" title="Selection"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/selection
+Description: Selection/Select
+
+# Selection
+
+Selection/Select
+
+Some effects, like Outline or SelectiveBloom can select specific objects. To manage this in a declarative scene with just references can be messy, especially when things have to be grouped. These two components take care of it:
+
+```jsx
+<Selection
+  children: JSX.Element | JSX.Element[]
+  enabled?: boolean
+>
+
+<Select
+  children: JSX.Element | JSX.Element[]
+  enabled?: boolean
+  /** Keeps this subtree out of the selection, even when an ancestor Select is enabled. */
+  exclude?: boolean
+>
+```
+
+You wrap everything into a selection, this one holds all the selections. Now you can individually select objects or groups. Effects that support selections (for instance `Outline`) will acknowledge it.
+
+```jsx
+<Selection>
+  <EffectComposer autoClear={false}>
+    <Outline blur edgeStrength={100} />
+  </EffectComposer>
+  <Select enabled>
+    <mesh />
+  </Select>
+</Selection>
+```
+
+Selection can be nested and group multiple object, higher up selection take precedence over lower ones. The following for instance will select everything. Remove the outmost `enabled` and only the two mesh group is selected. You can flip the selections or bind them to interactions and state.
+
+```jsx
+<Select enabled>
+  <Select enabled>
+    <mesh />
+    <mesh />
+  </Select>
+  <Select>
+    <mesh />
+  </Select>
+</Select>
+```
+
+To keep part of an enabled subtree out of the selection, wrap it in a `Select` with `exclude`. Selects nested inside an excluded subtree can still select their own objects.
+
+```jsx
+<Select enabled>
+  <mesh /> {/* selected */}
+  <Select exclude>
+    <mesh /> {/* not selected */}
+  </Select>
+</Select>
+```
+]]></page>
+<page path="/effects/ascii" title="ASCII"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/ascii
+
+# ASCII
+
+Renders the scene as ASCII art, mapping pixel luminance to characters drawn onto a canvas-based character atlas. Adapted from [emilwidlund/ASCII](https://github.com/emilwidlund/ASCII).
+
+```jsx
+import { ASCII } from '@react-three/postprocessing'
+
+return (
+  <ASCII
+    font="arial" // font family used to draw the character atlas
+    characters=" .:,'-^=*+?!|0#X%WM@" // characters to sample from, in order of increasing "weight"
+    fontSize={54} // font size used to draw the character atlas
+    cellSize={16} // size of each character cell, in pixels
+    color="#ffffff" // character color
+    invert={false} // inverts which characters map to bright vs dark pixels
+  />
+)
+```
+
+## Example
+
+[![ASCII demo](https://pmndrs.github.io/examples/ascii/thumbnail.webp)](https://pmndrs.github.io/examples/ascii)
+
+## Props
+
+| Name          | Type                | Default                | Description                                                     |
+| ------------- | ------------------- | ---------------------- | --------------------------------------------------------------- |
+| font          | String              | 'arial'                | The font family used to draw the character atlas.               |
+| characters    | String              | `.:,'-^=*+?!\|0#X%WM@` | The characters to sample from, ordered from "empty" to "dense". |
+| fontSize      | Number              | 54                     | The font size used to draw the character atlas.                 |
+| cellSize      | Number              | 16                     | The size of each character cell, in pixels.                     |
+| color         | ColorRepresentation | '#ffffff'              | The color of the characters.                                    |
+| invert        | Boolean             | false                  | Inverts which characters map to bright vs dark pixels.          |
+| blendFunction | BlendFunction       | BlendFunction.NORMAL   | The blend function of this effect.                              |
+| opacity       | Number              | 1                      | The opacity of this effect.                                     |
+]]></page>
+<page path="/effects/autofocus" title="Autofocus"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/autofocus
+
+# Autofocus
+
+An auto-focus effect, that extends `<DepthOfField>`.
+
+Based on [ektogamat/AutoFocusDOF](https://github.com/ektogamat/AutoFocusDOF). Built on `<DepthPicking>` and `useDepthPicking` internally - use those directly if you want a picked position for something other than `<DepthOfField>`'s own focus target.
+
+```tsx
+export type AutofocusProps = typeof DepthOfField & {
+  target?: [number, number, number] // undefined
+  mouse?: boolean // false
+  debug?: number // undefined
+  manual?: boolean // false
+  smoothTime?: number // .25
+}
+```
+
+```tsx
+<EffectComposer>
+  <Autofocus />
+</EffectComposer>
+```
+
+Ref-api:
+
+```tsx
+type AutofocusApi = {
+  dofRef: RefObject<DepthOfFieldEffect>
+  hitpoint: THREE.Vector3
+  update: (delta: number, updateTarget: boolean) => void
+}
+```
+
+```tsx
+<Autofocus ref={autofocusRef} />
+```
+
+Associated with `manual` prop, you can for example, animate the DOF target yourself:
+
+```tsx
+useFrame((_, delta) => {
+  const api = autofocusRef.current
+  api.update(delta, false) // update hitpoint only
+  easing.damp3(api.dofRef.curent.target, api.hitpoint, 0.5, delta) // custom easing
+})
+```
+
+## Example
+
+[![Autofocus demo](https://pmndrs.github.io/examples/autofocus/thumbnail.webp)](https://pmndrs.github.io/examples/autofocus)
+]]></page>
+<page path="/effects/bloom" title="Bloom"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/bloom
+
+# Bloom
+
+A bloom effect.
+
+```jsx
+import { Bloom } from '@react-three/postprocessing'
+import { KernelSize, Resolution } from 'postprocessing'
+
+return (
+  <Bloom
+    intensity={1.0} // The bloom intensity.
+    kernelSize={KernelSize.LARGE} // blur kernel size
+    luminanceThreshold={0.9} // luminance threshold. Raise this value to mask out darker elements in the scene.
+    luminanceSmoothing={0.025} // smoothness of the luminance threshold. Range is [0, 1]
+    mipmapBlur={false} // Enables or disables mipmap blur.
+    resolutionX={Resolution.AUTO_SIZE} // The horizontal resolution.
+    resolutionY={Resolution.AUTO_SIZE} // The vertical resolution.
+  />
+)
+```
+
+Bloom is selective by default, you control it not on the effect pass but on the materials by lifting their colors out of 0-1 range. a `luminanceThreshold` of 1 ensures that ootb nothing will glow, only the materials you pick. For this to work `toneMapped` has to be false on the materials, because it would otherwise clamp colors between 0 and 1 again.
+
+```jsx
+<Bloom mipmapBlur luminanceThreshold={1} />
+
+// ❌ will not glow, same as RGB [1,0,0]
+<meshStandardMaterial color="red"/>
+
+// ✅ will glow, same as RGB [2,0,0]
+<meshStandardMaterial emissive="red" emissiveIntensity={2} toneMapped={false} />
+
+// ❌ will not glow, same as RGB [1,0,0]
+<meshBasicMaterial color="red" />
+
+// ❌ will not glow, same as RGB [1,0,0], tone-mapping will clamp colors between 0 and 1
+<meshBasicMaterial color={[2,0,0]} />
+
+// ✅ will glow, same as RGB [2,0,0]
+<meshBasicMaterial color={[2,0,0]} toneMapped={false} />
+```
+
+## Example
+
+[![Bloom demo](https://pmndrs.github.io/examples/bloom/thumbnail.webp)](https://pmndrs.github.io/examples/bloom)
+
+## Props
+
+| Name               | Type          | Default              | Description                                                                                           |
+| ------------------ | ------------- | -------------------- | ----------------------------------------------------------------------------------------------------- |
+| luminanceThreshold | Number        | 0.9                  | The luminance threshold. Raise this value to mask out darker elements in the scene. Range is \[0, 1]. |
+| luminanceSmoothing | Number        | 0.025                | Controls the smoothness of the luminance threshold. Range is \[0, 1].                                 |
+| blendFunction      | BlendFunction | BlendFunction.ADD    | The blend function of this effect.                                                                    |
+| intensity          | Number        | 1                    | The intensity.                                                                                        |
+| resolutionX        | Number        | Resolution.AUTO_SIZE | The render width.                                                                                     |
+| resolutionY        | Number        | Resolution.AUTO_SIZE | The render height.                                                                                    |
+| kernelSize         | Number        | KernelSize.LARGE     | The blur kernel size.                                                                                 |
+| mipmapBlur         | Boolean       | true                 | Enables mipmap blur.                                                                                  |
+| radius             | Number        | 0.85                 | The mipmap blur radius. Only used with mipmapBlur.                                                    |
+| levels             | Number        | 8                    | The number of mipmap blur levels. Only used with mipmapBlur.                                          |
+| opacity            | Number        | 1                    | The opacity of this effect.                                                                           |
+| resolutionScale    | Number        | 0.5                  | The render resolution scale. Ignored if `mipmapBlur` is enabled.                                      |
+]]></page>
+<page path="/effects/brightness-contrast" title="BrightnessContrast"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/brightness-contrast
+
+# BrightnessContrast
+
+Alter brightness and contrast of your scene
+
+```jsx
+import { BrightnessContrast } from '@react-three/postprocessing'
+
+return (
+  <BrightnessContrast
+    brightness={0} // brightness. min: -1, max: 1
+    contrast={0} // contrast: min -1, max: 1
+  />
+)
+```
+
+## Example
+
+[![BrightnessContrast demo](https://pmndrs.github.io/examples/brightness-contrast/thumbnail.webp)](https://pmndrs.github.io/examples/brightness-contrast)
+
+## Props
+
+| Name          | Type          | Default           | Description                        |
+| ------------- | ------------- | ----------------- | ---------------------------------- |
+| brightness    | Number        | 0                 | Scene brightness shift             |
+| contrast      | Number        | 0                 | Scene contrast shift               |
+| blendFunction | BlendFunction | BlendFunction.SRC | The blend function of this effect. |
+| opacity       | Number        | 1                 | The opacity of this effect.        |
+]]></page>
+<page path="/effects/chromatic-aberration" title="ChromaticAberration"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/chromatic-aberration
+
+# ChromaticAberration
+
+A chromatic aberration effect.
+
+```jsx
+import { ChromaticAberration } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <ChromaticAberration
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    offset={[0.02, 0.002]} // color offset
+  />
+)
+```
+
+## Example
+
+[![ChromaticAberration demo](https://pmndrs.github.io/examples/chromatic-aberration/thumbnail.webp)](https://pmndrs.github.io/examples/chromatic-aberration)
+
+## Props
+
+| Name             | Type          | Default              | Description                                                              |
+| ---------------- | ------------- | -------------------- | ------------------------------------------------------------------------ |
+| offset           | Vector2       | \[0.001, 0.0005]     | The color offset.                                                        |
+| blendFunction    | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                                       |
+| radialModulation | Boolean       | false                | Scales the offset by the distance from the screen center.                |
+| modulationOffset | Number        | 0.15                 | The radial modulation offset, 0 to 1. Only used with `radialModulation`. |
+| opacity          | Number        | 1                    | The opacity of this effect.                                              |
+]]></page>
+<page path="/effects/color-average" title="ColorAverage"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/color-average
+
+# ColorAverage
+
+A color average effect.
+
+```jsx
+import { ColorAverage } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <ColorAverage
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![ColorAverage demo](https://pmndrs.github.io/examples/color-average/thumbnail.webp)](https://pmndrs.github.io/examples/color-average)
+
+## Props
+
+| Name          | Type          | Default              | Description                        |
+| ------------- | ------------- | -------------------- | ---------------------------------- |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect. |
+| opacity       | Number        | 1                    | The opacity of this effect.        |
+]]></page>
+<page path="/effects/color-depth" title="ColorDepth"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/color-depth
+
+# ColorDepth
+
+Reduces the color depth of the scene, uniformly across all color channels - a posterize-like effect.
+
+```jsx
+import { ColorDepth } from '@react-three/postprocessing'
+
+return (
+  <ColorDepth
+    bits={16} // the virtual color bit depth
+  />
+)
+```
+
+## Example
+
+[![ColorDepth demo](https://pmndrs.github.io/examples/color-depth/thumbnail.webp)](https://pmndrs.github.io/examples/color-depth)
+
+## Props
+
+| Name          | Type          | Default | Description                                                                                                        |
+| ------------- | ------------- | ------- | ------------------------------------------------------------------------------------------------------------------ |
+| blendFunction | BlendFunction |         | The blend function of this effect.                                                                                 |
+| bits          | Number        | 16      | The virtual amount of color bits. Each color channel effectively uses a fourth of this total; alpha is unaffected. |
+| opacity       | Number        | 1       | The opacity of this effect.                                                                                        |
+]]></page>
+<page path="/effects/depth-of-field" title="DepthOfField"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/depth-of-field
+
+# DepthOfField
+
+A depth of field effect.
+
+Based on a graphics study by Adrian Courrèges and an article by Steve Avery: <https://www.adriancourreges.com/blog/2016/09/09/doom-2016-graphics-study/> <https://pixelmischiefblog.wordpress.com/2016/11/25/bokeh-depth-of-field/>
+
+```jsx
+import { DepthOfField } from '@react-three/postprocessing'
+
+return (
+  <DepthOfField
+    focusDistance={3} // where to focus, in world units
+    focusRange={2} // depth range that stays in focus, in world units
+    bokehScale={2} // bokeh size
+  />
+)
+```
+
+## Example
+
+[![DepthOfField demo](https://pmndrs.github.io/examples/depth-of-field/thumbnail.webp)](https://pmndrs.github.io/examples/depth-of-field)
+
+## Props
+
+| Name            | Type                                    | Default              | Description                                                   |
+| --------------- | --------------------------------------- | -------------------- | ------------------------------------------------------------- |
+| blendFunction   | BlendFunction                           | BlendFunction.NORMAL | The blend function of this effect.                            |
+| focusDistance   | Number                                  | 3                    | The focus distance in world units.                            |
+| focusRange      | Number                                  | 2                    | The focus range in world units.                               |
+| bokehScale      | Number                                  | 1                    | The scale of the bokeh blur.                                  |
+| target          | Vector3                                 |                      | A world position to keep in focus. Overrides `focusDistance`. |
+| depthTexture    | `{ texture: Texture, packing: number }` |                      | A depth texture to use instead of the composer's own.         |
+| resolutionScale | Number                                  | 0.5                  | The render resolution scale.                                  |
+| resolutionX     | Number                                  | Resolution.AUTO_SIZE | The render width.                                             |
+| resolutionY     | Number                                  | Resolution.AUTO_SIZE | The render height.                                            |
+| opacity         | Number                                  | 1                    | The opacity of this effect.                                   |
+
+`focalLength`, `worldFocusDistance`, `worldFocusRange`, `width`, `height` and `blur` are deprecated.
+]]></page>
+<page path="/effects/depth" title="Depth"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/depth
+
+# Depth
+
+Visualizes the scene's depth buffer as grayscale - useful for debugging, or as an input for further custom effects.
+
+```jsx
+import { Depth } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Depth
+    blendFunction={BlendFunction.SRC} // the blend function of this effect
+    inverted={false} // whether the depth should be inverted
+  />
+)
+```
+
+## Example
+
+[![Depth demo](https://pmndrs.github.io/examples/depth/thumbnail.webp)](https://pmndrs.github.io/examples/depth)
+
+## Props
+
+| Name          | Type          | Default           | Description                           |
+| ------------- | ------------- | ----------------- | ------------------------------------- |
+| blendFunction | BlendFunction | BlendFunction.SRC | The blend function of this effect.    |
+| inverted      | Boolean       | false             | Whether the depth should be inverted. |
+| opacity       | Number        | 1                 | The opacity of this effect.           |
+]]></page>
+<page path="/effects/dot-screen" title="Dot Screen"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/dot-screen
+
+# Dot Screen
+
+A dot screen effect.
+
+```jsx
+import { DotScreen } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <DotScreen
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    angle={Math.PI * 0.5} // angle of the dot pattern
+    scale={1.0} // scale of the dot pattern
+  />
+)
+```
+
+## Example
+
+[![DotScreen demo](https://pmndrs.github.io/examples/dot-screen/thumbnail.webp)](https://pmndrs.github.io/examples/dot-screen)
+
+## Props
+
+| Name          | Type          | Default              | Description                        |
+| ------------- | ------------- | -------------------- | ---------------------------------- |
+| angle         | Number        | 1 .57                | The angle of the dot pattern.      |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect. |
+| scale         | Number        | 1 .57                | The scale of the dot pattern.      |
+| opacity       | Number        | 1                    | The opacity of this effect.        |
+]]></page>
+<page path="/effects/fxaa" title="FXAA"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/fxaa
+
+# FXAA
+
+Fast Approximate Anti-Aliasing - a cheap, single-pass alternative to [SMAA](/effects/smaa) with lower visual quality but better performance.
+
+```jsx
+import { FXAA } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <FXAA
+    blendFunction={BlendFunction.SRC} // the blend function of this effect
+    minEdgeThreshold={0.0312} // the minimum edge detection threshold
+    maxEdgeThreshold={0.125} // the maximum edge detection threshold
+    subpixelQuality={0.75} // the subpixel blend quality
+    samples={12} // the maximum amount of edge detection samples
+  />
+)
+```
+
+## Props
+
+| Name             | Type          | Default           | Description                                              |
+| ---------------- | ------------- | ----------------- | -------------------------------------------------------- |
+| blendFunction    | BlendFunction | BlendFunction.SRC | The blend function of this effect.                       |
+| minEdgeThreshold | Number        | 0.0312            | The minimum edge detection threshold. Range \[0.0, 1.0]. |
+| maxEdgeThreshold | Number        | 0.125             | The maximum edge detection threshold. Range \[0.0, 1.0]. |
+| subpixelQuality  | Number        | 0.75              | The subpixel blend quality. Range \[0.0, 1.0].           |
+| samples          | Number        | 12                | The maximum amount of edge detection samples.            |
+| opacity          | Number        | 1                 | The opacity of this effect.                              |
+]]></page>
+<page path="/effects/glitch" title="Glitch"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/glitch
+
+# Glitch
+
+A glitch effect.
+
+```jsx
+import { Glitch } from '@react-three/postprocessing'
+import { GlitchMode } from 'postprocessing'
+
+return (
+  <Glitch
+    delay={[1.5, 3.5]} // min and max glitch delay
+    duration={[0.6, 1.0]} // min and max glitch duration
+    strength={[0.3, 1.0]} // min and max glitch strength
+    mode={GlitchMode.SPORADIC} // glitch mode
+    active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
+    ratio={0.85} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+  />
+)
+```
+
+## Example
+
+[![Glitch demo](https://pmndrs.github.io/examples/glitch/thumbnail.webp)](https://pmndrs.github.io/examples/glitch)
+
+## Props
+
+| Name                      | Type          | Default              | Description                                                                               |
+| ------------------------- | ------------- | -------------------- | ----------------------------------------------------------------------------------------- |
+| active                    | Boolean       | true                 | Turn the effect on and off                                                                |
+| blendFunction             | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                                                        |
+| chromaticAberrationOffset | Vector2       |                      | A chromatic aberration offset. If provided, the glitch effect will influence this offset. |
+| delay                     | Vector2       | \[1.5, 3.5]          | The minimum and maximum delay between glitch activations in seconds.                      |
+| duration                  | Vector2       | \[0.6, 1.0]          | The minimum and maximum duration of a glitch in seconds.                                  |
+| strength                  | Vector2       | \[0.3, 1.0]          | The strength of weak and strong glitches.                                                 |
+| perturbationMap           | Texture       |                      | A perturbation map. If none is provided, a noise texture will be created.                 |
+| dtSize                    | Number        | 64                   | The size of the generated noise map. Will be ignored if a perturbation map is provided.   |
+| columns                   | Number        | 0.05                 | The scale of the blocky glitch columns.                                                   |
+| ratio                     | Number        | 0.85                 | The threshold for strong glitches.                                                        |
+| mode                      | GlitchMode    | GlitchMode.SPORADIC  | The glitch mode. Ignored while `active` is false.                                         |
+| opacity                   | Number        | 1                    | The opacity of this effect.                                                               |
+]]></page>
+<page path="/effects/god-rays" title="GodRays"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/god-rays
+
+# GodRays
+
+The GodRays effect requires a mesh that will be used as an origin point for the rays. Refer to this [example](https://pmndrs.github.io/examples/take-control) for more details.
+
+For correct occlusion by other objects, also set `<EffectComposer autoClear={false}>`.
+
+```jsx
+import { GodRays } from '@react-three/postprocessing'
+
+return (
+  <GodRays
+    sun={sunRef}
+    blendFunction={BlendFunction.Screen} // The blend function of this effect.
+    samples={60} // The number of samples per pixel.
+    density={0.96} // The density of the light rays.
+    decay={0.9} // An illumination decay factor.
+    weight={0.4} // A light ray weight factor.
+    exposure={0.6} // A constant attenuation coefficient.
+    clampMax={1} // An upper bound for the saturation of the overall effect.
+    width={Resizer.AUTO_SIZE} // Render width.
+    height={Resizer.AUTO_SIZE} // Render height.
+    kernelSize={KernelSize.SMALL} // The blur kernel size. Has no effect if blur is disabled.
+    blur={true} // Whether the god rays should be blurred to reduce artifacts.
+  />
+)
+```
+
+## Example
+
+[![God Rays demo](https://pmndrs.github.io/examples/volumetric-light-godray/thumbnail.webp)](https://pmndrs.github.io/examples/volumetric-light-godray)
+
+## Props
+
+| Name            | Type                                                                                                               | Default              | Description                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- | ---------------------------------------------------------------------------- |
+| sun             | Ref                                                                                                                |                      | The light source. Must not write depth and has to be flagged as transparent. |
+| blendFunction   | BlendFunction                                                                                                      | BlendFunction.SCREEN | The blend function of this effect.                                           |
+| samples         | Number                                                                                                             | 60                   | The number of samples per pixel.                                             |
+| density         | Number                                                                                                             | 0.96                 | The density of the light rays.                                               |
+| decay           | Number                                                                                                             | 0.9                  | An illumination decay factor.                                                |
+| weight          | Number                                                                                                             | 0.4                  | A light ray weight factor.                                                   |
+| exposure        | Number                                                                                                             | 0.6                  | A constant attenuation coefficient.                                          |
+| clampMax        | Number                                                                                                             | 1                    | An upper bound for the saturation of the overall effect.                     |
+| resolutionScale | Number                                                                                                             | 0.5                  | The render resolution scale.                                                 |
+| resolutionX     | Number                                                                                                             | Resolution.AUTO_SIZE | The render width.                                                            |
+| resolutionY     | Number                                                                                                             | Resolution.AUTO_SIZE | The render height.                                                           |
+| kernelSize      | [KernelSize](https://vanruesc.github.io/postprocessing/public/docs/variable/index.html#static-variable-KernelSize) | KernelSize.SMALL     | The blur kernel size. Has no effect if blur is disabled.                     |
+| blur            | Boolean                                                                                                            | true                 | Whether the god rays should be blurred to reduce artifacts                   |
+| opacity         | Number                                                                                                             | 1                    | The opacity of this effect.                                                  |
+]]></page>
+<page path="/effects/grid" title="Grid"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/grid
+
+# Grid
+
+A Grid effect
+
+```jsx
+import { Grid } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Grid
+    blendFunction={BlendFunction.OVERLAY} // blend mode
+    scale={1.0} // grid pattern scale
+    lineWidth={0.0} // grid pattern line width
+    size={{ width, height }} // overrides the default pass width and height
+  />
+)
+```
+
+## Example
+
+[![Grid demo](https://pmndrs.github.io/examples/grid/thumbnail.webp)](https://pmndrs.github.io/examples/grid)
+
+## Props
+
+| Name          | Type                                | Default               | Description                                  |
+| ------------- | ----------------------------------- | --------------------- | -------------------------------------------- |
+| blendFunction | BlendFunction                       | BlendFunction.OVERLAY | The blend function of this effect.           |
+| scale         | Number                              | 1                     | The scale of the grid pattern.               |
+| lineWidth     | Number                              | 0                     | The line width of the grid pattern.          |
+| size          | `{ width: Number, height: Number }` |                       | Overrides the default pass width and height. |
+| opacity       | Number                              | 1                     | The opacity of this effect.                  |
+]]></page>
+<page path="/effects/halftone" title="Halftone"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/halftone
+
+# Halftone
+
+An RGB halftone print effect: each color channel becomes a rotated grid of dots whose size follows the image brightness, for a comic or printed look.
+
+Ported from the three.js [HalftonePass](https://threejs.org/examples/#webgl_postprocessing_rgb_halftone).
+
+```jsx
+import { Halftone, HalftoneShape } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Halftone
+    shape={HalftoneShape.Dot} // Dot, Ellipse, Line or Square
+    radius={4} // dot grid spacing in pixels
+    rotateR={Math.PI / 12} // red channel grid rotation
+    rotateG={(Math.PI / 12) * 2} // green channel grid rotation
+    rotateB={(Math.PI / 12) * 3} // blue channel grid rotation
+    scatter={0} // random dot offset, 0 to 1
+    greyscale={false} // renders the dots in greyscale
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Halftone demo](https://pmndrs.github.io/examples/halftone/thumbnail.webp)](https://pmndrs.github.io/examples/halftone)
+
+## Props
+
+| Name          | Type          | Default              | Description                                        |
+| ------------- | ------------- | -------------------- | -------------------------------------------------- |
+| shape         | HalftoneShape | HalftoneShape.Dot    | The dot shape: Dot, Ellipse, Line or Square.       |
+| radius        | Number        | 4                    | Dot grid spacing and maximum dot radius in pixels. |
+| rotateR       | Number        | Math.PI / 12         | Rotation of the red channel grid in radians.       |
+| rotateG       | Number        | Math.PI / 6          | Rotation of the green channel grid in radians.     |
+| rotateB       | Number        | Math.PI / 4          | Rotation of the blue channel grid in radians.      |
+| scatter       | Number        | 0                    | Random dot offset, 0 to 1.                         |
+| greyscale     | Boolean       | false                | Renders the dots in greyscale.                     |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                 |
+| opacity       | Number        | 1                    | The opacity of this effect.                        |
+]]></page>
+<page path="/effects/hue-saturation" title="HueSaturation"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/hue-saturation
+
+# HueSaturation
+
+A hue/saturation effect.
+
+```jsx
+import { HueSaturation } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <HueSaturation
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    hue={0} // hue in radians
+    saturation={0} // saturation in radians
+  />
+)
+```
+
+## Example
+
+[![HueSaturation demo](https://pmndrs.github.io/examples/hue-saturation/thumbnail.webp)](https://pmndrs.github.io/examples/hue-saturation)
+
+## Props
+
+| Name          | Type          | Default | Description                        |
+| ------------- | ------------- | ------- | ---------------------------------- |
+| hue           | Number        | 0       | Hue shift in radians               |
+| saturation    | Number        | 0       | Saturation value in radians        |
+| blendFunction | BlendFunction |         | The blend function of this effect. |
+| opacity       | Number        | 1       | The opacity of this effect.        |
+]]></page>
+<page path="/effects/kuwahara" title="Kuwahara"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/kuwahara
+
+# Kuwahara
+
+A painterly filter that smooths flat areas into brush-like strokes while keeping edges sharp. It is an anisotropic generalized Kuwahara filter: the sampling area follows the local edge direction.
+
+Based on [Maxime Heckel's article on painterly shaders](https://blog.maximeheckel.com/posts/on-crafting-painterly-shaders/).
+
+```jsx
+import { Kuwahara } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Kuwahara
+    radius={4} // filter radius in pixels
+    sectorCount={8} // number of sectors, 2 to 8
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+The filter takes about `radius * sectorCount * 3` texture samples per pixel, so large radii get expensive quickly. Lower `sectorCount` when raising `radius`.
+
+## Example
+
+[![Kuwahara demo](https://pmndrs.github.io/examples/kuwahara/thumbnail.webp)](https://pmndrs.github.io/examples/kuwahara)
+
+## Props
+
+| Name          | Type          | Default              | Description                                                   |
+| ------------- | ------------- | -------------------- | ------------------------------------------------------------- |
+| radius        | Number        | 4                    | The filter radius in pixels.                                  |
+| sectorCount   | Number        | 8                    | The number of sectors, 2 to 8. Fewer is cheaper but blockier. |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                            |
+| opacity       | Number        | 1                    | The opacity of this effect.                                   |
+]]></page>
+<page path="/effects/lens-distortion" title="LensDistortion"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/lens-distortion
+
+# LensDistortion
+
+A radial lens distortion effect. Positive `distortion` values give a barrel (fisheye-like) look, negative values a pincushion look.
+
+```jsx
+import { LensDistortion } from '@react-three/postprocessing'
+
+return (
+  <LensDistortion
+    distortion={[0.5, 0.5]} // radial distortion coefficients
+    principalPoint={[0, 0]} // center offset
+    focalLength={[0.7, 0.7]} // lower values zoom in, hiding the black corners
+    skew={0} // skew in radians
+  />
+)
+```
+
+## Example
+
+[![LensDistortion demo](https://pmndrs.github.io/examples/lens-distortion/thumbnail.webp)](https://pmndrs.github.io/examples/lens-distortion)
+
+## Props
+
+| Name           | Type          | Default              | Description                             |
+| -------------- | ------------- | -------------------- | --------------------------------------- |
+| distortion     | Vector2       | \[0, 0]              | The radial distortion coefficients.     |
+| principalPoint | Vector2       | \[0, 0]              | The center point offset.                |
+| focalLength    | Vector2       | \[1, 1]              | The focal length. Lower values zoom in. |
+| skew           | Number        | 0                    | The skew factor in radians.             |
+| blendFunction  | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.      |
+| opacity        | Number        | 1                    | The opacity of this effect.             |
+]]></page>
+<page path="/effects/lensflare" title="Lensflare"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/lensflare
+
+# Lensflare
+
+A Lens Flare adds the optical aberration caused by the dispersion of light entering the lens through its edges.
+
+Based on [ektogamat/R3F-Ultimate-Lens-Flare](https://github.com/ektogamat/R3F-Ultimate-Lens-Flare) ([live demo](https://ultimate-lens-flare.vercel.app/)).
+
+```jsx
+import { LensFlare } from '@react-three/postprocessing'
+
+return <LensFlare />
+```
+
+## Ignoring occlusion on some objects
+
+To disable the occlusion effect, simply add `userData={{ lensflare: 'no-occlusion' }}` to your object/mesh props.
+
+## Improving performance
+
+Use bvh `<bvh><Scene></bvh>` to enhance the internal raycaster performance.
+
+## Limitations
+
+The Ultimate Lens Flare leverages the raycaster to examine the material type of objects and determine if they are `MeshTransmissionMaterial` or `MeshPhysicalMaterial`. It checks for the transmission parameter to identify glass-like materials. Therefore, for an object to behave like glass, its material should have either `transmission = 1` or `transparent = true` and `opacity = NUMBER`. The effect automatically interprets the opacity `NUMBER` value to determine the brightness of the flare.
+
+## Example
+
+[![LensFlare demo](https://pmndrs.github.io/examples/lensflare/thumbnail.webp)](https://pmndrs.github.io/examples/lensflare)
+
+## Credits
+
+- <https://www.shadertoy.com/view/4sK3W3>
+- <https://www.shadertoy.com/view/4sX3Rs>
+- <https://www.shadertoy.com/view/dllSRX>
+- <https://www.shadertoy.com/view/Xlc3D2>
+- <https://www.shadertoy.com/view/XtKfRV>
+]]></page>
+<page path="/effects/linocut" title="Linocut"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/linocut
+
+# Linocut
+
+Turns the scene into a high-contrast black and white image with carved, swirling lines, like a linocut or woodcut print.
+
+Ported from [TresJS post-processing](https://post-processing.tresjs.org/api/pmndrs/linocut).
+
+```jsx
+import { Linocut } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Linocut
+    scale={0.85} // line width and swirl amount, 0 to 1
+    noiseScale={0} // noise added before thresholding, 0 to 1
+    center={[0.5, 0.5]} // center of the line pattern
+    rotation={0} // rotation of the line pattern in radians
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Linocut demo](https://pmndrs.github.io/examples/linocut/thumbnail.webp)](https://pmndrs.github.io/examples/linocut)
+
+## Props
+
+| Name          | Type          | Default              | Description                                            |
+| ------------- | ------------- | -------------------- | ------------------------------------------------------ |
+| scale         | Number        | 0.85                 | Line width and swirl amount, 0 to 1.                   |
+| noiseScale    | Number        | 0                    | Noise added before thresholding, 0 to 1.               |
+| center        | Vector2       | \[0.5, 0.5]          | Center of the line pattern in normalized screen space. |
+| rotation      | Number        | 0                    | Rotation of the line pattern in radians.               |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                     |
+| opacity       | Number        | 1                    | The opacity of this effect.                            |
+]]></page>
+<page path="/effects/lut" title="LUT"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/lut
+
+# LUT
+
+Applies 3D LUT-based color grading using a lookup texture (a `THREE.Texture` built from e.g. a `.cube` file or a data texture you construct yourself).
+
+```jsx
+import { LUT } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <LUT
+    lut={lutTexture} // the lookup texture
+    blendFunction={BlendFunction.SRC} // the blend function of this effect
+    tetrahedralInterpolation={false} // enables or disables tetrahedral interpolation
+  />
+)
+```
+
+## Example
+
+[![LUT demo](https://pmndrs.github.io/examples/lut/thumbnail.webp)](https://pmndrs.github.io/examples/lut)
+
+## Props
+
+| Name                     | Type          | Default           | Description                                    |
+| ------------------------ | ------------- | ----------------- | ---------------------------------------------- |
+| lut                      | Texture       |                   | The lookup texture. Required.                  |
+| blendFunction            | BlendFunction | BlendFunction.SRC | The blend function of this effect.             |
+| tetrahedralInterpolation | Boolean       | false             | Enables or disables tetrahedral interpolation. |
+| opacity                  | Number        | 1                 | The opacity of this effect.                    |
+]]></page>
+<page path="/effects/noise" title="Noise"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/noise
+
+# Noise
+
+A noise effect.
+
+```jsx
+import { Noise } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Noise
+    premultiply // enables or disables noise premultiplication
+    blendFunction={BlendFunction.ADD} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Noise demo](https://pmndrs.github.io/examples/noise/thumbnail.webp)](https://pmndrs.github.io/examples/noise)
+
+## Props
+
+| Name          | Type          | Default              | Description                                                  |
+| ------------- | ------------- | -------------------- | ------------------------------------------------------------ |
+| premultiply   | Boolean       | false                | Whether the noise should be multiplied with the input color. |
+| blendFunction | BlendFunction | BlendFunction.SCREEN | The blend function of this effect.                           |
+| opacity       | Number        | 1                    | The opacity of this effect.                                  |
+]]></page>
+<page path="/effects/outline" title="Outline"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/outline
+
+# Outline
+
+An outline effect.
+
+Requires `<EffectComposer autoClear={false}>` - without it, outlines don't render at all.
+
+```jsx
+import { Outline } from '@react-three/postprocessing'
+import { BlendFunction, Resolution, KernelSize } from 'postprocessing'
+
+return (
+  <Outline
+    selection={[meshRef1, meshRef2]} // selection of objects that will be outlined
+    selectionLayer={10} // selection layer
+    blendFunction={BlendFunction.SCREEN} // set this to BlendFunction.ALPHA for dark outlines
+    patternTexture={null} // a pattern texture
+    patternScale={1.0} // the pattern texture scale
+    edgeStrength={1.0} // the edge strength
+    pulseSpeed={0.0} // a pulse speed. A value of zero disables the pulse effect
+    visibleEdgeColor={0xffffff} // the color of visible edges
+    hiddenEdgeColor={0x22090a} // the color of hidden edges
+    multisampling={0} // the number of samples used for multisample antialiasing, requires WebGL 2
+    resolutionScale={0.5} // render resolution scale
+    resolutionX={Resolution.AUTO_SIZE} // render width
+    resolutionY={Resolution.AUTO_SIZE} // render height
+    kernelSize={KernelSize.VERY_SMALL} // blur kernel size
+    blur={false} // whether the outline should be blurred
+    xRay={true} // indicates whether X-Ray outlines are enabled
+  />
+)
+```
+
+## Example
+
+[![Outline demo](https://pmndrs.github.io/examples/react-pp-outlines/thumbnail.webp)](https://pmndrs.github.io/examples/react-pp-outlines/)
+
+## Props
+
+| Name             | Type                | Default               | Description                                                                              |
+| ---------------- | ------------------- | --------------------- | ---------------------------------------------------------------------------------------- |
+| selection        | Objects             |                       | Selection of objects that will be outlined                                               |
+| selectionLayer   | Number              | 10                    | The selection layer                                                                      |
+| blendFunction    | BlendFunction       | BlendFunction.SCREEN  | The blend function of this effect.                                                       |
+| patternTexture   | THREE.Texture       | null                  | A pattern texture.                                                                       |
+| patternScale     | Number              | 1.0                   | The pattern texture scale.                                                               |
+| edgeStrength     | Number              | 1.0                   | The edge strength.                                                                       |
+| pulseSpeed       | Number              | 0                     | The pulse speed. A value of zero disables the pulse effect.                              |
+| visibleEdgeColor | ColorRepresentation | 0xffffff              | The color of visible edges.                                                              |
+| hiddenEdgeColor  | ColorRepresentation | 0x22090a              | The color of hidden edges.                                                               |
+| multisampling    | Number              | 0                     | The number of samples used for multisample antialiasing. Requires WebGL 2.               |
+| resolutionScale  | Number              | 0.5                   | The render resolution scale. Applied at construction only.                               |
+| resolutionX      | Number              | Resolution.AUTO_SIZE  | The render width. Applied at construction only.                                          |
+| resolutionY      | Number              | Resolution.AUTO_SIZE  | The render height. Applied at construction only.                                         |
+| width            | Number              | Resizer.AUTO_SIZE     | The render width. Unlike `resolutionX`, updates live without reconstructing the effect.  |
+| height           | Number              | Resizer.AUTO_SIZE     | The render height. Unlike `resolutionY`, updates live without reconstructing the effect. |
+| kernelSize       | KernelSize          | KernelSize.VERY_SMALL | The blur kernel size.                                                                    |
+| blur             | Boolean             | false                 | Whether the outline should be blurred.                                                   |
+| xRay             | Boolean             | true                  | Whether occluded parts of selected objects should be visible.                            |
+| opacity          | Number              | 1                     | The opacity of this effect.                                                              |
+]]></page>
+<page path="/effects/pixelation" title="Pixelation"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/pixelation
+
+# Pixelation
+
+A pixelation effect.
+
+Warning: This effect cannot be merged with convolution effects.
+
+```jsx
+import { Pixelation } from '@react-three/postprocessing'
+
+return (
+  <Pixelation
+    granularity={5} // pixel granularity
+  />
+)
+```
+
+## Example
+
+[![Pixelation demo](https://pmndrs.github.io/examples/pixelation/thumbnail.webp)](https://pmndrs.github.io/examples/pixelation)
+
+## Props
+
+| Name        | Type   | Default | Description |
+| ----------- | ------ | ------- | ----------- |
+| granularity | Number | 30      | Pixel Size  |
+]]></page>
+<page path="/effects/ramp" title="Ramp"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/ramp
+
+# Ramp
+
+Ramp effect for linear and radial color gradients, as well as masking of effects before it in the effect array.
+
+```jsx
+import { Ramp, RampType } from '@react-three/postprocessing'
+
+return (
+  <Ramp
+    rampType={RampType.Linear}
+    rampStart={[0.5, 0.5]}
+    rampEnd={[1.0, 1.0]}
+    startColor={[0, 0, 0, 1]}
+    endColor={[1, 1, 1, 1]}
+    rampBias={0.5}
+    rampGain={0.5}
+    rampMask={false}
+    rampInvert={false}
+  />
+)
+```
+
+## Example
+
+[![Ramp demo](https://pmndrs.github.io/examples/ramp/thumbnail.webp)](https://pmndrs.github.io/examples/ramp)
+
+## Props
+
+| Name          | Type                                          | Default              | Description                                                                                                    |
+| ------------- | --------------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| rampType      | RampType                                      | RampType.Linear      | Type of ramp gradient.                                                                                         |
+| rampStart     | \[x: number, y: number]                       | \[0.5, 0.5]          | Starting point of the ramp gradient in normalized coordinates.                                                 |
+| rampEnd       | \[x: number, y: number]                       | \[1.0, 1.0]          | Ending point of the ramp gradient in normalized coordinates.                                                   |
+| startColor    | \[r: number, g: number, b: number, a: number] | \[0, 0, 0, 1]        | Color at the starting point of the gradient.                                                                   |
+| endColor      | \[r: number, g: number, b: number, a: number] | \[1, 1, 1, 1]        | Color at the ending point of the gradient.                                                                     |
+| rampBias      | number                                        | 0.5                  | Bias for the interpolation curve when both bias and gain are 0.5.                                              |
+| rampGain      | number                                        | 0.5                  | Gain for the interpolation curve when both bias and gain are 0.5.                                              |
+| rampMask      | boolean                                       | false                | When enabled, the ramp gradient is used as an effect mask, and colors are ignored.                             |
+| rampInvert    | boolean                                       | false                | Controls whether the ramp gradient is inverted. When disabled, rampStart is transparent and rampEnd is opaque. |
+| blendFunction | BlendFunction                                 | BlendFunction.NORMAL | The blend function of this effect.                                                                             |
+| opacity       | Number                                        | 1                    | The opacity of this effect.                                                                                    |
+]]></page>
+<page path="/effects/scanline" title="Scanline"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/scanline
+
+# Scanline
+
+A scanline effect.
+
+Based on an implementation by Georg 'Leviathan' Steinrohder (CC BY 3.0): <http://www.truevision3d.com/forums/showcase/staticnoise_colorblackwhite_scanline_shaders-t18698.0.html>
+
+```jsx
+import { Scanline } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Scanline
+    blendFunction={BlendFunction.OVERLAY} // blend mode
+    density={1.25} // scanline density
+  />
+)
+```
+
+## Example
+
+[![Scanline demo](https://pmndrs.github.io/examples/scanline/thumbnail.webp)](https://pmndrs.github.io/examples/scanline)
+
+## Props
+
+| Name          | Type          | Default               | Description                        |
+| ------------- | ------------- | --------------------- | ---------------------------------- |
+| density       | Number        | 1.25                  | The scanline density.              |
+| blendFunction | BlendFunction | BlendFunction.OVERLAY | The blend function of this effect. |
+| opacity       | Number        | 1                     | The opacity of this effect.        |
+]]></page>
+<page path="/effects/selective-bloom" title="SelectiveBloom"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/selective-bloom
+
+# SelectiveBloom
+
+A selective bloom effect.
+
+This effect applies bloom to selected objects only.
+
+Attention: If you don't need to limit bloom to a subset of objects, consider using the BloomEffect instead for better performance.
+
+```jsx
+import { SelectiveBloom } from '@react-three/postprocessing'
+import { BlendFunction, Resolution, KernelSize } from 'postprocessing'
+
+return (
+  <SelectiveBloom
+    lights={[lightRef1, lightRef2]} // ⚠️ REQUIRED! all relevant lights
+    selection={[meshRef1, meshRef2]} // selection of objects that will have the bloom effect
+    selectionLayer={10} // selection layer
+    inverted={false} // consider the selection inverted
+    ignoreBackground={false} // discard the background of the selection
+    luminanceThreshold={1.0} // luminance threshold. Raise this value to mask out darker elements in the scene.
+    luminanceSmoothing={0.03} // smoothness of the luminance threshold. Range is [0, 1]
+    mipmapBlur={true} // enables/disables mipmap blur
+    intensity={1.0} // the bloom intensity
+    radius={0.85} // the blur radius, only applies to mipmap blur
+    levels={8} // the amount of MIP levels, only applies to mipmap blur
+    kernelSize={KernelSize.LARGE} // blur kernel size, ignored if mipmapBlur is enabled
+    resolutionScale={0.5} // render resolution scale, ignored if mipmapBlur is enabled
+    resolutionX={Resolution.AUTO_SIZE} // render width, ignored if mipmapBlur is enabled
+    resolutionY={Resolution.AUTO_SIZE} // render height, ignored if mipmapBlur is enabled
+  />
+)
+```
+
+## Example
+
+[![SelectiveBloom demo](https://pmndrs.github.io/examples/selective-bloom/thumbnail.webp)](https://pmndrs.github.io/examples/selective-bloom)
+
+## Props
+
+| Name               | Type          | Default              | Description                                                                                           |
+| ------------------ | ------------- | -------------------- | ----------------------------------------------------------------------------------------------------- |
+| selection          | Objects       |                      | Selection of objects that will have the bloom effect                                                  |
+| lights             | Lights        |                      | All lights that will affect the effect - required                                                     |
+| selectionLayer     | Number        | 10                   | The selection layer                                                                                   |
+| inverted           | Boolean       | false                | Consider the selection inverted.                                                                      |
+| ignoreBackground   | Boolean       | false                | Discard the background of the selection.                                                              |
+| blendFunction      | BlendFunction | BlendFunction.ADD    | The blend function of this effect.                                                                    |
+| luminanceThreshold | Number        | 1.0                  | The luminance threshold. Raise this value to mask out darker elements in the scene. Range is \[0, 1]. |
+| luminanceSmoothing | Number        | 0.03                 | Controls the smoothness of the luminance threshold. Range is \[0, 1].                                 |
+| mipmapBlur         | Boolean       | true                 | Enables or disables mipmap blur.                                                                      |
+| intensity          | Number        | 1.0                  | The bloom intensity.                                                                                  |
+| radius             | Number        | 0.85                 | The blur radius. Only applies to mipmap blur.                                                         |
+| levels             | Number        | 8                    | The amount of MIP levels. Only applies to mipmap blur.                                                |
+| kernelSize         | KernelSize    | KernelSize.LARGE     | The blur kernel size. Ignored if `mipmapBlur` is enabled.                                             |
+| resolutionScale    | Number        | 0.5                  | The render resolution scale. Ignored if `mipmapBlur` is enabled.                                      |
+| resolutionX        | Number        | Resolution.AUTO_SIZE | The render width. Ignored if `mipmapBlur` is enabled.                                                 |
+| resolutionY        | Number        | Resolution.AUTO_SIZE | The render height. Ignored if `mipmapBlur` is enabled.                                                |
+| opacity            | Number        | 1                    | The opacity of this effect.                                                                           |
+]]></page>
+<page path="/effects/sepia" title="Sepia"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/sepia
+
+# Sepia
+
+A sepia effect.
+
+```jsx
+import { Sepia } from '@react-three/postprocessing'
+
+return (
+  <Sepia
+    intensity={1.0} // sepia intensity
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Sepia demo](https://pmndrs.github.io/examples/sepia/thumbnail.webp)](https://pmndrs.github.io/examples/sepia)
+
+## Props
+
+| Name          | Type          | Default              | Description                        |
+| ------------- | ------------- | -------------------- | ---------------------------------- |
+| intensity     | Number        | 1                    | The intensity of the effect        |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect. |
+| opacity       | Number        | 1                    | The opacity of this effect.        |
+]]></page>
+<page path="/effects/sharpness" title="Sharpness"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/sharpness
+
+# Sharpness
+
+Sharpens the image by boosting the difference between each pixel and its neighbors. Useful after FXAA/SMAA or a lowered `resolutionScale` to bring back crisp detail.
+
+```jsx
+import { Sharpness } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Sharpness
+    sharpness={1} // sharpening strength, 0 disables it
+    radius={1} // distance to the sampled neighbors in pixels
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Sharpness demo](https://pmndrs.github.io/examples/sharpness/thumbnail.webp)](https://pmndrs.github.io/examples/sharpness)
+
+## Props
+
+| Name          | Type          | Default              | Description                                  |
+| ------------- | ------------- | -------------------- | -------------------------------------------- |
+| sharpness     | Number        | 1                    | Sharpening strength, 0 disables it.          |
+| radius        | Number        | 1                    | Distance to the sampled neighbors in pixels. |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.           |
+| opacity       | Number        | 1                    | The opacity of this effect.                  |
+]]></page>
+<page path="/effects/shockwave" title="ShockWave"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/shockwave
+
+# ShockWave
+
+An animated shockwave/distortion effect emanating from a point in 3D space. It doesn't trigger itself - call `explode()` on the effect's ref whenever you want the wave to fire.
+
+```jsx
+import { useRef } from 'react'
+import { ShockWave } from '@react-three/postprocessing'
+import type { ShockWaveEffect } from 'postprocessing'
+
+const ref = useRef<ShockWaveEffect>(null)
+
+return (
+  <>
+    <ShockWave
+      ref={ref}
+      position={[0, 0, 0]} // the world position of the shockwave
+      speed={2.0} // the animation speed
+      maxRadius={1.0} // the extent of the shockwave
+      waveSize={0.2} // the wave size
+      amplitude={0.05} // the distortion amplitude
+    />
+    <button onClick={() => ref.current?.explode()}>Explode</button>
+  </>
+)
+```
+
+## Example
+
+[![ShockWave demo](https://pmndrs.github.io/examples/shockwave/thumbnail.webp)](https://pmndrs.github.io/examples/shockwave)
+
+## Props
+
+| Name      | Type                            | Default | Description                          |
+| --------- | ------------------------------- | ------- | ------------------------------------ |
+| position  | Vector3 \| \[x, y, z] \| Number | (0,0,0) | The world position of the shockwave. |
+| speed     | Number                          | 2.0     | The animation speed.                 |
+| maxRadius | Number                          | 1.0     | The extent of the shockwave.         |
+| waveSize  | Number                          | 0.2     | The wave size.                       |
+| amplitude | Number                          | 0.05    | The distortion amplitude.            |
+]]></page>
+<page path="/effects/smaa" title="SMAA"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/smaa
+
+# SMAA
+
+Subpixel Morphological Antialiasing (SMAA).
+
+<https://github.com/iryoku/smaa/releases/tag/v2.8>
+
+By default react-postprocessing uses webgl2 multisampling (MSAA) for native AA. In some effects this can result in artefacts. Should you either want to work with webgl1 exclusively, or you get artefacts, then you can switch MSAA off and use SMAA. This effect is async and relies on suspense!
+
+```jsx
+import React, { Suspense } from 'react'
+import { EffectComposer, SMAA } from '@react-three/postprocessing'
+
+return (
+  <Suspense fallback={null}>
+    <EffectComposer multisampling={0}>
+      <SMAA />
+    </EffectComposer>
+  </Suspense>
+)
+```
+
+## Props
+
+| Name              | Type              | Default                  | Description                        |
+| ----------------- | ----------------- | ------------------------ | ---------------------------------- |
+| preset            | SMAAPreset        | SMAAPreset.MEDIUM        | The quality preset.                |
+| edgeDetectionMode | EdgeDetectionMode | EdgeDetectionMode.COLOR  | The edge detection mode.           |
+| predicationMode   | PredicationMode   | PredicationMode.DISABLED | The predication mode.              |
+| blendFunction     | BlendFunction     | BlendFunction.SRC        | The blend function of this effect. |
+| opacity           | Number            | 1                        | The opacity of this effect.        |
+]]></page>
+<page path="/effects/ssao" title="SSAO"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/ssao
+
+# SSAO
+
+A Screen Space Ambient Occlusion (SSAO) effect. For high quality visuals use two SSAO effect instances in a row with different radii, one for rough AO and one for fine details.
+
+This effect supports depth-aware upsampling and should be rendered at a lower resolution. The resolution should match that of the downsampled normals and depth. If you intend to render SSAO at full resolution, do not provide a downsampled normalDepthBuffer and make sure to disable depthAwareUpsampling.
+
+```jsx
+import { SSAO } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <SSAO
+    blendFunction={BlendFunction.MULTIPLY} // blend mode
+    samples={30} // amount of samples per pixel (shouldn't be a multiple of the ring count)
+    rings={4} // amount of rings in the occlusion sampling pattern
+    distanceThreshold={1.0} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
+    distanceFalloff={0.0} // distance falloff. min: 0, max: 1
+    rangeThreshold={0.5} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
+    rangeFalloff={0.1} // occlusion range falloff. min: 0, max: 1
+    luminanceInfluence={0.9} // how much the luminance of the scene influences the ambient occlusion
+    radius={20} // occlusion sampling radius
+    intensity={1.0} // intensity of the ambient occlusion
+    bias={0.5} // occlusion bias
+  />
+)
+```
+
+## Example
+
+[![SSAO demo](https://pmndrs.github.io/examples/ssao/thumbnail.webp)](https://pmndrs.github.io/examples/ssao)
+
+## Props
+
+| Name                    | Type                                                                                                                     | Default                | Description                                                                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| blendFunction           | [BlendFunction](https://vanruesc.github.io/postprocessing/public/docs/variable/index.html#static-variable-BlendFunction) | BlendFunction.MULTIPLY | The blend function of this effect.                                                                                                                 |
+| depthAwareUpsampling    | Boolean                                                                                                                  | true                   | Enables or disables depth-aware upsampling. Has no effect if WebGL 2 is not supported.                                                             |
+| normalDepthBuffer       | Texture                                                                                                                  |                        | Deprecated and ignored. Supplied automatically from `<EffectComposer enableNormalPass resolutionScale>`.                                           |
+| samples                 | Number                                                                                                                   | 30                     | The amount of samples per pixel. Should not be a multiple of the ring count.                                                                       |
+| rings                   | Number                                                                                                                   | 4                      | The amount of spiral turns in the occlusion sampling pattern. Should be a prime number.                                                            |
+| distanceThreshold       | Number                                                                                                                   | 1                      | Deprecated in favor of `worldDistanceThreshold`. A global distance threshold at which the occlusion effect starts to fade out. Range \[0.0, 1.0].  |
+| distanceFalloff         | Number                                                                                                                   | 0.0                    | Deprecated in favor of `worldDistanceFalloff`. The distance falloff. Influences the smoothness of the overall occlusion cutoff. Range \[0.0, 1.0]. |
+| worldDistanceThreshold  | Number                                                                                                                   | undefined              | The world distance threshold at which the occlusion effect starts to fade out.                                                                     |
+| worldDistanceFalloff    | Number                                                                                                                   | undefined              | The world distance falloff. Influences the smoothness of the occlusion cutoff.                                                                     |
+| rangeThreshold          | Number                                                                                                                   | 0.5                    | Deprecated in favor of `worldProximityThreshold`. A local occlusion range threshold at which the occlusion starts to fade out. Range \[0.0, 1.0].  |
+| rangeFalloff            | Number                                                                                                                   | 0.1                    | Deprecated in favor of `worldProximityFalloff`. The occlusion range falloff. Influences the smoothness of the proximity cutoff. Range \[0.0, 1.0]. |
+| worldProximityThreshold | Number                                                                                                                   | undefined              | The world proximity threshold at which the occlusion starts to fade out.                                                                           |
+| worldProximityFalloff   | Number                                                                                                                   | undefined              | The world proximity falloff. Influences the smoothness of the proximity cutoff.                                                                    |
+| minRadiusScale          | Number                                                                                                                   | 0.1                    | The minimum radius scale.                                                                                                                          |
+| luminanceInfluence      | Number                                                                                                                   | 0.9                    | Determines how much the luminance of the scene influences the ambient occlusion.                                                                   |
+| radius                  | Number                                                                                                                   | 20                     | The occlusion sampling radius, expressed as a scale relative to the resolution. Range \[1e-6, 1.0].                                                |
+| intensity               | Number                                                                                                                   | 1.0                    | The intensity of the ambient occlusion.                                                                                                            |
+| bias                    | Number                                                                                                                   | 0.5                    | An occlusion bias. Eliminates artifacts caused by depth discontinuities.                                                                           |
+| fade                    | Number                                                                                                                   | 0.01                   | Influences the smoothness of the shadows. A lower value results in higher contrast.                                                                |
+| color                   | ColorRepresentation \| null                                                                                              | null                   | Tints the ambient occlusion. `null` disables tinting.                                                                                              |
+| resolutionScale         | Number                                                                                                                   | 1.0                    | The resolution scale. Inherits `<EffectComposer resolutionScale>` if set.                                                                          |
+| resolutionX             | Number                                                                                                                   | Resolution.AUTO_SIZE   | The render width.                                                                                                                                  |
+| resolutionY             | Number                                                                                                                   | Resolution.AUTO_SIZE   | The render height.                                                                                                                                 |
+| opacity                 | Number                                                                                                                   | 1                      | The opacity of this effect.                                                                                                                        |
+]]></page>
+<page path="/effects/texture" title="Texture"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/texture
+
+# Texture
+
+Blends a texture over the scene. Give it a URL via `textureSrc` and it loads (and suspends on) the texture itself - pass an already-loaded `THREE.Texture` via `texture` instead if you're loading it yourself.
+
+```jsx
+import { Texture } from '@react-three/postprocessing'
+
+return (
+  <Texture
+    textureSrc="/texture.png" // loads the texture for you
+    opacity={1} // opacity of the texture
+    aspectCorrection={false} // deprecated - adjust the texture's offset/repeat/center instead
+  />
+)
+```
+
+## Example
+
+[![Texture demo](https://pmndrs.github.io/examples/texture/thumbnail.webp)](https://pmndrs.github.io/examples/texture)
+
+## Props
+
+| Name             | Type          | Default              | Description                                                         |
+| ---------------- | ------------- | -------------------- | ------------------------------------------------------------------- |
+| textureSrc       | String        |                      | URL of the texture to load. Pass either this or `texture`.          |
+| texture          | Texture       |                      | An already-loaded texture. Pass either this or `textureSrc`.        |
+| blendFunction    | BlendFunction | BlendFunction.NORMAL | The blend function of this effect.                                  |
+| opacity          | Number        | 1                    | The opacity of the texture.                                         |
+| aspectCorrection | Boolean       | false                | Deprecated. Adjust the texture's offset, repeat and center instead. |
+]]></page>
+<page path="/effects/tilt-shift-2" title="TiltShift2"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/tilt-shift-2
+
+# TiltShift2
+
+An alternate tilt-shift implementation with direct control over the blurred band's start/end points and blur direction, instead of a single centered focus-area size. For the simpler, centered version, see [TiltShift](/effects/tilt-shift).
+
+```jsx
+import { TiltShift2 } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <TiltShift2
+    blendFunction={BlendFunction.NORMAL} // the blend function of this effect
+    blur={0.15} // the blur intensity, [0, 1] (can go beyond 1)
+    taper={0.5} // the size of the sharp/in-focus area, [0, 1] (can go beyond 1)
+    start={[0.5, 0.0]} // start point of the blur band, in screen-space percent [0, 1]
+    end={[0.5, 1.0]} // end point of the blur band, in screen-space percent [0, 1]
+    samples={10} // number of blur samples
+    direction={[1, 1]} // direction of the blur
+  />
+)
+```
+
+## Example
+
+[![TiltShift demo](https://pmndrs.github.io/examples/tilt-shift/thumbnail.webp)](https://pmndrs.github.io/examples/tilt-shift)
+
+## Props
+
+| Name          | Type              | Default              | Description                                                        |
+| ------------- | ----------------- | -------------------- | ------------------------------------------------------------------ |
+| blendFunction | BlendFunction     | BlendFunction.NORMAL | The blend function of this effect.                                 |
+| blur          | Number            | 0.15                 | The blur intensity. Range \[0, 1] (can exceed 1 for extra).        |
+| taper         | Number            | 0.5                  | The size of the sharp/in-focus area. Range \[0, 1] (can exceed 1). |
+| start         | \[Number, Number] | \[0.5, 0.0]          | Start point of the blur band, in screen-space percent.             |
+| end           | \[Number, Number] | \[0.5, 1.0]          | End point of the blur band, in screen-space percent.               |
+| samples       | Number            | 10                   | The number of blur samples.                                        |
+| direction     | \[Number, Number] | \[1, 1]              | The direction of the blur.                                         |
+| opacity       | Number            | 1                    | The opacity of this effect.                                        |
+]]></page>
+<page path="/effects/tilt-shift" title="TiltShift"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/tilt-shift
+
+# TiltShift
+
+A tilt-shift blur effect, simulating a shallow depth of field along a band across the screen - the classic "miniature model" look. For a version with more direct control over the band's start/end/direction, see [TiltShift2](/effects/tilt-shift-2).
+
+```jsx
+import { TiltShift } from '@react-three/postprocessing'
+import { BlendFunction, KernelSize } from 'postprocessing'
+
+return (
+  <TiltShift
+    blendFunction={BlendFunction.ADD} // the blend function of this effect
+    offset={0.0} // the relative offset of the focus area
+    rotation={0.0} // the rotation of the focus area, in radians
+    focusArea={0.4} // the relative size of the focus area
+    feather={0.3} // the softness of the focus area edges
+    kernelSize={KernelSize.MEDIUM} // the blur kernel size
+    resolutionScale={0.5} // the resolution scale
+  />
+)
+```
+
+## Example
+
+[![TiltShift demo](https://pmndrs.github.io/examples/tilt-shift/thumbnail.webp)](https://pmndrs.github.io/examples/tilt-shift)
+
+## Props
+
+| Name            | Type          | Default              | Description                                 |
+| --------------- | ------------- | -------------------- | ------------------------------------------- |
+| blendFunction   | BlendFunction | BlendFunction.ADD    | The blend function of this effect.          |
+| offset          | Number        | 0.0                  | The relative offset of the focus area.      |
+| rotation        | Number        | 0.0                  | The rotation of the focus area, in radians. |
+| focusArea       | Number        | 0.4                  | The relative size of the focus area.        |
+| feather         | Number        | 0.3                  | The softness of the focus area edges.       |
+| kernelSize      | KernelSize    | KernelSize.MEDIUM    | The blur kernel size.                       |
+| resolutionScale | Number        | 0.5                  | The resolution scale.                       |
+| resolutionX     | Number        | Resolution.AUTO_SIZE | The horizontal resolution.                  |
+| resolutionY     | Number        | Resolution.AUTO_SIZE | The vertical resolution.                    |
+| opacity         | Number        | 1                    | The opacity of this effect.                 |
+]]></page>
+<page path="/effects/tone-mapping" title="ToneMapping"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/tone-mapping
+
+# ToneMapping
+
+A tone mapping effect.
+
+```jsx
+import { ToneMapping } from '@react-three/postprocessing'
+import { ToneMappingMode } from 'postprocessing'
+
+return (
+  <ToneMapping
+    mode={ToneMappingMode.ACES_FILMIC} // tone mapping mode
+  />
+)
+```
+
+OR
+
+```jsx
+import { ToneMapping } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <ToneMapping
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    adaptive={true} // toggle adaptive luminance map usage
+    resolution={256} // texture resolution of the luminance map
+    middleGrey={0.6} // middle grey factor
+    maxLuminance={16.0} // maximum luminance
+    averageLuminance={1.0} // average luminance
+    adaptationRate={1.0} // luminance adaptation rate
+  />
+)
+```
+
+## Example
+
+[![ToneMapping demo](https://pmndrs.github.io/examples/tone-mapping/thumbnail.webp)](https://pmndrs.github.io/examples/tone-mapping)
+
+## Props
+
+| Name             | Type            | Default             | Description                                                         |
+| ---------------- | --------------- | ------------------- | ------------------------------------------------------------------- |
+| mode             | ToneMappingMode | ToneMappingMode.AGX | The tone mapping algorithm.                                         |
+| resolution       | Number          | 256                 | The resolution of the luminance texture. Must be a power of two.    |
+| adaptive         | Boolean         | false               | Deprecated. Use `mode` instead.                                     |
+| blendFunction    | BlendFunction   | BlendFunction.SRC   | The blend function of this effect.                                  |
+| middleGrey       | Number          | 0.6                 | The middle grey factor.                                             |
+| maxLuminance     | Number          | 4                   | Deprecated. Use `whitePoint` instead.                               |
+| minLuminance     | Number          | 0.01                | The minimum luminance. Prevents very high exposure in dark scenes.  |
+| averageLuminance | Number          | 1                   | The average luminance. Used for the non-adaptive Reinhard operator. |
+| adaptationRate   | Number          | 1                   | The luminance adaptation rate.                                      |
+| whitePoint       | Number          | 4                   | The white point.                                                    |
+| opacity          | Number          | 1                   | The opacity of this effect.                                         |
+]]></page>
+<page path="/effects/vignette" title="Vignette"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/vignette
+
+# Vignette
+
+A vignette effect.
+
+```jsx
+import { Vignette } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <Vignette
+    offset={0.5} // vignette offset
+    darkness={0.5} // vignette darkness
+    eskil={false} // Eskil's vignette technique
+    blendFunction={BlendFunction.NORMAL} // blend mode
+  />
+)
+```
+
+## Example
+
+[![Vignette demo](https://pmndrs.github.io/examples/vignette/thumbnail.webp)](https://pmndrs.github.io/examples/vignette)
+
+## Props
+
+| Name          | Type              | Default                   | Description                          |
+| ------------- | ----------------- | ------------------------- | ------------------------------------ |
+| eskil         | Boolean           | false                     | Deprecated. Use `technique` instead. |
+| blendFunction | BlendFunction     | BlendFunction.NORMAL      | The blend function of this effect.   |
+| offset        | Number            | 0.5                       | The vignette offset.                 |
+| darkness      | Number            | 0.5                       | The vignette darkness.               |
+| technique     | VignetteTechnique | VignetteTechnique.DEFAULT | The vignette technique.              |
+| opacity       | Number            | 1                         | The opacity of this effect.          |
+]]></page>
+<page path="/effects/water" title="Water"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/effects/water
+
+# Water
+
+A screen-space water/heat-haze style distortion, animated over time.
+
+```jsx
+import { WaterEffect } from '@react-three/postprocessing'
+import { BlendFunction } from 'postprocessing'
+
+return (
+  <WaterEffect
+    blendFunction={BlendFunction.NORMAL} // the blend function of this effect
+    factor={0} // the distortion strength
+  />
+)
+```
+
+## Example
+
+[![Water demo](https://pmndrs.github.io/examples/water/thumbnail.webp)](https://pmndrs.github.io/examples/water)
+
+## Props
+
+| Name          | Type          | Default              | Description                        |
+| ------------- | ------------- | -------------------- | ---------------------------------- |
+| blendFunction | BlendFunction | BlendFunction.NORMAL | The blend function of this effect. |
+| factor        | Number        | 0                    | The distortion strength.           |
+| opacity       | Number        | 1                    | The opacity of this effect.        |
+]]></page>
+<page path="/passes/depth-picking" title="DepthPicking"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/passes/depth-picking
+
+# DepthPicking
+
+Mounts a `postprocessing` `DepthPickingPass` and exposes its `readDepth` via ref - nothing else. Renders nothing, updates nothing automatically. Pair it with `useDepthPicking` for a world-space position instead of raw depth.
+
+`<Autofocus>` is built on both of these - use them directly when you want a picked position for something other than `<DepthOfField>`'s own focus target.
+
+```tsx
+<EffectComposer>
+  <DepthPicking ref={pickRef} />
+</EffectComposer>
+```
+
+Ref-api:
+
+```tsx
+type DepthPickingApi = {
+  readDepth: (ndc: THREE.Vector2 | THREE.Vector3) => Promise<number>
+}
+```
+
+## `useDepthPicking`
+
+```tsx
+function useDepthPicking(
+  pass: RefObject<DepthPickingApi | null>,
+  camera?: THREE.Camera // defaults to the composer's camera, then r3f's own
+): (x: number, y: number) => Promise<THREE.Vector3 | false>
+```
+
+A hook that turns a screen position into a world-space point, using a mounted `<DepthPicking>`'s `readDepth`. Returns `false` if nothing was hit. Call it whenever you want - on click, on hover, every frame - nothing runs on its own. It only needs a ref to the mounted pass, not the `<EffectComposer>` context itself, so it works anywhere under `<Canvas>`:
+
+```tsx
+const pickRef = useRef<DepthPickingApi>(null)
+
+function Cursor() {
+  const getHit = useDepthPicking(pickRef)
+  const meshRef = useRef<THREE.Mesh>(null)
+  useFrame(async ({ pointer }) => {
+    const hit = await getHit(pointer.x, pointer.y)
+    if (hit) meshRef.current?.position.copy(hit)
+  })
+  return (
+    <mesh ref={meshRef}>
+      <sphereGeometry args={[0.1, 16, 16]} />
+      {/* depthWrite false - see the warning below */}
+      <meshBasicMaterial color="white" depthWrite={false} />
+    </mesh>
+  )
+}
+
+return (
+  <>
+    <EffectComposer>
+      <DepthPicking ref={pickRef} />
+    </EffectComposer>
+    <Cursor />
+  </>
+)
+```
+
+It unprojects using the `<EffectComposer>`'s own camera when called from inside it - the same one the pass renders depth from - falling back to r3f's own camera otherwise. Called from outside that `<EffectComposer>` (like `Cursor` above) with a non-default camera, pass that same camera as the second argument explicitly.
+
+**If you render something at the picked position** (a cursor, a placement preview, ...), give its material `depthWrite={false}`. Depth is read from the same buffer everything else renders into - without this, your own marker sits at the last hitpoint, gets sampled by the _next_ pick as the closest surface there, and the marker creeps toward the camera every frame, faster as it gets closer, until it resets and repeats. (`Autofocus`'s own debug markers already do this.)
+
+Click-to-pick instead of every frame:
+
+```tsx
+const hit = await getHit(pointerNdcX, pointerNdcY)
+if (hit) character.moveTo(hit)
+```
+
+## Example
+
+[![DepthPicking demo](https://pmndrs.github.io/examples/depth-picking/thumbnail.webp)](https://pmndrs.github.io/examples/depth-picking)
+]]></page>
+<page path="/passes/n8ao" title="N8AO"><![CDATA[URL: https://react-postprocessing.docs.pmnd.rs/passes/n8ao
+
+# N8AO
+
+A fast, high quality ambient occlusion pass, wrapping [N8python/n8ao](https://github.com/N8python/n8ao). Self-contained - unlike [SSAO](/effects/ssao), it does not need `enableNormalPass` on `<EffectComposer>`.
+
+```jsx
+import { N8AO } from '@react-three/postprocessing'
+
+return (
+  <N8AO
+    enabled={true} // toggle the pass without unmounting it
+    aoRadius={5} // ambient occlusion sampling radius
+    distanceFalloff={1} // distance falloff
+    intensity={1} // AO intensity
+    quality="performance" // 'performance' | 'low' | 'medium' | 'high' | 'ultra'
+    aoSamples={16} // amount of ambient occlusion samples per frame
+    denoiseSamples={4} // amount of denoise samples per frame
+    denoiseRadius={12} // denoise sampling radius
+    color={undefined} // tints the occlusion, defaults to black
+    halfRes={false} // renders the effect at half resolution
+    depthAwareUpsampling={true} // enables or disables depth-aware upsampling
+    screenSpaceRadius={false} // scales the sampling radius with distance from the camera
+    renderMode={0} // 0: Combined, 1: AO only, 2: No AO, 3: Split, 4: Split AO
+  />
+)
+```
+
+## Example
+
+[![N8AO demo](https://pmndrs.github.io/examples/n8ao/thumbnail.webp)](https://pmndrs.github.io/examples/n8ao)
+
+## Props
+
+| Name                 | Type                                                    | Default       | Description                                               |
+| -------------------- | ------------------------------------------------------- | ------------- | --------------------------------------------------------- |
+| enabled              | Boolean                                                 | true          | Toggles the pass without unmounting it.                   |
+| aoRadius             | Number                                                  | 5             | The ambient occlusion sampling radius.                    |
+| distanceFalloff      | Number                                                  | 1             | The distance falloff.                                     |
+| intensity            | Number                                                  | 1             | The AO intensity.                                         |
+| quality              | 'performance' \| 'low' \| 'medium' \| 'high' \| 'ultra' | 'performance' | The quality preset.                                       |
+| aoSamples            | Number                                                  | 16            | The amount of ambient occlusion samples per frame.        |
+| denoiseSamples       | Number                                                  | 4             | The amount of denoise samples per frame.                  |
+| denoiseRadius        | Number                                                  | 12            | The denoise sampling radius.                              |
+| color                | Color                                                   | undefined     | Tints the occlusion. Defaults to black.                   |
+| halfRes              | Boolean                                                 | false         | Renders the effect at half resolution.                    |
+| depthAwareUpsampling | Boolean                                                 | true          | Enables or disables depth-aware upsampling.               |
+| screenSpaceRadius    | Boolean                                                 | false         | Scales the sampling radius with distance from the camera. |
+| renderMode           | 0 \| 1 \| 2 \| 3 \| 4                                   | 0             | 0: Combined, 1: AO only, 2: No AO, 3: Split, 4: Split AO. |
+]]></page>

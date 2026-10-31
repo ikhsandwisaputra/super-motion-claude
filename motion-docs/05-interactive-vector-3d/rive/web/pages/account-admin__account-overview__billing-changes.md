@@ -1,0 +1,72 @@
+---
+source: https://rive.app/docs/account-admin/account-overview/billing-changes
+title: "Billing Changes"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Billing Changes
+
+How to update your card, change your plan, or manage billing for your Rive workspace.
+
+⚠️ If you have a pending change (like a scheduled cancellation), you can't make other billing changes until it's resolved. [Contact support](https://forms.rive.app/support?utm_medium=support_page) if you're stuck.
+
+## Where to manage billing
+
+1. Go to [rive.app/account](https://rive.app/account?utm_source=docs\&utm_medium=content)
+2. Find your workspace under "Workspaces"
+3. Click "Manage Workspace"
+
+From here you can:
+
+* **Change Plan** → Switch between Free and Voyager
+* **Manage Billing** → Opens Stripe to update your payment card
+
+⚠️ "Create a Workspace" creates a NEW workspace. It does not update your current plan.
+
+***
+
+## Update your payment card
+
+1. Click "Manage Billing" to open the Stripe Customer Portal
+2. Go to "Payment Methods"
+3. Add your new card
+4. Click "Set as default"
+5. Remove the old card (optional)
+
+If your workspace was downgraded due to a failed payment, updating your card alone will not restore access. After updating your payment method, click "Upgrade Plan" and select a paid plan again.
+
+Access is typically restored within a few minutes.
+
+***
+
+## Change your plan
+
+Click "Change Plan" from the Manage Workspace page to switch between Free and Voyager.
+
+**Have legacy/grandfathered pricing?** [Contact support](https://forms.rive.app/support?utm_medium=support_page) and we'll process the change for you. This includes switching between monthly and annual billing.
+
+***
+
+## If your card keeps getting declined
+
+Call your bank first. Common issues:
+
+* International transactions blocked (Rive uses Stripe)
+* Bank flagged the charge as suspicious
+
+After your bank clears it, wait 30 minutes and try again. Still not working? Try a different card or [contact support](https://forms.rive.app/support?utm_medium=support_page).
+
+***
+
+## Multiple workspaces?
+
+Each workspace has its own billing. Make sure you're managing the right one—check the workspace name at the top of the Manage Workspace page.
+
+***
+
+## For team members
+
+Only the workspace owner can update billing. If you're seeing access errors due to a payment issue, let the owner know.
+
+**Questions?** [Contact support](https://forms.rive.app/support?utm_medium=support_page).

@@ -1,0 +1,100 @@
+---
+source: https://rive.app/docs/editor/state-machine/inputs.md
+title: ""
+fetched: 2026-10-28
+---
+
+> ## Documentation Index
+> Fetch the complete documentation index at: https://rive.app/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
+
+# Inputs
+
+> ⚠️ DEPRECATED: Use Data Binding instead of Inputs for controlling Rive graphics
+
+> [!WARNING]
+>
+> **DEPRECATION NOTICE:** This entire page documents the legacy Inputs system.
+> **For new projects:** Use [Data Binding](https://rive.app/docs/editor/data-binding/migration-guide.md) instead. **For
+> existing projects:** Plan to migrate from Inputs to Data Binding as soon as
+> possible. **This content is provided for legacy support only.**
+
+> [!NOTE]
+>
+> **Inputs have moved**
+>
+> **Inputs** now live in the **Animations** panel. Expand the relevant state machine to view its **Listeners** and **Inputs** sections.
+>
+> ![Inputs have moved](https://mintcdn.com/rive/pqhXZ7p8Qez1_OwH/images/editor/legacy-features/inputs-moved.png?fit=max\&auto=format\&n=pqhXZ7p8Qez1_OwH\&q=85\&s=4f3b543325a7f98f2b177ebcf890fdb9)
+
+Inputs are a legacy tool to control transitions in our state machine. While Inputs can still be used to control transitions, Data Binding is considered best practice since View Models are both more powerful and easier to control at runtime.
+
+The best use for Inputs is quick, prototype interactions that you don't plan to migrate to runtime.
+
+[YouTube video player](https://www.youtube.com/embed/rJVfBs6VA0I)
+
+### Creating a new input
+
+To create a new Input, use the plus button in the input panel. After hitting the plus button, you’ll be prompted to select the type of input you want to create. There are three types of inputs; booleans, triggers, and numbers.
+
+![Image](https://ucarecdn.com/11d24273-9c87-4adb-963a-fd45f8e667b6/)
+
+## Input types
+
+We can use three types of inputs depending on the situation and type of interactive content: booleans, triggers, and numbers. We'll discuss each of these inputs below.
+
+### Boolean
+
+A boolean can hold either a true or false value.
+
+![Boolean for a switch](https://ucarecdn.com/4886ec99-ad57-4ae7-9709-5f028c6cbaab/)
+
+### Trigger
+
+Triggers are similar to booleans, but can only become true for a short time.
+
+![Trigger for attack animation](https://ucarecdn.com/29401ecd-875b-4925-bb1e-b48518786c42/)
+
+### Number
+
+A number input give you a number box that can be any integer.
+
+![Number input for rating animation](https://ucarecdn.com/dbd19760-02e4-4d37-a3a8-627ce8e0b65c/)
+
+## Exposing inputs and events
+
+Expose the Inputs and/or Events of a Component to control them from a parent/host Artboard. This allows you to control one Component with another via a State Machine.
+
+### How to expose an input
+
+Exposing an Input allows the parent artboard to access and manipulate it. To do this, select the desired input, then check the expose to main artboard option in the inspector.
+
+![Image](https://ucarecdn.com/251b0247-ae05-4f58-8858-8e7a21abd816/)
+
+After creating a Component, you’ll see any exposed inputs in the Inspector via the options panel and in the Inputs panel.
+
+### Using inputs on a parent Artboard
+
+Exposed inputs can be found in the Inputs panel or in the inspector. You can use them through listeners, an event, or by keying them on a timeline.
+
+![Image](https://ucarecdn.com/ee1dd959-9fba-45c9-a74b-1173cd71e894/)
+
+#### Via a listener
+
+When you create a listener, you’ll find all exposed Inputs as a set input property of a Listener. This option lets you, for example, change the boolean input of multiple artboards simultaneously.
+
+![Image](https://ucarecdn.com/2349fdd6-5a5a-434e-a1dc-3974e6f1e01c/)
+
+#### Using events
+
+Additionally, we can use Listeners to listen for Events firing from our Component, and change inputs accordingly.
+
+![Image](https://ucarecdn.com/2b1ddae6-31c9-41be-969c-86a59b2206cd/)
+
+To see an Event associated with an Artboard, you’ll need to set the Artboard as a target of the Listener. The Event will now be listed as a listener action.
+
+#### Keying on the State Machine
+
+You can key exposed inputs on the parent artboard via the options panel in the inspector.
+
+This is a handy trick when you, for example, want to set the text value within an Instance.

@@ -1,0 +1,434 @@
+---
+source: https://splitting.js.org/guide.html
+title: "Guide | Splitting.js"
+fetched: 2026-10-28
+---
+
+## [#](https://splitting.js.org/guide.html#what-is-splitting) What is Splitting?
+
+Splitting is a JavaScript microlibrary with a collection of small [built-in plugins](https://splitting.js.org/guide.html#plugins) designed to split (section off) an element in a variety of ways, such as [words](https://splitting.js.org/guide.html#words), [characters](https://splitting.js.org/guide.html#chars), [child nodes](https://splitting.js.org/guide.html#items), and [more](https://splitting.js.org/guide.html#plugins)!
+
+The Splitting library does not handle any animation, but it gives you the elements and tools needed to create animations & transitions with JavaScript animation libraries or *only CSS!*. Most plugins utilize a series of `<span>`s populated with CSS variables and data attributes that empower you to build all kinds of animations, transitions and interactions.
+
+The general flow is:
+
+1. `Splitting()` is called on a `target` (see: [Basic Usage](https://splitting.js.org/guide.html#basic-usage))
+2. Create `<span>`s to inject into `target`, or query children of `target`
+3. Index with CSS variables ( `<span class="word" style="--word-index: 0">` )
+4. Add the total to the target ( `<div data-splitting style="--word-total: 3">` )
+5. Return an array of the splits (see: [Returns](https://splitting.js.org/guide.html#returns))
+6. Animate those elements with CSS or JavaScript!
+
+## [#](https://splitting.js.org/guide.html#get-started) Get Started
+
+Start playing around with your own Splitting demo on CodePen with this template that includes all of the essentials!
+
+### [#](https://splitting.js.org/guide.html#basic-usage) Basic Usage
+
+Splitting can be called without parameters, automatically splitting all elements with `data-splitting` attributes by the default of [`chars`](https://splitting.js.org/guide.html#chars) which wraps the element's text in `<span>`s with relevant CSS vars.
+
+*Initial DOM*
+
+```html
+<div data-splitting>ABC</div>
+<script> Splitting(); </script>
+```
+
+*DOM Output*
+
+```html
+<div data-splitting class="words chars splitting" style="--word-total:1; --char-total:3;"><span class="word" data-word="ABC" style="--word-index:0;"><span class="char" data-char="A" style="--char-index:0;">A</span><span class="char" data-char="B" style="--char-index:1;">B</span><span class="char" data-char="C" style="--char-index:2;">C</span></span></div>
+```
+
+The aftermath may seem verbose, but this won't be visible to the end user. They'll still just see "ABC", but now you can style, animate and transition all of those characters individually!
+
+Splitting will automatically add a `splitting` class to the targetted element after it's been run. Each [plugin](https://splitting.js.org/guide.html#plugins) will add their own classes to splits/parent as needed ( `char` for `chars`, `word` for `words`, etc. ).
+
+### [#](https://splitting.js.org/guide.html#data-splitting-attribute) `[data-splitting]` Attribute
+
+Fill the `data-splitting` attribute with [specific plugin names](https://splitting.js.org/guide.html#plugins) to split with plugin when you call `Splitting()`.
+
+```html
+<h1 data-splitting>Split by chars (default)</h1>
+<p data-splitting="words">Split by words</p>
+<ul data-splitting="items">
+  <li>Split</li>
+  <li>by</li>
+  <li>children!</li>
+</ul>
+<script> Splitting(); </script>
+```
+
+### [#](https://splitting.js.org/guide.html#options) Options
+
+`Splitting()` takes a single Object parameter for [options](https://splitting.js.org/guide.html#splitting). The default options are shown below, and some plugins offer [expanded options](https://splitting.js.org/guide.html#splitting).
+
+```js
+Splitting({
+  /* target: String selector, Element, Array of Elements, or NodeList */
+  target: "[data-splitting]",
+  /* by: String of the plugin name */
+  by: "chars",
+  /* key: Optional String to prefix the CSS variables */
+  key: null
+});
+```
+
+## [#](https://splitting.js.org/guide.html#installation) Installation
+
+Why bother with build systems or files? Use the CodePen Template to make your own Splitting demo!
+
+### [#](https://splitting.js.org/guide.html#using-npm) Using NPM
+
+Install Splitting from NPM:
+
+```bash
+npm install splitting --save
+```
+
+Import Splitting from the package and call it. The CSS imports may vary depending on your bundler.
+
+```js
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+
+Splitting();
+```
+
+### [#](https://splitting.js.org/guide.html#using-a-cdn) Using a CDN
+
+TIP
+
+CDN use is only recommended for demos / experiments on platforms like [CodePen](https://codepen.io). For production use, bundle Splitting using the [NPM package](https://splitting.js.org/guide.html#using-npm) with Webpack or your preferred code bundler.
+
+You can get the latest version of Splitting off of the [unpkg CDN](https://unpkg.com) and include the necessary files as follows.
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+```
+
+Then call Splitting on document load/ready or in a script at the bottom the of the `<body>`.
+
+```js
+<script> Splitting(); </script>
+```
+
+### [#](https://splitting.js.org/guide.html#recommended-styles) Recommended Styles
+
+Included in the package are two small stylesheets of recommended CSS that will make text and grid based effects much easier. These styles are non-essential, but provide a lot of value.
+
+* `splitting.css` includes many extra CSS Variables and psuedo elements that help power advanced animations, especially for text.
+* `splitting-cells.css` contain the basic setup styles for cell/grid based effects you'd otherwise need to implement yourself.
+
+### [#](https://splitting.js.org/guide.html#browser-support) Browser Support
+
+Splitting should be thought of as a progressive enhancer. The basic functions work in any halfway decent browser (IE11+). Browsers that support CSS Variables ( [~85% of the current browser market share](https://caniuse.com/#feat=css-variables) ) will have the best experience. Browsers without CSS Variable support can still have a nice experience with at least some animation, but features like index-based staggering may not be feasible without JavaScript.
+
+The styles in `splitting-cells.css` for the [`cells` plugin](https://splitting.js.org/guide.html#cells) rely on `display: grid`, so there may be additional browser limitations. In general, [all browsers that support CSS variables also support grid](https://caniuse.com/#feat=css-variables,css-grid) so you should be in the clear.
+
+## [#](https://splitting.js.org/guide.html#plugins) Plugins
+
+Plugins are the heart of Splitting, each performing a specific split on the targeted element(s). Some plugins have dependencies that will automatically run when called. For example `chars` will automatically split by `words` to prevent issues with text wrapping.
+
+Each plugin should [return a property matching the plugin name](https://splitting.js.org/guide.html#returns) containing the split elements. Some plugins have [additional options](https://splitting.js.org/guide.html#plugin-specific-options) you can pass directly in the main options object for specific uses.
+
+### [#](https://splitting.js.org/guide.html#words) words
+
+The `words` plugin splits an element's text into separate words, wrapping each in a `<span>` populated with CSS variables and data attributes.
+
+|  |  |
+| --- | --- |
+| **Dependencies** | None |
+| **Classes** | `.word` added to each word `<span>` |
+
+*Usage*
+
+```html
+<div id="target">Splitting Text</div>
+
+<script>
+const target = document.querySelector('#target');
+const results = Splitting({ target: target, by: 'words' });
+
+// results[0].el = <div id="target" class="splitting words" style="--word-total: 2">...</div>
+// results[0].words[0] = <span class="word" data-word="Splitting" style="--word-index: 0">...</span>
+// results[0].words[1] = <span class="word" data-word="Text" style="--word-index: 1">...</span>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#chars) chars
+
+*Dependency: `words`*
+
+The `chars` plugin splits an element's text into separate characters. Before it can run, it splits by [words](https://splitting.js.org/guide.html#words) to prevent issues with text wrapping. `chars` is the default plugin if no other plugin is specified.
+
+Passing `whitespace: true` causes the space between words to be counted toward the character index, though whitespace is collapsed while splitting so that there won't be more than one space character between words.
+
+### [#](https://splitting.js.org/guide.html#lines) lines
+
+*Dependency: `words`*
+
+The `lines` plugin splits an element into separate words and then groups them by the line. It automatically runs the `words` plugin.
+
+*Usage*
+
+```html
+<div id="target">Splitting<br /> Text</div>
+
+<script>
+const target = document.querySelector('#target');
+const results = Splitting({ target: target, by: 'lines' });
+
+results[0].el // <div id="target" class="splitting lines" style="--line-total: 1; --word-total: 2">...</div>
+results[0].words[0] // <span class="word" data-word="Splitting" style="--word-index: 0">...</span>
+results[0].words[1] // <span class="word" data-word="Text" style="--word-index: 1">...</span>
+
+results[0].lines[0][0] // <span class="word" data-word="Splitting" style="--word-index: 0">...</span>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#items) items
+
+The `items` plugin indexes existing elements. It applies an `--item-index` to each matching element and `--item-total` to the target. If `matching` is not specified, the direct element children will be selected.
+
+*Usage*
+
+```html
+<div class="container">
+  <ul>
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>
+</div>
+
+<script>
+const results = Splitting({
+  target: '.container',
+  by: 'items',
+  matching: 'li'
+});
+
+results[0].items[0] // <li style="--item-index: 0">One</li>
+results[0].items[1] // <li style="--item-index: 1">Two</li>
+results[0].items[2] // <li style="--item-index: 2">Three</li>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#grid) grid
+
+*Dependency: `cols`, `rows`*
+
+The `grid` plugin detects the cols and rows of a layout by comparing the distance from the edges of the container. Plainly speaking, it assigns each selected element a row and column index. It automatically runs the `rows` and `cols` plugins.
+
+*Usage*
+
+```html
+<div class="container">
+  <div>
+    <div class="col" id="1"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+  <div>
+    <div class="col" id="2"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<script>
+const results = Splitting({
+  target: '.container',
+  by: 'grid',
+  matching: '.col'
+});
+
+results[0].rows[0][0] // <div id="1" style="--row-index: 0; --col-index: 0">...</div>
+results[0].rows[0][1] // <div style="--row-index: 0; --col-index: 1">...</div>
+results[0].rows[0][2] // <div style="--row-index: 0; --col-index: 2">...</div>
+
+results[0].rows[1][1] // <div id="2" style="--row-index: 1; --col-index: 0">...</div>
+results[0].rows[1][2] // <div style="--row-index: 1; --col-index: 1">...</div>
+results[0].rows[1][3] // <div style="--row-index: 1; --col-index: 2">...</div>
+
+results[0].cols[0][0] // <div id="1" style="--row-index: 0; --col-index: 0">...</div>
+results[0].cols[1][0] // <div style="--row-index: 0; --col-index: 1">...</div>
+results[0].cols[2][0] // <div style="--row-index: 0; --col-index: 2">...</div>
+
+results[0].cols[0][1] // <div id="2" style="--row-index: 1; --col-index: 0">...</div>
+results[0].cols[1][1] // <div style="--row-index: 1; --col-index: 1">...</div>
+results[0].cols[2][1] // <div style="--row-index: 1; --col-index: 2">...</div>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#cols) cols
+
+The `cols` plugin detects the cols of a layout by comparing the distance from the left of the container.
+
+*Usage*
+
+```html
+<div class="container">
+  <div>
+    <div class="col" id="1"></div>
+    <div class="col"></div>
+  </div>
+  <div>
+    <div class="col" id="2"></div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<script>
+const results = Splitting({
+  target: '.container',
+  by: 'cols',
+  matching: '.col'
+});
+
+results[0].cols[0][0] // <div id="1" style="--col-index: 0">...</div>
+results[0].cols[1][0] // <div style="--col-index: 1">...</div>
+
+results[0].cols[0][1] // <div id="2" style="--col-index: 0">...</div>
+results[0].cols[1][1] // <div style=" --col-index: 1">...</div>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#rows) rows
+
+The `rows` plugin detects the rows of a layout by comparing the distance from the top of the container.
+
+*Usage*
+
+```html
+<div class="container">
+  <div>
+    <div class="col" id="1"></div>
+    <div class="col"></div>
+  </div>
+  <div>
+    <div class="col" id="2"></div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<script>
+const results = Splitting({
+  target: '.container',
+  by: 'rows',
+  matching: '.col'
+});
+
+results[0].rows[0][0] // <div id="1" style="--row-index: 0; --col-index: 0">...</div>
+results[0].rows[0][1] // <div style="--row-index: 0;">...</div>
+
+results[0].rows[1][1] // <div id="2" style="--row-index: 1; --col-index: 0">...</div>
+results[0].rows[1][2] // <div style="--row-index: 1;">...</div>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#cells) cells
+
+> Cells requires an additional .css file to properly split images. Please include /dist/splitting-cells.css in your page to use this feature.
+
+The `cells` plugin generates `<span>`s based on the number of rows and columns provided. This plugin is perfect for splitting an picture with the `image` option, which applies an image as a `background-image` to the `target`. Set a specific image with `image: 'http://url-to-image'` or use `image: true` detect the first `<img />` in the container for use.
+
+*Usage*
+
+```html
+<div class="image">
+  <img src="http://unsplash.it/200/200?random" />
+</div>
+
+<script>
+const results = Splitting({
+  target: '.image',
+  by: 'cells',
+  image: true,
+  cols: 2,
+  rows: 2
+});
+
+results[0].el // <div class="image splitting cells" style="background-image: url(http://unsplash.it/200/200?random); --cell-total: 4; --row-total: 2; --col-total: 2;">...</div>
+results[0].cells[0] // <span class="cell" style="--cell-index: 0; --row-index: 0; --col-index: 0"></span>
+results[0].cells[1] // <span class="cell" style="--cell-index: 1; --row-index: 0; --col-index: 1"></span>
+results[0].cells[3] // <span class="cell" style="--cell-index: 2; --row-index: 1; --col-index: 0"></span>
+results[0].cells[4] // <span class="cell" style="--cell-index: 3; --row-index: 1; --col-index: 1"></span>
+</script>
+```
+
+### [#](https://splitting.js.org/guide.html#make-your-own) Make Your Own!
+
+Splitting is easily expandable to create your own splits. See the API for [`Splitting.add()`](https://splitting.js.org/guide.html#splitting-add) for more details. Be sure to share your plugins and demos with [#splittingjs](https://twitter.com/hashtag/splittingjs)!
+
+## [#](https://splitting.js.org/guide.html#api) API
+
+### [#](https://splitting.js.org/guide.html#splitting) `Splitting()`
+
+#### [#](https://splitting.js.org/guide.html#options-2) Options
+
+| Options | Description |
+| --- | --- |
+| `target` | An optional list of elements or a css selector. By default, this is `[data-splitting]` |
+| `by` | The splitting plugin to use. See the plugin page for a full list. If not specified, the value of the data-splitting attribute will be use. If that is not present, the `chars` plugin will be used. |
+| `key` | An optional key used as a prefix on on CSS Variables. For instance when a key of `hero` is used with the `chars` plugin, it will changethe CSS variable `--char-index` to `--hero-char-index`. This should be used if multiple splits have been performed on the same element, or to resolve conflicts with other libraries. |
+
+#### [#](https://splitting.js.org/guide.html#plugin-specific-options) Plugin-specific Options
+
+| Options | Description |
+| --- | --- |
+| `matching` | Used by the following plugins to select children to index: `items`, `grid`, `cols`, `rows`, `cellRows`, `cellCols`, and `cells`. If not specified, the immediate child elements will be selected. |
+| `cols` | The number of columns to create or detect. This is used by the following plugins: `cols`, `cellCols`, `grid`, and `cells` |
+| `rows` | The number of rows to create or detect. This is used by the following plugins: `rows`, `cellRows`, `grid`, and `cells` |
+| `whitespace` | If true, the `chars` plugin will count whitespace while indexing characters. |
+
+#### [#](https://splitting.js.org/guide.html#returns) Returns
+
+The `Splitting` fucntion always returns an array of objects with the following properties based on plugin name, giving you access to each element's splits to use with JavaScript animation libraries or for additional processing.
+
+```html
+<div data-splitting>Splitting Text</div>
+
+<script>
+const results = Splitting();
+results[0].el // <div data-splitting  class="splitting chars words" style="--word-total: 2; --char-total: 13">...</div>
+results[0].words[0] // <span class="word" data-word="Splitting" style="--word-index: 0">...</span>
+results[0].words[1] // <span class="word" data-word="Text" style="--word-index: 1">...</span>
+
+results[0].chars[0] // <span class="char" data-char="S" style="--char-index: 0">S</span>
+results[0].chars[1] // <span class="char" data-char="p" style="--char-index: 1">p</span>
+</script>
+```
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `chars` | `HTMLElement[]` | An array of all characters created by the `chars` plugin |
+| `words` | `HTMLElement[]` | An array of all words created by the `words` and `lines` plugin |
+| `lines` | `HTMLElement[][]` | An array of element arrays by the line, returned by the `lines` plugin |
+| `items` | `HTMLElement[]` | An array of elements returned by the `items` plugin. |
+| `rows` | `HTMLElement[][]` | An array of element arrays by row, returned by the `rows` and `grid` plugin |
+| `cols` | `HTMLElement[][]` | An array of element arrays by column, returned by the `cols` and `grid` plugin |
+| `cells` | `HTMLElement[]` | An array of cells created by `cells`, `cellRows`, or `cellCols` plugin |
+| `cellRows` | `HTMLElement[][]` | An array of element arrays by the row, returned by the `cellRows` and `cells` plugin |
+| `cellCols` | `HTMLElement[][]` | An array of element arrays by the column, returned by the `cellCols` and `cells` plugin |
+
+### [#](https://splitting.js.org/guide.html#splitting-html) `Splitting.html()`
+
+The `Splitting.html()` function takes the same options as `Spitting()` but has a required property of `content`. The `content` property should be an html string to be used as the splitting target. The `Splitting.html()` function returns a string of the rendered HTML instead of returning a result object. This function is intended to be used inside of JS Framework DSL's such as the Vue templating language:
+
+```html
+<div v-html="Splitting.html({ content: myContentString, by: 'chars' })"></div>
+```
+
+### [#](https://splitting.js.org/guide.html#splitting-add) `Splitting.add()`
+
+| Options | Description |
+| --- | --- |
+| `by` | The name of the plugin. It must be unique. |
+| `key` | The prefix to set when adding index/total css custom properties to the elements. |
+| `split` | The function to call when this plugin is used. The return value is set in the result of `Splitting()` as the same name as the `by` in the plugin. |
+| `depends` | The plugins that must run prior to this plugin. |

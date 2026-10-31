@@ -1,0 +1,183 @@
+---
+source: https://rive.app/docs/scripting/api-reference/color/color
+title: "Color"
+fetched: 2026-10-28
+split_from: rive.app__docs__llms-full.txt
+---
+
+# Color
+
+## Constructors
+
+### `lerp`
+
+```lua theme={null}
+lerp(from: Color, to: Color, t: number) -> Color
+```
+
+Linearly interpolates between two colors using the parameter t, where
+t = 0 returns 'from' and t = 1 returns 'to'.
+
+```lua highlight={7} theme={null}
+local black = Color.rgb(0, 0, 0)
+local white = Color.rgb(255, 255, 255)
+
+local t = 0.5
+
+-- Linearly interpolate halfway between black and white
+local gray = Color.lerp(black, white, t)
+
+print(gray)
+-- Returns a gray color between black and white
+```
+
+### `rgb`
+
+```lua theme={null}
+rgb(r: number, g: number, b: number) -> Color
+```
+
+Returns a color constructed from red, green, and blue channels. Alpha
+defaults to 255 (fully opaque). Only the low 8 bits of each channel are
+kept, so 300 becomes 44 and -1 becomes 255.
+
+```lua theme={null}
+-- Red
+self.color = Color.rgb(255, 0, 0)
+```
+
+### `rgba`
+
+```lua theme={null}
+rgba(r: number, g: number, b: number, a: number) -> Color
+```
+
+Returns a color constructed from red, green, blue, and alpha channels.
+Only the low 8 bits of each channel are kept, so 300 becomes 44 and -1
+becomes 255.
+
+```lua theme={null}
+-- Red at 50% opacity
+self.color = Color.rgba(255, 0, 0, 128)
+```
+
+## Static Functions
+
+### `red`
+
+```lua theme={null}
+red(color: Color, value: number?) -> number | Color
+```
+
+Returns the red channel of the color. If a value is
+provided, returns a new color with that channel updated.
+
+```lua highlight={2,6} theme={null}
+local myColor = Color.rgba(128, 55, 12, 128)
+local redChannel = Color.red(myColor)
+print(redChannel)
+-- 128
+
+local newColor = Color.red(myColor, 200)
+print(Color.red(newColor))
+-- 200
+```
+
+### `green`
+
+```lua theme={null}
+green(color: Color, value: number?) -> number | Color
+```
+
+Returns the green channel of the color. If a value is
+provided, returns a new color with that channel updated.
+
+```lua highlight={2,6} theme={null}
+local myColor = Color.rgba(128, 55, 12, 128)
+local greenChannel = Color.green(myColor)
+print(greenChannel)
+-- 55
+
+local newColor = Color.green(myColor, 200)
+print(Color.green(newColor))
+-- 200
+```
+
+### `blue`
+
+```lua theme={null}
+blue(color: Color, value: number?) -> number | Color
+```
+
+Returns the blue channel of the color. If a value is
+provided, returns a new color with that channel updated.
+
+```lua highlight={2,6} theme={null}
+local myColor = Color.rgba(128, 55, 12, 128)
+local blueChannel = Color.blue(myColor)
+print(blueChannel)
+-- 12
+
+local newColor = Color.blue(myColor, 200)
+print(Color.blue(newColor))
+-- 200
+```
+
+### `alpha`
+
+```lua theme={null}
+alpha(color: Color, value: number?) -> number | Color
+```
+
+Returns the alpha channel of the color, or returns a new color with the
+alpha channel set to the specified value. Only the low 8 bits of the
+value are kept.
+
+```lua highlight={2,6} theme={null}
+local myColor = Color.rgba(128, 55, 12, 128)
+local alphaChannel = Color.alpha(myColor)
+print(alphaChannel)
+-- 128
+
+local newColor = Color.alpha(myColor, 200)
+print(Color.alpha(newColor))
+-- 200
+```
+
+### `opacity`
+
+```lua theme={null}
+opacity(color: Color, value: number?) -> number | Color
+```
+
+Returns the opacity of the color as a normalized value in the range
+\[0.0, 1.0], or returns a new color with its alpha set from the specified
+opacity.
+
+```lua highlight={4,9} theme={null}
+local myColor = Color.rgba(255, 0, 0, 128)
+
+-- Get the opacity of a color
+local myOpacity = Color.opacity(myColor)
+print(myOpacity)
+-- 0.502
+
+-- Get a new color with the specified opacity
+local newColor = Color.opacity(myColor, 1.0)
+print(Color.opacity(newColor))
+-- 1.0
+```
+
+### `toFloat`
+
+```lua theme={null}
+toFloat(color: Color) -> {number}
+```
+
+Convert a Color (ARGB packed integer) to an `{r, g, b, a}` table
+with values in 0–1 range. Use with `clearColor` in render passes.
+
+```lua theme={null}
+local cc = Color.toFloat(Color.rgba(255, 0, 0, 128))
+-- cc = {1.0, 0.0, 0.0, 0.502}
+```
