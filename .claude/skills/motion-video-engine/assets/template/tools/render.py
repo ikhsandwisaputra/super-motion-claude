@@ -59,7 +59,7 @@ async def main():
     url = f"http://127.0.0.1:{srv.server_address[1]}/src/index.html" + ("?debug=1" if a.debug else "")
     errors = []
     async with async_playwright() as p:
-        br = await p.chromium.launch(channel="msedge", args=["--use-angle=d3d11", "--enable-gpu", "--ignore-gpu-blocklist"])
+        br = await p.chromium.launch(channel=("msedge" if sys.platform == "win32" else "chrome"), args=["--use-angle=" + ("d3d11" if sys.platform == "win32" else "vulkan"), "--enable-gpu", "--ignore-gpu-blocklist"])
         ctx = await br.new_context(viewport={"width": 1920, "height": 1080}, device_scale_factor=1)
         probe = await ctx.new_page()
         probe.on("pageerror", lambda e: errors.append(str(e)))

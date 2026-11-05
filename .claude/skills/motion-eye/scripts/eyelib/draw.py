@@ -15,7 +15,9 @@ CUT = (240, 240, 240)
 ACCENT = (255, 80, 200)
 SERIES = [(255, 120, 90), (90, 200, 255), (250, 210, 80), (150, 230, 140), (200, 140, 255), (255, 160, 200)]
 
-_FONT_DIR = os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts')
+_FONT_DIRS = [os.path.join(os.environ.get('WINDIR', r'C:\Windows'), 'Fonts'),
+              '/usr/share/fonts/TTF', '/usr/share/fonts/noto', '/usr/share/fonts/liberation',
+              os.path.expanduser('~/.local/share/fonts')]
 _cache = {}
 
 
@@ -27,8 +29,8 @@ def font(size, bold=False, mono=False):
         ['segoeuib.ttf', 'arialbd.ttf', 'DejaVuSans-Bold.ttf'] if bold else ['segoeui.ttf', 'arial.ttf', 'DejaVuSans.ttf'])
     f = None
     for n in names:
-        p = os.path.join(_FONT_DIR, n)
-        if os.path.exists(p):
+        p = next((os.path.join(d, n) for d in _FONT_DIRS if os.path.exists(os.path.join(d, n))), None)
+        if p:
             f = ImageFont.truetype(p, size)
             break
     _cache[key] = f or ImageFont.load_default()
