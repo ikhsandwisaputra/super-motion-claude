@@ -10,7 +10,7 @@ def serve():
 async def main():
     srv = serve()
     async with async_playwright() as p:
-        br = await p.chromium.launch(channel="msedge", args=["--use-angle=d3d11", "--enable-gpu", "--ignore-gpu-blocklist"])
+        br = await p.chromium.launch(channel=("msedge" if sys.platform == "win32" else "chrome"), args=["--use-angle=" + ("d3d11" if sys.platform == "win32" else "vulkan"), "--enable-gpu", "--ignore-gpu-blocklist"])
         pg = await br.new_page(viewport={"width": 1920, "height": 1080})
         errs = []; pg.on("pageerror", lambda e: errs.append(str(e)))
         await pg.goto(f"http://127.0.0.1:{srv.server_address[1]}/src/index.html")

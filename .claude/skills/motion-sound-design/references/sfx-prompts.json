@@ -17,7 +17,7 @@
   "typo_fly_in": {"text": "Fast smooth air swish flying toward the camera, short, clean, no reverb", "dur": 0.5},
   "typo_pop_bubble": {"text": "Soft bubbly pop, cute UI text pop-in sound, short and clean", "dur": 0.5},
   "typo_pop_pluck": {"text": "Short plucky marimba pop, playful text appear sound, single note", "dur": 0.5},
-  "typo_tick_glass": {"text": "Tiny glassy tick, minimal UI blip, very short and soft", "dur": 0.5},
+  "typo_tick_glass": {"text": "BANNED (Ikhsan 2026-11-02, no ting ting): do not generate or use", "dur": 0.5, "banned": true},
   "typo_card_flick": {"text": "Quick crisp card flick flip, paper snap, short", "dur": 0.5},
   "typo_drop_thud": {"text": "Small soft muted thud of a light object landing, short, dry", "dur": 0.5},
   "typo_swish_swing": {"text": "Short playful whip swish with a slight wobble, light and airy", "dur": 0.5},
