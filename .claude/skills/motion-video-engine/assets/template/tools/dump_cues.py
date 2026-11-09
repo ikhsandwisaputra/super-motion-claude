@@ -1,5 +1,5 @@
 """Dump SFX cues + bed sections from the timeline (window.getCues) to build/cues.json."""
-import asyncio, functools, http.server, json, os, threading
+import asyncio, functools, http.server, json, os, sys, threading
 from playwright.async_api import async_playwright
 
 ROOT = os.getcwd()
@@ -14,7 +14,7 @@ def serve():
 async def main():
     srv = serve()
     async with async_playwright() as p:
-        br = await p.chromium.launch(channel="msedge", args=["--use-angle=d3d11", "--enable-gpu", "--ignore-gpu-blocklist"])
+        br = await p.chromium.launch(channel=("msedge" if sys.platform == "win32" else "chrome"), args=["--use-angle=" + ("d3d11" if sys.platform == "win32" else "vulkan"), "--enable-gpu", "--ignore-gpu-blocklist"])
         pg = await br.new_page(viewport={"width": 1920, "height": 1080})
         await pg.goto(f"http://127.0.0.1:{srv.server_address[1]}/src/index.html")
         await pg.wait_for_function("window.ready !== undefined", timeout=180000)

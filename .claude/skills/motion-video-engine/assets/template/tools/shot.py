@@ -17,7 +17,7 @@ async def main():
     srv = serve()
     errs = []
     async with async_playwright() as p:
-        br = await p.chromium.launch(channel="msedge", args=["--use-angle=d3d11", "--enable-gpu", "--ignore-gpu-blocklist"])
+        br = await p.chromium.launch(channel=("msedge" if sys.platform == "win32" else "chrome"), args=["--use-angle=" + ("d3d11" if sys.platform == "win32" else "vulkan"), "--enable-gpu", "--ignore-gpu-blocklist"])
         pg = await br.new_page(viewport={"width": w, "height": h})
         pg.on("pageerror", lambda e: errs.append(str(e)))
         pg.on("console", lambda m: errs.append(m.text) if m.type == "error" else None)

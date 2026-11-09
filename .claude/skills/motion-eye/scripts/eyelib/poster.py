@@ -10,7 +10,10 @@ from . import draw as D
 from . import measure as M
 
 
-def critique(rgb, channel=None, allow_neon=False):
+def critique(rgb, channel=None, allow_neon=False, flow=False):
+    # flow=True (CLAUDE.md law 2, 2026-11-09): judge a frame caught mid camera-flow through a layered 3D collage.
+    # It relaxes only what layering legitimately changes (focal stars, density, edge bleed, colours from real
+    # photos/logos). Neon/glow, value contrast, mud and the 3-of-5 cap stay strict: the video-3 look must still fail.
     h, w = rgb.shape[:2]
     lab = M.to_lab(rgb)
     bg = M.dominant_lab(lab)
@@ -41,7 +44,6 @@ def critique(rgb, channel=None, allow_neon=False):
     portrait = h > w
     hero_target = 0.05 if portrait else 0.08
     groups = M.colour_groups(pal[:1] + inkpal)
-    colours = len(groups)
 
     items = []
 
@@ -53,6 +55,20 @@ def critique(rgb, channel=None, allow_neon=False):
     c = max(ls['contrast'], ls['ink_contrast'] or 0)   # minimal white frames: small dark type is still high contrast
     mud = ls['L50'] < 22 and c < 45
     lowkey = ls['L95'] < 30 and ls['L50'] < 22          # everything dark except a little type: flat value structure
+    small = []
+    if flow and not mud and not lowkey and not (ls['neon_bright'] > 0.25 and ls['glow_halo'] > 0.006):
+        # real app icons / logos / cut-outs bring their own small hues (Ps blue, Ai orange, Pr purple…): a hue family
+        # under 2.5 % of the whole frame is an asset, not a design accent. Up to 4 of them; past that it is confetti.
+        # Never on a dark-mud / low-key / glowing-neon frame: that is the rejected video-3 look (replay.py guards it).
+        ink_share = float(ink.mean())
+        small = [a for a in accents if a['share'] * ink_share < 0.025]
+        if len(small) <= 4:
+            big = {a['name'] for a in accents if a not in small}
+            accents = [a for a in accents if a not in small]
+            groups = [g for g in groups if g in big or g.startswith('netral') or g not in {a['name'] for a in small}]
+        else:
+            small = []
+    colours = len(groups)
     item('kontras', 15 if c >= 55 and not lowkey else 9 if c >= 40 else 3,
          f"L p5–p95 {ls['L5']:.0f}–{ls['L95']:.0f}, tinta vs latar Δ{ls['ink_contrast'] or 0:.0f} → Δ{c:.0f}",
          c >= 55 and not lowkey,
@@ -60,11 +76,13 @@ def critique(rgb, channel=None, allow_neon=False):
                                                                ('kontras nilai cukup' if c >= 55 else 'kontras nilai rendah')),
          ('beri area terang/berwarna (field, cahaya, set), jangan cuma teksnya yang terang' if lowkey else
           'naikkan beda gelap-terang ≥ 55 L: latar lebih terang/berwarna atau tipe lebih putih') if (c < 55 or lowkey) else None)
-    ok_col = colours <= 3 and len(accents) <= 2
-    item('warna', 15 if ok_col else 9 if colours <= 4 and len(accents) <= 3 else 4,
-         f"{colours} warna ({', '.join(groups)}), aksen: {', '.join(a['name'] for a in accents) or '-'}",
+    col_t = 5 if flow else 3   # real cut-outs/photos carry their own colours; accents stay at the kiblat's ≤ 2
+    ok_col = colours <= col_t and len(accents) <= 2
+    item('warna', 15 if ok_col else 9 if colours <= col_t + 1 and len(accents) <= 3 else 4,
+         f"{colours} warna ({', '.join(groups)}), aksen: {', '.join(a['name'] for a in accents) or '-'}"
+         + (f", aset kecil: {', '.join(a['name'] for a in small)}" if small else ''),
          ok_col, 'palet disiplin' if ok_col else 'warna terlalu banyak untuk satu frame',
-         None if ok_col else 'maks 3 warna (latar, tipe, 1 aksen) + netral; aksen ke-2 hanya untuk 1 kata')
+         None if ok_col else f'maks {col_t} warna (latar, tipe, 1 aksen' + (', foto/aset' if flow else '') + ') + netral; aksen ke-2 hanya untuk 1 kata')
     nb, gh = ls['neon_bright'], ls['glow_halo']
     # a saturated solid accent on dark is a brand colour; it reads as "neon" only when it also glows
     neon_ok = allow_neon or nb <= 0.25 or gh <= 0.006
@@ -72,8 +90,9 @@ def critique(rgb, channel=None, allow_neon=False):
          f"neon {nb * 100:.0f}% dari tinta terang, halo {gh * 100:.2f}% frame", neon_ok,
          'glow terkendali' if neon_ok else 'neon/glow di latar gelap (bau template)',
          None if neon_ok else 'satu sumber cahaya; tipe off-white tanpa glow, aksen solid (bukan pendar)')
-    ok_f = foc['stars'] <= 2 and foc['clarity'] >= 0.45
-    item('fokus', 15 if ok_f else 9 if foc['stars'] <= 3 else 4,
+    st_t, cl_t = (3, 0.35) if flow else (2, 0.45)   # flow: FG bokeh/BG plane may register as extra stars
+    ok_f = foc['stars'] <= st_t and foc['clarity'] >= cl_t
+    item('fokus', 15 if ok_f else 9 if foc['stars'] <= st_t + 1 else 4,
          f"{foc['stars']} bintang, kejelasan {foc['clarity']:.2f}", ok_f,
          'satu titik fokus jelas' if ok_f else 'mata bingung: beberapa elemen berebut',
          None if ok_f else 'satu bintang per momen: kecilkan/redupkan yang lain, atau tunda masuknya')
@@ -81,7 +100,8 @@ def critique(rgb, channel=None, allow_neon=False):
     # airy minimal frames are a taste (kiblat: 72 % negative space): fine when one clear, contrasty focal point
     # holds them and the frame is not dark mud; emptiness only fails when nothing strong holds the space
     minimal_ok = ns > 0.70 and foc['stars'] <= 2 and c >= 50 and not lowkey
-    ok_s = 0.25 <= ns <= 0.70 or minimal_ok
+    ns_lo = 0.12 if flow else 0.25   # flow: a dense multi-plane collage is a look, not clutter
+    ok_s = ns_lo <= ns <= 0.70 or minimal_ok
     item('ruang', 10 if ok_s else 6 if 0.15 <= ns <= 0.85 else 2,
          f"ruang kosong {ns * 100:.0f}%" + (' (minimal, fokus jelas)' if minimal_ok else ''), ok_s,
          'ruang bernapas' if ok_s else ('kosong melompong: tidak ada yang kuat menahan ruang' if ns > 0.70 else 'sesak'),
@@ -98,8 +118,8 @@ def critique(rgb, channel=None, allow_neon=False):
              None if ok_h and ok_r else f"hero ≥ {hero_target * 100:.0f}% tinggi frame, pendukung ≤ 1/3 hero (aturan double-triple)")
     else:
         item('tipe', 10, 'tidak ada teks terdeteksi', None, 'frame tanpa teks')
-    ok_z = not in_zone and not at_edge
-    item('zona', 10 if ok_z else 4, f"{len(in_zone)} baris di zona UI, {len(at_edge)} mepet tepi", ok_z,
+    ok_z = not in_zone and (flow or not at_edge)   # flow: oversized type may bleed past the edge; UI zones never
+    item('zona', 10 if ok_z else 4, f"{len(in_zone)} baris di zona UI, {len(at_edge)} " + ('bleed tepi' if flow else 'mepet tepi'), ok_z,
          'aman' if ok_z else 'teks masuk zona UI / mepet tepi', None if ok_z else 'geser ke area aman kanal')
     # the rule is "never pure #000 and pure #FFF TOGETHER"; one of them alone is a legit clean look
     ok_m = not (ls['pure_black'] >= 0.05 and ls['pure_white'] >= 0.05)

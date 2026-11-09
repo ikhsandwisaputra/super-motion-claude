@@ -55,6 +55,23 @@
    ],
    "lesson": "video-3: one dark field + neon accents + 3 type families = 'neon sampah'; these five tells are that lesson and must keep firing on this film",
    "not_asserted": "'Hierarki tipe tanggung' depends on which frames are sampled (fires with 4 posters, not with 8) and was relaxed on purpose in the kiblat calibration (case-video3.md) — not a replay lesson"
+  },
+  {
+   "id": "hybrid-demo-15s",
+   "role": "bad",
+   "path": "my-ref/_eye/replay/films/hybrid-demo-15s_v03.mp4",
+   "verdict": "Ikhsan 2026-11-09, after Ahtor's diagnosis (same card in the same place, only the content swaps; burst 7 %, hold 11 %): 'wah sia sia berarti ya'",
+   "checks": [
+    {
+     "ref": "kiblat",
+     "max": 90
+    }
+   ],
+   "must_tell": [
+    "Slide ngambang (Ken Burns)"
+   ],
+   "lesson": "slide PPT = everything drifts at mid speed (82 % of the time), never snaps, never rests. A repeated layout alone is not the lesson: liked kiblat UI promos repeat theirs (layout similarity tested and rejected as a measure).",
+   "source": "/home/ikhsands/Proyek/ikhsan-crafting-art/effectcraft-work/hybrid-demo-15s/render/adobe_hybrid_15s.mp4 (frozen copy)"
   }
  ],
  "pairs": [
@@ -76,7 +93,10 @@
   "ref": "kiblat",
   "posters": 4,
   "min_median": 75,
-  "min_each": 50
+  "min_each": 50,
+  "must_not_tell": [
+   "Slide ngambang (Ken Burns)"
+  ]
  },
  "posters": [
   {

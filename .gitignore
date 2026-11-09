@@ -13,3 +13,7 @@ motion-docs/**/repo-*/
 motion-docs/_shared/mdn-content/
 # export WhatsApp (bisa berisi data pribadi) -> jangan ke GitHub
 my-ref/*WhatsApp*.zip
+
+# Python venv (Linux)
+.venv/
+__pycache__/
