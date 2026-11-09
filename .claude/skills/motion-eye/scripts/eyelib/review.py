@@ -15,7 +15,7 @@ def _pct(v):
     return '–' if v is None else f'{v * 100:.0f}%'
 
 
-def score(s, posters=(), ref=None, allow_neon=False):
+def score(s, posters=(), ref=None, allow_neon=False, flow=False):
     """s: our dna summary; posters: critique dicts of sampled frames; ref: reference dna summary (optional)."""
     dur = s['duration']
     cats = []
@@ -67,8 +67,10 @@ def score(s, posters=(), ref=None, allow_neon=False):
     # 5 focus and space (minimal styles in the kiblat are meant to be airy: targets follow the reference)
     e_t = max(0.15, ref['empty_frames'] + 0.10) if ref else 0.15
     cr_t = max(0.15, ref['crowded_frames'] + 0.10) if ref else 0.15
+    if flow:   # layered collage flow (CLAUDE.md law 2): density is the look; mud/neon tells stay untouched
+        cr_t = max(cr_t, 0.35)
     mud_empty = s['empty_frames'] > 0.15 and s['mud_frames'] >= 0.3   # empty AND dark mud = tiny type lost in the void
-    ok = [s['empty_frames'] <= e_t and not mud_empty, s['crowded_frames'] <= cr_t, s['one_star'] >= 0.5]
+    ok = [s['empty_frames'] <= e_t and not mud_empty, s['crowded_frames'] <= cr_t, s['one_star'] >= (0.35 if flow else 0.5)]
     cat('fokus_ruang', 'Fokus & ruang', 10 if all(ok) else 6 if sum(ok) == 2 else 2,
         f"kosong melompong {_pct(s['empty_frames'])}, sesak {_pct(s['crowded_frames'])}, satu-bintang {_pct(s['one_star'])}",
         f'kosong ≤ {_pct(e_t)} (dan tidak gelap-lumpur), sesak ≤ {_pct(cr_t)}, satu-bintang ≥ 50%',
@@ -103,6 +105,8 @@ def score(s, posters=(), ref=None, allow_neon=False):
         lo, hi = 0.6 * ref['shot_median'], 1.7 * ref['shot_median']
     else:
         lo, hi = DEFAULT['shot_lo'], DEFAULT['shot_hi']
+    if flow:   # one continuous camera journey replaces many cuts: a long 'shot' is a fly-through, not a stall
+        hi *= 1.5
     sm = s['shot_median'] or 0
     cat('pacing', 'Pacing perubahan visual', 10 if lo <= sm <= hi else 6 if lo / 2 <= sm <= hi * 1.6 else 2,
         f"median shot {sm}s, {s['cuts_per_10s']} cut/10 s, {s['transitions']} transisi", f"{lo:.1f}–{hi:.1f}s",
@@ -111,7 +115,7 @@ def score(s, posters=(), ref=None, allow_neon=False):
     if posters:
         passed = sum(1 for p in posters if p['pass'])
         rate = passed / len(posters)
-        cat('poster', 'Poster test (pause acak)', 10 if rate >= 0.75 else 6 if rate >= 0.5 else 2,
+        cat('poster', 'Poster test (momen hold)' if flow else 'Poster test (pause acak)', 10 if rate >= 0.75 else 6 if rate >= 0.5 else 2,
             f"{passed}/{len(posters)} frame ≥ 70", '≥ 75% lolos',
             'Perbaiki frame terlemah dulu sebagai desain diam (styleframe), baru gerakkan.')
     total = sum(c['pts'] for c in cats)
@@ -132,6 +136,13 @@ def tells(s, posters=(), ref=None):
                   f"{s['accent_hues_film']} keluarga aksen ditabur di atas 1 latar gelap (L {s['L50']})"))
     elif s['accent_hues_film'] >= 5 and s['colour_fields'] <= 2:
         t.append(('Aksen pelangi tanpa field warna', f"{s['accent_hues_film']} keluarga aksen, {s['colour_fields']} field"))
+    # Ken Burns slideshow: everything drifts at mid speed, never snaps, never rests. Calibrated 2026-11-09 on the
+    # 41 kiblat videos (mid-speed share max 0.69, median ≈ 0.35), our films (0.15–0.36) and the hybrid-demo-15s
+    # that read as "slide PPT" (0.82). A repeated layout alone is NOT the tell: liked UI promos repeat theirs.
+    mid = 1.0 - s['burst_share'] - s['hold_share']
+    if mid > 0.75:
+        t.append(('Slide ngambang (Ken Burns)', f"{_pct(mid)} waktu gerak setengah-setengah: burst {_pct(s['burst_share'])}, "
+                  f"hold {_pct(s['hold_share'])} — snap 4 frame lalu diam, kamera pindah tempat, bukan drift terus"))
     if s['empty_frames'] >= 0.2 and s['mud_frames'] >= 0.3:
         t.append(('Teks kecil di ruang kosong yang gelap', f"{_pct(s['empty_frames'])} frame > 85% ruang tenang, {_pct(s['mud_frames'])} lumpur"))
     if s['punch'] < 4:

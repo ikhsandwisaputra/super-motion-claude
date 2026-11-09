@@ -138,7 +138,8 @@ def judge_poster(root, item, neg):
     path = neg.get(item.get("synthetic")) if item.get("synthetic") else os.path.join(root, item["path"])
     rgb = V.frame_at(path, 0.0, long_side=1280, src_fps=30.0, crop=None)
     c = poster.critique(rgb, channel=item.get("channel"), allow_neon=False)
-    return {"score": c["score"], "fails": [i["key"] for i in c["items"] if i["ok"] is False]}
+    cf = poster.critique(rgb, channel=item.get("channel"), allow_neon=False, flow=True)
+    return {"score": c["score"], "fails": [i["key"] for i in c["items"] if i["ok"] is False], "flow": cf["score"]}
 
 
 def run_all(root, golden, quick=False):
@@ -146,8 +147,13 @@ def run_all(root, golden, quick=False):
     sheets_dir = os.path.join(rp, "sheets"); os.makedirs(sheets_dir, exist_ok=True)
     refs = {k: eye.load_dna(os.path.join(root, v)) for k, v in golden["refs"].items()}
     n = 4 if quick else golden.get("posters_per_film", 8)
-    cur = {"films": {}, "posters": {}, "kiblat": {}}
+    cur = {"films": {}, "posters": {}, "kiblat": {}, "missing": []}
     for f in golden["films"]:
+        if not os.path.exists(os.path.join(root, f["path"])):
+            # e.g. lost in the Linux migration: say so loudly, never crash and never pretend it passed
+            print(f"· film {f['id']} HILANG: {f['path']} — dilewati", flush=True)
+            cur["missing"].append(f["id"])
+            continue
         print(f"· film {f['id']} …", flush=True)
         cur["films"][f["id"]] = judge_film(root, f, refs, n, sheets_dir)
     neg = make_negatives(os.path.join(rp, "frames"))
@@ -169,7 +175,11 @@ def evaluate(golden, cur, base, quick=False):
     # a quick run (4 posters) vs a full baseline (8): poster-sampled tells and the poster category are not comparable
     same_mode = bool((base or {}).get("quick", False)) == quick
     noisy = set() if same_mode else POSTER_TELLS
+    for fid in cur.get("missing", []):
+        warns.append(f"film {fid} hilang dari disk — pelajarannya TIDAK diuji (replay tidak lengkap)")
     for f in golden["films"]:
+        if f["id"] not in cur["films"]:
+            continue
         r = cur["films"][f["id"]]
         for chk in f["checks"]:
             x = r[chk["ref"]]
@@ -199,6 +209,8 @@ def evaluate(golden, cur, base, quick=False):
                 if new:
                     warns.append(f"{f['id']} vs {chk['ref']}: tell baru {sorted(new)}")
     for p in golden.get("pairs", []):
+        if p["good"] not in cur["films"] or p["bad"] not in cur["films"]:
+            continue
         g = cur["films"][p["good"]][p["ref"]]["score"]; b = cur["films"][p["bad"]][p["ref"]]["score"]
         if g - b < p["margin"]:
             fails.append(f"jarak {p['good']} − {p['bad']} vs {p['ref']} = {g - b} < {p['margin']} — mata tidak lagi membedakan yang disukai dari yang ditolak")
@@ -208,6 +220,8 @@ def evaluate(golden, cur, base, quick=False):
             fails.append(f"poster {p['id']}: {x['score']} < min {p['min']} (gagal di {x['fails']})")
         if "max" in p and x["score"] > p["max"]:
             fails.append(f"poster {p['id']}: {x['score']} > max {p['max']} — frame yang mestinya ditolak lolos")
+        if "max" in p and x.get("flow") is not None and x["flow"] > p["max"]:
+            fails.append(f"poster {p['id']} (--flow): {x['flow']} > max {p['max']} — mode kolase meloloskan look yang ditolak")
         b = (((base or {}).get("posters") or {}).get(p["id"]))
         if b and abs(x["score"] - b["score"]) >= drift:
             warns.append(f"poster {p['id']}: {b['score']} → {x['score']}")
@@ -220,6 +234,10 @@ def evaluate(golden, cur, base, quick=False):
         if lo < km["min_each"]:
             worst = min(cur["kiblat"], key=lambda k: cur["kiblat"][k]["score"])
             fails.append(f"kiblat: {worst} = {lo} < {km['min_each']}")
+        for k, v in cur["kiblat"].items():
+            for t in km.get("must_not_tell", []):
+                if t in v["tells"]:
+                    fails.append(f"kiblat {k}: tell '{t}' menyala di video yang Ikhsan sukai")
         b = (base or {}).get("kiblat") or {}
         for k, v in cur["kiblat"].items():
             if k in b and abs(v["score"] - b[k]["score"]) >= drift:
@@ -230,6 +248,9 @@ def evaluate(golden, cur, base, quick=False):
 def report(golden, cur, fails, warns, jh, path):
     L = [f"# Taste replay — {time.strftime('%Y-%m-%d %H:%M')} · judge {jh}", "", "| item | vs | skor | target | tells |", "|---|---|---|---|---|"]
     for f in golden["films"]:
+        if f["id"] not in cur["films"]:
+            L.append(f"| {f['id']} ({f['role']}) | – | HILANG | – | tidak diuji |")
+            continue
         for chk in f["checks"]:
             x = cur["films"][f["id"]][chk["ref"]]
             tgt = (f"≥ {chk['min']}" if "min" in chk else "") + (f"≤ {chk['max']}" if "max" in chk else "")
@@ -237,11 +258,12 @@ def report(golden, cur, fails, warns, jh, path):
     for p in golden.get("posters", []):
         x = cur["posters"][p["id"]]
         tgt = (f"≥ {p['min']}" if "min" in p else "") + (f"≤ {p['max']}" if "max" in p else "")
-        L.append(f"| poster {p['id']} ({p['role']}) | poster | {x['score']} | {tgt} | gagal: {', '.join(x['fails']) or '–'} |")
+        L.append(f"| poster {p['id']} ({p['role']}) | poster | {x['score']} (flow {x.get('flow', '–')}) | {tgt} | gagal: {', '.join(x['fails']) or '–'} |")
     if cur.get("kiblat"):
         sc = sorted(cur["kiblat"].items(), key=lambda kv: kv[1]["score"])
         L.append(f"| kiblat ×{len(sc)} | kiblat | median {statistics.median(v['score'] for _, v in sc)}, min {sc[0][1]['score']} ({sc[0][0][-14:]}) | ≥ {golden['kiblat_members']['min_median']} / {golden['kiblat_members']['min_each']} | |")
-    L += ["", f"**{'REGRESI' if fails else 'LULUS'}** — {len(fails)} gagal, {len(warns)} peringatan"]
+    status = 'REGRESI' if fails else ('LULUS SEBAGIAN (film golden hilang)' if cur.get('missing') else 'LULUS')
+    L += ["", f"**{status}** — {len(fails)} gagal, {len(warns)} peringatan"]
     L += [f"- ✗ {x}" for x in fails] + [f"- ⚠ {x}" for x in warns]
     open(path, "w", encoding="utf-8").write("\n".join(L) + "\n")
     return "\n".join(L)
@@ -309,6 +331,8 @@ def main():
     if a.update:
         if fails:
             sys.exit("baseline NOT updated: the golden lessons fail — fix the rule or change golden.json on purpose first")
+        if cur.get("missing"):
+            sys.exit(f"baseline NOT updated: golden films missing {cur['missing']} — restore them first (a partial baseline would forget them)")
         if a.quick and base:
             cur["kiblat"] = base.get("kiblat", {})
         json.dump({"judge": jh, "ts": entry["ts"], "message": a.message, "quick": a.quick, **cur}, open(bpath, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

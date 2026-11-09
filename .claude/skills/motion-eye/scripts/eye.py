@@ -3,7 +3,7 @@
 designer would look at, and judges it with numbers. Read-only: it never edits a project.
 
   python -I eye.py dna     <video|frames dir|image> [--crop x0,y0,x1,y1] [--fps 10] [--start S] [--seconds N] [--out DIR] [--fresh]
-  python -I eye.py review  <render> [--ref <dna.json|video> [--ref-crop x0,y0,x1,y1]] [--posters 8] [--allow-neon] [--out DIR]
+  python -I eye.py review  <render> [--ref <dna.json|video> [--ref-crop x0,y0,x1,y1]] [--posters 8] [--allow-neon] [--flow] [--out DIR]
   python -I eye.py sense   <render|frames dir>          quick ⚑ lines after every render (fps 5, 6 posters)
   python -I eye.py compare <dna.json|dir> <dna.json|dir> [...] [--names a,b,...] [--out file.png]
   python -I eye.py poster  <video|frames|image> [--times 1.2,4.5 | --random 6] [--crop …] [--channel 9:16] [--out DIR]
@@ -113,7 +113,9 @@ def dna_text(d):
     return '\n'.join(lines)
 
 
-def pick_times(d, n, seed=7):
+def pick_times(d, n, seed=7, flow=False):
+    if flow:
+        return pick_hold_times(d, n) or pick_times(d, n, seed)
     dur = d['summary']['duration']
     t0 = d.get('start', 0) or 0
     rnd = random.Random(seed)
@@ -123,11 +125,30 @@ def pick_times(d, n, seed=7):
     return sorted(set(times))[:n]
 
 
+def pick_hold_times(d, n, min_len=0.4):
+    """Flow pieces (CLAUDE.md law 2): a frame mid fly-through is motion, not a poster. Judge only the moments
+    where the camera settles and the viewer reads: the middle of the longest holds (energy < film.HOLD_E)."""
+    fr = d.get('frames') or []
+    fps = d.get('analysis_fps') or 10.0
+    runs, cur = [], []
+    for f in fr[1:]:
+        if f.get('energy', 1.0) < film.HOLD_E:
+            cur.append(f['t'])
+        elif cur:
+            runs.append(cur); cur = []
+    if cur:
+        runs.append(cur)
+    runs = [r for r in runs if len(r) / fps >= min_len]
+    runs.sort(key=lambda r: -len(r))
+    return sorted(round(r[len(r) // 2], 2) for r in runs[:n])
+
+
 def run_posters(path, times, a, out, prefix='poster'):
     crits, imgs = [], []
     for t in times:
         rgb = V.frame_at(path, t, long_side=1280, src_fps=a.src_fps, crop=V.parse_crop(a.crop))
-        c = poster.critique(rgb, channel=getattr(a, 'channel', None), allow_neon=getattr(a, 'allow_neon', False))
+        c = poster.critique(rgb, channel=getattr(a, 'channel', None), allow_neon=getattr(a, 'allow_neon', False),
+                            flow=getattr(a, 'flow', False))
         c['t'] = t
         crits.append(c)
         imgs.append(poster.render(rgb, c, title=f'{os.path.basename(path)}  t={t:.2f}s', max_h=760))
@@ -156,9 +177,9 @@ def cmd_review(a):
             ra.crop, ra.start, ra.seconds = a.ref_crop, 0.0, None
             refd, _ = get_dna(a.ref, ra, default_out(a.ref))
         ref, ref_name = refd['summary'], refd['name']
-    times = [float(t) for t in a.times.split(',')] if a.times else pick_times(d, a.posters)
+    times = [float(t) for t in a.times.split(',')] if a.times else pick_times(d, a.posters, flow=getattr(a, 'flow', False))
     crits, grid = run_posters(a.input, times, a, out)
-    r = review.score(d['summary'], crits, ref=ref, allow_neon=a.allow_neon)
+    r = review.score(d['summary'], crits, ref=ref, allow_neon=a.allow_neon, flow=getattr(a, 'flow', False))
     txt = review.text(d['name'], r, d['summary'], ref_name)
     worst = sorted(crits, key=lambda c: c['score'])[:3]
     txt += '\n\nPoster terlemah: ' + ', '.join(f"t={c['t']:.2f}s {c['score']}" for c in worst)
@@ -172,9 +193,9 @@ def cmd_sense(a):
     a.fps = 5.0
     out = a.out or default_out(a.input, 'sense')
     d, _ = get_dna(a.input, a, out)
-    times = pick_times(d, 6)
+    times = pick_times(d, 6, flow=getattr(a, 'flow', False))
     crits, grid = run_posters(a.input, times, a, out, prefix='sense')
-    r = review.score(d['summary'], crits)
+    r = review.score(d['summary'], crits, flow=getattr(a, 'flow', False))
     lines = [f"⚑ SENSOR motion: skor rasa ≈{r['score']}/100 · {d['summary']['shots']} shot · "
              f"{d['summary']['colour_fields']} field warna · kontras Δ{d['summary']['contrast']}"]
     lines += [f"⚑ {t}: {v}" for t, v in r['tells']]
@@ -330,14 +351,18 @@ def main():
     p = sub.add_parser('review'); p.add_argument('input'); common(p)
     p.add_argument('--ref'); p.add_argument('--ref-crop'); p.add_argument('--posters', type=int, default=8)
     p.add_argument('--times'); p.add_argument('--channel'); p.add_argument('--allow-neon', action='store_true')
+    p.add_argument('--flow', action='store_true', help='layered 3D collage / camera-flow piece (CLAUDE.md law 2): relaxes focus stars, density, edge bleed and photo colours; neon, mud and contrast stay strict')
     p.set_defaults(fn=cmd_review)
     p = sub.add_parser('sense'); p.add_argument('input'); common(p); p.add_argument('--channel')
+    p.add_argument('--flow', action='store_true', help='layered 3D collage / camera-flow piece (CLAUDE.md law 2): relaxes focus stars, density, edge bleed and photo colours; neon, mud and contrast stay strict')
     p.set_defaults(fn=cmd_sense, allow_neon=False)
     p = sub.add_parser('compare'); p.add_argument('inputs', nargs='+'); p.add_argument('--names'); p.add_argument('--out')
     p.set_defaults(fn=cmd_compare)
     p = sub.add_parser('poster'); p.add_argument('input'); common(p, frames=False)
     p.add_argument('--times'); p.add_argument('--random', type=int, default=6); p.add_argument('--seed', type=int, default=7)
-    p.add_argument('--channel'); p.add_argument('--allow-neon', action='store_true'); p.set_defaults(fn=cmd_poster)
+    p.add_argument('--channel'); p.add_argument('--allow-neon', action='store_true')
+    p.add_argument('--flow', action='store_true', help='layered 3D collage / camera-flow piece (CLAUDE.md law 2): relaxes focus stars, density, edge bleed and photo colours; neon, mud and contrast stay strict')
+    p.set_defaults(fn=cmd_poster)
     p = sub.add_parser('look'); p.add_argument('input'); common(p, frames=False)
     p.add_argument('--times'); p.add_argument('--around', type=float, help='frame-by-frame around this time')
     p.add_argument('--span', type=int, default=7, help='frames shown with --around (source fps)')
