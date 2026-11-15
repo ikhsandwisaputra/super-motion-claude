@@ -1,0 +1,24 @@
+{
+  "model": "opus",
+  "autoCompactWindow": 200000,
+  "bashOutputMaxChars": 12000,
+  "permissions": {
+    "deny": ["Workflow", "ScheduleWakeup", "ReportFindings", "ShareOnboardingGuide", "Artifact"]
+  },
+  "enabledPlugins": {
+    "ecodigitus-marketing@synced": false,
+    "ecodigitus-marketing@inline": false,
+    "ecodigitus-sales@synced": false,
+    "ecodigitus-sales@inline": false,
+    "ecodigitus-operasional@synced": false,
+    "ecodigitus-operasional@inline": false,
+    "ecodigitus-developer@synced": false,
+    "ecodigitus-developer@inline": false,
+    "canva@synced": false,
+    "canva@inline": false,
+    "cowork-plugin-management@synced": false,
+    "cowork-plugin-management@inline": false,
+    "sales@synced": false,
+    "sales@inline": false
+  }
+}

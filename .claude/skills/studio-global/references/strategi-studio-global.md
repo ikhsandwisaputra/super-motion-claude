@@ -1,261 +1,254 @@
-<!-- SALINAN OTOMATIS dari /home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/strategi-studio-global.md · jangan diedit di sini: ubah sumbernya lalu jalankan /home/ikhsands/Proyek/asisten-agi-claude/bin/asisten-strategi sinkron · sha256:bec6eb32f0f1 -->
+<!-- SALINAN OTOMATIS dari /home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/strategi-studio-global.md · jangan diedit di sini: ubah sumbernya lalu jalankan /home/ikhsands/Proyek/asisten-agi-claude/bin/asisten-strategi sinkron · sha256:c9081191e3d0 -->
 
-# Kitab Strategi · Studio Konten Vertikal Global
+# Kitab Strategi · Studio Teknologi Indonesia
 
-> Arah tim Ikhsan mulai **7 Nov 2026** ("kedepannya rencana tim kita"). Sumbernya dokumen riset "Arsitektur Strategis
-> Studio Konten Vertikal Global". Salinan teks dan 3 grafiknya ada di
-> `/home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/sumber/`, khusus rujukan dan tidak perlu dibaca untuk kerja harian.
-> **Sumber tunggal kitab ini:** `/home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/strategi-studio-global.md`.
+> **Arah baru tim mulai 13 Nov 2026** (Ikhsan: "kedepannya akan fokus ke konten Indonesia … full YouTube video bukan
+> short … bahas macam hal tapi lebih fokus ke aspek teknologi"). Kitab ini **menggantikan seluruh** Kitab Studio Konten
+> Vertikal Global (Tier-1, bahasa Inggris, Shorts). Kitab lama diarsipkan, hanya untuk rujukan:
+> `/home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/arsip/2026-11-13-kitab-studio-global-tier1.md`.
+> **Sumber tunggal kitab ini:** `/home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/strategi-studio-global.md`
+> (nama berkas dan nama skill `studio-global` sengaja dipertahankan supaya alat dan salinan di studio tetap tersambung).
 > Salinan di skill `studio-global` proyek poster & motion dibuat oleh
 > `/home/ikhsands/Proyek/asisten-agi-claude/bin/asisten-strategi sinkron`. Jangan edit salinannya.
 
 **Cara baca.**
-- Isi kitab adalah cara kerja tim, dan wajib dipegang.
-- **Angka di kitab (CPM, RPM, persen, jumlah) adalah klaim dokumen sumber, 🟡 belum diverifikasi tim.** Angka itu boleh
-  jadi pedoman kerja, tapi TIDAK boleh tampil di layar, narasi, judul, atau deskripsi sebelum diverifikasi lewat browser.
-- Tanda 🧠 berarti analisis atau pengetahuan model, bukan isi dokumen.
+- Isi kitab adalah cara kerja tim, dan wajib dipegang. Kalau skill atau CLAUDE.md proyek masih menyebut Tier-1, bahasa
+  Inggris, atau Shorts sebagai arah utama, **kitab ini yang menang**.
+- Angka di kitab yang bertanda 🟡 adalah klaim yang belum diverifikasi tim: boleh jadi pedoman kerja, tapi TIDAK boleh
+  tampil di layar, narasi, judul, atau deskripsi sebelum diverifikasi lewat browser.
+- Tanda 🧠 berarti analisis atau pengetahuan model, bukan hasil riset.
 
-**Berlaku untuk** konten channel global dan setiap tugas konten yang Ikhsan arahkan ke sana. Proyek yang sedang
-berjalan dan brief yang eksplisit lain tetap ikut brief-nya (konten bahasa Indonesia, seri berita IG, Ecodigitus).
-Kalau ragu, tanya Ikhsan satu kalimat.
+**Berlaku untuk** semua konten channel tim. Brief eksplisit lain tetap ikut brief-nya (seri berita IG, Ecodigitus,
+permintaan khusus Ikhsan). Kalau ragu, tanya Ikhsan satu kalimat.
 
 ## 1. Inti (hafalkan)
 
-1. **Bukan pabrik konten instan.** Tim tidak membuat hiburan umum, fakta ringan, cerita horor, kutipan motivasi, atau
-   kompilasi klip. Generator AI bisa membuatnya dalam 15 menit, dan bayarannya receh.
-2. **Edukasi visual premium berbahasa Inggris untuk penonton Tier-1** (AS, Inggris, Kanada, Australia), dengan jangkar
-   institusi, regulasi, atau produk negara mereka.
-3. **Shorts adalah mesin akuisisi (atas corong), bukan produk akhir.** Uangnya datang dari video panjang, afiliasi,
-   produk digital, sponsor, dan jasa B2B.
-4. **Parit kita adalah kerajinan visual** yang tidak bisa ditiru generator AI: kolase berlapis, kamera 3D, UI 3D, peta
-   animasi, tipografi kinetik, dan visualisasi data.
-5. **Ikhsan adalah direktur kreatif.** Ia mengunci niche, memegang gerbang setiap serah terima, dan mengaudit angka.
+1. **Konten berbahasa Indonesia untuk penonton Indonesia.** Bahasa narator santai-semi baku ("kita/kamu", rapi, tidak
+   gaul berlebihan); teks layar memakai ejaan baku.
+2. **Full video YouTube 8–15 menit, bukan Shorts.** Format 16:9. Shorts tidak dibuat, kecuali Ikhsan memintanya khusus
+   untuk video tertentu (misalnya potongan promosi).
+3. **Aneka topik, satu lensa: teknologi.** Kabar, bisnis, sains, ekonomi, atau keseharian boleh dibahas, tapi selalu
+   dibedah dari sisi teknologinya: cara kerjanya, siapa yang membangunnya, dan dampaknya ke penonton Indonesia.
+4. **Bukan pabrik konten instan.** Tim tidak membuat kompilasi klip, fakta ringan tanpa riset, horor, atau kutipan
+   motivasi. Nilainya ada di riset yang dalam dan visual yang tidak bisa ditiru generator AI: kolase berlapis, kamera
+   3D, UI 3D, diagram cara kerja yang bergerak, peta animasi, visualisasi data, dan tipografi kinetik.
+5. **Ikhsan adalah direktur kreatif.** Ia memilih ide, memegang gerbang setiap serah terima, dan mengaudit angka.
    Tim bekerja dengan sistem (format naskah, pustaka shot, gerbang), bukan improvisasi harian.
 
 ## 2. Peran
 
-| Dokumen | Tim kita | Pegangan |
+| Peran | Tim kita | Pegangan |
 |---|---|---|
-| Direktur kreatif | **Ikhsan** | Kunci niche, gerbang naskah (baca lantang), setujui tiap serah. Unggah, pasang Related Video dan link afiliasi, audit 48 jam |
-| Researcher + Copywriter | **🔎 Ahri**, asisten browser (`/home/ikhsands/Proyek/asisten-agi-claude`) | Celah pasar, dossier bukti visual, naskah AV dua kolom berbahasa Inggris |
-| Graphic Designer | **🎨 Ahpo**, studio poster PhotoCraft (`/home/ikhsands/Proyek/ikhsan-crafting-art`) | Pustaka shot, komposisi berlapis FG/MG/BG, panduan gaya, frame pembuka |
-| Motion Editor | **🎬 Ahtor**, studio motion (`/home/ikhsands/Proyek/super-motion-claude-ikhsan`) | VO dari naskah terkunci, kamera 3D, caption, sound design, master 9:16/16:9, potongan Shorts |
+| Direktur kreatif | **Ikhsan** | Pilih ide dan format, gerbang naskah (baca lantang), setujui tiap serah, klik terbit, audit angka |
+| Researcher + Copywriter | **🔎 Ahri**, asisten browser (`/home/ikhsands/Proyek/asisten-agi-claude`) | Kartu ide, riset sampai sumber pertama, dossier bukti visual, naskah AV dua kolom berbahasa Indonesia, judul + deskripsi + bab |
+| Graphic Designer | **🎨 Ahpo**, studio poster PhotoCraft (`/home/ikhsands/Proyek/ikhsan-crafting-art`) | Visual Style Guide 16:9, pustaka shot, komposisi berlapis FG/MG/BG, diagram/ilustrasi cara kerja, **thumbnail** |
+| Motion Editor | **🎬 Ahtor**, studio motion (`/home/ikhsands/Proyek/super-motion-claude-ikhsan`) | VO dari naskah terkunci, animasi per bab, kamera 3D, sound design, master 16:9, file caption |
+| YouTube Analyst + Uploader | **📺 Ahyu**, subagent di sesi asisten (`bin/asisten-ahyu`) | Upload PRIVATE + thumbnail + caption + bab; laporan 48 jam & mingguan; titik penonton pergi ↔ kalimat naskah; brief varian thumbnail ke Ahpo |
 
-Padanan alat di dokumen dengan alat kita (tidak perlu beli apa pun):
+Channel: **channel baru yang 12 Nov dibuat untuk Tier-1, dialihkan ke arah ini** (keputusan Ikhsan, 13 Nov 2026). Ahyu
+tetap terhubung ke channel itu.
 
-| Alat di dokumen | Alat kita |
-|---|---|
-| Photoshop, Illustrator | PhotoCraft, plus SVG buatan sendiri |
-| After Effects, GeoLayers, Premiere | Engine kode super-motion (three.js/canvas, ffmpeg) dan EffectCraft |
-| Notion | `tugas/` plus BRIEF.md, NARASI.md, PERSETUJUAN.md, HASIL.md (nanti ruang tim) |
-| Frame.io | Motion Studio super-motion (preview, timeline, catatan per detik) |
-| Storyblocks, Artlist | asset-hunter, trilogi stok, `_pustaka`, SFX dan musik ElevenLabs |
-| ElevenLabs | Sama |
+Padanan alat (tidak perlu beli apa pun): PhotoCraft + SVG buatan sendiri (desain), engine kode super-motion + EffectCraft
+(motion), `tugas/` + BRIEF/NARASI/PERSETUJUAN/HASIL (manajemen), Motion Studio (preview dan catatan per detik),
+asset-hunter + trilogi stok + `_pustaka` + SFX/musik ElevenLabs (aset), ElevenLabs (VO).
 
-## 3. Niche: kunci SATU per channel
+## 3. Topik: aneka hal, lensa teknologi
 
-| # | Cetak biru (gaya referensi) | Isi | CPM klaim |
-|---|---|---|---|
-| 1 | Forensik korporasi, FinTech & psikologi kekayaan (MagnatesMedia, Moon, Alux) | Perusahaan raksasa bangkrut atau mendominasi, skandal, psikologi harga, strategi pajak AS, kartu kredit & investasi Barat | $15–50 |
-| 2 | Eksplainer mikro-niche B2B, AI/SaaS & navigasi sistem AS (GrowthX, gaya UI 3D Apple) | Tool stack AI/SaaS ($0 vs $500/bulan), keamanan siber UKM, kontrak pemerintah AS, navigasi lansia/kesehatan/asuransi, ekonomi karier kerah biru | $10–25+ |
-| 3 | Geopolitik ekonomi & sejarah dengan peta (Johnny Harris, Fern, Economics Explained) | Kenapa negara kaya atau miskin, rute dagang, sejarah militer | $10–25 |
-| 4 | Mekanika sains & teknologi (Kurzgesagt, Ridddle) | Satu pertanyaan penasaran per 60 dtk (cara chip dibuat, dll.); mudah di-dub ke Jerman/Spanyol | $5–16,5 |
+Usulan pilar (🧠, **proporsinya keputusan Ikhsan**, §11):
 
-- Dokumen merekomendasikan **#1 atau #2**: CPM tertinggi, butuh kamera 3D/UI 3D, dan afiliasinya kuat. #3 dan #4 adalah
-  alternatif kalau mau main volume.
-- 🧠 Kecocokan dengan tim: kiblat Ahtor (UI promo + kolase editorial) dan video-17 (eksplainer alat AI) paling dekat ke #2.
-  Seri poster berita Ahpo (kolase editorial) dekat ke #1.
-- **Satu channel, satu niche.** Kalau topiknya dicampur, algoritma bingung mencari penonton awal (*seed audience*).
-- **Niche belum dikunci** (§11). Sampai Ikhsan memutuskan, asisten mengusulkan dan tidak memilih sendiri.
+| # | Pilar | Contoh sudut |
+|---|---|---|
+| 1 | **Cara kerja** (eksplainer) | Bagaimana QRIS memindahkan uang dalam hitungan detik; kenapa sinyal hilang di lift; cara chip dibuat |
+| 2 | **Teknologi di balik kabar** | Kebocoran data yang ramai diberitakan, dibedah teknisnya; kenapa sebuah aplikasi tumbang |
+| 3 | **Bisnis & produk teknologi** | Kenapa startup X bertahan sementara Y tutup; strategi Big Tech masuk Indonesia |
+| 4 | **Teknologi keseharian** | Keamanan digital, HP, internet rumah, AI untuk kerja, dibahas dari cara kerjanya (bukan ulasan produk berbayar) |
+| 5 | **AI & masa depan** | Apa yang benar-benar bisa dan belum bisa dilakukan AI, dampaknya ke pekerjaan di Indonesia |
 
-## 4. Menyasar penonton Tier-1
+- **Lensa tetap satu.** Topik boleh beragam, tapi penonton harus selalu merasa "ini channel yang membedah teknologinya".
+  Itu yang membuat algoritma menemukan penonton awal yang konsisten (*seed audience*).
+- **Jangkar Indonesia wajib** di setiap naskah, minimal satu: institusi (Komdigi, OJK, BI, BSSN), regulasi (UU PDP,
+  aturan e-commerce), produk/layanan yang dipakai orang Indonesia, harga dalam rupiah, atau contoh keseharian lokal.
+  Topik global (chip, AI, Big Tech) tetap ditarik ke "apa artinya untuk kita di Indonesia".
+- **Seri.** Topik yang kuat dirancang sebagai seri (lanjutan lewat persetujuan Ikhsan), supaya penonton punya alasan
+  kembali.
 
-- Pakai bahasa Inggris (ejaan AS) di judul, deskripsi, kata kunci, VO, dan teks layar.
-- **Bahasa Inggris saja tidak cukup.** Naskah wajib punya jangkar spesifik Tier-1: pajak AS, kartu kredit bank Barat,
-  kontrak federal AS, layanan kesehatan lansia, perusahaan Silicon Valley. Tanpa jangkar, video tersebar ke penonton
-  berbahasa Inggris di negara ber-CPM rendah.
-- Pakai mata uang $, istilah, dan contoh yang dikenal penonton AS/UK/CA/AU, bukan contoh Indonesia.
-- Ikuti musim iklan. CPM naik di Q4 (Desember dan Cyber Week, +20–40 %) dan di April–Mei, lalu lesu di Januari dan
-  Agustus. Rilis andalan dijadwalkan di musim tinggi.
+## 4. Format: full video 8–15 menit
 
-## 5. Mesin uang tiga lapis
+- **Durasi bawaan 8–15 menit** (≥8 menit supaya bisa dipasangi iklan mid-roll, 🟡 syarat diverifikasi sebelum diandalkan).
+  Durasi = kebutuhan isi, bukan tempo lambat. Di luar rentang ini wajib `Alasan durasi:` di kepala NARASI.md, dan
+  pemeriksa memberi peringatan kalau baris itu tidak ada. Durasi tiap konten tetap keputusan Ikhsan.
+- **Rasio 16:9, master 1920×1080** (4K kalau render laptop sanggup; keputusan §11). Thumbnail 1280×720.
+- **Struktur video panjang** (dipetakan ke beat NARASI.md, lihat skill `studio-global` §3):
+  - **Hook / cold open (0–30 dtk):** langsung ke ketegangan atau pertanyaan, tanpa intro logo dan tanpa sapaan panjang.
+    Janji video diucapkan di sini.
+  - **Peta (≤60 dtk):** apa yang akan dibedah, supaya penonton tahu kenapa harus bertahan.
+  - **Bab 1…n (2–4 menit per bab):** tiap bab dibuka dengan pertanyaan atau ketegangan baru (*re-hook*), visual berganti
+    atau bertambah lapisan setiap beberapa detik, dan diakhiri jembatan ke bab berikutnya.
+  - **Puncak / twist:** jawaban yang memuaskan janji hook.
+  - **Penutup (≤60 dtk):** rangkuman satu kalimat, opini narator, ajakan komentar bertemplat, lalu arahkan ke video
+    berikutnya (layar akhir). Tidak menjanjikan lanjutan yang belum direncanakan.
+- **Bab (chapters)** ditulis Ahri di deskripsi (stempel waktu dari timeline akhir Ahtor) dan dipasang Ahyu saat upload.
+- **Shorts:** tidak dibuat. Kalau Ikhsan meminta potongan Shorts untuk video tertentu, Ahri menandai segmen 30–60 dtk
+  yang bisa berdiri sendiri, dan aturan Shorts di kitab lama boleh dirujuk untuk potongan itu saja.
 
-**Lapis 1 · Corong 1:8 (bawaan dokumen)**
-- **Tidak ada Shorts tanpa video induk yang jelas.** Perencanaannya terbalik: video panjang dulu, Shorts menyusul.
-- Buat 1 video panjang 8–15 menit tiap 1–2 minggu (minimal 8 menit supaya bisa dipasangi iklan mid-roll).
-- Di naskah video panjang, tandai 5–8 segmen puncak 30–60 dtk yang bisa berdiri sendiri. Segmen itu dipotong dan
-  di-reframe ke 9:16. Riset, desain, dan adegannya dipakai ulang.
-- Rilis Shorts bertahap: satu per beberapa hari selama 2–3 minggu, jangan 5 sekaligus di hari video panjang tayang.
-- Tautkan tiap Shorts ke video induk lewat fitur **Related Video**. Konversi 1–3 % sudah tergolong kuat.
-- 5 dtk terakhir Shorts: beri jawaban singkat tapi tahan cara/metodenya (**open loop**), lalu sebut imbalan konkret di
-  tautan. **Jangan** "watch the full video".
-- 10 dtk pertama video panjang langsung membuka pembahasan itu dengan kata-kata yang sama, tanpa intro logo.
+## 5. Uang (bertahap, tidak mengorbankan kepercayaan)
 
-**Alternatif · Pure Shorts**
-- Durasi 62–90 dtk. Di YouTube tetap terhitung Shorts, dan lolos syarat TikTok Creator Rewards (wajib di atas 1 menit).
-  Kelayakan negara akun dicek dulu (§9).
-- 5 dtk terakhir mengarahkan penonton ke pinned comment atau bio (afiliasi).
-- Channel sekaligus jadi etalase untuk klien B2B.
-
-**Lapis 2 · Uang dari hari pertama**
-- Pasang afiliasi software/FinTech dan produk digital ($17–197) di deskripsi, pinned comment, dan bio TikTok/IG, tanpa
-  menunggu YPP.
-- Syarat YPP jalur Shorts: 1.000 subscriber + 10 juta engaged views dalam 90 hari. Jalur awal: 500 subscriber + 3 juta.
-- Sponsor sudah bisa masuk di 1.000–10.000 subscriber.
-
-**Lapis 3 · Sindikasi & jasa**
-- Satu master 9:16 diunggah ke YouTube Shorts, TikTok, Instagram Reels, dan LinkedIn.
-- Jangan unggah video yang sama ke beberapa channel YouTube.
-- Portofolio channel jadi etalase jasa video B2B (FinTech, SaaS, MedTech).
+- 🟡 Syarat YouTube Partner Program jalur video panjang (subscriber + jam tonton publik 12 bulan) diverifikasi dulu
+  sebelum dijadikan target.
+- Afiliasi dan sponsor teknologi boleh dipertimbangkan setelah ada penonton, **selalu diungkap jelas** di video dan
+  deskripsi, dan tidak pernah mengubah isi analisis. Program mana yang dipakai = keputusan Ikhsan (§11).
+- Jangan mengunggah video yang sama ke beberapa channel YouTube.
+- 🧠 CPM penonton Indonesia jauh di bawah Tier-1, jadi pertumbuhan penonton dan kepercayaan lebih penting daripada
+  mengejar angka iklan di awal.
 
 ## 6. Alur produksi & gerbang
 
-Alur ini dipetakan ke sistem serah yang sudah ada (grafik "Sistem operasi studio" di folder sumber):
-
-1. **Ahri · kartu ide.** Celah pasar dan satu sudut tajam per ide. Ikhsan memilih.
-2. **Ahri · riset, dossier, dan naskah AV** (NARASI.md), lalu `asisten-serah --ajukan` membuat PERSETUJUAN.md.
+1. **Ahri · kartu ide.** 3–5 ide, masing-masing dengan pilar, sudut tajam, jangkar Indonesia, dan bukti permintaan.
+   Ikhsan memilih.
+2. **Ahri · riset, dossier, dan naskah AV** (NARASI.md, `Format: video panjang`), lalu `asisten-serah --ajukan` membuat
+   PERSETUJUAN.md. **Dossier minimal 15 bukti visual nyata** (judul berita asli, dokumen/regulasi, halaman resmi, grafik
+   dari fakta ✅, foto CC berlisensi terbukti). Ditegakkan pemeriksa untuk semua video panjang. Stok b-roll dan elemen
+   "(belum ada: dibuat studio)" tidak dihitung.
 3. **GERBANG DIREKTUR.** Ikhsan membaca naskah dengan lantang (uji durasi dan ritme), lalu menyetujui. Sejak itu
    **naskah terkunci**: ElevenLabs menghitung biaya per karakter, jadi tidak ada revisi naskah di tengah pembuatan suara.
-4. **Ahpo · komposisi berlapis**, per baris naskah, dari pustaka shot. Ikhsan mengecek.
-   - Ahpo memegang shot yang butuh olah gambar: kolase bukti, cutout tokoh, ilustrasi, kartu UI statis.
-   - Shot tipografi atau UI murni boleh langsung dibangun Ahtor di engine-nya (penyesuaian alat tim kita).
-5. **Ahtor · VO, animasi, caption, sound design.** Preview di Motion Studio, Ikhsan OK sebelum render (aturan yang sudah
-   ada), lalu master.
-6. **Ikhsan · distribusi.** Unggah, pasang Related Video, link afiliasi beserta pengungkapannya, atur jadwal, lalu audit
-   48 jam (§8).
+4. **Ahpo · komposisi berlapis 16:9** per baris naskah dari pustaka shot, diagram cara kerja, dan **thumbnail**. Ikhsan
+   mengecek.
+   - Ahpo memegang shot yang butuh olah gambar: kolase bukti, cutout, ilustrasi, diagram, kartu UI statis.
+   - Shot tipografi atau UI murni boleh langsung dibangun Ahtor di engine-nya.
+5. **Ahtor · VO, animasi per bab, sound design, file caption.** Preview di Motion Studio, Ikhsan OK sebelum render, lalu
+   master 16:9.
+6. **Ahyu · upload PRIVATE** (video, thumbnail, judul, deskripsi + bab, caption, playlist), lalu Ikhsan yang mengklik
+   terbit. Audit 48 jam dan mingguan (§8).
 
-**Serah terima antar-divisi lewat Ikhsan, dan ketiganya wajib terlibat** (Ikhsan, 7 Nov 2026: "jangan nganggur, harus
-saling interaksi"). Rantai resminya:
+**Serah terima antar-divisi lewat Ikhsan, dan semua wajib terlibat.** Rantai resminya:
 1. Ahri mengajukan `asisten-serah photocraft <slug> --ajukan` (bahan tetap di folder super-motion).
 2. Ikhsan setuju → Ahpo bekerja di `photocraft-work/<slug>/` dan mengekspor lapis ke `export/lapis/` + `LAPIS.md`.
 3. Ahpo mengajukan `asisten-serah supermotion <slug> --ajukan`.
 4. Ikhsan setuju → Ahtor bekerja memakai lapis Ahpo.
 
-Bantuan kecil (aset, elemen, cek fakta) tetap boleh lewat `asisten-minta`, dan Ikhsan dikabari.
+Bantuan kecil (aset, elemen, cek fakta, data YouTube) tetap boleh lewat `asisten-minta`, dan Ikhsan dikabari.
 
 ## 7. Standar kerja per divisi
 
 Detailnya ada di skill `studio-global` masing-masing proyek.
 
 **Riset (Ahri)**
-- Validasi celah pasar dengan data pencarian dan performa kompetitor (cari video *outlier*).
-- Pilih satu sudut tajam: satu perilaku unik atau satu kesalahan fatal, bukan sepuluh fakta dangkal.
-- Kumpulkan **dossier bukti 10–15 aset nyata per Shorts**: judul berita asli, grafik data valid, foto tokoh, dokumen
-  publik. Semuanya lewat aturan lisensi `aset-aman`.
+- Validasi permintaan dengan `tren` (bawaan Indonesia), pencarian YouTube Indonesia (cari video *outlier*), dan suara
+  forum/komunitas Indonesia (pertanyaan yang terus berulang tapi jarang dijawab tuntas).
+- Pilih satu sudut tajam per video: satu pertanyaan besar yang dijawab tuntas, bukan sepuluh fakta dangkal.
+- Fakta teknis ditelusuri sampai sumber pertama (dokumentasi resmi, makalah, regulasi, rilis perusahaan), dan klaim
+  penting dicocokkan ke ≥2 sumber independen.
+- Dossier ≥15 bukti nyata per video panjang, lewat aturan lisensi `aset-aman`.
 
 **Naskah (Ahri)**
 - **Wajib AV dua kolom; naskah bentuk paragraf dilarang.** Kolom kiri: visual, kamera, teks layar. Kolom kanan: VO dan
-  SFX. Keduanya sejajar baris per baris.
-- Kecepatan 2,5–3 kata/dtk: 130–160 kata ≈ 55–60 dtk.
-- Empat fase:
-  - **0–1,5 dtk · pengakuan & ketegangan.** Tanpa sapaan, langsung mematahkan asumsi penonton. Keputusan swipe terjadi
-    dalam 0,4–1,5 dtk.
-  - **3–45 dtk · eskalasi berirama.** Tiap 3–5 dtk ganti adegan atau tambah lapisan informasi.
-  - **45–52 dtk · twist.** Jawaban yang memuaskan janji pembuka.
-  - **52–60 dtk · handoff.** Open loop ke Related Video, atau seamless loop (kalimat terakhir menyambung ke kalimat
-    pertama).
+  SFX. Keduanya sejajar baris per baris (format NARASI.md dari skill `narasi-konten`).
+- **Bahasa santai-semi baku.** Kalimat pendek yang enak didengar, "kita/kamu", istilah teknis dijelaskan dengan analogi
+  sehari-hari saat pertama muncul. Istilah bahasa Inggris boleh kalau memang itu yang dipakai orang (cloud, chip,
+  server), tapi diterangkan.
+- **Menang di data DAN rasa** (keputusan Ikhsan, 11 Nov 2026, tetap berlaku): pola jangan ketebak (pecah dengan belokan
+  atau pertanyaan ke penonton; pola pembuka/humor dirotasi antar-video), angka hero diikuti "buat kamu, artinya…" dengan
+  hitungan visual, sumber tampil kecil di layar, adegan terkuat versi lama dipertahankan saat revisi, ajakan komentar
+  bertemplat. Rincian: skill `narasi-konten` §2c.
+- **Faceless permanen** (pendirian Ikhsan, 11 Nov 2026): Ikhsan tidak pernah tampil di video. Koneksi manusia lewat
+  narator berkarakter (opini orang pertama), suara VO yang konsisten, dan penutup khas.
+- Paket metadata: 3 usulan judul (≤70 karakter, jujur, tanpa umpan klik palsu), deskripsi + sumber + kredit + bab,
+  dan konsep thumbnail (satu ide visual + ≤4 kata) untuk Ahpo.
 
 **Desain (Ahpo)**
-- Pustaka **15–20 shot standar** dalam tiga kelompok: Tension Builders, Concept Explainers, Emotional Peaks.
-  Pustakanya disusun dari bedah video referensi tanpa suara, dicatat tiap 10 dtk.
-- Komposisi dipisah jadi lapis **FG/MG/BG** (depan, tengah, belakang).
-- **Kesederhanaan yang canggih.** Kesan mewah datang dari lapisan dan kontras warna yang terkendali, bukan dari dekorasi.
-- Visual Style Guide channel: palet dan tipografi.
+- Visual Style Guide channel 16:9: palet, tipografi, gaya diagram, template thumbnail.
+- Pustaka shot (disusun ulang untuk 16:9) dalam tiga kelompok: Tension Builders, Concept Explainers, Emotional Peaks.
+  Untuk channel teknologi, Concept Explainers (diagram cara kerja, potongan komponen, alur data) jadi kelompok terpenting.
+- Komposisi dipisah jadi lapis **FG/MG/BG**. Kesan mewah datang dari lapisan dan kontras yang terkendali, bukan dekorasi.
+- Thumbnail: satu subjek kuat, kontras tinggi, teks ≤4 kata, terbaca di ukuran kecil. Varian untuk uji A/B dibuat atas
+  brief berbasis data dari Ahyu.
 
 **Motion (Ahtor)**
-- Kerja modular per adegan, dengan easing yang presisi.
-- Kamera 3D paralaks menembus lapisan.
-- **Caption terbakar per 4–6 kata**, mengikuti ketukan suara, dengan ruang aman di atas dan bawah.
-- Sound design berlapis: ambient yang diredam otomatis (*duck*) di bawah VO, whoosh di gerak kamera, riser di puncak.
-- **Nol musik berhak cipta.** Shorts di atas 1 menit yang kena klaim apa pun diblokir global, dan di bawah 1 menit
-  pendapatannya terpotong.
+- Kerja modular per bab, dengan easing yang presisi. Kamera 3D paralaks menembus lapisan.
+- Pergantian visual menjaga ritme sepanjang 8–15 menit: tiap kalimat punya visual, dan tidak ada gambar diam yang
+  terlalu lama tanpa alasan.
+- Teks layar untuk angka, istilah, dan sumber. Subtitle lengkap diunggah sebagai file caption (bukan dibakar) kecuali
+  Ikhsan meminta lain.
+- Sound design berlapis: ambient yang diredam otomatis (*duck*) di bawah VO, whoosh di gerak kamera, riser di puncak bab.
+- **Nol musik dan SFX berhak cipta.** Hanya yang bebas klaim (lihat pagar §9).
 
-## 8. Kendali mutu & audit (Ikhsan, minimal 48 jam setelah tayang)
+## 8. Kendali mutu & audit (Ahyu, 48 jam dan mingguan)
 
-- **Public Views bukan alat menilai tim.** Sejak 31 Mar 2025 angka itu menghitung setiap putar dan ulang, jadi hanya
-  berguna sebagai bukti sosial saat nego sponsor. Penilaian dan bagi hasil memakai **Engaged Views**.
-- **Viewed vs Swiped Away.** Target minimal 75 % viewed (swipe di bawah 25 %). Di bawah 60 % artinya hook gagal, dan
-  isi video tidak perlu dirombak:
-  - Ahpo memperjelas kontras dan teks layar di frame 0,4 dtk pertama.
-  - Ahri mempertajam kalimat 1,5 dtk pertama.
-- **Completion (Average % viewed).** 50–70 % aman, di atas 70 % memicu ledakan, di bawah 30 % distribusi berhenti.
-  Kalau viewed tinggi tapi completion rendah, bagian tengahnya kendor:
-  - Ahtor mempercepat pergantian visual dan suara.
-  - Ahri memangkas kalimat yang berulang.
-- Kalau retensi sudah stabil di atas 70 %, arahkan durasi ke 50–60 dtk.
-- **Klik Related Video** di bawah 0,5–2 % → revisi 5 dtk terakhir supaya open loop lebih kuat.
-- **Hook-test log** untuk 10–20 rilisan pertama. Ubah SATU variabel per uji (misalnya pembuka angka kerugian vs
-  pembuka kontradiksi sejarah) sampai swipe konsisten di bawah 25 %.
-- Data YouTube Studio hanya dipegang Ikhsan. Ahri boleh membaca ekspor CSV yang ia berikan.
+- Yang dinilai untuk video panjang: **CTR tayangan (thumbnail + judul)**, **retensi 30 detik pertama**, **durasi tonton
+  rata-rata** dan **% ditonton**, serta **titik penonton pergi** yang dikaitkan ke kalimat NARASI.md.
+- **Patokan = channel sendiri.** Setelah ±5 video, median channel jadi garis dasar. Sebelum itu, Ahyu membandingkan
+  dengan video pembanding sejenis. Tidak ada angka patokan yang dikarang.
+- Pemetaan perbaikan:
+  - CTR rendah → judul + thumbnail (Ahri + Ahpo, varian lewat Ahyu).
+  - Banyak yang pergi di 30 detik pertama → hook dan peta (Ahri) serta frame pembuka (Ahpo/Ahtor).
+  - Turun tajam di tengah bab → kalimat bertele-tele (Ahri) atau visual yang diam terlalu lama (Ahtor).
+- **Uji satu variabel per rilis** (pembuka, gaya thumbnail, pola judul) dan catat di `laporan/hook-test-log.md`.
+- Public views bukan alat menilai tim.
 
 ## 9. Pagar
 
-Sebagian pagar ini tidak dibahas dokumen, tapi tetap wajib.
-
-- Angka dan klaim di layar, narasi, judul, dan deskripsi hanya dari fakta terverifikasi (✅), termasuk angka di kitab ini.
-- Kasus dan skandal: pakai "alleged/reportedly" sebelum ada putusan, sumber tampil di layar, dan tidak menyerang orang
-  biasa (aturan konten berita di `aset-aman`).
-- Keuangan, pajak, asuransi, dan kesehatan: edukasi umum, bukan saran personal, dan tidak menjanjikan hasil.
-- 🧠 Afiliasi dan sponsor untuk penonton AS wajib diungkap dengan jelas (pedoman endorsement FTC; YouTube punya
-  centang *paid promotion*). Detailnya diverifikasi dulu sebelum dipakai.
-- Tidak memalsukan negara atau lokasi akun (VPN, SIM luar) demi program monetisasi. Kelayakan negara dicek dulu sebelum
-  mengandalkan TikTok Creator Rewards atau program afiliasi.
+- Angka dan klaim di layar, narasi, judul, dan deskripsi hanya dari fakta terverifikasi (✅), termasuk angka 🟡 di kitab.
+- Kasus, kebocoran data, dan skandal: pakai "diduga/dilaporkan" sebelum ada putusan atau konfirmasi resmi, sumber
+  tampil di layar, tidak menyerang orang biasa, tanpa doxing (aturan konten berita di `aset-aman`).
+- Keamanan siber: jelaskan cara kerja dan cara melindungi diri, **tidak pernah** langkah eksploitasi yang bisa ditiru.
+- Keuangan, kesehatan, dan hukum: edukasi umum, bukan saran personal, dan tidak menjanjikan hasil.
+- Afiliasi, sponsor, dan produk yang dikirim merek **wajib diungkap** (centang *paid promotion* di YouTube).
 - Tidak membuat konten sintetis yang realistis tentang orang atau peristiwa nyata (wajah atau suara tokoh asli,
   rekaman palsu).
-- Aset ikut aturan lisensi proyek masing-masing (`aset-aman`, asset-hunter). Musik dan SFX hanya yang bebas klaim.
-- **Shorts di atas 1 menit harus bebas klaim total.** Satu klaim hak cipta apa pun, termasuk klaim manual, membuat Short
-  di atas 1 menit diblokir global dan tidak dimonetisasi (Bantuan YouTube, dibaca 7 Nov 2026). Jadi pure Shorts 62–90
-  dtk dibuat tanpa cuplikan video/audio pihak ketiga.
-- **Kredit atau sumber di layar bukan izin** (Bantuan YouTube, "Common copyright myths"). Visual nyata diambil lewat
-  tangga sumber di skill `aset-aman`: domain publik pemerintah AS → CC BY → press kit → screenshot judul/dokumen →
-  rekonstruksi dari fakta.
-  - Cuplikan video siaran berita tidak dipakai (keputusan Ikhsan, §11.7).
-  - Jangan mengunduh dari YouTube (dilarang Terms of Service YouTube).
+- **Kredit atau sumber di layar bukan izin.** Visual nyata diambil lewat tangga sumber di skill `aset-aman`.
+  - Cuplikan video siaran berita tidak dipakai (keputusan Ikhsan 7 Nov 2026, tetap berlaku). Momen penting dikutip
+    sebagai teks + screenshot judulnya.
+  - Video dari YouTube hanya diunduh atas keputusan Ikhsan (13 Nov 2026: paket transisi), dengan `LISENSI.md` di
+    foldernya. Berkas berstatus 🟠/❌ tidak masuk video yang tayang sebelum izinnya jelas.
   - Arsip lama diberi label tahun, dan stok tidak pernah disajikan seolah rekaman kejadian.
+- Musik dan SFX hanya yang bebas klaim. Satu klaim hak cipta bisa memblokir atau mengalihkan pendapatan video.
 - Narasi dan konten tidak menyebut bahwa video, naskah, atau suaranya dibuat Claude/AI (preferensi Ikhsan).
-- Unggah, posting, dan pemasangan link diklik Ikhsan sendiri.
+- Upload selalu PRIVATE oleh 📺 Ahyu; menerbitkan (publik/jadwal), posting, dan pemasangan link diklik Ikhsan sendiri.
 - Konten Ecodigitus tidak ikut kitab ini: tetap pakai brand Ecodigitus dan brand reviewer.
 
-## 10. Peta jalan 90 hari
+## 10. Peta jalan awal
 
 - **Fase 1 · minggu 1–2 · standardisasi (belum unggah).**
-  - Kunci niche.
-  - Ahpo dan Ahtor membedah referensi, lalu menyusun Visual Style Guide dan pustaka 15–20 shot.
-  - Ahri menyiapkan 10 naskah AV pertama (atau 2 naskah panjang + 10–16 turunan Shorts) sebagai tabungan konten.
-- **Fase 2 · minggu 3–6 · kalibrasi.**
-  - 3–5 Shorts per minggu (target minimal 15 per bulan), plus 1 video panjang tiap 1–2 minggu.
-  - Hook-test log berjalan.
-- **Fase 3 · minggu 7–12+ · eskalasi.**
-  - Semua jalur monetisasi aktif, sindikasi ke TikTok/Reels, dan jasa B2B dibuka.
-  - Bulan kedua biasanya jangkauan turun sementara: tetap disiplin.
-  - Tonggak: 200 Shorts berkualitas.
-- Volume di dokumen (1 Shorts per hari) dihitung untuk 4 manusia. Tim kita dibatasi kuota Claude dan laptop (render
-  lambat), jadi target mingguan ditetapkan Ikhsan.
+  - Ikhsan memilih pilar dan proporsinya, suara narator, dan nama/tampilan channel.
+  - Ahpo menyusun Visual Style Guide 16:9, template thumbnail, dan pustaka shot 16:9. Ahtor menyiapkan template bab,
+    transisi, dan layar akhir.
+  - Ahri menyiapkan 2–3 naskah video panjang sebagai tabungan konten.
+- **Fase 2 · minggu 3–8 · kalibrasi.** Rilis sesuai volume yang ditetapkan Ikhsan. Ahyu mulai laporan 48 jam; uji satu
+  variabel per rilis.
+- **Fase 3 · setelahnya · eskalasi.** Seri yang terbukti jalan diperbanyak; afiliasi/sponsor dipertimbangkan setelah
+  penonton terbentuk.
+- Tim dibatasi kuota Claude dan laptop (render 8–15 menit lebih berat dari Shorts), jadi volume ditetapkan Ikhsan, bukan
+  meniru tim manusia.
 
-## 11. Keputusan terbuka (hanya Ikhsan)
+## 11. Keputusan
 
-1. Niche yang dikunci (#1–#4).
-2. Corong 1:8 atau Pure Shorts 62–90 dtk.
-3. Channel baru khusus Tier-1, atau channel yang sudah ada (video-17 dst.) berganti arah.
-4. Target volume per minggu.
-5. Program afiliasi dan produk digital.
-6. Suara narator bahasa Inggris (ElevenLabs) dan Visual Style Guide.
-7. ✅ **Diputuskan 7 Nov 2026 (opsi A): cuplikan video siaran berita TIDAK dipakai.**
-   - Visual nyata diambil lewat tangga sumber `aset-aman` jalur 1–4 dan rekonstruksi.
-   - Momen siaran yang penting dikutip sebagai teks + screenshot judulnya, atau dilisensi berbayar dengan persetujuan
-     biaya dari Ikhsan.
+**Sudah diputuskan (13 Nov 2026):**
+1. ✅ Konten berbahasa Indonesia untuk penonton Indonesia.
+2. ✅ Full video YouTube, bukan Shorts. Potongan Shorts hanya kalau Ikhsan minta per video.
+3. ✅ Durasi bawaan 8–15 menit.
+4. ✅ Bahasa narator santai-semi baku.
+5. ✅ Channel: channel baru Tier-1 dialihkan ke arah ini; Ahyu tetap terhubung.
+6. ✅ Aneka topik dengan fokus aspek teknologi.
+7. ✅ (Dari kitab lama, tetap berlaku) cuplikan siaran berita tidak dipakai; channel faceless permanen.
+
+**Masih terbuka (hanya Ikhsan):**
+1. Pilar topik mana yang diprioritaskan dan proporsinya (§3).
+2. Target volume per minggu/bulan.
+3. Suara narator bahasa Indonesia (ElevenLabs) dan Visual Style Guide.
+4. Nama, logo, dan tampilan channel setelah dialihkan.
+5. Master 1080p atau 4K.
+6. Afiliasi dan sponsor (program mana, kapan mulai).
 
 Sampai diputuskan, asisten mengusulkan beserta alasannya dan tidak memilih sendiri. Keputusan baru ditulis di bagian
 Riwayat di bawah, lalu jalankan `/home/ikhsands/Proyek/asisten-agi-claude/bin/asisten-strategi sinkron`.
 
 ## Riwayat
 
-- 2026-11-07 · Kitab dibuat dari dokumen strategi atas permintaan Ikhsan ("pastikan semua asisten gue memahaminya").
-  Keputusan §11 belum ada.
-- 2026-11-07 · Ikhsan bertanya soal footage nyata. Pagar §9 ditambah:
-  - Shorts di atas 1 menit bebas klaim;
-  - kredit bukan izin;
-  - tangga sumber nyata;
-  - tidak mengunduh dari YouTube.
-  Jalur cuplikan video berita masuk keputusan terbuka §11.7.
-- 2026-11-07 · Ikhsan memilih opsi A: cuplikan video siaran berita tidak dipakai di channel global ("yaudah gak usah, a").
+- 2026-11-07 s.d. 2026-11-12 · Kitab Studio Konten Vertikal Global (bahasa Inggris, Tier-1, Shorts sebagai corong),
+  lengkap dengan keputusan format fleksibel, channel baru Tier-1, Ahyu anggota keempat, dan upload PRIVATE. Arsip:
+  `/home/ikhsands/Proyek/asisten-agi-claude/memori/strategi/arsip/2026-11-13-kitab-studio-global-tier1.md`.
+- 2026-11-13 · **Arah baru** dari Ikhsan: konten Indonesia, full YouTube video (bukan Shorts), aneka topik dengan fokus
+  teknologi. Ikhsan memilih: channel baru Tier-1 dialihkan, full video saja, 8–15 menit, bahasa santai-semi baku.
+  Kitab ditulis ulang total; aturan yang masih relevan (gerbang direktur, naskah terkunci, AV dua kolom, data + rasa,
+  faceless, tanpa cuplikan siaran berita, nol musik berhak cipta, upload PRIVATE) dibawa. Pemeriksa naskah: dossier
+  ≥15 untuk semua video panjang; `tren` bawaan Indonesia.

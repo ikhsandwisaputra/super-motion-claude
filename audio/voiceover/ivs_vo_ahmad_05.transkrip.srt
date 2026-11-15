@@ -1,0 +1,176 @@
+1
+00:00:00,000 --> 00:00:03,900
+ Coba tebak, jarak internet kita dengan Amerika paling lebar di mana?
+
+2
+00:00:04,260 --> 00:00:06,260
+ Di HP atau di Wi-Fi rumah?
+
+3
+00:00:06,720 --> 00:00:09,780
+ Banyak orang menjawab HP, ternyata kebalikannya.
+
+4
+00:00:10,280 --> 00:00:15,480
+ Data Okla September 2026 yang dihitung dari angka tengah jutaan tes kecepatan.
+
+5
+00:00:15,760 --> 00:00:20,740
+ Di HP, kita sekitar 70 Mbps, Amerika sekitar 190.
+
+6
+00:00:21,500 --> 00:00:23,260
+ Selisihnya kurang dari 3 kali.
+
+7
+00:00:23,720 --> 00:00:25,180
+ Di rumah, ceritanya beda.
+
+8
+00:00:25,180 --> 00:00:31,580
+ Internet rumah kita sekitar 53 Mbps, Amerika 314, 6 kali lipat.
+
+9
+00:00:31,700 --> 00:00:38,380
+ Buat kamu artinya, unduh file 1 GB lewat Wi-Fi rumah rata-rata kita menunggu sekitar 2,5 menit.
+
+10
+00:00:38,480 --> 00:00:40,900
+ Di Amerika, kira-kira 25 detik.
+
+11
+00:00:41,260 --> 00:00:45,420
+ Yang lucu, HP kita justru lebih kencang dari internet rumah kita sendiri.
+
+12
+00:00:45,860 --> 00:00:47,760
+ Kita ini bangsa yang hidup di ponsel.
+
+13
+00:00:48,080 --> 00:00:51,340
+ Wi-Fi rumah cuma jadi pajangan yang lampunya kedap-kedip.
+
+14
+00:00:51,720 --> 00:00:52,680
+ Sekarang ke gudangnya.
+
+15
+00:00:52,740 --> 00:00:56,860
+ Setiap kali kamu membuka aplikasi, datanya diambil dari pusat data.
+
+16
+00:00:57,100 --> 00:01:00,420
+ Gedung berisi ribuan komputer yang menyala siang malam.
+
+17
+00:01:00,520 --> 00:01:05,100
+ Stanford mencatat, Amerika menampung 5.427 pusat data.
+
+18
+00:01:05,480 --> 00:01:09,040
+ Itu lebih dari 10 kali negara lain manapun, bukan cuma Indonesia.
+
+19
+00:01:09,580 --> 00:01:11,100
+ Lalu, otak di balik layar.
+
+20
+00:01:11,340 --> 00:01:12,420
+ Kecerdasan buatan.
+
+21
+00:01:12,800 --> 00:01:15,080
+ Masih dari laporan AI Index Stanford.
+
+22
+00:01:15,080 --> 00:01:23,200
+ Tahun 2025, investasi swasta untuk AI di Amerika mencapai 285,9 miliar dolar.
+
+23
+00:01:23,520 --> 00:01:25,240
+ Pembandingnya bahkan bukan kita.
+
+24
+00:01:25,600 --> 00:01:29,960
+ Angka itu lebih dari 23 kali investasi swasta AI di Tiongkok.
+
+25
+00:01:30,280 --> 00:01:36,500
+ Dan tahun yang sama, Amerika melahirkan 59 model AI unggulan, sementara Tiongkok 35.
+
+26
+00:01:37,220 --> 00:01:38,840
+ Lalu chip, otaknya otak.
+
+27
+00:01:39,100 --> 00:01:43,700
+ Hampir semua chip AI tercanggih dibuat oleh satu perusahaan Taiwan, TSMC.
+
+28
+00:01:44,060 --> 00:01:46,180
+ Amerika tidak mau cuma jadi pembeli.
+
+29
+00:01:46,500 --> 00:01:53,420
+ Lewat undang-undang chips, pemerintahnya menyiapkan hibah langsung sampai 6,6 miliar dolar untuk TSMC Arizona.
+
+30
+00:01:53,420 --> 00:01:57,860
+ Proyek 3 pabrik dengan investasi lebih dari 65 miliar dolar.
+
+31
+00:01:58,220 --> 00:01:58,980
+ Kita punya apa?
+
+32
+00:01:59,400 --> 00:02:05,160
+ Ada sahabat AI, model bahasa terbuka buatan Indosat dan Gotu, dengan 70 miliar parameter.
+
+33
+00:02:05,600 --> 00:02:09,820
+ Dia dilatih supaya paham bahasa Jawa, Sunda, Bali, sampai Batak.
+
+34
+00:02:10,100 --> 00:02:14,140
+ Parameter itu ibarat kenop-kenop kecil yang disetel waktu AI belajar.
+
+35
+00:02:14,140 --> 00:02:18,280
+ Makin banyak kenopnya, biasanya makin banyak pola yang bisa ia tangkap.
+
+36
+00:02:18,580 --> 00:02:20,280
+ Investasi asing juga mulai masuk.
+
+37
+00:02:20,620 --> 00:02:25,460
+ Microsoft berkomitmen 1,7 miliar dolar untuk cloud dan AI di Indonesia.
+
+38
+00:02:25,900 --> 00:02:30,780
+ Indosat menargetkan pusat komputasi AI berkapasitas 1 gigawatt dalam 3 tahun.
+
+39
+00:02:31,140 --> 00:02:39,080
+ Dan kita punya Satria 1, satelit internet negara berkapasitas 150 gigabit per detik beroperasi sejak 2024.
+
+40
+00:02:39,720 --> 00:02:42,240
+ Itu pencapaian nyata dan pantas dibanggakan.
+
+41
+00:02:42,360 --> 00:02:47,000
+ Satelit kebanggaan kita itu berangkat ke orbit dari Florida, Amerika.
+
+42
+00:02:47,460 --> 00:02:49,560
+ Jalannya sudah ada walau belum mulus.
+
+43
+00:02:49,920 --> 00:02:52,700
+ Pertanyaan berikutnya, apa yang lewat di jalan itu?
+
+44
+00:02:53,100 --> 00:02:54,560
+ Uang dan manusia.
+

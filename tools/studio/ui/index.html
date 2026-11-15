@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Motion Studio</title><link rel="icon" href="data:,">
+<link rel="stylesheet" href="studio.css">
+</head><body>
+<header>
+  <b id="name">Studio</b>
+  <div class="seg" id="mode">
+    <button data-m="live" class="on" title="Digambar langsung dari source, 1 sub-frame tanpa motion blur. Cepat, bukan kualitas final.">Live (cepat)</button>
+    <button data-m="cache" title="Frame hasil render terakhir (kualitas final). Belum ikut perubahan source sampai dirender.">Hasil render</button>
+  </div>
+  <span id="fps" class="dim"></span>
+  <label class="small dim"><input type="checkbox" id="auto" checked> auto-reload saat source diubah</label>
+  <span id="toast" class="small"></span>
+  <div id="stems" class="seg" title="Mute/unmute tiap jalur audio (klik)"></div>
+  <button id="markBtn" title="Tandai bagian frame yang kurang pas (R). Drag kotak di layar, bisa lebih dari satu.">▭ Tandai area</button>
+  <span class="grow"></span>
+  <div id="vz" title="Ukuran layar preview (Ctrl+scroll di layar, atau - / =)"><button id="vzOut">−</button><span id="vzLbl" class="small mono">Fit</span><button id="vzIn">+</button><button id="vzFit">Fit</button></div>
+  <span id="tc" class="mono">00:00.00</span>
+  <button id="help" title="Shortcut">?</button>
+</header>
+<main>
+  <section id="viewer"><div id="stage"><iframe id="film" title="film"></iframe><img id="cache" alt=""><div id="marks"></div><div id="loading">memuat film…</div></div></section>
+  <aside>
+    <div class="box">
+      <h3>Catatan revisi</h3>
+      <div class="dim small" id="rangeLbl">Rentang: tekan I dan O, atau Shift+drag di timeline</div>
+      <div id="markInfo" class="small" style="display:none"></div>
+      <textarea id="noteText" rows="3" placeholder="mis. subtitle nabrak teks oranye, matikan di sini"></textarea>
+      <div style="display:flex;gap:6px;flex-wrap:wrap"><button id="addSend" class="primary" title="Ctrl+Enter">Simpan &amp; kirim ke Claude</button><button id="addNote">Simpan saja</button><button id="sendAll" title="Kirim semua catatan berstatus baru">Kirim semua</button></div>
+      <ul id="notes"></ul>
+    </div>
+    <div class="box">
+      <h3>Cuplikan <span class="dim small">(render bagian itu saja)</span></h3>
+      <ul id="patches"></ul>
+    </div>
+  </aside>
+</main>
+<footer>
+  <div id="transport">
+    <button id="play" title="Space">▶</button>
+    <button id="back" title="Shift+←">−1s</button><button id="fwd" title="Shift+→">+1s</button>
+    <button id="setIn" title="I">I</button><button id="setOut" title="O">O</button><button id="clrIO" title="Hapus rentang I–O (Esc / X)">× I–O</button>
+    <button id="patchRange" title="Render cuplikan rentang I–O, kualitas final">Render cuplikan I–O</button>
+    <button id="draftRange" title="K=1, ~8x lebih cepat, hanya untuk lihat">Draft cepat</button>
+    <span class="grow"></span>
+    <span class="dim small">zoom: Ctrl+scroll · geser: scroll</span>
+  </div>
+  <canvas id="tl"></canvas>
+  <div id="tip"></div>
+</footer>
+<dialog id="dlg"><div id="dlgBody"></div><form method="dialog"><button>Tutup</button></form></dialog>
+<script src="studio.js"></script>
+</body></html>

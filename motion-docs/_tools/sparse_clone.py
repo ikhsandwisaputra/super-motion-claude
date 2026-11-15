@@ -52,7 +52,11 @@ def anchor(pattern: str) -> str:
     return ("!/" if neg else "/") + body
 
 
-EXCLUDES = [anchor(f"!**/{name}") for name in AGENT_FILES]
+# A directory exclude ("!/**/.claude/") does not beat a later-matching file include such as "**/*.json"
+# (seen 2026-11-15: three showcase mirrors kept .claude/), so every directory also gets a "/**" twin.
+EXCLUDES = [anchor(f"!**/{name}") for name in AGENT_FILES] + [
+    anchor(f"!**/{name}**") for name in AGENT_FILES if name.endswith("/")
+]
 
 
 def harden(dest: Path) -> str:

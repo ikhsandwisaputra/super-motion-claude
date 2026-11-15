@@ -74,5 +74,6 @@ Jangan jalankan npm/build di dalam clone.
 | **11 R3F ecosystem** | [r3f](11-r3f-ecosystem/r3f/NOTES.md) · [drei](11-r3f-ecosystem/drei/NOTES.md) · [react-postprocessing](11-r3f-ecosystem/react-postprocessing/NOTES.md) | 9.8.2 / 10.7.9 / 3.2.2 |
 | | [maath](11-r3f-ecosystem/maath/NOTES.md) · [three-js](11-r3f-ecosystem/three-js/NOTES.md) (baseline) | 0.10.8 / r186 |
 | **12 Resep** | [Kombo Maut ×4](12-recipes/README.md) · [nextjs](12-recipes/nextjs/NOTES.md) | blueprint arsitektur |
+| **13 Showcase Codrops** | [43 repo, 6 grup](13-codrops-showcase/README.md): cairan-air · material-shader · transisi-ui-2d · postfx-partikel · dunia-3d · objek-interaksi | dipelajari 2026-11-15 |
 
 Setiap folder kategori punya `README.md` dengan tabel "Pilih yang mana?".
