@@ -170,7 +170,52 @@ Rule: a headline idea or portal from the last two films may come back only as a 
 Add a row at every delivery.
 
 ## 6. Measured DNA of the two hits (targets for the next films)
-(filled from `eye.py dna`, see §6 table below once measured)
+Measured 2026-11-15 with `eye.py dna --fps 5` on the delivered masters (`aset/teknologi-indo-vs-as/build/eye_dna_v1/`,
+`aset/ai-bubble-dompet/build/eye_dna_v1/`). The kiblat column comes from short-form references, so it is a direction
+only. A long-form documentary should not chase 1.5-second shots.
+
+| Metric | Indo vs AS | AI Bubble | Kiblat | Reading |
+|---|---|---|---|---|
+| Shot median | 3.4 s | 3.9 s | 1.5 s | fine for long-form |
+| Uncut spans > 15 s (share of runtime) | 18 (55 %) | 19 (55 %) | — | **main lever**: longest 45 s / 43 s |
+| Colour fields / ΔE between shots | 6 / 21.6 | 7 / **7.1** | 3 / — | AI Bubble reads monotone |
+| L median / contrast | 3.4 / 44.0 | 3.1 / **27.9** | — / 49 | dark room = brand; contrast fell |
+| Mud frames | 50 % | 60 % | 22 % | the dark room hit anyway, so no target |
+| Neon frames / halo | 7 % / 0.26 % | 6 % / 0.22 % | 1 % | halo is tiny; likely the lime slabs (not checked per frame) |
+| Burst / hold | 11 / 61 % | 13 / 61 % | 37 / 26 % | **lever**: few snaps between holds |
+| Camera alive on holds | 90 % | 95 % | — | keep |
+| Cuts on an audio onset | 45 % | 60 % | — | raise |
+
+What the numbers say (signals, not verdicts: both films were hits):
+1. **The camera never stops, but the picture rarely punctuates.** More than half of each film sits in uncut travels
+   longer than 15 s. The camera is alive (90–95 %), yet the eye gets no new "sentence" for 15–45 s. This is the most
+   likely source of "penonton mulai bosan". The fix is punctuation inside the travel, not shorter evidence holds: a
+   rack focus on the VO word (3a), a rush-hang-rush (L3), a hit, a cut-in to a detail, or a tone-layer lift.
+2. **Snaps are rare.** Burst is 11–13 %, against the house rule of at least 20 % ([[motion-tempo-fast]]). Add short
+   whips and snap-to-hold moves between stations, and keep the holds readable.
+3. **AI Bubble lost colour movement.** ΔE 7.1 against 21.6, and contrast 27.9 against 44: one dark-green room for 14
+   minutes. Indo vs AS moved more because of its light-world beats (question planes, white paper, lime slabs). Each
+   chapter needs a colour-script turn (`story-progress-colour-script`) inside the one-accent rule.
+4. **Leave the dark room and the lime slabs alone.** Mud and neon read far from the kiblat, but this world is the
+   channel's signature and both hits live in it. Win contrast inside the dark instead: an ivory key on the object,
+   contact shadows, a lit page.
+
+**Targets for the next film** (checked with `eye.py dna` on the v1 master, and on the 3-second tests where it applies):
+
+| Metric | Target |
+|---|---|
+| Uncut span | ≤ 15 s, or a punctuation event (focus rack, hit, cut-in, tone lift) at least every 8 s inside it |
+| Burst | ≥ 20 % |
+| Hold | ≤ 55 % |
+| ΔE between shots | ≥ 18 |
+| Colour script | ≥ 1 light-world or temperature turn per chapter |
+| Contrast | ≥ 40 |
+| Cuts on an audio onset | ≥ 60 % |
+| Camera alive | ≥ 90 % |
+| Halo | ≤ 0.3 % |
+| Shot median | 2.5–3.5 s |
+
+Lime slabs may keep the neon-frame share above the kiblat.
 
 ## 7. Next step (proposal)
 A **standard test reel**: 3-second Studio passes of Baris Lensa (3a 1–5), Bukti Hidup (3b 1–5) and one L3 technique,
