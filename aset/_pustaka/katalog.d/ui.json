@@ -1,0 +1,214 @@
+[
+ {
+  "id": "ui.kursor",
+  "nama": "kursor",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "panah kursor: skala, ditekan, warna sendiri",
+  "panggil": "kursor(ctx, x, y, o{s, a, tekan})",
+  "asal": "ai-data-habis penutup/src/film.js:191",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "kursor",
+   "UI"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.kursorJalan",
+  "nama": "kursorJalan",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "kursor meluncur antar target, klik + riak lime",
+  "panggil": "kursorJalan(ctx, [[t, x, y, klik]…], t, o) → {x, y}",
+  "asal": "ai-data-habis penutup/src/film.js:296",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "cursor-as-actor",
+  "tag": [
+   "kursor",
+   "klik",
+   "UI sim"
+  ],
+  "catatan": "pasang SFX klik di setiap key klik"
+ },
+ {
+  "id": "ui.browser",
+  "nama": "browser",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "jendela browser: URL terketik, kode, lalu berbalik",
+  "panggil": "browser(ctx, x, y, w, h, t, t0, o{url, baris, isi, balik, belakang})",
+  "asal": "ai-data-habis bab-2/src/film.js:126",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "ui-sim-kit",
+  "tag": [
+   "browser",
+   "kode",
+   "UI sim",
+   "flip"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.tombol",
+  "nama": "tombol",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "tombol pil: pegas masuk, ditekan, jadi lime",
+  "panggil": "tombol(ctx, x, y, label, t, t0, o{tekan, lime})",
+  "asal": "ai-data-habis bab-2/src/film.js:259",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tombol",
+   "UI",
+   "klik"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.saklar",
+  "nama": "saklar",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "saklar on/off, track jadi lime, riak sekali",
+  "panggil": "saklar(ctx, x, y, t, t0, o{awal, ubah, label})",
+  "asal": "ai-data-habis bab-2/src/film.js:259",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "toggle",
+   "setelan",
+   "UI"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.dialog",
+  "nama": "dialog",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "dialog setelan: tanya serif + saklar + putusan",
+  "panggil": "dialog(ctx, x, y, w, h, t, t0, o{judul, tanya, saklar, putusan})",
+  "asal": "ai-data-habis bab-2/src/film.js:259",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "ui-sim-kit",
+  "tag": [
+   "dialog",
+   "setelan",
+   "putusan",
+   "UI sim"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.gelembungChat",
+  "nama": "gelembungChat",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "gelembung chat muncul dari ekor, tag bahasa",
+  "panggil": "gelembungChat(ctx, x, y, text, t, t0, o{kiri, tag}) → lebar",
+  "asal": "teknologi-indo-vs-as bab-2/src/film.js:76",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "chat",
+   "bahasa",
+   "percakapan"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.komentar",
+  "nama": "komentar",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "kartu komentar diketik, hati lime + angka",
+  "panggil": "komentar(ctx, x, y, t, t0, o{nama, baris, suka, jumlah})",
+  "asal": "ai-data-habis bab-2/src/film.js:443",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "komentar",
+   "sosial",
+   "like"
+  ],
+  "catatan": "ikon suka digambar vektor (bukan glyph)"
+ },
+ {
+  "id": "ui.kotakKomentar",
+  "nama": "kotakKomentar",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "kotak tulis komentar, caret lime, tombol nyala",
+  "panggil": "kotakKomentar(ctx, x, y, t, t0, o{baris, fokus, cps})",
+  "asal": "ai-data-habis penutup/src/film.js:158",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "komentar",
+   "CTA",
+   "ketik",
+   "YouTube"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "ui.notif",
+  "nama": "notif",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "notifikasi jatuh, progres, berita ganti, centang",
+  "panggil": "notif(ctx, x, y, t, t0, o{judul, isi, progres, ganti, centang})",
+  "asal": "ai-data-habis penutup/src/film.js:240",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "notifikasi",
+   "berita",
+   "progres",
+   "ponsel"
+  ],
+  "catatan": "font UIF = Plus Jakarta Sans, fallback system-ui"
+ },
+ {
+  "id": "ui.miniKomentar",
+  "nama": "miniKomentar",
+  "file": "js/ui.js",
+  "tier": "alat",
+  "lihat": "chip komentar mini untuk kerumunan reaksi",
+  "panggil": "miniKomentar(ctx, x, y, t, t0, o{s, rot, seed})",
+  "asal": "ai-bubble-dompet penutup/src/film.js:78",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "kerumunan",
+   "komentar",
+   "reaksi"
+  ],
+  "catatan": ""
+ }
+]

@@ -1,6 +1,6 @@
 ---
 name: studio-global
-description: Ahtor's playbook (the team's Motion Editor) for Ikhsan's "Studio Teknologi Indonesia" direction (2026-11-13, replacing the 2026-11-07 Tier-1 strategy) — full-length 8–15-minute 16:9 YouTube videos in Indonesian, many topics through a technology lens, not Shorts. Holds the proven long-form recipe from "Indo vs AS" (2026-11-14, Ikhsan's "kesuksesan terbesar kita"): one-question theme, RNC "Satu Baris" hook, chapter arc, Vox + documentary station vocabulary, calm-bed audio, Portal QR joins, subscribe close, and the template `aset/_template-longform` (new_film.sh) so no film starts from zero. Use whenever a brief, SERAH.md or help request is for the team channel or a long-form video, a two-column AV script with Tension Builder / Concept Explainer / Emotional Peak / SHOT-number cues, chapter-based edits (`### Bab N`), Ahpo's layered compositions, caption files, end screens, a full render of a long video, or a retention fix after an Ahyu audit — even if the word "strategy" never appears.
+description: Ahtor's playbook (the team's Motion Editor) for Ikhsan's "Studio Teknologi Indonesia" direction (2026-11-13, replacing the 2026-11-07 Tier-1 strategy) — full-length 8–15-minute 16:9 YouTube videos in Indonesian, many topics through a technology lens, not Shorts. Holds the proven long-form recipe from "Indo vs AS" (2026-11-14, Ikhsan's "kesuksesan terbesar kita"): one-question theme, RNC "Satu Baris" hook, chapter arc, Vox + documentary station vocabulary, calm-bed audio, a chapter portal of its own per film (QR retired), subscribe close, and the template `aset/_template-longform` (new_film.sh) so no film starts from zero. Use whenever a brief, SERAH.md or help request is for the team channel or a long-form video, a two-column AV script with Tension Builder / Concept Explainer / Emotional Peak / SHOT-number cues, chapter-based edits (`### Bab N`), Ahpo's layered compositions, caption files, end screens, a full render of a long video, or a retention fix after an Ahyu audit — even if the word "strategy" never appears.
 ---
 
 # Studio Teknologi Indonesia · Ahtor's playbook
@@ -24,6 +24,13 @@ those gates.
 - **Start every long-form from the template**, never from an empty folder:
   `sh aset/_template-longform/new_film.sh <slug> <vo-prefix>`, then read `aset/<slug>/README.md` (workflow, file map,
   paid-for lessons). One config per film: `film.json`. Phase notes go in `aset/<slug>/STATE.md`.
+- **Reuse from the code vault, never from old films** (`aset/_pustaka`, Ikhsan 2026-11-14: "simpanan kode… template tapi masih
+  bisa dikembangkan"). At G0 read `aset/_pustaka/INDEX.md` (one line per component, not the films' code) and run
+  `.venv/bin/python -I aset/_pustaka/tools/pustaka.py segar --film <slug>`: headline ideas of the last 2 films on cooldown,
+  hits and `_transisi` packs never used, tools that show up too often. `new_film.sh` snapshots the vault into `kit/pustaka/`;
+  chapters `import { … } from './pustaka/<modul>.js'`. Tools are restyled per film, ★ headline ideas rest 2 films, and every
+  film adds ≥ 1 new ★. At delivery: `pustaka.py panen <slug>` → generalise what is worth keeping (module + galeri demo +
+  katalog), `ledger.py add`, then `panen <slug> --catat --bintang …`. Rules: `aset/_pustaka/README.md`.
 - **Another explicit brief** (news series, Ecodigitus promo, a Short Ikhsan asks for): follow that brief. This skill does
   not apply.
 - **Open choices are Ikhsan's**: topic pillars, theme sentence, 2–3 signature ideas per film, voice, score spend. Propose
@@ -39,7 +46,7 @@ those gates.
   lime slab with the hero word. One theme, a ≤ 3-motif lock, repeated with variation, never re-explained.
 - Pick **2–3 signature ideas per film** that turn the theme into space. Indo vs AS used three:
   - **Jarak = Kedalaman**: a ratio becomes Z distance; 1 card vs 140 cards, and the camera flies the row.
-  - **Portal QR** between chapters.
+  - **Portal QR** between chapters (retired 2026-11-15, "jangan qrcode lagi"; every film now makes its own portal).
   - **Skor Kebalik**: the scoreboard flips 180° at the Puncak.
   Test one of them as a 3-second Studio pass before building the chapters.
 - Each film also brings **at least one technique never seen on the channel**. Shop for it in
@@ -97,10 +104,12 @@ score. The driving score lives **only** here. No vintage film vocabulary (burn, 
 | Lime slab | `slab` | the chapter's punch word |
 | markLine | `markLine` | one spoken sentence with one lime keyword |
 | Line-art props | `kq, pop, doc, phone, coin, stamp, dotCity…` | concepts with no photo (stylised, not replicas) |
-| Hits | `tx/` stk1–4, cmc1–2, ldr1, shD/shE | 4–5 per chapter on whip joins, varied, never spam |
-| Portal QR | `kit/portal.js` + `film.py sync` | every chapter join |
+| **Film-transition hits (MANDATORY)** | `tx/` stk1–4, cmc1–2, ldr1, shD/shE, hw1–3, gr1–3 (look: `aset/_pustaka/galeri/lembar/hits.jpg`) + ≥ 2 new cuts per film (`tools/tx_lib.py`) | 4–5 per chapter on whip joins, the whole video, each with its own sound, varied, never spam |
+| Chapter portal, **its own per film** (QR retired 2026-11-15: "jangan qrcode lagi") | `kit/portal.js` + `film.py sync`; a past portal to remix: `pustaka.py pakai <slug> --portal <nama>` | every chapter join |
 | Cursor clicks SUBSCRIBE | `contoh/penutup.film.js` | the close: SUBSCRIBED ✓ lime + ripple, then the bell swings (silent) |
 
+Every reusable component (props, UI sims, charts, maps, type, effects, past portals): `aset/_pustaka/INDEX.md`, shapes in
+`aset/_pustaka/galeri/lembar/<modul>.jpg`, whole stations of past films via `rg -n <kata> aset/_pustaka/RESEP.md`.
 New ideas from a film go to the ledger (`ledger.py add`), and his words go in as verdicts.
 
 ## 6. Audio

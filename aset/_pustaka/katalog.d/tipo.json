@@ -1,0 +1,259 @@
+[
+ {
+  "id": "tipo.drawOn",
+  "nama": "drawOn",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "garis huruf tergambar, lalu tinta naik bergelombang",
+  "panggil": "drawOn(ctx, str, x, y, t, t0, css, o)",
+  "asal": "ai-data-habis bab-3/src/film.js:22",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tipografi",
+   "judul",
+   "reveal",
+   "garis"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.angkaHuruf",
+  "nama": "angkaHuruf",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "angka dipotong dari tekstur kata, bisa pecah",
+  "panggil": "angkaHuruf(ctx, str, x, y, size, t, t0, o{pecah, tex})",
+  "asal": "ai-data-habis bab-2/src/film.js:92 (+:86, :97)",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "angka",
+   "tekstur",
+   "data",
+   "pecah"
+  ],
+  "catatan": "tekstur dari letterTex (dasar); cache hanya setelah font siap"
+ },
+ {
+  "id": "tipo.rapat",
+  "nama": "rapat",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "spasi huruf merapat saat kata mendarat",
+  "panggil": "rapat(ctx, str, x, y, t, t0, css, o{dari 90, ke 34})",
+  "asal": "ai-data-habis penutup/src/film.js:128",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tipografi",
+   "tracking",
+   "penutup"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.hurufCampur",
+  "nama": "hurufCampur",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "satu kata, tiap huruf font sendiri + goyang",
+  "panggil": "hurufCampur(ctx, str, x, y, size, t, t0, o{fonts, stag})",
+  "asal": "ai-data-habis penutup/src/film.js:132",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tipografi",
+   "campur font",
+   "suara manusia"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.garisTangan",
+  "nama": "garisTangan",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "coretan tangan melengkung di bawah kata",
+  "panggil": "garisTangan(ctx, x0, x1, y, t, t0, o{sag, lw, col})",
+  "asal": "ai-data-habis penutup/src/film.js:112",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "garis bawah",
+   "penekanan",
+   "tangan"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.ketikSiklus",
+  "nama": "ketikSiklus",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "jawaban terketik-hapus bergiliran + caret",
+  "panggil": "ketikSiklus(ctx, list, x, y, t, t0, css, o{P 1.2, garis})",
+  "asal": "teknologi-indo-vs-as penutup/src/film.js:114",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "caret-decode-type",
+  "tag": [
+   "ketik",
+   "caret",
+   "komentar",
+   "daftar"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.slotKata",
+  "nama": "slotKata",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "slot kata bergulir lalu berhenti di jawaban",
+  "panggil": "slotKata(ctx, words, x, y, t, t0, css, o{henti, akhir})",
+  "asal": "ai-data-habis penutup/src/film.js:172",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "word-slot-roll",
+  "tag": [
+   "slot",
+   "kata",
+   "jawaban",
+   "gulir"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.gantiKata",
+  "nama": "gantiKata",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "label bergulir dari kata a ke b",
+  "panggil": "gantiKata(ctx, a, b, x, y, t, t0, css, o{d, dur})",
+  "asal": "ai-data-habis penutup/src/film.js:238",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "status",
+   "ganti",
+   "label"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.lensa",
+  "nama": "lensa",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "kaca pembesar menyapu klaim, temuan diketik",
+  "panggil": "lensa(ctx, x, y, t, t0, isi(ctx), o{R, zoom, lebar})",
+  "asal": "teknologi-indo-vs-as bab-peta/src/film.js:240",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "lens-sweep-audit",
+  "tag": [
+   "audit",
+   "klaim",
+   "kaca pembesar",
+   "fakta"
+  ],
+  "catatan": "isi digambar dua kali (redup + diperbesar); jaga globalAlpha"
+ },
+ {
+  "id": "tipo.kutipan",
+  "nama": "kutipan",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "kutipan serif per baris, redup + dicoret",
+  "panggil": "kutipan(ctx, lines, x, y, t, t0, o{redup, coret})",
+  "asal": "teknologi-indo-vs-as bab-peta/src/film.js:234",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "kutipan",
+   "mitos",
+   "coret"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "tipo.terbang",
+  "nama": "terbang",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "kata terbang dari samping, besar + blur",
+  "panggil": "terbang(ctx, str, x, y, t, t0, css, o{sisi, skala})",
+  "asal": "ai-data-habis intro/src/film.js:50",
+  "film": [
+   "ai-data-habis",
+   "teknologi-indo-vs-as",
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "intro",
+   "kata",
+   "blur",
+   "hook"
+  ],
+  "catatan": "salinan flyWord intro template (bukan ekspor kit)"
+ },
+ {
+  "id": "tipo.ejaan",
+  "nama": "ejaan",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "kerangka kata dulu, huruf diisi satu-satu",
+  "panggil": "ejaan(ctx, str, x, y, t, t0, css, o{step, hantu})",
+  "asal": "ai-data-habis intro/src/film.js:39 (+:57)",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "ejaan",
+   "narator",
+   "hook"
+  ],
+  "catatan": "salinan ghost intro template"
+ },
+ {
+  "id": "tipo.ucap",
+  "nama": "ucap",
+  "file": "js/tipo.js",
+  "tier": "alat",
+  "lihat": "kalimat terbuka kata per kata ikut narator",
+  "panggil": "ucap(ctx, words, x, y, t, t0, css, o{step .3})",
+  "asal": "ai-data-habis intro/src/film.js:69",
+  "film": [
+   "ai-data-habis",
+   "teknologi-indo-vs-as",
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "VO",
+   "kalimat",
+   "sinkron"
+  ],
+  "catatan": "salinan wipeWords intro template; isi waktu dari align VO"
+ }
+]

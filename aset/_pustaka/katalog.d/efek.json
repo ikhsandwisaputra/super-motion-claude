@@ -1,0 +1,424 @@
+[
+ {
+  "id": "efek.screenCrack",
+  "nama": "screenCrack",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Layar retak dari satu titik, kaca membiaskan isi",
+  "panggil": "screenCrack(ctx, x, y, t, t0, {r, src, rect})",
+  "asal": "ai-bubble-dompet bab-2/src/film.js:363",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "retak-layar",
+  "tag": [
+   "retak",
+   "kaca",
+   "benturan"
+  ],
+  "catatan": "perangkat khas AI Bubble, restyle kuat (titik, jumlah sinar, warna) sebelum dipakai lagi; snap:true untuk layar penuh di post"
+ },
+ {
+  "id": "efek.drawCrack",
+  "nama": "drawCrack",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Retakan kaca menjalar titik demi titik",
+  "panggil": "drawCrack(ctx, crackLine(v, seed), vis, {head})",
+  "asal": "ai-bubble-dompet bab-3/src/film.js:39",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "garis-retak",
+  "tag": [
+   "retak",
+   "garis",
+   "beat"
+  ]
+ },
+ {
+  "id": "efek.crackLine",
+  "nama": "crackLine",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "(geometri) retakan bergerigi lewat titik-titik",
+  "panggil": "crackLine([[x,y],…], seed, {br})",
+  "asal": "ai-bubble-dompet bab-3/src/film.js:24",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "garis-retak",
+  "tag": [
+   "retak",
+   "geometri"
+  ],
+  "catatan": "lihat demo efek.drawCrack",
+  "demo": false
+ },
+ {
+  "id": "efek.crackStar",
+  "nama": "crackStar",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Jaring retak pendek di titik patah",
+  "panggil": "crackStar(ctx, x, y, t, t0, {R})",
+  "asal": "ai-bubble-dompet bab-3/src/film.js:50",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "garis-retak",
+  "tag": [
+   "retak"
+  ],
+  "catatan": "lihat demo efek.drawCrack",
+  "demo": false
+ },
+ {
+  "id": "efek.shards",
+  "nama": "shards",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Serpih kaca terlempar lalu jatuh",
+  "panggil": "shards(ctx, x, y, t, t0, {n})",
+  "asal": "ai-bubble-dompet bab-3/src/film.js:56",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "garis-retak",
+  "tag": [
+   "kaca",
+   "partikel"
+  ],
+  "catatan": "lihat demo efek.drawCrack",
+  "demo": false
+ },
+ {
+  "id": "efek.shake",
+  "nama": "shake",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "(gerak) guncangan teredam sesudah benturan",
+  "panggil": "shake(t, t0, amp)",
+  "asal": "ai-bubble-dompet bab-3/src/film.js:64",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "garis-retak",
+  "tag": [
+   "kamera",
+   "benturan"
+  ],
+  "catatan": "lihat demo efek.drawCrack",
+  "demo": false
+ },
+ {
+  "id": "efek.frost",
+  "nama": "frost",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Embun beku tumbuh dari tepi kotak",
+  "panggil": "frost(ctx, x, y, w, h, t, t0, {dur})",
+  "asal": "ai-bubble-dompet bab-4/src/film.js:71",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "embun-beku",
+  "tag": [
+   "es",
+   "tepi",
+   "layar"
+  ]
+ },
+ {
+  "id": "efek.fibreBundle",
+  "nama": "fibreBundle",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Penampang kabel serat, inti padam lalu menyala",
+  "panggil": "fibreBundle(ctx, x, y, R, t, t0, {mati, nyala})",
+  "asal": "ai-bubble-dompet puncak/src/film.js:22",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "kabel-gelap-bundle",
+  "tag": [
+   "kabel",
+   "infrastruktur",
+   "cahaya"
+  ]
+ },
+ {
+  "id": "efek.fibreLine",
+  "nama": "fibreLine",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Serat terkubur dengan denyut cahaya berjalan",
+  "panggil": "fibreLine(ctx, x, y, w, t, t0, {L, seed})",
+  "asal": "ai-bubble-dompet puncak/src/film.js:50",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "kabel-gelap-bundle",
+  "tag": [
+   "kabel",
+   "tanah"
+  ]
+ },
+ {
+  "id": "efek.soil",
+  "nama": "soil",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Penampang tanah gelap berbutir",
+  "panggil": "soil(ctx, x, y, w, h)",
+  "asal": "ai-bubble-dompet puncak/src/film.js:42",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "kabel-gelap-bundle",
+  "tag": [
+   "tanah",
+   "latar"
+  ],
+  "catatan": "lihat demo efek.fibreLine",
+  "demo": false
+ },
+ {
+  "id": "efek.chainSim",
+  "nama": "chainSim",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "(fisika) rantai verlet jatuh dan menumpuk",
+  "panggil": "S = chainSim({n, l, top})  // sekali di load",
+  "asal": "ai-data-habis puncak/src/film.js:109",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "fisika",
+   "rantai"
+  ],
+  "catatan": "lihat demo efek.chainDrop; mungkin tumpang tindih dengan objek fisik agen A",
+  "demo": false
+ },
+ {
+  "id": "efek.chainLinks",
+  "nama": "chainLinks",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Mata rantai sepanjang polyline",
+  "panggil": "chainLinks(ctx, P, n, {k})",
+  "asal": "ai-data-habis puncak/src/film.js:56",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "rantai"
+  ],
+  "catatan": "lihat demo efek.chainDrop",
+  "demo": false
+ },
+ {
+  "id": "efek.chainDrop",
+  "nama": "chainDrop",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Rantai jatuh lalu menumpuk di lantai",
+  "panggil": "chainDrop(ctx, x, y, S, t, t0)",
+  "asal": "ai-data-habis puncak/src/film.js:131",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "fisika",
+   "rantai",
+   "beban"
+  ]
+ },
+ {
+  "id": "efek.proseTex",
+  "nama": "proseTex",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "(tekstur) paragraf klise tulisan mesin",
+  "panggil": "T = proseTex(w, h, size, seed, {bl})",
+  "asal": "ai-data-habis puncak/src/film.js:23",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tekstur",
+   "teks",
+   "AI"
+  ],
+  "catatan": "lihat demo efek.proseSea",
+  "demo": false
+ },
+ {
+  "id": "efek.proseSea",
+  "nama": "proseSea",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Lautan tulisan mesin bergulir",
+  "panggil": "proseSea(ctx, x, y, w, h, T, t, t0, {v, pudar})",
+  "asal": "ai-data-habis puncak/src/film.js:147",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "teks",
+   "latar",
+   "AI"
+  ]
+ },
+ {
+  "id": "efek.colourRing",
+  "nama": "colourRing",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Warna kembali dalam cincin dari satu titik",
+  "panggil": "colourRing(ctx, x, y, w, h, grey, col, t, t0, {at})",
+  "asal": "ai-data-habis puncak/src/film.js:158",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "warna",
+   "reveal",
+   "foto"
+  ]
+ },
+ {
+  "id": "efek.bloom",
+  "nama": "bloom",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Gambar mekar cahaya dari satu titik",
+  "panggil": "bloom(ctx, x, y, w, h, src, t, t0, {oy})",
+  "asal": "ai-data-habis puncak/src/film.js:167",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "cahaya",
+   "reveal"
+  ]
+ },
+ {
+  "id": "efek.impact",
+  "nama": "impact",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Benturan: cincin pipih, debu, huruf terpental",
+  "panggil": "impact(ctx, x, y, t, t0, {R})",
+  "asal": "ai-data-habis puncak/src/film.js:177",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "benturan",
+   "partikel",
+   "huruf"
+  ]
+ },
+ {
+  "id": "efek.motes",
+  "nama": "motes",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Debu hangat naik pelan, hold tetap bernapas",
+  "panggil": "motes(ctx, x, y, w, h, t, t0)",
+  "asal": "ai-data-habis puncak/src/film.js:187",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "partikel",
+   "suasana"
+  ]
+ },
+ {
+  "id": "efek.wordRain",
+  "nama": "wordRain",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Hujan kata jatuh ke permukaan",
+  "panggil": "wordRain(ctx, x, y, w, h, t, t0, {dasar})",
+  "asal": "ai-data-habis bab-2/src/film.js:385",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "teks",
+   "fisika",
+   "data"
+  ]
+ },
+ {
+  "id": "efek.tank",
+  "nama": "tank",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Tangki kaca berisi tulisan bergulir",
+  "panggil": "tank(ctx, x, y, w, h, k, t, t0, {tex})",
+  "asal": "ai-data-habis bab-2/src/film.js:393",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tangki",
+   "teks",
+   "isi"
+  ],
+  "catatan": "lihat demo efek.wordRain; meter angka bergulir milik modul UI (agen B)",
+  "demo": false
+ },
+ {
+  "id": "efek.tankLevel",
+  "nama": "tankLevel",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "(ukur) y permukaan tangki untuk isi k",
+  "panggil": "tankLevel(y, h, k)",
+  "asal": "ai-data-habis bab-2/src/film.js:389",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tangki"
+  ],
+  "catatan": "lihat demo efek.wordRain",
+  "demo": false
+ },
+ {
+  "id": "efek.imageShatter",
+  "nama": "imageShatter",
+  "file": "js/efek.js",
+  "tier": "alat",
+  "lihat": "Gambar pecah jadi keping terlempar",
+  "panggil": "imageShatter(ctx, x, y, w, h, im, t, t0)",
+  "asal": "ai-data-habis bab-2/src/film.js:97",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "pecah",
+   "foto",
+   "transisi"
+  ],
+  "catatan": "huruf→angka (numTex/letterNum/shatter) milik modul tipografi (agen B)"
+ }
+]

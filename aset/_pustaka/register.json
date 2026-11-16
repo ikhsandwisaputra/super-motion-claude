@@ -1,0 +1,30 @@
+{
+  "catatan": "Satu baris per film long-form yang sudah dirender. Diisi saat delivery: pustaka.py panen <slug> --catat --bintang 'Nama:kunci,…' --portal <id>. Kunci = id katalog atau id ledger; dipakai segar untuk cooldown. Hit tx dihitung langsung dari beats.js selama folder film masih ada.",
+  "aturan": { "cooldown_film": 2, "bintang_baru_per_film": 1, "hit_baru_per_film": 2 },
+  "larangan": {
+    "portal.qr": "Ikhsan 2026-11-15: 'jangan qrcode lagi'",
+    "portal-qr-chapter-join": "Ikhsan 2026-11-15: 'jangan qrcode lagi'",
+    "_transisi/film-burn-*": "jadul: Ikhsan 2026-11-13 'burn/projector/sepia = jadul, generik'",
+    "_transisi/light-leak-*": "cek dulu: sekeluarga film burn (Ikhsan 2026-11-13 'jadul, generik')"
+  },
+  "film": [
+    { "slug": "teknologi-indo-vs-as", "kode": "ivs", "judul": "Indo vs AS", "tanggal": "2026-11-14", "urut": 1,
+      "status": "v1 delivered, 'kesuksesan terbesar kita'",
+      "bintang": [ { "nama": "Jarak = Kedalaman (140 kartu)", "kunci": [] }, { "nama": "Skor Kebalik", "kunci": [] } ],
+      "portal": { "nama": "Portal QR", "kunci": ["portal.qr", "portal-qr-chapter-join"] },
+      "perangkat": ["timbangan", "papan split-flap", "lens-sweep audit", "irisan uang kertas", "dot city per kapita", "timeline rescale"],
+      "hits": null, "alat": [] },
+    { "slug": "ai-bubble-dompet", "kode": "abd", "judul": "AI Bubble", "tanggal": "2026-11-15", "urut": 2,
+      "status": "v1 delivered",
+      "bintang": [ { "nama": "Gelembung Pecah", "kunci": ["gelembung-pecah"] }, { "nama": "Harga gelembung di atas objek", "kunci": ["harga-gelembung-objek"] } ],
+      "portal": { "nama": "Tembus Selaput", "kunci": ["portal.gelembung", "tembus-selaput"] },
+      "perangkat": ["Retak Layar", "Garis Retak", "Embun Beku", "Label Ayun", "Rel Orderan", "Struk Termal", "Peta Jalur", "Kabel Gelap", "Jam Usang"],
+      "hits": null, "alat": [] },
+    { "slug": "ai-data-habis", "kode": "adh", "judul": "AI kehabisan data", "tanggal": "2026-11-16", "urut": 3,
+      "status": "v1 dirender 16 Nov 01:59, menunggu catatan Ikhsan",
+      "bintang": [ { "nama": "Salinan Pudar", "kunci": ["salinan-pudar-generasi"] }, { "nama": "Mata Mesin", "kunci": ["mata-mesin-ascii-token"] } ],
+      "portal": { "nama": "Garis Pindai", "kunci": ["portal.garis-pindai", "garis-pindai-portal"] },
+      "perangkat": ["Sumur Huruf", "Jangkar", "huruf pecah jadi angka", "browser robots.txt", "pagar", "gembok", "label harga"],
+      "hits": null, "alat": [] }
+  ]
+}

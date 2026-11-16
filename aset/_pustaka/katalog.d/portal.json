@@ -1,0 +1,61 @@
+[
+ {
+  "id": "portal.qr",
+  "nama": "addPortal",
+  "file": "js/portal/qr.js",
+  "tier": "bintang",
+  "lihat": "Portal bab lewat kode QR (DILARANG)",
+  "panggil": "addPortal(…)  // salin ke src film",
+  "asal": "teknologi-indo-vs-as kit/portal.js:22",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "portal-qr-chapter-join",
+  "tag": [
+   "portal",
+   "transisi bab"
+  ],
+  "catatan": "DILARANG: Ikhsan 2026-11-15 \"jangan qrcode lagi\" — referensi saja. SFX sfx/portal_sfx_qr.py; pratinjau galeri/pratinjau/portal.qr.jpg",
+  "demo": false
+ },
+ {
+  "id": "portal.gelembung",
+  "nama": "addPortal",
+  "file": "js/portal/gelembung.js",
+  "tier": "bintang",
+  "lihat": "Portal bab: tembus selaput gelembung",
+  "panggil": "addPortal(…)  // salin ke src film, butuh src/pustaka/gelembung.js",
+  "asal": "ai-bubble-dompet kit/portal.js:75",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "tembus-selaput",
+  "tag": [
+   "portal",
+   "gelembung",
+   "transisi bab"
+  ],
+  "catatan": "Cooldown 2 film. Import ./pustaka/gelembung.js (perlu src/pustaka). SFX sfx/portal_sfx_gelembung.py; pratinjau galeri/pratinjau/portal.gelembung.jpg",
+  "demo": false
+ },
+ {
+  "id": "portal.garis-pindai",
+  "nama": "addPortal",
+  "file": "js/portal/garis-pindai.js",
+  "tier": "bintang",
+  "lihat": "Portal bab: garis pindai lime menyapu",
+  "panggil": "addPortal(…)  // salin ke src film",
+  "asal": "ai-data-habis kit/portal.js:52",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "portal",
+   "scan",
+   "transisi bab"
+  ],
+  "catatan": "Cooldown 2 film. Belum ada id ledger (register: garis-pindai-portal). SFX sfx/portal_sfx_garis-pindai.py; pratinjau galeri/pratinjau/portal.garis-pindai.jpg",
+  "demo": false
+ }
+]

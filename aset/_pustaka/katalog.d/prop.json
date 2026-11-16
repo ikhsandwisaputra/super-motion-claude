@@ -1,0 +1,637 @@
+[
+ {
+  "id": "prop.gembok",
+  "nama": "gembok",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "gembok garis jatuh berpegas, bisa terbuka",
+  "panggil": "gembok(ctx, x, y, s, t, t0, o)",
+  "asal": "ai-data-habis bab-5/src/film.js:170",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "kunci",
+   "akses",
+   "privasi"
+  ],
+  "catatan": "o.open 0..1 atau o.tOpen; t0 null = statis; lubang kunci = warna ruang"
+ },
+ {
+  "id": "prop.labelHarga",
+  "nama": "labelHarga",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "label harga berayun di tali, bisa ditendang",
+  "panggil": "labelHarga(ctx, x, y, 400, t, t0, {l1, l2, kick})",
+  "asal": "ai-data-habis bab-2/src/film.js:35",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "label-ayun",
+  "tag": [
+   "harga",
+   "biaya",
+   "uang",
+   "gantung"
+  ],
+  "catatan": "(x, y) = paku; o.kick [[t, derajat]]; l2 menyusut otomatis"
+ },
+ {
+  "id": "prop.pagar",
+  "nama": "pagar",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "pagar besi jatuh batang demi batang + rel",
+  "panggil": "pagar(ctx, x, y, 1120, t, t0, {cut})",
+  "asal": "ai-data-habis bab-2/src/film.js:49",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "penjara",
+   "terkunci",
+   "batas",
+   "larangan"
+  ],
+  "catatan": "o.cut [x, y, w, h] = jendela terbuka (evenodd); bagus di atas foto"
+ },
+ {
+  "id": "prop.tumpukHuruf",
+  "nama": "tumpukHuruf",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "huruf berjatuhan satu-satu jadi gundukan",
+  "panggil": "tumpukHuruf(ctx, x, y, 22, t, t0, {huruf, baris})",
+  "asal": "ai-data-habis bab-5/src/film.js:219",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "huruf",
+   "data",
+   "tumpukan",
+   "volume"
+  ],
+  "catatan": "cache per frame; baris 1 = satu deretan; isi piring timbangan"
+ },
+ {
+  "id": "prop.timbangan",
+  "nama": "timbangan",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "timbangan gading/garis yang miring ke sisi berat",
+  "panggil": "timbangan(ctx, x, y, s, t, t0, {style, tilt, left, right, labels, lime})",
+  "asal": "teknologi-indo-vs-as bab-peta/src/film.js:113 + ai-data-habis bab-5/src/film.js:226",
+  "film": [
+   "teknologi-indo-vs-as",
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "banding",
+   "versus",
+   "berat",
+   "adil"
+  ],
+  "catatan": "style gading (3D) | garis; left/right(ctx, t) digambar di bibir piring; label lime satu sisi"
+ },
+ {
+  "id": "prop.robot",
+  "nama": "robot",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "robot garis: lihat, kedip, kacamata, antena lime",
+  "panggil": "robot(ctx, x, y, s, {look, blink, glasses, rh, lime})",
+  "asal": "ai-data-habis bab-3/src/film.js:58",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "ai",
+   "karakter",
+   "robot",
+   "mesin"
+  ],
+  "catatan": "statis, gerakkan dari luar (rot, rh/lh); badan = badan() per tema"
+ },
+ {
+  "id": "prop.sepeda",
+  "nama": "sepeda",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "sepeda garis; kembalikan titik sadel & setang",
+  "panggil": "sepeda(ctx, x, y, r, {spin}) → {seat, bar}",
+  "asal": "ai-data-habis bab-3/src/film.js:77",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "belajar",
+   "latihan",
+   "gerak",
+   "karakter"
+  ],
+  "catatan": "penunggang: robot s ≈ .78 r di seat (lihat galeri prop.sepeda)"
+ },
+ {
+  "id": "prop.orang",
+  "nama": "orang",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "orang: garis, isi menyala, piktogram, siluet berpapan",
+  "panggil": "orang(ctx, x, y, s, {style, on, label, chip})",
+  "asal": "ai-bubble-dompet bab-1/src/film.js:55 · teknologi-indo-vs-as bab-3/src/film.js:56 · ai-data-habis bab-4/src/ui.js:12 · ai-bubble-dompet bab-3/src/film.js:95",
+  "film": [
+   "ai-bubble-dompet",
+   "teknologi-indo-vs-as",
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "orang",
+   "pengguna",
+   "karakter",
+   "tersangka"
+  ],
+  "catatan": "style garis | isi | piktogram | siluet (o.chip = kepala chip)"
+ },
+ {
+  "id": "prop.kerumunan",
+  "nama": "kerumunan",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "grid 100 orang menyala, baris kepala, dada dari sisi",
+  "panggil": "kerumunan(ctx, x, y, s, t, t0, {pattern, lit})",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:60 · ai-data-habis bab-peta/src/film.js:65 · ai-bubble-dompet bab-1/src/film.js:60",
+  "film": [
+   "teknologi-indo-vs-as",
+   "ai-data-habis",
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "orang",
+   "statistik",
+   "persen",
+   "massa"
+  ],
+  "catatan": "pattern grid (lit dari 100) | baris | sisi (o.tLeave); grid bisa tumpang tindih dengan diagram data"
+ },
+ {
+  "id": "prop.globe",
+  "nama": "globe",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "globe garis berputar, tipis",
+  "panggil": "globe(ctx, x, y, r, t, t0, {a, speed})",
+  "asal": "ai-bubble-dompet bab-1/src/film.js:86",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "dunia",
+   "global",
+   "internet"
+  ],
+  "catatan": "latar; o.a .13 default"
+ },
+ {
+  "id": "prop.monitorCRT",
+  "nama": "monitorCRT",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "monitor tabung, halaman dial-up memuat",
+  "panggil": "monitorCRT(ctx, x, y, 620, t, t0, {url, tDone})",
+  "asal": "ai-bubble-dompet bab-1/src/film.js:105",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "internet",
+   "2000",
+   "retro",
+   "web"
+  ],
+  "catatan": "url mengetik; potongan halaman + bar progres + scanline"
+ },
+ {
+  "id": "prop.pusatData",
+  "nama": "pusatData",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "rak server tumbuh / gedung pusat data LED",
+  "panggil": "pusatData(ctx, x, y, s, t, t0, {style})",
+  "asal": "ai-bubble-dompet bab-2/src/film.js:34 · ai-bubble-dompet bab-4/src/film.js:269",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "server",
+   "data center",
+   "infrastruktur"
+  ],
+  "catatan": "style rak (gading) | gedung (gelap, LED berkedip); y = dasar"
+ },
+ {
+  "id": "prop.ember",
+  "nama": "ember",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "ember terisi gelombang, melimpah lewat bibir",
+  "panggil": "ember(ctx, x, y, s, t, t0, {to, level})",
+  "asal": "ai-bubble-dompet bab-2/src/film.js:54",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "kapasitas",
+   "penuh",
+   "limpah",
+   "kuota"
+  ],
+  "catatan": "level > 1 = tetesan tumpah; y = dasar"
+ },
+ {
+  "id": "prop.tiketOrder",
+  "nama": "tiketOrder",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "tiket order dapur di rel, judul berbalik",
+  "panggil": "tiketOrder(ctx, x, y, 300, t, t0, {no, title, title2, tFlip})",
+  "asal": "ai-bubble-dompet bab-4/src/film.js:231",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "rel-orderan",
+  "tag": [
+   "pesanan",
+   "antrian",
+   "permintaan"
+  ],
+  "catatan": "(x, y) = klip di rel; judul multi-baris \\n"
+ },
+ {
+  "id": "prop.kupon",
+  "nama": "kupon",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "kupon promo generik, bisa membeku",
+  "panggil": "kupon(ctx, x, y, 420, t, t0, {label, tFrost})",
+  "asal": "ai-bubble-dompet bab-4/src/film.js:252",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "promo",
+   "diskon",
+   "gratis",
+   "beku"
+  ],
+  "catatan": "tanpa merek; frost = es pucat"
+ },
+ {
+  "id": "prop.jam",
+  "nama": "jam",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "jam dengan jarum makin cepat + jarum hantu",
+  "panggil": "jam(ctx, x, y, R, t, t0, {speed, rgb})",
+  "asal": "ai-bubble-dompet puncak/src/film.js:69",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "jam-usang-dua-jam",
+  "tag": [
+   "waktu",
+   "usang",
+   "cepat",
+   "deadline"
+  ],
+  "catatan": "o.angle = statis; o.inner(ctx) untuk isi wajah"
+ },
+ {
+  "id": "prop.uangKertas",
+  "nama": "uangKertas",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "uang kertas bergaya (bukan replika), kanvas cache",
+  "panggil": "uangKertas({angka, teks, catatan}) → canvas 1200×500",
+  "asal": "teknologi-indo-vs-as bab-1/src/film.js:28",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "banknote-slice-magnifier",
+  "tag": [
+   "uang",
+   "rupiah",
+   "harga",
+   "ekonomi"
+  ],
+  "catatan": "gambar dengan drawImage; jangan meniru uang asli"
+ },
+ {
+  "id": "prop.troli",
+  "nama": "troli",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "troli kawat, paket berjatuhan ke dalamnya",
+  "panggil": "troli(ctx, x, y, s, t, t0, {tFill, n})",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:40",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "belanja",
+   "e-commerce",
+   "paket",
+   "konsumsi"
+  ],
+  "catatan": "paket(ctx, w, h) juga diekspor"
+ },
+ {
+  "id": "prop.kalender",
+  "nama": "kalender",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "kalender meja pop, halaman disobek",
+  "panggil": "kalender(ctx, x, y, 220, t, t0, {month, day, tTear, month2, day2})",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:33",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "tanggal",
+   "waktu",
+   "tenggat"
+  ],
+  "catatan": "tTear jatuhkan halaman lama"
+ },
+ {
+  "id": "prop.pintu",
+  "nama": "pintu",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "pintu membuka, cahaya tumpah, ikon di daun",
+  "panggil": "pintu(ctx, x, y, s, t, t0, {icon, no, label, tOpen})",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:76",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "pilihan",
+   "jalan",
+   "peluang"
+  ],
+  "catatan": "icon labu | steker | papan (atau nama IKON lain)"
+ },
+ {
+  "id": "prop.ikon",
+  "nama": "ikon",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "14 ikon garis film (labu…pagar), bisa putus-putus",
+  "panggil": "ikon(ctx, x, y, 200, t, t0, {name, dash})",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:66 · ai-bubble-dompet bab-4/src/film.js:263 · ai-data-habis bab-peta/src/film.js:162",
+  "film": [
+   "teknologi-indo-vs-as",
+   "ai-bubble-dompet",
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "ikon",
+   "simbol",
+   "hantu"
+  ],
+  "catatan": "IKON = daftar nama; bensin tEmpty, pagar tLock, dompet lime, uang cur"
+ },
+ {
+  "id": "prop.gerobak",
+  "nama": "gerobak",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "gerobak bakso, stiker QR dipindai",
+  "panggil": "gerobak(ctx, x, y, s, t, t0, {text, tScan})",
+  "asal": "teknologi-indo-vs-as penutup/src/film.js:133",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "umkm",
+   "qris",
+   "bayar",
+   "jalanan"
+  ],
+  "catatan": "QR = stikerQR(seed), BUKAN kode asli"
+ },
+ {
+  "id": "prop.rakBuku",
+  "nama": "rakBuku",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "rak kitab muncul, dibaca satu-satu (centang)",
+  "panggil": "rakBuku(ctx, x, y, s, t, t0, {titles, tRead}) → belum dibaca",
+  "asal": "ai-data-habis bab-1/src/film.js:228",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "buku",
+   "belajar",
+   "pesantren",
+   "baca"
+  ],
+  "catatan": "KITAB = judul bawaan; tumpukan buku menjulang ada di data.menara"
+ },
+ {
+  "id": "prop.tetes",
+  "nama": "tetes",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "tetes berisi kata jatuh, kolam, riak, cipratan kata",
+  "panggil": "tetes(ctx, x, y, 250, t, t0, {words})",
+  "asal": "ai-data-habis bab-peta/src/film.js:81",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "data",
+   "minyak",
+   "sumber",
+   "kata"
+  ],
+  "catatan": "mendarat t0 + .5"
+ },
+ {
+  "id": "prop.sumur",
+  "nama": "sumur",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "sumur potongan: kata surut (data habis)",
+  "panggil": "sumur(ctx, x, y, s, t, t0, {from, to})",
+  "asal": "ai-data-habis bab-peta/src/film.js:113",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "data habis",
+   "sumber",
+   "surut"
+  ],
+  "catatan": "(x, y) = bibir; o.pipe false tanpa pipa"
+ },
+ {
+  "id": "prop.kick",
+  "nama": "kick",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) sudut tendangan teredam untuk benda gantung",
+  "demo": false,
+  "panggil": "kick(t, t0, amp, d, f)",
+  "asal": "ai-bubble-dompet bab-4/src/film.js:154",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "label-ayun",
+  "tag": [
+   "ayun",
+   "pegas",
+   "helper"
+  ],
+  "catatan": "kandidat pindah ke kit"
+ },
+ {
+  "id": "prop.teksTengah",
+  "nama": "teksTengah",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) teks tengah multi-baris",
+  "demo": false,
+  "panggil": "teksTengah(ctx, str, x, y, css, size, o)",
+  "asal": "ai-bubble-dompet bab-4/src/film.js:155",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "teks",
+   "helper"
+  ],
+  "catatan": "kandidat pindah ke kit"
+ },
+ {
+  "id": "prop.badan",
+  "nama": "badan",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) isi badan line-art per tema",
+  "panggil": "badan()",
+  "asal": "ai-data-habis bab-3/src/film.js:60",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "tema",
+   "helper"
+  ],
+  "catatan": "PAPER terang / TILE gelap; kandidat kit"
+ },
+ {
+  "id": "prop.jalurTetes",
+  "nama": "jalurTetes",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) path tetesan",
+  "demo": false,
+  "panggil": "jalurTetes(ctx, r)",
+  "asal": "ai-data-habis bab-peta/src/film.js:23",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "bentuk",
+   "path",
+   "helper"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "prop.jalurOrang",
+  "nama": "jalurOrang",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) path piktogram orang, banyak sekali fill",
+  "demo": false,
+  "panggil": "jalurOrang(ctx, x, y, s)",
+  "asal": "ai-data-habis bab-4/src/ui.js:12",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "orang",
+   "path",
+   "helper"
+  ],
+  "catatan": "menambah ke path aktif"
+ },
+ {
+  "id": "prop.paket",
+  "nama": "paket",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) kotak paket kraft",
+  "demo": false,
+  "panggil": "paket(ctx, w, h)",
+  "asal": "teknologi-indo-vs-as bab-3/src/film.js:27",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "paket",
+   "kirim",
+   "helper"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "prop.stikerQR",
+  "nama": "stikerQR",
+  "file": "js/prop.js",
+  "tier": "alat",
+  "lihat": "(alat) kanvas stiker mirip-QR deterministik",
+  "demo": false,
+  "panggil": "stikerQR(seed) → canvas",
+  "asal": "teknologi-indo-vs-as penutup/src/film.js:17",
+  "film": [
+   "teknologi-indo-vs-as"
+  ],
+  "ledger": "",
+  "tag": [
+   "qr",
+   "helper"
+  ],
+  "catatan": "bukan kode yang bisa dipindai"
+ }
+]

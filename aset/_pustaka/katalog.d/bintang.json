@@ -1,0 +1,60 @@
+[
+ {
+  "id": "bintang.gelembung",
+  "nama": "bubble",
+  "file": "js/gelembung.js",
+  "tier": "bintang",
+  "lihat": "Gelembung kaca dipompa, tegang, lalu pecah",
+  "panggil": "bubble(ctx, cx, cy, r*pumped(t, t0, P), t, {wob: wobble(t, P), inner}); bubblePop(ctx, cx, cy, r, t - tPecah)",
+  "asal": "ai-bubble-dompet kit/gelembung.js:25",
+  "film": [
+   "ai-bubble-dompet"
+  ],
+  "ledger": "gelembung-pecah",
+  "tag": [
+   "bintang",
+   "gelembung",
+   "pecah"
+  ],
+  "catatan": "Cooldown 2 film: di film berikutnya hanya beat kecil atau remix, bukan headline. Ikhsan 14 Nov \"gilakkk cakeppp\". Juga pumped/wobble/bubblePop. Pratinjau galeri/pratinjau/bintang.gelembung.jpg"
+ },
+ {
+  "id": "bintang.salinan",
+  "nama": "pudar",
+  "file": "js/salinan.js",
+  "tier": "bintang",
+  "lihat": "Salinan dari salinan memudar per generasi",
+  "panggil": "CH = chain(kartu(), 8); pudar(ctx, CH, x, y, w, h, t, t0, {step})",
+  "asal": "ai-data-habis bab-4/src/copier.js:98",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "salinan-pudar-generasi",
+  "tag": [
+   "bintang",
+   "fotokopi",
+   "generasi"
+  ],
+  "catatan": "Cooldown 2 film: di film berikutnya hanya beat kecil atau remix, bukan headline. Juga card/kartu/sign/copyOf/chain/glass/bar/gpos; await loadTangan() dulu. Tumpukan kaca Jarak = Generasi (makeCopier) tetap di film. Pratinjau galeri/pratinjau/bintang.salinan.jpg"
+ },
+ {
+  "id": "bintang.mata",
+  "nama": "mataMesin",
+  "file": "js/mata.js",
+  "tier": "bintang",
+  "lihat": "Foto dibaca mesin jadi huruf, dipotong token",
+  "panggil": "M = await bacaMesin(img, w, h, {mode}); mataMesin(ctx, M, x, y, t, t0, {tok, cara})",
+  "asal": "ai-data-habis bab-1/src/mata.js:107",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "mata-mesin-ascii-token",
+  "tag": [
+   "bintang",
+   "ASCII",
+   "token",
+   "AI"
+  ],
+  "catatan": "Cooldown 2 film: di film berikutnya hanya beat kecil atau remix, bukan headline. Grid lokal (film: grid layar per frame); kamera/whip/gigitan (makeMata) tetap di film. Pratinjau galeri/pratinjau/bintang.mata.jpg"
+ }
+]

@@ -1,0 +1,20 @@
+[
+  { "id": "peta.lonLat", "nama": "lonLat", "file": "js/peta.js", "tier": "alat", "lihat": "(alat) bujur/lintang → titik peta Indonesia", "demo": false,
+    "panggil": "lonLat(lon, lat) → [x, y] (skala 1, pusat 0) · KOTA.jakarta …", "asal": "dicocokkan ke ai-data-habis bab-4/src/peta.js", "film": ["ai-data-habis", "teknologi-indo-vs-as"], "ledger": "", "tag": ["peta", "proyeksi", "koordinat"],
+    "catatan": "selisih ±10 px dari P() ivs; robinson(lon, lat) untuk peta dunia; KOTA = koordinat kota besar dibulatkan" },
+  { "id": "peta.petaTitik", "nama": "petaTitik", "file": "js/peta.js", "tier": "alat", "lihat": "Indonesia 1615 titik bercahaya + kredit CC BY-SA",
+    "panggil": "petaTitik(ctx, x, y, s, t, t0, {hot(i, x, y), kredit, kreditAt, col, dur}) → n", "asal": "ai-data-habis bab-4/src/st2.js:308", "film": ["ai-data-habis"], "ledger": "", "tag": ["peta", "indonesia", "titik"],
+    "catatan": "LISENSI CC BY-SA 3.0 (Wikimedia Commons, en:User:Indon): kredit KREDIT wajib tampil; jangan matikan kredit tanpa memasang kredit lain di layar" },
+  { "id": "peta.petaDunia", "nama": "petaDunia", "file": "js/peta.js", "tier": "alat", "lihat": "peta dunia titik Robinson, zoom ke Indonesia",
+    "panggil": "petaDunia(ctx, x, y, cs, t, t0, {fokus:[lon, lat], hot(c, r), lime, view}) → {at(lon, lat)}", "asal": "ai-bubble-dompet penutup/src/film.js:51", "film": ["ai-bubble-dompet"], "ledger": "komentar-jadi-peta", "tag": ["peta", "dunia", "zoom", "titik"],
+    "catatan": "grid BlankMap-World-150E (CC0/PD) tertanam hex; animasikan cs untuk zoom. Komentar-jadi-peta = ide penutup AI Bubble: restyle" },
+  { "id": "peta.pin", "nama": "pin", "file": "js/peta.js", "tier": "alat", "lihat": "pin riak: komentar ?, label mono, atau fokus lime",
+    "panggil": "pin(ctx, x, y, t, t0, {q, label, lime, s, right})", "asal": "ai-bubble-dompet penutup/src/film.js:65", "film": ["ai-bubble-dompet"], "ledger": "komentar-jadi-peta", "tag": ["peta", "pin", "penanda"] },
+  { "id": "peta.petaPulau", "nama": "petaPulau", "file": "js/peta.js", "tier": "alat", "lihat": "garis pulau tersapu masuk + batas negara putus",
+    "panggil": "petaPulau(ctx, x, y, s, t, t0, {batas, label}) → P(lon, lat) · pinKota(ctx, x, y, t, t0, label, right)", "asal": "teknologi-indo-vs-as puncak/src/film.js:334", "film": ["teknologi-indo-vs-as"], "ledger": "", "tag": ["peta", "indonesia", "pulau", "batas"],
+    "catatan": "11 poligon kasar (PULAU, BATAS) digambar tangan, bukan data kartografi; pinKota = titik kota + label" },
+  { "id": "peta.ruteBusur", "nama": "ruteBusur", "file": "js/peta.js", "tier": "alat", "lihat": "rute busur lime + cincin tiba, atau putus ✗",
+    "panggil": "ruteBusur(ctx, x0, y0, x1, y1, t, t0, {bow, dur, putus, stop})", "asal": "teknologi-indo-vs-as puncak/src/film.js:340", "film": ["teknologi-indo-vs-as"], "ledger": "", "tag": ["peta", "rute", "alur"] },
+  { "id": "peta.ruteKipas", "nama": "ruteKipas", "file": "js/peta.js", "tier": "alat", "lihat": "rute mengipas dari satu sumber, denyut cahaya",
+    "panggil": "ruteKipas(ctx, x0, y0, x1, y1, [{label, yo, at}], t, t0, {end})", "asal": "ai-bubble-dompet bab-peta/src/film.js:51", "film": ["ai-bubble-dompet"], "ledger": "", "tag": ["rute", "alur", "diagram", "cabang"] }
+]

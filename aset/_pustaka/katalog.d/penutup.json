@@ -1,0 +1,84 @@
+[
+ {
+  "id": "penutup.subscribe",
+  "nama": "subscribe",
+  "file": "js/penutup.js",
+  "tier": "ciri",
+  "lihat": "kursor klik SUBSCRIBE (lime + centang), lonceng",
+  "panggil": "subscribe(ctx, x, y, t, t0, o{klik, lonceng, inisial})",
+  "asal": "ai-data-habis penutup/src/film.js:280",
+  "film": [
+   "ai-data-habis",
+   "teknologi-indo-vs-as",
+   "ai-bubble-dompet"
+  ],
+  "ledger": "cursor-click-subscribe",
+  "tag": [
+   "subscribe",
+   "CTA",
+   "penutup",
+   "kursor"
+  ],
+  "catatan": "tanpa bunyi \"ting\"; SFX klik non-tonal"
+ },
+ {
+  "id": "penutup.kartuNext",
+  "nama": "kartuNext",
+  "file": "js/penutup.js",
+  "tier": "alat",
+  "lihat": "kartu video berikutnya terbang masuk + antrean",
+  "panggil": "kartuNext(ctx, x, y, t, t0, o{judul, gambar, antri, centang})",
+  "asal": "ai-data-habis penutup/src/film.js:228 (+:198)",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "video berikutnya",
+   "thumbnail",
+   "penutup"
+  ],
+  "catatan": ""
+ },
+ {
+  "id": "penutup.endScreen",
+  "nama": "endScreen",
+  "file": "js/penutup.js",
+  "tier": "ciri",
+  "lihat": "layar akhir: kalimat penutup, 2 slot, subscribe",
+  "panggil": "endScreen(ctx, x, y, t, t0, o{judul, sub, slot, kartu, subscribe})",
+  "asal": "ai-data-habis penutup/src/film.js:305",
+  "film": [
+   "ai-data-habis",
+   "teknologi-indo-vs-as",
+   "ai-bubble-dompet"
+  ],
+  "ledger": "",
+  "tag": [
+   "end screen",
+   "YouTube",
+   "penutup",
+   "CTA"
+  ],
+  "catatan": "ruang layar 1920×1080; slot kanan = posisi elemen YouTube; varian ivs penutup:248, abd penutup:284"
+ },
+ {
+  "id": "penutup.intinya",
+  "nama": "intinya",
+  "file": "js/penutup.js",
+  "tier": "alat",
+  "lihat": "papan intinya: jangkar lime, opsi bergantung tali",
+  "panggil": "intinya(ctx, x, y, t, t0, o{kicker, baris, ekor, jangkar, gantung})",
+  "asal": "ai-data-habis penutup/src/film.js:60",
+  "film": [
+   "ai-data-habis"
+  ],
+  "ledger": "",
+  "tag": [
+   "rangkuman",
+   "intinya",
+   "penutup"
+  ],
+  "catatan": ""
+ }
+]

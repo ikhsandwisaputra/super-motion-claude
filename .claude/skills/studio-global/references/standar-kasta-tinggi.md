@@ -70,12 +70,33 @@ seed. Axis: the form comes from the film's metaphor and is never the previous fi
 ### S6 Physics and sound
 Brand physics written before eases (ui T .45 ζ .85 · hero .55/.7 · heavy .8/.9 · playful .4/.5); snap → cushion
 (85 % of travel in ~4 frames, settle ~20); every visual cause has a non-tonal sound; calm bed in chapters, driving
-score in the intro only; TMP hits on whip joins, 4–5 per chapter.
+score in the intro only. Film-transition hits: see S8 (mandatory).
 
 ### S7 Jejak Riset (documentary research honesty, visible)
 Source tab on every article and photo; labels ANALISIS REDAKSI / ILUSTRASI / PERKIRAAN where they apply; no invented
 numbers; doubts shown with the lens-sweep audit. This is what "documentary research" looks like on screen: the
 viewer can see where each claim comes from.
+
+### S8 Hit Transisi Film (MANDATORY: Ikhsan 2026-11-15, "efek transisi film nya itu wajib")
+Core (never dropped, in every film):
+- The film-transition hits from `aset/_transisi` play through the whole video, not just the intro, each with its own
+  sound. They come in through the template library (`tx/`, `tools/tx_lib.py`).
+- Think Make Push packs come first.
+- Use 4–5 per chapter, on whip joins and chapter joins. Never use one per station, and never repeat the previous hit
+  (no spam).
+- Land the hit's `peak` frame on the cut or the whip midpoint, picture and sound together.
+- Hits keep only the accent hue band (S3, the `filter` per pack).
+- Burn, sepia or projector stays a short hit, never the film's look ([[no-vintage-film-look]]).
+
+Axis (the fresh part):
+- **The cuts.** Both hits used the same 9 cuts from 4 packs (stk1–4 light streaks, cmc1–2 comic, ldr1 film leader,
+  shD/shE shutter). Indo vs AS references hits ≈ 26 times in code, AI Bubble ≈ 45 times.
+  - Every new film cuts **≥ 2 new hits**: first from the unused Think Make Push packs (grunge film transitions,
+    handwriting film overlay), then the rest (cinematic overlay, dark dust, light leak, film burn as a short hit).
+  - Check the folder first for packs Ikhsan has added.
+  - The old 9 stay as the base, and the new ones are the film's headline hits.
+- **Placement.** A hit may also be the punctuation inside a long travel (§6 point 1), not only on a join.
+- **Direction.** Match the streak or wipe direction to the camera whip (mirror the clip if needed).
 
 ## 3. Upgrades of his two techniques with the new knowledge (candidates: each needs a 3-second test)
 
@@ -140,8 +161,8 @@ Add:
    flat fill.
 4. **Cause → effect → sound:** every landing makes something react (ripple, crack, swing, ink spread) and makes a
    non-tonal sound.
-5. **The image decides the choreography:** transitions grow out of the picture (its shadows, contours, tones), not a
-   pasted curtain.
+5. **The image decides the choreography:** code transitions between stations grow out of the picture (its shadows,
+   contours, tones), not a pasted curtain. This is on top of the S8 film hits, never instead of them.
 6. **Never still:** no static frame > 4 s; evidence readable ≥ 2.5 s; the first layer lands on frame 1 of a station.
 7. **Real assets** from Ahri/Ahpo before code-drawn props (Penutup bakso lesson).
 8. **Motif lock:** ≤ 3 motifs per film; menu techniques ≤ 2 per film.
@@ -154,6 +175,7 @@ Headline metaphor-physics (L2): 1)            2)            3)
 S1 axis:   material / path / door / focus    → chosen:
 S2 axis:   stroke / camera / after / sources → chosen:
 S5 portal form (from the metaphor):
+S8 film hits (MANDATORY): base 9 + new cuts this film (≥2, packs):
 L3 new technique(s) from the menu (≥1, ≤2):
 Colour script per chapter (story progress):
 Cooldown check: none of the last 2 films' headline ideas or portal is a headline here
@@ -165,9 +187,11 @@ Cooldown check: none of the last 2 films' headline ideas or portal is a headline
 |---|---|---|---|
 | Indo vs AS (2026-11-14) | Jarak = Kedalaman (140 cards), Skor Kebalik | Portal QR | balance, split-flap, lens-sweep audit, banknote slice, dot city, timeline rescale |
 | AI Bubble (2026-11-15) | Gelembung pecah, harga-gelembung-objek | Tembus Selaput | Garis Retak, Embun Beku, Label Ayun, Rel Orderan, Struk Termal, Peta Jalur, Kabel Gelap, Jam Usang |
+| AI kehabisan data (2026-11-16, v1 menunggu catatan) | Salinan Pudar (generasi fotokopi), Mata Mesin (ASCII token) | Garis Pindai | Sumur Huruf, Jangkar, huruf pecah jadi angka, browser robots.txt, pagar, gembok, label harga, hit hw1–3/gr1–3 |
 
 Rule: a headline idea or portal from the last two films may come back only as a minor beat, never as a headline.
-Add a row at every delivery.
+Add a row at every delivery. The machine-readable copy is `aset/_pustaka/register.json` (`pustaka.py panen <slug> --catat`),
+which `pustaka.py segar` reads for the cooldown; keep the two in step.
 
 ## 6. Measured DNA of the two hits (targets for the next films)
 Measured 2026-11-15 with `eye.py dna --fps 5` on the delivered masters (`aset/teknologi-indo-vs-as/build/eye_dna_v1/`,
@@ -204,7 +228,7 @@ What the numbers say (signals, not verdicts: both films were hits):
 
 | Metric | Target |
 |---|---|
-| Uncut span | ≤ 15 s, or a punctuation event (focus rack, hit, cut-in, tone lift) at least every 8 s inside it |
+| Uncut span | ≤ 15 s, or a punctuation event (S8 film hit, focus rack, cut-in, tone lift) at least every 8 s inside it |
 | Burst | ≥ 20 % |
 | Hold | ≤ 55 % |
 | ΔE between shots | ≥ 18 |
