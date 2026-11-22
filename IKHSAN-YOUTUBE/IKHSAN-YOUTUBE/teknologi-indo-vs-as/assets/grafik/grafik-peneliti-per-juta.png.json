@@ -1,0 +1,30 @@
+{
+  "file": "assets/grafik/grafik-peneliti-per-juta.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Peneliti per sejuta penduduk: AS ±12,5 kali Indonesia",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia (2020)",
+      "nilai": "395",
+      "fakta": 5,
+      "klaim": "Indonesia 395 (2020), AS 4.937 (2022) (World Bank WDI/UNESCO UIS) · . Rasio ±12,5 kali = hitungan sendiri (4.937,49 / 395,34)."
+    },
+    {
+      "label": "Amerika Serikat (2022)",
+      "nilai": "4.937",
+      "fakta": 5,
+      "klaim": "Indonesia 395 (2020), AS 4.937 (2022) (World Bank WDI/UNESCO UIS) · . Rasio ±12,5 kali = hitungan sendiri (4.937,49 / 395,34)."
+    }
+  ],
+  "sumber": [
+    "https://data.worldbank.org/indicator/SP.POP.SCIE.RD.P6"
+  ],
+  "sumberTeks": "Sumber: Bank Dunia (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+  "dibuat": "2026-11-13T15:33:14.725Z"
+}

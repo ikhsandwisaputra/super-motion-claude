@@ -1,0 +1,103 @@
+[
+  {
+    "file": "assets/grafik/swro-kabil-tahap-1-2030.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Kapasitas SWRO Kabil Batam: Tahap 1 ke 2030",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Tahap 1 (2027)",
+        "nilai": 300,
+        "fakta": 1,
+        "klaim": "Tahap pertama SWRO Kabil berkapasitas produksi 300 liter per detik (LPS) dengan pipa transmisi 12 km dari Kabil ke Nongsa, dan direncanakan ditambah 400 LPS pada tahap kedua hingga total 700 LPS pada 2030. (BP Batam, 5 Nov 2026; Antara News, 5 Nov 2026; Kompas.com, 5 Nov 2026)"
+      },
+      {
+        "label": "Tambahan Tahap 2",
+        "nilai": 400,
+        "fakta": 1,
+        "klaim": "Tahap pertama SWRO Kabil berkapasitas produksi 300 liter per detik (LPS) dengan pipa transmisi 12 km dari Kabil ke Nongsa, dan direncanakan ditambah 400 LPS pada tahap kedua hingga total 700 LPS pada 2030. (BP Batam, 5 Nov 2026; Antara News, 5 Nov 2026; Kompas.com, 5 Nov 2026)"
+      },
+      {
+        "label": "Target 2030",
+        "nilai": 700,
+        "fakta": 1,
+        "klaim": "Tahap pertama SWRO Kabil berkapasitas produksi 300 liter per detik (LPS) dengan pipa transmisi 12 km dari Kabil ke Nongsa, dan direncanakan ditambah 400 LPS pada tahap kedua hingga total 700 LPS pada 2030. (BP Batam, 5 Nov 2026; Antara News, 5 Nov 2026; Kompas.com, 5 Nov 2026)"
+      }
+    ],
+    "sumber": [
+      "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/",
+      "https://www.antaranews.com/berita/5833607/batam-mulai-bangun-swro-untuk-penuhi-kebutuhan-air-pusat-data",
+      "https://regional.kompas.com/read/2026/11/05/154204578/batam-olah-air-laut-jadi-air-bersih-demi-industri-data-center-telan?page=all"
+    ],
+    "sumberTeks": "Sumber: bpbatam.go.id, ANTARA, Kompas.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-18-batam-swro-data-center.md",
+    "dibuat": "2026-11-18T14:51:18.338Z"
+  },
+  {
+    "file": "assets/grafik/produksi-air-nongsa-kemarau.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Produksi Air Nongsa Anjlok saat Kemarau",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Normal",
+        "nilai": 90,
+        "fakta": 7,
+        "klaim": "BP Batam membantah pasokan air warga dialihkan ke data center (membantah tudingan aliran 160 LPS) dan menyebut kemarau / El Niño menyusutkan Waduk Nongsa sekitar 4,5 meter sehingga produksi di Nongsa turun dari normal 90 LPS menjadi sekitar 25 LPS. (CNBC Indonesia, 6 Okt 2026; detikSumut, 5 Okt 2026"
+      },
+      {
+        "label": "Okt 2026",
+        "nilai": 25,
+        "fakta": 7,
+        "klaim": "BP Batam membantah pasokan air warga dialihkan ke data center (membantah tudingan aliran 160 LPS) dan menyebut kemarau / El Niño menyusutkan Waduk Nongsa sekitar 4,5 meter sehingga produksi di Nongsa turun dari normal 90 LPS menjadi sekitar 25 LPS. (CNBC Indonesia, 6 Okt 2026; detikSumut, 5 Okt 2026"
+      }
+    ],
+    "sumber": [
+      "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center",
+      "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center",
+      "https://rri.co.id/batam/regional/2792268/waduk-nongsa-kering-bukan-karena-industri-data-center-melainkan-faktor-cuaca"
+    ],
+    "sumberTeks": "Sumber: CNBC Indonesia, detikcom, rri.co.id (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-18-batam-swro-data-center.md",
+    "dibuat": "2026-11-18T14:51:18.815Z"
+  },
+  {
+    "file": "assets/grafik/salinitas-swro-brine.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Salinitas Air di Proses SWRO (Pemulihan 50%)",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Air Laut Masuk",
+        "nilai": 35000,
+        "fakta": 13,
+        "klaim": "Teknologi SWRO standar mengolah air laut (salinitas acuan 35.000 ppm) pada tingkat pemulihan (*recovery rate*) umum sekitar 50% (kisaran 40–50%), artinya setengah menjadi air bersih dan setengah lainnya menjadi air garam pekat (*brine*) sekitar 70.000 ppm, dengan konsumsi energi tipikal 2,70 kWhe/m³"
+      },
+      {
+        "label": "Brine Sisa",
+        "nilai": 70000,
+        "fakta": 13,
+        "klaim": "Teknologi SWRO standar mengolah air laut (salinitas acuan 35.000 ppm) pada tingkat pemulihan (*recovery rate*) umum sekitar 50% (kisaran 40–50%), artinya setengah menjadi air bersih dan setengah lainnya menjadi air garam pekat (*brine*) sekitar 70.000 ppm, dengan konsumsi energi tipikal 2,70 kWhe/m³"
+      }
+    ],
+    "sumber": [
+      "https://www.energy.gov/sites/prod/files/2017/12/f46/Seawater_desalination_bandwidth_study_2017.pdf",
+      "https://www.osti.gov/servlets/purl/1479651"
+    ],
+    "sumberTeks": "Sumber: energy.gov, osti.gov (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-18-batam-swro-data-center.md",
+    "dibuat": "2026-11-18T14:51:19.219Z"
+  }
+]

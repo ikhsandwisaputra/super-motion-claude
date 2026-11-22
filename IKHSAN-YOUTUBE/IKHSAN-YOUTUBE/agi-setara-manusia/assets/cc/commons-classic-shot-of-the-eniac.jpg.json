@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-classic-shot-of-the-eniac.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto: Unidentified U.S. Army photographer via Wikimedia Commons (domain publik)",
+  "license": {
+    "name": "Domain publik",
+    "url": null,
+    "attributionRequired": false,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "Classic shot of the ENIAC",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Classic_shot_of_the_ENIAC.jpg",
+  "credit": "Foto: Unidentified U.S. Army photographer via Wikimedia Commons (domain publik)",
+  "bytes": 187826,
+  "sha256": "d062757f0dfc3ff9aaa9355e9248a9fbb0f5273243b1a2ea3e683dba14e0d34a",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/1/16/Classic_shot_of_the_ENIAC.jpg",
+  "query": "ENIAC",
+  "alasanCocok": "Foto arsip hitam-putih ENIAC, operator di panel kabel, mirip R2/R10, PD US Army",
+  "retrieved": "2026-11-15T20:04:12.140Z"
+}

@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/grafik-paten-residen-2024.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Paten dari penemu dalam negeri: AS ±140 kali Indonesia",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia",
+      "nilai": "1.931",
+      "fakta": 6,
+      "klaim": "Permohonan paten residen 2024: Indonesia 1.931 (+14,8%), AS 270.295 (-2,9%) (WIPO country profile 2024) · · . Rasio ±140 kali = hitungan sendiri."
+    },
+    {
+      "label": "Amerika Serikat",
+      "nilai": "270.295",
+      "fakta": 6,
+      "klaim": "Permohonan paten residen 2024: Indonesia 1.931 (+14,8%), AS 270.295 (-2,9%) (WIPO country profile 2024) · · . Rasio ±140 kali = hitungan sendiri."
+    }
+  ],
+  "sumber": [
+    "https://www.wipo.int/edocs/statistics-country-profile/en/id.pdf",
+    "https://www.wipo.int/edocs/statistics-country-profile/en/us.pdf"
+  ],
+  "sumberTeks": "Sumber: wipo.int (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+  "dibuat": "2026-11-13T15:33:14.004Z"
+}

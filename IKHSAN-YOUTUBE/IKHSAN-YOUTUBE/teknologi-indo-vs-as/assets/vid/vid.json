@@ -1,0 +1,107 @@
+{
+ "lab": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-explore-a-high-tech-32386530.mp4",
+  "ss": 0.5,
+  "len": 6.0
+ },
+ "mikroskop": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-scientist-laboratory-biology-262187.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "persimpangan": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-bustling-aerial-view-of-30147629.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "sf_udara": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-majestic-aerial-view-of-san-10689266.mp4",
+  "ss": 6.0,
+  "len": 6.0
+ },
+ "kabel": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-close-up-shot-of-network-cables-1085656.mp4",
+  "ss": 2.0,
+  "len": 7.0
+ },
+ "sarung": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-gloved-scientist-8852649.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "anak_sd": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-children-in-uniforms-studying-12724044.mp4",
+  "ss": 2.0,
+  "len": 6.0
+ },
+ "kelas_sma": {
+  "n": 72,
+  "fps": 15,
+  "src": "pexels-video-a-group-of-high-school-students-38012793.mp4",
+  "ss": 0.2,
+  "len": 4.8
+ },
+ "kurir": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-food-delivery-driver-rides-7362582.mp4",
+  "ss": 0.3,
+  "len": 6.0
+ },
+ "server": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-explore-a-modern-server-room-5028622.mp4",
+  "ss": 3.0,
+  "len": 6.0
+ },
+ "satelit": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-satellite-connection-internet-217134.mp4",
+  "ss": 2.0,
+  "len": 6.0
+ },
+ "hp_qr": {
+  "n": 45,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-smartphone-5226464.mp4",
+  "ss": 0.1,
+  "len": 3.0
+ },
+ "serat": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-blue-fiber-optic-lights-create-a-8817471.mp4",
+  "ss": 2.0,
+  "len": 6.0
+ },
+ "cleanroom": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-explore-a-cutting-edge-cleanroom-32386615.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "nirsentuh": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-person-makes-a-contactless-6602062.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ }
+}

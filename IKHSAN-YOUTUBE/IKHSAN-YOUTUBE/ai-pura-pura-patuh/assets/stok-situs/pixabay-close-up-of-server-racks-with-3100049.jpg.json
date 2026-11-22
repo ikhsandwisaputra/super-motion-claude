@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pixabay-close-up-of-server-racks-with-3100049.jpg",
+  "provider": "pixabay",
+  "id": "3100049",
+  "kind": "image",
+  "title": "Close-up of server racks with dense blue ethernet cabling in a modern data center.",
+  "author": "dlohner",
+  "authorUrl": "https://pixabay.com/users/dlohner-4631193/",
+  "sourceUrl": "https://pixabay.com/photos/sever-digitization-mainframe-3100049/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: dlohner / Pixabay",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Lorong rak server data center berwarna gelap dengan lampu indikator LED hijau/biru dan susunan kabel jaringan rapi sesuai pola R5, R7, R8, R10 pada lembar referensi",
+  "bytes": 535312,
+  "sha256": "377808409c9b5aa128a6455911e18af352c80b0e5ffe086d69c9763c64b728d4",
+  "fileUrl": "https://cdn.pixabay.com/photo/2018/01/22/21/34/sever-3100049_1280.jpg",
+  "query": "server room data center",
+  "retrieved": "2026-11-19T09:54:37.483Z"
+}

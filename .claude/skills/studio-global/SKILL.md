@@ -81,6 +81,8 @@ score. The driving score lives **only** here. No vintage film vocabulary (burn, 
 
 ## 4. Style: Vox + documentary + motion (never PPT)
 
+- **Current bar (2026-11-20, §8 AGI + §9 Batam SWRO + §10 Paket Elemen Season 2, approved as the standard):** keep our signature channel DNA (dark room `#0B0C09`, ivory `#F1EFE6`, lime `#C8F53C` + light-world beats `theme(true)` `#E7E4D8`, RNC intro, full-bleed documentary photos, `evidFull` block highlighter, WebGL2 Sentinel-2 3D maps, `tx/` hits, unique theme-born portal), AND weave **2–4 Season 2 elements per film** from `./pustaka/season2.js` (`stripAccordion`, `valueFlip`, `wordToSearchUI`, `kineticBento`, `kutipanLepas`, `gravityBlocks`, `dotMorph`, `kineticRing3D`, `slitScanText`, `metaballMerge`, `renderLumaSeam`, `render3DStudioBench`, `renderFoldWorld`) restyled to our palette so every chapter stays fresh and punches `burst ≥ 20%` (`references/standar-kasta-tinggi.md` §8–§10). Stairs/saklar/Anak Tangga portal remain RETIRED.
+
 - A dark room `#0B0C09`, ivory `#F1EFE6`, and **lime `#C8F53C` as the only accent**, one lime word per sentence
   (`markLine`), ink on lime.
 - Display serif/condensed for numbers, mono for labels and `srcTag`, italic serif for spoken sentences.

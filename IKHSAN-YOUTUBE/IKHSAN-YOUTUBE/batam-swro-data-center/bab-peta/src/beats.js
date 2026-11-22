@@ -1,0 +1,97 @@
+// Bab Peta · Empat Pertanyaan — times (VO seconds of take bsw_vo_ahmad_03, 26.56 s), hits, SFX, bed.
+// Strict JSON inside (tools/mix_chapter.py reads it too). Film time = VO time + VOFF. Anchors: "beat+-s" or absolute seconds. No curly braces in these comments.
+export default {
+  "VO": "03", "VOFF": 0.35, "END": 27.6, "TAIL": 0.90, "HITDB": -7,
+  "V": {
+    "supaya": 0.00,
+    "terang": 0.48,
+    "semua": 0.72,
+    "yuk": 1.48,
+    "pelan": 2.32,
+    "empat": 3.40,
+    "pertanyaan": 3.60,
+    "pertama": 4.72,
+    "cadangan": 6.00,
+    "air1": 6.44,
+    "batam": 6.68,
+    "tipis": 7.28,
+    "warga": 8.16,
+    "turun": 8.88,
+    "jalan": 9.32,
+    "kedua": 10.08,
+    "ruang": 11.24,
+    "komputer": 11.52,
+    "jutaan": 13.12,
+    "liter": 13.68,
+    "bersih": 14.28,
+    "ketiga": 14.96,
+    "carakerja": 16.56,
+    "pabrik": 17.16,
+    "enam": 17.52,
+    "ratus": 17.76,
+    "miliar": 18.16,
+    "memisahkan": 19.36,
+    "garam": 20.08,
+    "laut1": 20.72,
+    "keempat": 21.76,
+    "harga": 22.84,
+    "tersembunyi": 23.04,
+    "balik": 24.16,
+    "laut2": 24.60,
+    "disulap": 25.24,
+    "tawar": 25.92,
+    "overview": 26.10
+  },
+  "HITS": [
+    ["cvo1", "pertama", 0.72],
+    ["ddt1", "ketiga", 0.75],
+    ["stk1", "overview", 0.65]
+  ],
+  "BED": {
+    "file": "stok:mixkit-musik-vastness-184.mp3",
+    "ss": 0,
+    "rms": -30,
+    "duck": 0.55,
+    "fin": 1.8,
+    "fout": 2.2
+  },
+  "SFX": [
+    ["terang-0.1", "rise:0.7", -23, 0],
+    ["terang+0.02", "strike", -19, 0],
+    ["yuk", "slide", -22, 0],
+    ["pelan", "ticks:4:1.1", -24, 0],
+    ["empat", "thud", -17, 0],
+    ["pertanyaan", "pop", -20, 0.2],
+
+    ["pertama-0.35", "travel", -19, -0.3],
+    ["pertama+0.05", "card", -18, -0.2],
+    ["cadangan", "pop", -21, 0.3],
+    ["tipis", "drop", -19, 0.35],
+    ["warga", "ticks:5:0.6", -25, 0.3],
+    ["jalan", "click", -19, 0.3],
+
+    ["kedua-0.35", "whoosh:0.55", -19, 0.3],
+    ["kedua+0.05", "card", -18, 0.2],
+    ["komputer", "keys:8:0.6", -24, 0.3],
+    ["jutaan", "rise:0.6", -22, 0.35],
+    ["liter", "pop", -19, 0.35],
+
+    ["ketiga-0.55", "f:cinematic-swoosh-impact-sound:1.8", -15, 0],
+    ["ketiga", "thud", -17, -0.1],
+    ["ketiga+0.05", "card", -18, -0.2],
+    ["enam", "click", -19, 0.25],
+    ["miliar", "strike", -18, 0.25],
+    ["memisahkan", "swish", -20, 0.3],
+    ["garam", "drops:6:0.7", -23, 0.3],
+
+    ["keempat-0.45", "travel", -19, 0.3],
+    ["keempat-0.1", "card", -18, 0.2],
+    ["harga", "click", -19, 0.3],
+    ["tersembunyi", "thud", -18, 0.3],
+    ["disulap", "slide", -21, 0.2],
+
+    ["overview-0.35", "whoosh:0.5", -19, 0],
+    ["overview+0.05", "cards:4:0.45", -20, 0],
+    ["overview+1.50", "sub", -19, 0]
+  ]
+}

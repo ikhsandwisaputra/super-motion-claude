@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-a-technician-inserts-a-circuit-19226354.jpg",
+  "provider": "pexels",
+  "id": "19226354",
+  "kind": "image",
+  "title": "A technician inserts a circuit board into a server rack, illustrating technology and connectivity.",
+  "author": "panumas nikhomkhai",
+  "authorUrl": "https://www.pexels.com/@cookiecutter/",
+  "sourceUrl": "https://www.pexels.com/photo/engineer-fixing-core-swith-in-data-center-room-19226354/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: panumas nikhomkhai / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Pola: lorong/rak server, teknisi terlihat, tangan memasang modul. 3 teknisi di lorong, 9 tangan pasang papan sirkuit, 20 teknisi di rak, 12 tangan masukkan modul.",
+  "bytes": 311818,
+  "sha256": "d875b961325df5d485475e1e5b096afd41aeae5e1792f9538b7ab99b8f1fcd5f",
+  "fileUrl": "https://images.pexels.com/photos/19226354/pexels-photo-19226354.jpeg",
+  "query": "data center technician server rack aisle",
+  "retrieved": "2026-11-14T13:52:37.126Z"
+}

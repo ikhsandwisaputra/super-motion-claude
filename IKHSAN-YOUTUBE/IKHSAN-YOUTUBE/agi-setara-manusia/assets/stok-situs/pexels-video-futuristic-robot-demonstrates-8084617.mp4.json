@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-futuristic-robot-demonstrates-8084617.mp4",
+  "provider": "pexels",
+  "id": "8084617",
+  "kind": "video",
+  "title": "Futuristic robot demonstrates advanced movement in a studio setting.",
+  "author": "Pavel Danilyuk",
+  "authorUrl": "https://www.pexels.com/@pavel-danilyuk/",
+  "sourceUrl": "https://www.pexels.com/video/a-walking-robot-8084617/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Pavel Danilyuk / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "robot humanoid putih tanpa logo di latar gelap polos; robot berwajah mirip manusia",
+  "bytes": 11250725,
+  "sha256": "c56bd566dce4de2cff10f6d983f53c8267250df9c8924f25baf8973897005da4",
+  "fileUrl": "https://videos.pexels.com/video-files/8084617/8084617-hd_1920_1080_25fps.mp4",
+  "query": "humanoid robot walking",
+  "retrieved": "2026-11-15T19:35:24.831Z"
+}

@@ -1,0 +1,30 @@
+{
+  "file": "assets/grafik/grafik-rnd-persen-pdb.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Belanja riset: AS ±12 kali Indonesia",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia (2020)",
+      "nilai": "0,28",
+      "fakta": 1,
+      "klaim": "R&D AS 3,45% PDB (2023); Indonesia 0,28% PDB (2020) (World Bank WDI/UNESCO UIS) · . Rasio ±12 kali = hitungan sendiri (beda tahun, 3,45 / 0,28 = 12,3)."
+    },
+    {
+      "label": "Amerika Serikat (2023)",
+      "nilai": "3,45",
+      "fakta": 1,
+      "klaim": "R&D AS 3,45% PDB (2023); Indonesia 0,28% PDB (2020) (World Bank WDI/UNESCO UIS) · . Rasio ±12 kali = hitungan sendiri (beda tahun, 3,45 / 0,28 = 12,3)."
+    }
+  ],
+  "sumber": [
+    "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS"
+  ],
+  "sumberTeks": "Sumber: Bank Dunia (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+  "dibuat": "2026-11-13T15:33:14.396Z"
+}

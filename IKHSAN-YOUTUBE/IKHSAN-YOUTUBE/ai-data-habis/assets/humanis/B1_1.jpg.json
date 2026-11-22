@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/B1_1.jpg",
+  "provider": "wikimedia",
+  "id": "Warteg_pinggir_jalan.jpg",
+  "kind": "image",
+  "title": "Warteg pinggir jalan",
+  "author": "Taman Renyah",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warteg_pinggir_jalan.jpg",
+  "license": {
+    "name": "CC BY-SA 3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: Taman Renyah / Wikimedia Commons (CC BY-SA 3.0)",
+  "catatan": "Slot B1: Warteg pinggir jalan berspanduk biru, gerobak & pengunjung. CC BY-SA: hasil turunan foto ini (crop/grade) tetap di bawah BY-SA.",
+  "warning": "Orang biasa terlihat kecil",
+  "ukuranVarian": null,
+  "alasanCocok": "Warteg pinggir jalan berspanduk biru, gerobak & pengunjung",
+  "bytes": 575172,
+  "sha256": "3c1f50896b8dd132e68cd6372f030ac5b4291f0772daec7e541482e3fcfdd2c8",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:Warteg_pinggir_jalan.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

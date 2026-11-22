@@ -1,0 +1,43 @@
+{
+  "file": "assets/peta/rockstar-india-bengaluru-3d_gelap-z15.png",
+  "jenis": "peta",
+  "status": "aman",
+  "bolehUntuk": [
+    "ulasan",
+    "berita",
+    "edukasi",
+    "promosi"
+  ],
+  "sumber": "OpenFreeMap / OpenStreetMap",
+  "lisensi": "OpenFreeMap / OpenStreetMap (ODbL) · AWS Terrain",
+  "url": "https://www.google.com/maps/place/Whitefield,+Bengaluru,+Karnataka,+India/@12.9659012,77.742059,14z/data=!3m1!4b1!4m6!3m5!1s0x3bae11f35d0dfc83:0x30cfa512d80115f9!8m2!3d12.9698196!4d77.7499721!16zL20vMDJfcmM4?hl=id&entry=ttu&g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D",
+  "lokasi": "rockstar-india-bengaluru",
+  "tampilan": "3d_gelap",
+  "labelTampilan": "3D Miring · Gelap Editorial",
+  "lat": 12.9698196,
+  "lng": 77.7499721,
+  "zoom": 14.5,
+  "miring": 62,
+  "arah": 25,
+  "elevasi": 1.3,
+  "ukuran": "1920×1080",
+  "skala": "300 m",
+  "atribusi": "AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors",
+  "sumberTeks": "Sumber: AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026",
+  "catatan": "Peta 3D vektor data terbuka (OpenFreeMap / OpenStreetMap ODbL · AWS Terrain): boleh untuk edukasi, ulasan, berita, maupun promosi komersial selama atribusi OpenStreetMap tetap tampak di layar atau kredit.",
+  "geo": {
+    "proyeksi": "3d-perspektif",
+    "lat": 12.9698196,
+    "lng": 77.7499721,
+    "zoom": 14.5,
+    "miring": 62,
+    "arah": 25,
+    "elevasi": 1.3,
+    "w": 1920,
+    "h": 1080,
+    "lebarCss": 1280,
+    "tinggiCss": 720,
+    "scale": 1.5
+  },
+  "ditangkap": "2026-11-20T11:20:04.141Z"
+}

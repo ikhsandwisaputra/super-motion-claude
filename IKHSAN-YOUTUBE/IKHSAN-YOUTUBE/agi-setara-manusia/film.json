@@ -1,0 +1,59 @@
+{
+  "slug": "agi-setara-manusia",
+  "out": "agi-setara-manusia",
+  "versi": 1,
+  "vo": "audio/voiceover/agi_vo_ahmad_{n}",
+  "voice": {
+    "nama": "Ahmad",
+    "id": "d888tBvGmQT2u05J1xTv",
+    "model": "eleven_v4"
+  },
+  "bed": "stok:mixkit-musik-voxscape-571.mp3",
+  "score_intro": "audio/music/ivs_score_intro.mp3",
+  "score_off": 0.3,
+  "chapters": [
+    {
+      "dir": "intro",
+      "vo": "01",
+      "voff": 0.5,
+      "dur": 92.27,
+      "wav": "build/mix_full.wav"
+    },
+    {
+      "dir": "bab-peta",
+      "vo": "03"
+    },
+    {
+      "dir": "bab-1",
+      "vo": "04"
+    },
+    {
+      "dir": "bab-2",
+      "vo": "05"
+    },
+    {
+      "dir": "bab-3",
+      "vo": "06"
+    },
+    {
+      "dir": "bab-4",
+      "vo": "07"
+    },
+    {
+      "dir": "puncak",
+      "vo": "09"
+    },
+    {
+      "dir": "penutup",
+      "vo": "10"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "dir": "bab-5",
+      "vo": "08",
+      "kapan": "2026-11-17",
+      "alasan": "Ikhsan: bab Indonesia dibuang (kesan sponsor Sahabat-AI, Perpres sudah dibahas di video lain)"
+    }
+  ]
+}

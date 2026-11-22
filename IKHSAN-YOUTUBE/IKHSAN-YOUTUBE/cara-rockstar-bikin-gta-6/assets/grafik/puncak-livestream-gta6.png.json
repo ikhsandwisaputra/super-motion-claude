@@ -1,0 +1,56 @@
+{
+  "file": "assets/grafik/puncak-livestream-gta6.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Livestream Rilis GTA 6 Pecahkan Rekor 7,91 Juta Penonton",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "GTA 6 (Kick)",
+      "nilai": "1,50",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    },
+    {
+      "label": "Valorant (Rekor Rilis)",
+      "nilai": "1,74",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    },
+    {
+      "label": "League of Legends (Twitch)",
+      "nilai": "3,11",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    },
+    {
+      "label": "GTA 6 (YouTube)",
+      "nilai": "3,22",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    },
+    {
+      "label": "GTA 6 (Twitch)",
+      "nilai": "3,31",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    },
+    {
+      "label": "Total Lintas Platform GTA 6",
+      "nilai": "7,91",
+      "fakta": 12,
+      "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+    }
+  ],
+  "sumber": [
+    "https://streamscharts.com/news/gta-vi-breaks-streaming-launch-records-within-minutes-its-release",
+    "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/",
+    "https://www.polygon.com/gta-6-streaming-record-twitch-viewers-reviews/"
+  ],
+  "sumberTeks": "Sumber: streamscharts.com, variety.com, polygon.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:31.277Z"
+}

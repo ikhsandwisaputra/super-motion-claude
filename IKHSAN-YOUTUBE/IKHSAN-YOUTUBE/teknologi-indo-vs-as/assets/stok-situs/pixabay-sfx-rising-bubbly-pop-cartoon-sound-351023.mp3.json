@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-rising-bubbly-pop-cartoon-sound-351023.mp3",
+  "provider": "pixabay",
+  "id": "351023",
+  "kind": "sfx",
+  "title": "Rising bubbly pop cartoon sound effect",
+  "author": "Universfield",
+  "authorUrl": "https://pixabay.com/users/universfield-28281460/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-rising-bubbly-pop-351023/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Universfield / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "pop angka/counter naik, pendek",
+  "durasi": "PT1S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 34560,
+  "sha256": "71bfc8aacf566018f1a6cfa9ce6dfbabaca2aa44c717a14a5a0cecf21208d9d6",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2025/05/28/audio_b0a32665f5.mp3?filename=universfield-rising-bubbly-pop-351023.mp3",
+  "query": "number counter rising pop",
+  "retrieved": "2026-11-13T15:39:49.780Z"
+}

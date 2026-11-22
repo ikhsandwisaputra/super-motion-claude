@@ -18,3 +18,9 @@ my-ref/*WhatsApp*.zip
 # Python venv (Linux)
 .venv/
 __pycache__/
+
+# folder kerja video (2026-11-22): hanya teks/kode yang di-commit, lewat git add -f
+IKHSAN-YOUTUBE/
+aksa-sfx/
+new-sfx/
+*.bak-*

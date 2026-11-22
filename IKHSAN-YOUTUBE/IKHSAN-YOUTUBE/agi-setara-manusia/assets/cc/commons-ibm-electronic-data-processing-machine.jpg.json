@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-ibm-electronic-data-processing-machine.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto: NASA via Wikimedia Commons (domain publik)",
+  "license": {
+    "name": "Domain publik",
+    "url": null,
+    "attributionRequired": false,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "IBM Electronic Data Processing Machine - GPN-2000-001881",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg",
+  "credit": "Foto: NASA via Wikimedia Commons (domain publik)",
+  "bytes": 675096,
+  "sha256": "7059563c7542c6654606c9e2decb2de16ab1e350c5c78b627d5a122096d077a3",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg/1920px-IBM_Electronic_Data_Processing_Machine_-_GPN-2000-001881.jpg",
+  "query": "IBM 704 mainframe",
+  "alasanCocok": "Mainframe IBM 704 era 1950an, operator di konsol, hitam-putih, sama dengan R1 referensi, PD NASA",
+  "retrieved": "2026-11-15T20:04:37.184Z"
+}

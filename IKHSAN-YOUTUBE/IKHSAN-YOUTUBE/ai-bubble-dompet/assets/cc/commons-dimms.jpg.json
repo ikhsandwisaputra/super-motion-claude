@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-dimms.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto oleh The original uploader was Grendelkhan at English Wikipedia. via Wikimedia Commons dengan lisensi CC BY-SA 3.0",
+  "license": {
+    "name": "CC BY-SA 3.0",
+    "url": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "attributionRequired": true,
+    "commercial": true,
+    "shareAlike": true,
+    "noDerivatives": false
+  },
+  "catatan": "ShareAlike: kalau foto ini diubah (crop/filter/montase), hasil ubahannya wajib berlisensi CC BY-SA yang sama. Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": "ShareAlike",
+  "title": "DIMMs",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:DIMMs.jpg",
+  "credit": "Foto oleh The original uploader was Grendelkhan at English Wikipedia. via Wikimedia Commons dengan lisensi CC BY-SA 3.0",
+  "bytes": 36682,
+  "sha256": "9a50e6d2e9169d3d597e1849c8e0c78dbbdbe980137d27ba65d117890454d1c8",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bc/DIMMs.jpg",
+  "query": "DRAM memory module RAM wafer",
+  "alasanCocok": "#2 modul DIMM depan-belakang seperti R2 (modul RAM beserta chip); #1 foto die DRAM (chip memori close-up), pola 'chip memori close-up'",
+  "retrieved": "2026-11-14T06:33:15.001Z"
+}

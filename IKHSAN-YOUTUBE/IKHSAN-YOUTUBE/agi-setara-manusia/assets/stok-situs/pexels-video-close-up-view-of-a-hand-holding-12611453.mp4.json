@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-close-up-view-of-a-hand-holding-12611453.mp4",
+  "provider": "pexels",
+  "id": "12611453",
+  "kind": "video",
+  "title": "Close-up view of a hand holding a computer CPU processor.",
+  "author": "Sasha Poberailo",
+  "authorUrl": "https://www.pexels.com/@sasha-poberailo-113008664/",
+  "sourceUrl": "https://www.pexels.com/video/hand-holding-a-computer-processor-12611453/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Sasha Poberailo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "chip/prosesor/PCB close-up tanpa logo merek terbaca",
+  "bytes": 2803458,
+  "sha256": "e1a88c7b01401f08872d6ce342ba8fed2683914e57b193c794e774cf6fe608b6",
+  "fileUrl": "https://videos.pexels.com/video-files/12611453/12611453-hd_1920_1080_25fps.mp4",
+  "query": "computer chip circuit board GPU close up",
+  "retrieved": "2026-11-15T19:41:11.722Z"
+}

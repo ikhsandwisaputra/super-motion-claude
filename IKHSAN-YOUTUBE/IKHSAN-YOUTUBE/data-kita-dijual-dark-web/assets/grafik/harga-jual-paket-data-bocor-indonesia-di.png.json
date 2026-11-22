@@ -1,0 +1,57 @@
+{
+  "file": "assets/grafik/harga-jual-paket-data-bocor-indonesia-di.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Harga Jual Paket Data Bocor Indonesia di Dark Web",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "1,3 Miliar SIM Card (2022)",
+      "nilai": 745,
+      "fakta": 1,
+      "klaim": "Sebanyak 1,3 miliar (1.304.401.300 baris, berukuran 87 GB) data registrasi kartu SIM prabayar warga Indonesia (memuat NIK, nomor telepon, nama operator, dan tanggal registrasi) dijual oleh peretas `Bjorka` di Breached Forums pada akhir Agustus–awal September 2022 seharga US\\$50.000 atau sekitar Rp70"
+    },
+    {
+      "label": "4,75 Juta ASN BKN (2024)",
+      "nilai": 160,
+      "fakta": 5,
+      "klaim": "Sebanyak 6 juta (hingga 6,6 juta) data Nomor Pokok Wajib Pajak (NPWP) yang memuat NIK, NPWP, alamat, nomor ponsel, dan email (termasuk sampel data Presiden Joko Widodo, Gibran Rakabuming Raka, Kaesang Pangarep, dan sejumlah menteri) dijual oleh `Bjorka` di BreachForums pada 18 September 2024 seharga"
+    },
+    {
+      "label": "6 Juta Data NPWP (2024)",
+      "nilai": 150,
+      "fakta": 5,
+      "klaim": "Sebanyak 6 juta (hingga 6,6 juta) data Nomor Pokok Wajib Pajak (NPWP) yang memuat NIK, NPWP, alamat, nomor ponsel, dan email (termasuk sampel data Presiden Joko Widodo, Gibran Rakabuming Raka, Kaesang Pangarep, dan sejumlah menteri) dijual oleh `Bjorka` di BreachForums pada 18 September 2024 seharga"
+    },
+    {
+      "label": "279 Juta Data BPJS (2021)",
+      "nilai": 86,
+      "fakta": 0,
+      "klaim": "Sebanyak 279 juta (atau 270+ juta) data penduduk Indonesia yang identik dengan data peserta BPJS Kesehatan ditawarkan oleh akun `Kotz` di RaidForums sejak 12 Mei 2021 dan berhasil dibeli seharga 0,15 Bitcoin (sekitar Rp86 juta pada kurs Mei 2021 atau Rp133.050.000 pada kurs 26 Oktober 2021), sehingg"
+    },
+    {
+      "label": "91 Juta Akun Tokopedia (2020)",
+      "nilai": 75,
+      "fakta": 2,
+      "klaim": "Sebanyak 91 juta data akun pengguna Tokopedia dijual di pasar gelap *dark web* Empire Market pada Mei 2020 seharga US\\$5.000 (sekitar Rp70 juta–Rp75 juta, atau ~Rp0,82 per akun), lalu pada Juli 2020 dibagikan di RaidForums hingga dapat diunduh hanya dengan 8 kredit forum (dari deposit minimal 8 Euro"
+    }
+  ],
+  "sumber": [
+    "https://tekno.kompas.com/read/2022/09/01/15150097/data-13-miliar-sim-card-indonesia-seharga-bitcoin-rp-745-juta",
+    "https://www.cnbcindonesia.com/tech/20220902063331-37-368651/13-miliar-data-kartu-sim-ri-diduga-bocor-siapa-yang-salah",
+    "https://naval-csirt.tnial.mil.id/kebocoran-13-miliar-data-pengguna-sim-card-berisi-nik-dan-nama-operator-di-indonesia/",
+    "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21",
+    "https://news.detik.com/berita/d-7548254/viral-bjorka-bocorkan-6-juta-npwp-termasuk-jokowi-ini-kata-menkeu",
+    "https://www.kompas.id/artikel/peretas-mengobral-data-warga",
+    "https://www.cnnindonesia.com/teknologi/20210521160933-185-645388/penjual-data-bocor-bpjs-minta-tebusan-bitcoin",
+    "https://menpan.go.id/posts/data-bpjs-kesehatan-diduga-bocor-menteri-tjahjo-dukung-kemkominfo-usut-tuntas",
+    "https://bkpsdm.demakkab.go.id/2020/07/bahaya-kebocoran-data-tokopedia-sentuh.html",
+    "https://interaktif.kompas.id/baca/awas-penjahat-siber/"
+  ],
+  "sumberTeks": "Sumber: Kompas.com, CNBC Indonesia, naval-csirt.tnial.mil.id, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-kebocoran-data-indonesia-dark-web.md",
+  "dibuat": "2026-11-20T07:43:05.711Z"
+}

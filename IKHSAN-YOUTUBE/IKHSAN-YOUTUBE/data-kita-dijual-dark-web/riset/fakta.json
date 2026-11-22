@@ -1,0 +1,404 @@
+{
+ "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-kebocoran-data-indonesia-dark-web.md",
+ "diverifikasi": "2026-11-20T07:19:40.154Z",
+ "fakta": [
+  {
+   "klaim": "Sebanyak 279 juta (atau 270+ juta) data penduduk Indonesia yang identik dengan data peserta BPJS Kesehatan ditawarkan oleh akun `Kotz` di RaidForums sejak 12 Mei 2021 dan berhasil dibeli seharga 0,15 Bitcoin (sekitar Rp86 juta pada kurs Mei 2021 atau Rp133.050.000 pada kurs 26 Oktober 2021), sehingg",
+   "sumber": [
+    "https://www.kompas.id/artikel/peretas-mengobral-data-warga",
+    "https://www.cnnindonesia.com/teknologi/20210521160933-185-645388/penjual-data-bocor-bpjs-minta-tebusan-bitcoin",
+    "https://menpan.go.id/posts/data-bpjs-kesehatan-diduga-bocor-menteri-tjahjo-dukung-kemkominfo-usut-tuntas"
+   ],
+   "kutipan": [
+    {
+     "teks": "Artinya, 1 data warga (dari 270 juta data) yang dibeli Joe hanya senilai Rp 0,49.",
+     "url": "https://www.kompas.id/artikel/peretas-mengobral-data-warga"
+    },
+    {
+     "teks": "Dia menyampaikan data sebanyak itu hanya dijual seharga 0,15 Bitcoin atau sekitar Rp86 juta (kurs Rp573.102.000).",
+     "url": "https://www.cnnindonesia.com/teknologi/20210521160933-185-645388/penjual-data-bocor-bpjs-minta-tebusan-bitcoin"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 37
+  },
+  {
+   "klaim": "Sebanyak 1,3 miliar (1.304.401.300 baris, berukuran 87 GB) data registrasi kartu SIM prabayar warga Indonesia (memuat NIK, nomor telepon, nama operator, dan tanggal registrasi) dijual oleh peretas `Bjorka` di Breached Forums pada akhir Agustus–awal September 2022 seharga US\\$50.000 atau sekitar Rp70",
+   "sumber": [
+    "https://tekno.kompas.com/read/2022/09/01/15150097/data-13-miliar-sim-card-indonesia-seharga-bitcoin-rp-745-juta",
+    "https://www.cnbcindonesia.com/tech/20220902063331-37-368651/13-miliar-data-kartu-sim-ri-diduga-bocor-siapa-yang-salah",
+    "https://naval-csirt.tnial.mil.id/kebocoran-13-miliar-data-pengguna-sim-card-berisi-nik-dan-nama-operator-di-indonesia/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Tak hanya dibagikan, 1,3 miliar data SIM card HP itu juga lantas dijajakan atau dijual di Breached Forums seharga 50.000 dolar AS (sekitar Rp 745 juta).",
+     "url": "https://tekno.kompas.com/read/2022/09/01/15150097/data-13-miliar-sim-card-indonesia-seharga-bitcoin-rp-745-juta"
+    },
+    {
+     "teks": "Penjual juga mencantumkan harga sebesar 50.000 dollar AS atau sekitar 700 juta rupiah dan transaksi hanya menggunakan mata uang kripto",
+     "url": "https://www.cnbcindonesia.com/tech/20220902063331-37-368651/13-miliar-data-kartu-sim-ri-diduga-bocor-siapa-yang-salah"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 41
+  },
+  {
+   "klaim": "Sebanyak 91 juta data akun pengguna Tokopedia dijual di pasar gelap *dark web* Empire Market pada Mei 2020 seharga US\\$5.000 (sekitar Rp70 juta–Rp75 juta, atau ~Rp0,82 per akun), lalu pada Juli 2020 dibagikan di RaidForums hingga dapat diunduh hanya dengan 8 kredit forum (dari deposit minimal 8 Euro",
+   "sumber": [
+    "https://bkpsdm.demakkab.go.id/2020/07/bahaya-kebocoran-data-tokopedia-sentuh.html",
+    "https://interaktif.kompas.id/baca/awas-penjahat-siber/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Data Tokopedia diperjual belikan seharga U$D 5.000, atau sekisar Rp70 juta. Sekarang, itu semua dapat di-download secara bebas.",
+     "url": "https://bkpsdm.demakkab.go.id/2020/07/bahaya-kebocoran-data-tokopedia-sentuh.html"
+    },
+    {
+     "teks": "Cukup dengan memberikan uang sebesar 5.000 dollar AS atau setara Rp 75 juta kepada akun bernama ShinyHunters di situs e-dagang dark web Empire Market",
+     "url": "https://interaktif.kompas.id/baca/awas-penjahat-siber/"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 45
+  },
+  {
+   "klaim": "Sebanyak 34,9 juta (34.900.867 baris, berukuran 4 GB tidak terkompresi) data paspor warga Indonesia (berisi nama lengkap, nomor paspor, NIKIM, jenis kelamin, tanggal lahir, dan masa berlaku) dijual oleh `Bjorka` pada 5 Juli 2023 seharga US\\$10.000 atau sekitar Rp150 juta (~Rp4,30 per data paspor) (B",
+   "sumber": [
+    "https://www.bbc.com/indonesia/articles/c9e7e9grjmko",
+    "https://kumparan.com/kumparantech/kata-kominfo-soal-klaim-hacker-bjorka-curi-34-juta-data-paspor-ri-20joxowvXLf"
+   ],
+   "kutipan": [
+    {
+     "teks": "Bjorka mengaku punya total 34.900.867 nama pengguna paspor yang ia banderol 10.000 USD atau sekitar Rp150 juta.",
+     "url": "https://www.bbc.com/indonesia/articles/c9e7e9grjmko"
+    },
+    {
+     "teks": "File lengkap dengan besar file 4 GB dalam kondisi tidak terkompresi tersebut ditawarkan oleh Bjorka dengan harga 10.000 USD atau sekitar 150 juta rupiah",
+     "url": "https://kumparan.com/kumparantech/kata-kominfo-soal-klaim-hacker-bjorka-curi-34-juta-data-paspor-ri-20joxowvXLf"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 49
+  },
+  {
+   "klaim": "Sebanyak 204.807.203 data unik Daftar Pemilih Tetap (DPT) Pemilu 2024 KPU (hasil penyaringan dari 252 juta data, lengkap dengan NIK, nomor KK, nomor KTP/paspor, alamat, dan TPS) dijual oleh peretas `Jimbo` di BreachForums pada akhir November 2023 seharga US\\$74.000 (2 Bitcoin) atau sekitar Rp1,2 mil",
+   "sumber": [
+    "https://www.liputan6.com/tekno/read/5468616/7-fakta-kasus-dugaan-204-juta-data-kpu-bocor-dan-dijual-di-internet",
+    "https://www.cnbcindonesia.com/tech/20231129062825-37-492819/kpu-dibobol-hacker-data-204-juta-warga-ri-dijual-di-internet",
+    "https://kumparan.com/kumparantech/204-juta-data-pemilih-yang-diduga-bocor-di-forum-hacker-dijual-rp-1-2-m-21fdNTHVk4I"
+   ],
+   "kutipan": [
+    {
+     "teks": "Untuk mendapatkan keuntungan finansial, Jimbo menawarkan data yang berhasil dia curi dengan harga USD 74.000 atau sekitar Rp 1,2 miliar.",
+     "url": "https://www.liputan6.com/tekno/read/5468616/7-fakta-kasus-dugaan-204-juta-data-kpu-bocor-dan-dijual-di-internet"
+    },
+    {
+     "teks": "Terdapat lebih dari 200 juta yang dijual Jimbo. Akun itu menjualnya dengan harga US$74 ribu atau sekitar Rp 1,2 miliar.",
+     "url": "https://www.cnbcindonesia.com/tech/20231129062825-37-492819/kpu-dibobol-hacker-data-204-juta-warga-ri-dijual-di-internet"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 53
+  },
+  {
+   "klaim": "Sebanyak 6 juta (hingga 6,6 juta) data Nomor Pokok Wajib Pajak (NPWP) yang memuat NIK, NPWP, alamat, nomor ponsel, dan email (termasuk sampel data Presiden Joko Widodo, Gibran Rakabuming Raka, Kaesang Pangarep, dan sejumlah menteri) dijual oleh `Bjorka` di BreachForums pada 18 September 2024 seharga",
+   "sumber": [
+    "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21",
+    "https://news.detik.com/berita/d-7548254/viral-bjorka-bocorkan-6-juta-npwp-termasuk-jokowi-ini-kata-menkeu"
+   ],
+   "kutipan": [
+    {
+     "teks": "data-data ASN juga diretas dan ditawarkan hacker di BreachForums, sebuah forum jual-beli hasil peretasan, seharga US$ 10 ribu atau sekitar Rp 160 juta.",
+     "url": "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21"
+    },
+    {
+     "teks": "Teguh mengatakan ada 6 juta data NPWP yang diperjualbelikan dengan harga sekitar Rp 150 juta.",
+     "url": "https://news.detik.com/berita/d-7548254/viral-bjorka-bocorkan-6-juta-npwp-termasuk-jokowi-ini-kata-menkeu"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 57
+  },
+  {
+   "klaim": "Untuk data finansial dan akses jaringan korporasi bernilai tinggi, riset Kaspersky Digital Footprint Intelligence mencatat 2,3 juta kartu bank bocor di *dark web* dari hampir 26 juta perangkat yang terinfeksi *infostealer* (2023–2024), sedangkan harga akses awal (*initial access*) ke infrastruktur p",
+   "sumber": [
+    "https://www.kaspersky.com/about/press-releases/kaspersky-stealer-malware-leaked-over-2-million-bank-cards",
+    "https://investor.id/it-and-telecommunication/298064/data-perusahaan-di-dark-web-dibanderol-hingga-rp-60-juta"
+   ],
+   "kutipan": [
+    {
+     "teks": "Kaspersky Digital Footprint Intelligence estimates that 2.3 million bank cards were leaked on the dark web, based on an analysis of data-stealing malware log files",
+     "url": "https://www.kaspersky.com/about/press-releases/kaspersky-stealer-malware-leaked-over-2-million-bank-cards"
+    },
+    {
+     "teks": "Peneliti Kaspersky melaporkan, data akses untuk infrastruktur perusahaan besar biasanya berkisar US$ 2000-USS4000 (IDR 30-60 juta).",
+     "url": "https://investor.id/it-and-telecommunication/298064/data-perusahaan-di-dark-web-dibanderol-hingga-rp-60-juta"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 61
+  },
+  {
+   "klaim": "Indonesia menempati peringkat ke-1 tertinggi di Asia Tenggara dalam jumlah akun yang mengalami kebocoran data sepanjang Semester I 2026 (Januari–Juni 2026) dengan sekitar 1,22 juta akun terdampak (915.746 akun pada Kuartal I dan 300.416 akun pada Kuartal II 2026), melampaui Filipina (841.122 akun) d",
+   "sumber": [
+    "https://csirt.tabalongkab.go.id/posts/kebocoran-data-indonesia-tertinggi-di-asia-tenggara-pada-semester-i-2026",
+    "https://surfshark.com/research/data-breach-monitoring"
+   ],
+   "kutipan": [
+    {
+     "teks": "Data perusahaan keamanan siber Surfshark yang diolah Databoks Katadata menunjukkan sekitar 1,22 juta akun asal Indonesia terdampak kebocoran data pada Januari hingga Juni 2026.",
+     "url": "https://csirt.tabalongkab.go.id/posts/kebocoran-data-indonesia-tertinggi-di-asia-tenggara-pada-semester-i-2026"
+    },
+    {
+     "teks": "Rinciannya, 915.746 akun bocor pada kuartal I dan 300.416 akun pada kuartal II 2026.",
+     "url": "https://csirt.tabalongkab.go.id/posts/kebocoran-data-indonesia-tertinggi-di-asia-tenggara-pada-semester-i-2026"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 70
+  },
+  {
+   "klaim": "Pada periode akumulasi Januari 2020–Januari 2024, Surfshark mencatat Indonesia berada di peringkat ke-8 negara dengan kebocoran data terbesar di dunia dengan estimasi 94,22 juta akun digital yang bocor (dari total 3,96 miliar akun bocor di 250 negara pada periode tersebut, dan 24,0 miliar akun bocor",
+   "sumber": [
+    "https://databoks.katadata.co.id/infografik/2024/07/02/indonesia-masuk-10-negara-dengan-kebocoran-data-terbesar",
+    "https://sis.binus.ac.id/2025/03/04/kebocoran-data-salah-rakyat/",
+    "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21",
+    "https://surfshark.com/research/data-breach-monitoring"
+   ],
+   "kutipan": [
+    {
+     "teks": "Dalam periode tersebut Indonesia menjadi negara dengan kebocoran data terbanyak ke-8 di dunia, dengan estimasi 94,22 juta akun bocor.",
+     "url": "https://databoks.katadata.co.id/infografik/2024/07/02/indonesia-masuk-10-negara-dengan-kebocoran-data-terbesar"
+    },
+    {
+     "teks": "Since 2004, a total of 24.0B accounts have been breached, and approximately 7.9B of them have unique email addresses.",
+     "url": "https://surfshark.com/research/data-breach-monitoring"
+    }
+   ],
+   "primer": true,
+   "independen": 4,
+   "baris": 74
+  },
+  {
+   "klaim": "Kebocoran data di Indonesia tidak hanya menyasar warga sipil, tetapi juga merambah lembaga pertahanan, kepolisian, dan layanan strategis, termasuk peretasan terhadap INAFIS Polri dan Badan Intelijen Strategis (BAIS) TNI oleh peretas `MoonzHaxor` di BreachForums pada 2024, serta klaim penjualan 3,2 m",
+   "sumber": [
+    "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21",
+    "https://www.bbc.com/indonesia/articles/c9e7e9grjmko"
+   ],
+   "kutipan": [
+    {
+     "teks": "Kejahatan siber juga menimpa Inafis Polri hingga Badan Intelijen Strategis (BAIS) TNI yang menjadi korban hacker bernama MoonzHaxor di situs BreachForums.",
+     "url": "https://jdih.dpr.go.id/berita/detail/id/51640/t/Kebocoran+Data+Kembali+Terjadi%2C+Sukamta%3A+Ini+Alarm+Keras+Buat+Pemerintah%21"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 78
+  },
+  {
+   "klaim": "Penyimpanan data pribadi tanpa enkripsi (*plaintext*) menjadi salah satu kelemahan mendasar; dalam kasus 91 juta akun Tokopedia, hanya kata sandi yang dienkripsi, sementara nama lengkap, nomor ponsel, dan informasi pribadi lainnya terekam secara terbuka (*plaintext*) (Kompas.id, 5 Juni 2020; BKPSDM",
+   "sumber": [
+    "https://interaktif.kompas.id/baca/awas-penjahat-siber/",
+    "https://bkpsdm.demakkab.go.id/2020/07/bahaya-kebocoran-data-tokopedia-sentuh.html"
+   ],
+   "kutipan": [
+    {
+     "teks": "Data pribadi lainnya, seperti nama lengkap, nomor ponsel dan lain-lain tidak dilindungi sama sekali; dibiarkan terekam secara terbuka (plaintext).",
+     "url": "https://interaktif.kompas.id/baca/awas-penjahat-siber/"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 83
+  },
+  {
+   "klaim": "Pembobolan basis data pemerintah kerap terjadi melalui pencurian akun berkewenangan Admin (*role Admin*) menggunakan *phishing*, rekayasa sosial (*social engineering*), atau *malware*, sebagaimana terindikasi dari tangkapan layar *dashboard* internal `sidalih.kpu.go.id` pada kasus bocornya 204,8 jut",
+   "sumber": [
+    "https://www.cnbcindonesia.com/tech/20231129062825-37-492819/kpu-dibobol-hacker-data-204-juta-warga-ri-dijual-di-internet",
+    "https://kumparan.com/kumparantech/204-juta-data-pemilih-yang-diduga-bocor-di-forum-hacker-dijual-rp-1-2-m-21fdNTHVk4I",
+    "https://www.liputan6.com/tekno/read/5468616/7-fakta-kasus-dugaan-204-juta-data-kpu-bocor-dan-dijual-di-internet"
+   ],
+   "kutipan": [
+    {
+     "teks": "Pratama mengatakan bahwa kemungkinan besar, Jimbo mendapat akses login dengan role admin KPU. Role tersebut didapat dari domain sidalih.kpu.go.id dengan menggunakan metode phising, social engineering atau melalui malware.",
+     "url": "https://kumparan.com/kumparantech/204-juta-data-pemilih-yang-diduga-bocor-di-forum-hacker-dijual-rp-1-2-m-21fdNTHVk4I"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 86
+  },
+  {
+   "klaim": "Ledakan *malware infostealer* (pencuri kredensial, *cookies*, dan token sesi) menjadi pemasok utama log kredensial di *dark web*: Kaspersky mencatat deteksi *infostealer* global naik 21% pada 2023–2024 dengan hampir 26 juta perangkat terinfeksi (membocorkan 2,3 juta kartu bank), dan analisis terhada",
+   "sumber": [
+    "https://www.kaspersky.com/about/press-releases/kaspersky-35-of-infostealer-infections-begin-with-users-running-files-directly-from-temporary-folders",
+    "https://www.kaspersky.com/about/press-releases/kaspersky-stealer-malware-leaked-over-2-million-bank-cards",
+    "https://www.cnnindonesia.com/teknologi/20250623133033-192-1242867/pakar-bicara-soal-16-miliar-password-bocor-duga-ada-duplikasi-data"
+   ],
+   "kutipan": [
+    {
+     "teks": "New research by Kaspersky Digital Footprint (DFI) has discovered that more than one-third of infostealer infections start when users run files directly from temporary browser folders",
+     "url": "https://www.kaspersky.com/about/press-releases/kaspersky-35-of-infostealer-infections-begin-with-users-running-files-directly-from-temporary-folders"
+    },
+    {
+     "teks": "Data Kaspersky menunjukkan peningkatan 21 persen dalam deteksi serangan infostealers secara global dari 2023 hingga 2024.",
+     "url": "https://www.cnnindonesia.com/teknologi/20250623133033-192-1242867/pakar-bicara-soal-16-miliar-password-bocor-duga-ada-duplikasi-data"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 89
+  },
+  {
+   "klaim": "Hasil analisis forensik sementara BSSN mengungkap kelumpuhan Pusat Data Nasional Sementara (PDNS) 2 Surabaya akibat ransomware *Brain Cipher* (pengembangan terbaru *LockBit 3.0*) diawali oleh upaya penonaktifan fitur keamanan *Windows Defender* mulai 17 Juni 2024 pukul 23.15 WIB, disusul instalasi b",
+   "sumber": [
+    "https://www.cnnindonesia.com/teknologi/20240626004744-192-1114133/kronologi-peretasan-pdns-diawali-pembobolan-windows-defender",
+    "https://www.komdigi.go.id/berita/siaran-pers/detail/siaran-pers-tentang-pemulihan-pdns-2-beberapa-layanan-publik-berangsur-pulih"
+   ],
+   "kutipan": [
+    {
+     "teks": "Hasil Analisis Forensik Sementara menemukan adanya upaya penonaktifkan fitur keamanan Windows Defender mulai 17 Juni 2024 pukul 23.15 WIB.",
+     "url": "https://www.cnnindonesia.com/teknologi/20240626004744-192-1114133/kronologi-peretasan-pdns-diawali-pembobolan-windows-defender"
+    },
+    {
+     "teks": "Diketahui tanggal 20 Juni 2024, pukul 00.55 Windows Defender mengalami crash dan tidak bisa beroperasi",
+     "url": "https://www.cnnindonesia.com/teknologi/20240626004744-192-1114133/kronologi-peretasan-pdns-diawali-pembobolan-windows-defender"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 93
+  },
+  {
+   "klaim": "Dalam Rapat Kerja bersama Komisi I DPR RI pada 27 Juni 2024, Kepala BSSN Hinsa Siburian mengungkap bahwa akar fatal lumpuhnya PDNS 2 Surabaya adalah masalah tata kelola dan tidak dipatuhinya Peraturan BSSN Nomor 4 Tahun 2021 karena hanya 2 persen data di PDNS 2 Surabaya yang di-*backup* ke fasilitas",
+   "sumber": [
+    "https://news.detik.com/berita/d-7411948/kepala-bssn-ungkap-hanya-2-data-terserang-ransomware-yang-ter-backup",
+    "https://tekno.kompas.com/read/2024/06/28/11300067/kepala-bssn--hanya-2-persen-data-di-pdns-2-surabaya-yang-di-backup-"
+   ],
+   "kutipan": [
+    {
+     "teks": "Hinsa mengungkap hanya 2 persen data di PDNS yang di-backup oleh Kemenkominfo.",
+     "url": "https://news.detik.com/berita/d-7411948/kepala-bssn-ungkap-hanya-2-data-terserang-ransomware-yang-ter-backup"
+    },
+    {
+     "teks": "Ini sudah ktia sampaikan dan memang kami lihat secara umum, mohon maaf Pak Menteri, permasalahan utama adalah tata kelola ini hasil pengecekan kita dan tidak adanya backup",
+     "url": "https://news.detik.com/berita/d-7411948/kepala-bssn-ungkap-hanya-2-data-terserang-ransomware-yang-ter-backup"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 97
+  },
+  {
+   "klaim": "Serangan ransomware *Brain Cipher* di PDNS 2 Surabaya sejak 20 Juni 2024 melumpuhkan sistem layanan 282 instansi (*tenant*) pemerintah pusat dan daerah dengan tuntutan tebusan US\\$8 juta (sekitar Rp131 miliar); pemerintah tidak mampu memulihkan data yang terkunci tanpa *backup* hingga akhirnya kelom",
+   "sumber": [
+    "https://www.komdigi.go.id/berita/siaran-pers/detail/siaran-pers-tentang-pemulihan-pdns-2-beberapa-layanan-publik-berangsur-pulih",
+    "https://www.cnnindonesia.com/teknologi/20240705142613-192-1117995/update-kasus-pdns-2-brain-cipher-minta-maaf-dirjen-aptika-mundur",
+    "https://sis.binus.ac.id/2025/03/04/kebocoran-data-salah-rakyat/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Setelah terjadi gangguan di PDNS 2 Surabaya akibat serangan Ransomware Brain Cipher, terdapat 282 tenant yang terdampak.",
+     "url": "https://www.komdigi.go.id/berita/siaran-pers/detail/siaran-pers-tentang-pemulihan-pdns-2-beberapa-layanan-publik-berangsur-pulih"
+    },
+    {
+     "teks": "Ransomware gang Brain Cipher menepati janjinya dengan memberikan secara gratis dekripsi data yang dikunci ransomware.",
+     "url": "https://www.cnnindonesia.com/teknologi/20240705142613-192-1117995/update-kasus-pdns-2-brain-cipher-minta-maaf-dirjen-aptika-mundur"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 103
+  },
+  {
+   "klaim": "Buntut dari kegagalan penanganan teknis PDNS 2 Surabaya, Direktur Jenderal Aplikasi Informatika (Dirjen Aptika) Kemenkominfo Semuel Abrijani Pangerapan mengumumkan pengunduran dirinya pada Kamis, 4 Juli 2024 (setelah mengajukan secara lisan per 1 Juli 2024) sebagai bentuk tanggung jawab moral (ANTAR",
+   "sumber": [
+    "https://jogja.antaranews.com/berita/699300/dirjen-aptika-kominfo-mengundurkan-diri-sebagai-bentuk-tanggung-jawab-gangguan-pdns-2",
+    "https://www.cnnindonesia.com/teknologi/20240705142613-192-1117995/update-kasus-pdns-2-brain-cipher-minta-maaf-dirjen-aptika-mundur"
+   ],
+   "kutipan": [
+    {
+     "teks": "Direktur Jenderal Aplikasi Informatika Kementerian Komunikasi dan Informatika Semuel Abrijani Pangerapan mengundurkan diri sebagai bentuk tanggung jawab moral atas terjadinya gangguan siber terhadap Pusat Data Nasional Sementara (PDNS) 2 di Surabaya.",
+     "url": "https://jogja.antaranews.com/berita/699300/dirjen-aptika-kominfo-mengundurkan-diri-sebagai-bentuk-tanggung-jawab-gangguan-pdns-2"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 107
+  },
+  {
+   "klaim": "Dalam berbagai insiden kebocoran besar, instansi pemerintah cenderung saling lempar tanggung jawab: pada kasus 1,3 miliar data SIM card (September 2022), Kemenkominfo menyatakan data disimpan oleh masing-masing operator seluler dan meminta operator bertanggung jawab, sementara Ditjen Dukcapil memban",
+   "sumber": [
+    "https://www.cnbcindonesia.com/tech/20220902063331-37-368651/13-miliar-data-kartu-sim-ri-diduga-bocor-siapa-yang-salah",
+    "https://naval-csirt.tnial.mil.id/kebocoran-13-miliar-data-pengguna-sim-card-berisi-nik-dan-nama-operator-di-indonesia/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Data registrasi Sim Card tidak di Dukcapil. Tapi di provider masing-masing",
+     "url": "https://www.cnbcindonesia.com/tech/20220902063331-37-368651/13-miliar-data-kartu-sim-ri-diduga-bocor-siapa-yang-salah"
+    },
+    {
+     "teks": "Direktur Jenderal Aplikasi Informatika Kemenkominfo, Semuel Abrijani Pangerapan menjelaskan operator seluler merupakan pihak yang menyimpan data penggunanya.",
+     "url": "https://naval-csirt.tnial.mil.id/kebocoran-13-miliar-data-pengguna-sim-card-berisi-nik-dan-nama-operator-di-indonesia/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 110
+  },
+  {
+   "klaim": "Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP) yang ditetapkan dan diundangkan pada 17 Oktober 2022 (LN 2022 No. 196, TLN No. 6820) mewajibkan Pengendali Data Pribadi (termasuk Badan Publik eksekutif, legislatif, dan yudikatif) untuk menyampaikan pemberitahuan tertulis p",
+   "sumber": [
+    "https://peraturan.bpk.go.id/Details/229798/uu-no-27-tahun-2022",
+    "https://peraturan.bpk.go.id/Download/224884/UU%20Nomor%2027%20Tahun%202022.pdf",
+    "https://www.cnbcindonesia.com/tech/20260916120242-37-768329/lembaga-perlindungan-data-belum-ada-begini-nasib-data-warga-ri"
+   ],
+   "kutipan": [
+    {
+     "teks": "Pelindungan Data Pribadi adalah keseluruhan upaya untuk melindungi Data Pribadi dalam rangkaian pemrosesan Data Pribadi guna menjamin hak konstitusional subjek Data Pribadi.",
+     "url": "https://peraturan.bpk.go.id/Details/229798/uu-no-27-tahun-2022"
+    },
+    {
+     "teks": "tinggi 2 (dua) persen dari perrdapatan tahunan atau . penerimaan tahunan terhadap variabel pelanggaran.",
+     "url": "https://peraturan.bpk.go.id/Download/224884/UU%20Nomor%2027%20Tahun%202022.pdf"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 114
+  },
+  {
+   "klaim": "Pemerintah baru mengundangkan Peraturan Pemerintah (PP) Nomor 33 Tahun 2026 tentang Peraturan Pelaksanaan UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi pada 16 Juli 2026 (Lembaran Negara Tahun 2026 Nomor 88) yang mulai berlaku 6 bulan kemudian pada 16 Januari 2027; namun hingga September–N",
+   "sumber": [
+    "https://www.cnbcindonesia.com/tech/20260916120242-37-768329/lembaga-perlindungan-data-belum-ada-begini-nasib-data-warga-ri",
+    "https://www.elsam.or.id/kebebasan-dasar/otoritas-pdp-belum-terbentuk--siapa-awasi-kebocoran-data-pribadi-",
+    "https://fwp.co.id/pp-33-tahun-2026-pelindungan-data-pribadi/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Pelindungan data pribadi di Indonesia masih menghadapi persoalan mendasar karena lembaga yang bertugas mengawasi pelaksanaan Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (UU PDP) belum juga terbentuk sepenuhnya.",
+     "url": "https://www.cnbcindonesia.com/tech/20260916120242-37-768329/lembaga-perlindungan-data-belum-ada-begini-nasib-data-warga-ri"
+    },
+    {
+     "teks": "Lembaga otoritas pelindungan data pribadi (PDP) belum terbentuk, padahal keberadaannya penting untuk memperkuat pengawasan dan penanganan berbagai kasus kebocoran data.",
+     "url": "https://www.elsam.or.id/kebebasan-dasar/otoritas-pdp-belum-terbentuk--siapa-awasi-kebocoran-data-pribadi-"
+    },
+    {
+     "teks": "Peraturan Pemerintah Nomor 33 Tahun 2026 mengenai Peraturan Pelaksana Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi (“PP 33/2026”) resmi diundangkan pada tanggal 16 Juli 2026",
+     "url": "https://fwp.co.id/pp-33-tahun-2026-pelindungan-data-pribadi/"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 118
+  }
+ ]
+}

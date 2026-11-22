@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-detailed-shot-of-a-poweredge-7140931.mp4",
+  "provider": "pexels",
+  "id": "7140931",
+  "kind": "video",
+  "title": "Detailed shot of a PowerEdge R710 server in an illuminated rack.",
+  "author": "MrColo",
+  "authorUrl": "https://www.pexels.com/@mrcolo-12653218/",
+  "sourceUrl": "https://www.pexels.com/video/close-up-shot-of-a-electronic-device-7140931/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: MrColo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "lorong rak server simetris dan close-up unit server serta kabel jaringan biru gelap sesuai pola R3/R5/R8",
+  "bytes": 3293811,
+  "sha256": "43006755a797222e140f114dfba8ab09f4be33dc339c3e497a2d4ef5c1e82a83",
+  "fileUrl": "https://videos.pexels.com/video-files/7140931/7140931-hd_1920_1080_24fps.mp4",
+  "query": "server room data center",
+  "retrieved": "2026-11-18T14:53:46.949Z"
+}

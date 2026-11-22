@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-ethernet-cables-connected-to-a-7140937.mp4",
+  "provider": "pexels",
+  "id": "7140937",
+  "kind": "video",
+  "title": "Ethernet cables connected to a router in a close-up shot indoors.",
+  "author": "MrColo",
+  "authorUrl": "https://www.pexels.com/@mrcolo-12653218/",
+  "sourceUrl": "https://www.pexels.com/video/a-close-up-video-of-cable-wires-connected-on-a-motherboard-7140937/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: MrColo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "Rak server/switch+kabel jaringan (4,3,23); lalu lintas data abstrak: serat optik (9), node jaringan (15), plexus (8); tanpa wajah/logo",
+  "bytes": 4403678,
+  "sha256": "ead948602508f786d31eb9c45ce4e02842358517df012748097e5c03510970f4",
+  "fileUrl": "https://videos.pexels.com/video-files/7140937/7140937-hd_1920_1080_24fps.mp4",
+  "query": "data center server rack network cables",
+  "retrieved": "2026-11-15T04:38:00.303Z"
+}

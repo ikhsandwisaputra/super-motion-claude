@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-sfx-score-casino-counter-1998.wav",
+  "provider": "mixkit",
+  "id": "1998",
+  "kind": "sfx",
+  "title": "Score casino counter",
+  "author": null,
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-sound-effects/countdown/",
+  "license": {
+    "name": "Mixkit Sound Effects Free License",
+    "url": "https://mixkit.co/license/#sfxFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "pop angka/counter naik, pendek",
+  "durasi": "0:04",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 718004,
+  "sha256": "d04e73c788024caf72fed201a106515e6bdbd8f6b73ef44506a896b590c9be3a",
+  "fileUrl": "https://assets.mixkit.co/active_storage/sfx/1998/1998.wav",
+  "query": "number counter rising pop",
+  "retrieved": "2026-11-13T15:39:53.234Z"
+}

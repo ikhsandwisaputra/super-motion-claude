@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-futuristic-ui-glitch-sound-533580.mp3",
+  "provider": "pixabay",
+  "id": "533580",
+  "kind": "sfx",
+  "title": "Futuristic, Ui, Glitch sound effect. Free for use.",
+  "author": "ZoEdit",
+  "authorUrl": "https://pixabay.com/users/zoedit-35641820/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-digital-glitch-whoosh-533580/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: ZoEdit / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Efek suara transisi digital glitch dan whoosh singkat 1-6 detik untuk pergantian babak, sorotan kutipan makalah, dan transisi data grafik",
+  "durasi": "PT4S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 112896,
+  "sha256": "24475d3a374f95b681ef379b46037896692b48e7d1f69bb5f3a168bf55d5d937",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/05/13/audio_9f551c3142.mp3?filename=zoedit-digital-glitch-whoosh-533580.mp3",
+  "query": "digital glitch whoosh transition",
+  "retrieved": "2026-11-19T09:56:31.484Z"
+}

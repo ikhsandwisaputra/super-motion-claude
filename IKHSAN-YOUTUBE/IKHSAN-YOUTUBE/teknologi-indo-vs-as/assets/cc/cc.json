@@ -1,0 +1,52 @@
+[
+  {
+    "file": "assets/cc/commons-231105-1-tsmc-fab-21-construction.jpg",
+    "provider": "wikimedia",
+    "kind": "image",
+    "author": "Foto oleh Hunter Trick (TrickHunter) via Wikimedia Commons dengan lisensi CC BY-SA 4.0",
+    "license": {
+      "name": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attributionRequired": true,
+      "commercial": true,
+      "shareAlike": true,
+      "noDerivatives": false
+    },
+    "catatan": "ShareAlike: kalau foto ini diubah (crop/filter/montase), hasil ubahannya wajib berlisensi CC BY-SA yang sama. Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+    "warning": "ShareAlike",
+    "title": "231105-1 TSMC Fab 21 construction",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:231105-1_TSMC_Fab_21_construction.jpg",
+    "credit": "Foto oleh Hunter Trick (TrickHunter) via Wikimedia Commons dengan lisensi CC BY-SA 4.0",
+    "bytes": 930526,
+    "sha256": "9de55f2bd8d17de557c32834ee5c03ad82c30c58784b27282fb96bf0e8b802ef",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/231105-1_TSMC_Fab_21_construction.jpg/1920px-231105-1_TSMC_Fab_21_construction.jpg",
+    "query": "TSMC Arizona fab",
+    "alasanCocok": "Foto udara lokasi TSMC Fab 21 Arizona, mirip referensi R1/R7 (gurun, bangunan pabrik, panel surya)",
+    "retrieved": "2026-11-13T15:32:54.520Z"
+  },
+  {
+    "file": "assets/cc/commons-google-campus-mountain-view-ca.jpg",
+    "provider": "wikimedia",
+    "kind": "image",
+    "author": "Foto oleh Austin McKinley via Wikimedia Commons dengan lisensi CC BY 3.0",
+    "license": {
+      "name": "CC BY 3.0",
+      "url": "https://creativecommons.org/licenses/by/3.0/",
+      "attributionRequired": true,
+      "commercial": true,
+      "shareAlike": false,
+      "noDerivatives": false
+    },
+    "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+    "warning": null,
+    "title": "Google Campus, Mountain View, CA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Google_Campus%2C_Mountain_View%2C_CA.jpg",
+    "credit": "Foto oleh Austin McKinley via Wikimedia Commons dengan lisensi CC BY 3.0",
+    "bytes": 835443,
+    "sha256": "048013906091aa615889ef3141c4fbf7913945eb7d4f7a6c27eb916212a3398b",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Google_Campus%2C_Mountain_View%2C_CA.jpg/1920px-Google_Campus%2C_Mountain_View%2C_CA.jpg",
+    "query": "Silicon Valley Mountain View Googleplex campus",
+    "alasanCocok": "Foto udara kampus teknologi Mountain View, mirip referensi R1/R3 (aerial gedung Google)",
+    "retrieved": "2026-11-13T15:33:08.412Z"
+  }
+]

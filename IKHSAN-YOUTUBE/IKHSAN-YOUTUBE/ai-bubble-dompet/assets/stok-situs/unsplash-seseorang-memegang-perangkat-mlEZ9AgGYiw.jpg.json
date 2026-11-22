@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-seseorang-memegang-perangkat-mlEZ9AgGYiw.jpg",
+  "provider": "unsplash",
+  "id": "mlEZ9AgGYiw",
+  "kind": "image",
+  "title": "seseorang memegang perangkat elektronik kecil",
+  "author": "Aleksandr Eremin",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/seseorang-memegang-perangkat-elektronik-kecil-mlEZ9AgGYiw",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Aleksandr Eremin / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Tangan memasang/memegang modul RAM di board server, resolusi tinggi.",
+  "bytes": 159437,
+  "sha256": "c79549cd16dbac8d56c42115ef672b1eb5840158b9638a128bfac81f3c112dd8",
+  "fileUrl": "https://images.unsplash.com/photo-1658069745206-f772e91a28da",
+  "query": "computer ram install hands",
+  "retrieved": "2026-11-14T13:56:13.403Z"
+}

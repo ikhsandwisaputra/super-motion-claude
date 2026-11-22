@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-close-up-shot-of-network-cables-1085656.mp4",
+  "provider": "pexels",
+  "id": "1085656",
+  "kind": "video",
+  "title": "Close-up shot of network cables with glowing LED lights in a server room.",
+  "author": "Dima Krivoy",
+  "authorUrl": "https://www.pexels.com/@dima-krivoy-413413/",
+  "sourceUrl": "https://www.pexels.com/video/blue-colored-cables-1085656/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Dima Krivoy / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "lorong rak server simetris dan close-up unit server serta kabel jaringan biru gelap sesuai pola R3/R5/R8",
+  "bytes": 15361903,
+  "sha256": "5a5040d37c438c2af2db31f6dc8f19bff4a48de70c331af77cc0a2f638911a80",
+  "fileUrl": "https://videos.pexels.com/video-files/1085656/1085656-hd_1920_1080_25fps.mp4",
+  "query": "server room data center",
+  "retrieved": "2026-11-18T14:54:06.982Z"
+}

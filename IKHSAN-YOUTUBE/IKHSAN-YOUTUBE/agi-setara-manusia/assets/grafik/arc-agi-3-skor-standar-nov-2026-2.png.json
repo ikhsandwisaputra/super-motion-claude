@@ -1,0 +1,41 @@
+{
+  "file": "assets/grafik/arc-agi-3-skor-standar-nov-2026-2.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Maret 2026 nyaris nol, November tembus 81%",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "GPT-6 Astra (3 Sep)",
+      "nilai": "62,7",
+      "fakta": 17,
+      "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+    },
+    {
+      "label": "Gemini 4 Carbon (10 Nov)",
+      "nilai": "65,1",
+      "fakta": 19,
+      "klaim": "Gemini 4 Carbon (Google, 10 Nov 2026): ARC-AGI-3 99,1% di Provider Adapter, 65,1% di Standard. (ARC Prize, 10 Nov 2026; Google, 10 Nov 2026 untuk rilis modelnya) ·"
+    },
+    {
+      "label": "Claude Fable 5.2 (9 Nov)",
+      "nilai": "81,2",
+      "fakta": 20,
+      "klaim": "Claude Fable 5.2 (Anthropic, 9 Nov 2026): ARC-AGI-3 81,2% Standard, 97,7% Provider Adapter. Anthropic merilis Fable 5.2 dan Mythos 5.2; evaluator eksternal termasuk UK AI Security Institute dan METR. (ARC Prize; Anthropic, 9 Nov 2026) · · https"
+    }
+  ],
+  "sumber": [
+    "https://arcprize.org/blog/astra",
+    "https://thenextweb.com/news/openai-astra-arc-agi-3-harness-62-7-vs-99-9-benchmark-revisions",
+    "https://arcprize.org/results/google-gemini-4-carbon",
+    "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+    "https://arcprize.org/results/anthropic-claude-fable-5-2",
+    "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  ],
+  "sumberTeks": "Sumber: arcprize.org, thenextweb.com, blog.google, dll. (diolah)",
+  "faktaDari": "fakta.json tugas aktif",
+  "dibuat": "2026-11-15T19:58:31.328Z"
+}

@@ -1,0 +1,334 @@
+[
+  {
+    "file": "assets/grafik/grafik-paten-residen-2024.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Paten dari penemu dalam negeri: AS ±140 kali Indonesia",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia",
+        "nilai": "1.931",
+        "fakta": 6,
+        "klaim": "Permohonan paten residen 2024: Indonesia 1.931 (+14,8%), AS 270.295 (-2,9%) (WIPO country profile 2024) · · . Rasio ±140 kali = hitungan sendiri."
+      },
+      {
+        "label": "Amerika Serikat",
+        "nilai": "270.295",
+        "fakta": 6,
+        "klaim": "Permohonan paten residen 2024: Indonesia 1.931 (+14,8%), AS 270.295 (-2,9%) (WIPO country profile 2024) · · . Rasio ±140 kali = hitungan sendiri."
+      }
+    ],
+    "sumber": [
+      "https://www.wipo.int/edocs/statistics-country-profile/en/id.pdf",
+      "https://www.wipo.int/edocs/statistics-country-profile/en/us.pdf"
+    ],
+    "sumberTeks": "Sumber: wipo.int (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+    "dibuat": "2026-11-13T15:33:14.004Z"
+  },
+  {
+    "file": "assets/grafik/grafik-rnd-persen-pdb.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Belanja riset: AS ±12 kali Indonesia",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia (2020)",
+        "nilai": "0,28",
+        "fakta": 1,
+        "klaim": "R&D AS 3,45% PDB (2023); Indonesia 0,28% PDB (2020) (World Bank WDI/UNESCO UIS) · . Rasio ±12 kali = hitungan sendiri (beda tahun, 3,45 / 0,28 = 12,3)."
+      },
+      {
+        "label": "Amerika Serikat (2023)",
+        "nilai": "3,45",
+        "fakta": 1,
+        "klaim": "R&D AS 3,45% PDB (2023); Indonesia 0,28% PDB (2020) (World Bank WDI/UNESCO UIS) · . Rasio ±12 kali = hitungan sendiri (beda tahun, 3,45 / 0,28 = 12,3)."
+      }
+    ],
+    "sumber": [
+      "https://data.worldbank.org/indicator/GB.XPD.RSDV.GD.ZS"
+    ],
+    "sumberTeks": "Sumber: Bank Dunia (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+    "dibuat": "2026-11-13T15:33:14.396Z"
+  },
+  {
+    "file": "assets/grafik/grafik-peneliti-per-juta.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Peneliti per sejuta penduduk: AS ±12,5 kali Indonesia",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia (2020)",
+        "nilai": "395",
+        "fakta": 5,
+        "klaim": "Indonesia 395 (2020), AS 4.937 (2022) (World Bank WDI/UNESCO UIS) · . Rasio ±12,5 kali = hitungan sendiri (4.937,49 / 395,34)."
+      },
+      {
+        "label": "Amerika Serikat (2022)",
+        "nilai": "4.937",
+        "fakta": 5,
+        "klaim": "Indonesia 395 (2020), AS 4.937 (2022) (World Bank WDI/UNESCO UIS) · . Rasio ±12,5 kali = hitungan sendiri (4.937,49 / 395,34)."
+      }
+    ],
+    "sumber": [
+      "https://data.worldbank.org/indicator/SP.POP.SCIE.RD.P6"
+    ],
+    "sumberTeks": "Sumber: Bank Dunia (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-a-inovasi-rnd.md",
+    "dibuat": "2026-11-13T15:33:14.725Z"
+  },
+  {
+    "file": "assets/grafik/grafik-internet-rumah-ookla.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Internet rumah: AS 6 kali lebih kencang",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia",
+        "nilai": "52,62",
+        "fakta": 0,
+        "klaim": "Indonesia mobile median unduh 70,77 Mbps, peringkat 65 dunia; fixed 52,62 Mbps, peringkat 112 (Ookla halaman negara, edisi September 2026; Medcom, 29 Okt 2026) ·"
+      },
+      {
+        "label": "Amerika Serikat",
+        "nilai": "314,35",
+        "fakta": 1,
+        "klaim": "AS mobile 190,59 Mbps (peringkat 11), fixed 314,35 Mbps (peringkat 7) (Ookla halaman negara September 2026, screenshot angka; World at Scale, 9 Nov 2026) ·"
+      }
+    ],
+    "sumber": [
+      "https://www.speedtest.net/global-index/indonesia",
+      "https://www.medcom.id/nasional/peristiwa/9K5yoQ0K-hari-internet-2026-ini-posisi-kecepatan-internet-indonesia-di-asia-tenggara",
+      "https://www.speedtest.net/global-index/united-states",
+      "https://worldatscale.com/technology/fastest-internet-speed-by-country/"
+    ],
+    "sumberTeks": "Sumber: speedtest.net, medcom.id, worldatscale.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-b-infrastruktur-ai.md",
+    "dibuat": "2026-11-13T15:33:43.613Z"
+  },
+  {
+    "file": "assets/grafik/grafik-internet-seluler-ookla.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Internet seluler: AS 2,7 kali lebih kencang",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia",
+        "nilai": "70,77",
+        "fakta": 0,
+        "klaim": "Indonesia mobile median unduh 70,77 Mbps, peringkat 65 dunia; fixed 52,62 Mbps, peringkat 112 (Ookla halaman negara, edisi September 2026; Medcom, 29 Okt 2026) ·"
+      },
+      {
+        "label": "Amerika Serikat",
+        "nilai": "190,59",
+        "fakta": 1,
+        "klaim": "AS mobile 190,59 Mbps (peringkat 11), fixed 314,35 Mbps (peringkat 7) (Ookla halaman negara September 2026, screenshot angka; World at Scale, 9 Nov 2026) ·"
+      }
+    ],
+    "sumber": [
+      "https://www.speedtest.net/global-index/indonesia",
+      "https://www.medcom.id/nasional/peristiwa/9K5yoQ0K-hari-internet-2026-ini-posisi-kecepatan-internet-indonesia-di-asia-tenggara",
+      "https://www.speedtest.net/global-index/united-states",
+      "https://worldatscale.com/technology/fastest-internet-speed-by-country/"
+    ],
+    "sumberTeks": "Sumber: speedtest.net, medcom.id, worldatscale.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-b-infrastruktur-ai.md",
+    "dibuat": "2026-11-13T15:33:43.962Z"
+  },
+  {
+    "file": "assets/grafik/grafik-investasi-ai-2025.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Investasi swasta di AI: AS jauh di depan, bahkan dari Tiongkok",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Amerika Serikat",
+        "nilai": "285,9",
+        "fakta": 6,
+        "klaim": "Investasi swasta AI 2025: AS US$285,9 miliar, Tiongkok US$12,4 miliar (Stanford HAI; AI Weekly, 3 Sep 2026) ·"
+      },
+      {
+        "label": "Tiongkok",
+        "nilai": "12,4",
+        "fakta": 6,
+        "klaim": "Investasi swasta AI 2025: AS US$285,9 miliar, Tiongkok US$12,4 miliar (Stanford HAI; AI Weekly, 3 Sep 2026) ·"
+      }
+    ],
+    "sumber": [
+      "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+      "https://aiweekly.co/node/11748"
+    ],
+    "sumberTeks": "Sumber: hai.stanford.edu, aiweekly.co (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-b-infrastruktur-ai.md",
+    "dibuat": "2026-11-13T15:33:44.278Z"
+  },
+  {
+    "file": "assets/grafik/grafik-pisa-2025.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Skor PISA 2025: selisih sekitar 100 poin",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Matematika · Indonesia",
+        "nilai": "364",
+        "fakta": 3,
+        "klaim": "PISA 2025 (rilis OECD 8 Sep 2026), matematika: Indonesia 364, AS 463 (= rata-rata OECD) (OECD Education GPS, dua profil negara) ·"
+      },
+      {
+        "label": "Matematika · AS",
+        "nilai": "463",
+        "fakta": 3,
+        "klaim": "PISA 2025 (rilis OECD 8 Sep 2026), matematika: Indonesia 364, AS 463 (= rata-rata OECD) (OECD Education GPS, dua profil negara) ·"
+      },
+      {
+        "label": "Sains · Indonesia",
+        "nilai": "389",
+        "fakta": 4,
+        "klaim": "Sains: Indonesia 389, AS 502, rata-rata OECD 482 · sumber sama"
+      },
+      {
+        "label": "Sains · AS",
+        "nilai": "502",
+        "fakta": 4,
+        "klaim": "Sains: Indonesia 389, AS 502, rata-rata OECD 482 · sumber sama"
+      }
+    ],
+    "sumber": [
+      "https://gpseducation.oecd.org/CountryProfile?primaryCountry=IDN&topic=PI&treshold=10",
+      "https://gpseducation.oecd.org/CountryProfile?primaryCountry=USA&treshold=10&topic=PI",
+      "https://gpseducation.oecd.org/CountryProfile?primaryCountry=USA&topic=PI&treshold=10"
+    ],
+    "sumberTeks": "Sumber: OECD (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+    "dibuat": "2026-11-13T15:33:44.617Z"
+  },
+  {
+    "file": "assets/grafik/grafik-pisa-level2.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Hanya 17% siswa kita lolos level dasar matematika",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia",
+        "nilai": "17",
+        "fakta": 5,
+        "klaim": "Hanya 17% siswa Indonesia mencapai Level 2+ matematika (OECD 65%; AS 65%) ·"
+      },
+      {
+        "label": "Amerika Serikat",
+        "nilai": "65",
+        "fakta": 5,
+        "klaim": "Hanya 17% siswa Indonesia mencapai Level 2+ matematika (OECD 65%; AS 65%) ·"
+      }
+    ],
+    "sumber": [
+      "https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/indonesia_9c880f8a-en.html",
+      "https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/united-states_0c8cbc7c-en.html"
+    ],
+    "sumberTeks": "Sumber: OECD (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+    "dibuat": "2026-11-13T15:33:44.914Z"
+  },
+  {
+    "file": "assets/grafik/grafik-ecommerce-indo-vs-as.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Belanja online AS satu kuartal ±4 kali e-commerce kita setahun",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia (setahun)",
+        "nilai": "85",
+        "fakta": 0,
+        "klaim": "Indonesia 2026: GMV ekonomi digital US$119 miliar (≈Rp2.162,6 triliun), +16%; e-commerce US$85 miliar (Kompas 11 Nov 2026; Antara 11 Nov 2026) ·"
+      },
+      {
+        "label": "AS (satu kuartal)",
+        "nilai": "340,2",
+        "fakta": 2,
+        "klaim": "AS e-commerce ritel Q2 2026: US$340,2 miliar (musiman), 17,1% dari total ritel, +12,2% yoy (Census, 17 Agu 2026; halaman memberi catatan revisi 19 Nov 2026)"
+      }
+    ],
+    "sumber": [
+      "https://tekno.kompas.com/read/2026/11/11/16220087/ekonomi-digital-indonesia-tembus-rp-2.162-triliun-pada-2026-e-commerce-terbesar",
+      "https://www.antaranews.com/berita/5847095/ekonomi-digital-ri-tumbuh-rp21-kuadriliun-di-2026-meski-ekonomi-berat",
+      "https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf"
+    ],
+    "sumberTeks": "Sumber: Kompas.com, ANTARA, census.gov (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+    "dibuat": "2026-11-13T15:33:45.238Z"
+  },
+  {
+    "file": "assets/grafik/grafik-pembayaran-digital-sea-2026.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Pembayaran digital: Indonesia nomor satu di Asia Tenggara",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Indonesia",
+        "nilai": "595",
+        "fakta": 6,
+        "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+      },
+      {
+        "label": "Malaysia",
+        "nilai": "261",
+        "fakta": 6,
+        "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+      },
+      {
+        "label": "Thailand",
+        "nilai": "215",
+        "fakta": 6,
+        "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+      }
+    ],
+    "sumber": [
+      "https://databoks.katadata.co.id/ekonomi-makro/statistik/6af695aa572b2/indonesia-pasar-pembayaran-digital-terbesar-di-asia-tenggara-pada-2026",
+      "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+    ],
+    "sumberTeks": "Sumber: Katadata, blog.google (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+    "dibuat": "2026-11-13T15:38:28.590Z"
+  }
+]

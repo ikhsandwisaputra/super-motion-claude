@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-drone-footage-of-ocean-waves-1918465.mp4",
+  "provider": "pexels",
+  "id": "1918465",
+  "kind": "video",
+  "title": "Drone footage of ocean waves crashing on the coastline from above.",
+  "author": "Ruvim M",
+  "authorUrl": "https://www.pexels.com/@digitech/",
+  "sourceUrl": "https://www.pexels.com/video/bird-s-eye-view-of-ocean-waves-1918465/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Ruvim M / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "top-down aerial view laut biru pekat dengan buih ombak sesuai R3/R8",
+  "bytes": 9637455,
+  "sha256": "0394eed076856055284600614979bcaf1fb1234d27af2e35d189f802040e9dbf",
+  "fileUrl": "https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4",
+  "query": "ocean waves sea aerial",
+  "retrieved": "2026-11-18T14:55:16.120Z"
+}

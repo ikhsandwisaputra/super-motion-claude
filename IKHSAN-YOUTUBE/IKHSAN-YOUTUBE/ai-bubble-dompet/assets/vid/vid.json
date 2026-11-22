@@ -1,0 +1,128 @@
+{
+ "sabun": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-vibrant-soap-bubbles-floating-32662918.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "saham": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-stock-market-graph-fluctuating-38771102.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "gel_dekat": {
+  "n": 63,
+  "fps": 15,
+  "src": "pexels-video-mesmerizing-view-of-soap-bubbles-857234.mp4",
+  "ss": 13.4,
+  "len": 4.2
+ },
+ "gel_tiup": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-colorful-soap-bubble-creating-a-4431789.mp4",
+  "ss": 0.5,
+  "len": 6.0
+ },
+ "rak_server": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-servers-computers-it-free-stock-377880.mp4",
+  "ss": 4.0,
+  "len": 6.0
+ },
+ "jaringan": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-network-internet-data-free-stock-14906.mp4",
+  "ss": 0.5,
+  "len": 6.0
+ },
+ "monitor_grafik": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-colorful-charts-on-monitors-38711953.mp4",
+  "ss": 3.0,
+  "len": 6.0
+ },
+ "broker": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-analysis-banking-broker-free-33805.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "hp_scroll": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-iphone-scrolling-technology-free-735.mp4",
+  "ss": 2.0,
+  "len": 6.0
+ },
+ "gel_beku": {
+  "n": 105,
+  "fps": 15,
+  "src": "pixabay-video-soap-bubble-frozen-soap-bubble-150344.mp4",
+  "ss": 13.0,
+  "len": 7.0
+ },
+ "charger": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-charger-mobile-battery-free-8501.mp4",
+  "ss": 11.0,
+  "len": 6.0
+ },
+ "grafik_turun": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-graph-decline-economy-free-stock-166289.mp4",
+  "ss": 3.0,
+  "len": 6.0
+ },
+ "poweredge": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-detailed-shot-of-a-poweredge-7140931.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "celengan": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-piggy-bank-world-savings-day-93550.mp4",
+  "ss": 3.4,
+  "len": 6.0
+ },
+ "kabel": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-close-up-shot-of-network-cables-1085656.mp4",
+  "ss": 2.0,
+  "len": 7.0
+ },
+ "balon": {
+  "n": 60,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-hands-holding-and-5701321.mp4",
+  "ss": 5.5,
+  "len": 4.0
+ },
+ "lorong_jar": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-network-internet-data-free-stock-14900.mp4",
+  "ss": 2.0,
+  "len": 6.0
+ },
+ "gel_ranting": {
+  "n": 60,
+  "fps": 15,
+  "src": "pixabay-video-soap-bubble-freeze-winter-free-7141.mp4",
+  "ss": 10.0,
+  "len": 4.0
+ }
+}

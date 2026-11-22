@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-close-up-of-a-smartphone-5226464.mp4",
+  "provider": "pexels",
+  "id": "5226464",
+  "kind": "video",
+  "title": "Close-up of a smartphone scanning a QR code indoors.",
+  "author": "Gunjee Nyam",
+  "authorUrl": "https://www.pexels.com/@gunjee-nyam-3499654/",
+  "sourceUrl": "https://www.pexels.com/video/a-person-scanning-a-qr-code-5226464/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Gunjee Nyam / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "tangan scan QR / bayar dengan ponsel, tanpa wajah",
+  "bytes": 2109674,
+  "sha256": "fa3018f78d8bfe42647f16fd92fb8bb49f9e2237b0601e5b0a7eb236918b9d28",
+  "fileUrl": "https://videos.pexels.com/video-files/5226464/5226464-hd_1920_1080_30fps.mp4",
+  "query": "paying with QR code smartphone scan at market stall",
+  "retrieved": "2026-11-13T15:36:09.386Z"
+}

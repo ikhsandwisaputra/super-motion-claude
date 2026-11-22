@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-close-up-model-otak-plastik-JkAxfH5ktpw.jpg",
+  "provider": "unsplash",
+  "id": "JkAxfH5ktpw",
+  "kind": "image",
+  "title": "Close-up model otak plastik",
+  "author": "Lisa Yount",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/close-up-model-otak-plastik-JkAxfH5ktpw",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Lisa Yount / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "model otak anatomi/neuron, latar polos, tanpa teks",
+  "bytes": 720938,
+  "sha256": "243f8c0a368c34dc3176f28a6c399059f6c441be288f3952dc6b254b5bd242e1",
+  "fileUrl": "https://images.unsplash.com/photo-1647613561332-3d88a6a0048e",
+  "query": "human brain anatomy model",
+  "retrieved": "2026-11-15T19:42:41.935Z"
+}

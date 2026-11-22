@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-musik-cinematic-tense-suspenseful-film-313612.mp3",
+  "provider": "pixabay",
+  "id": "313612",
+  "kind": "musik",
+  "title": "Cinematic tense suspenseful film music",
+  "author": "leberch",
+  "authorUrl": "https://pixabay.com/users/leberch-42823964/",
+  "sourceUrl": "https://pixabay.com/music/modern-classical-cinematic-tense-313612/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: leberch / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": "trek terdaftar Content ID YouTube: klaim otomatis mungkin. Simpan bukti: https://pixabay.com/music/modern-classical-cinematic-tense-313612/ + sertifikat lisensi https://pixabay.com/music/313612/license/ (hanya bisa diunduh akun yang login; ambil manual bila perlu menyanggah)",
+  "ukuranVarian": null,
+  "alasanCocok": "Bed tegang-pelan (#7 Tense 3:50, #13 Cinematic Tense, #4 Vastness 3:50, #18 Voxscape 5:00 ambient gelap) dan reflektif penutup (#10 Feedback Dreams, #24 Forest Walk); dengarkan dulu",
+  "durasi": "PT1M46S",
+  "contentId": true,
+  "sertifikat": "https://pixabay.com/music/313612/license/",
+  "bytes": 3392992,
+  "sha256": "c654e53cc69ee4bcdc9e8737e2b3ce5876dc4b20825ba366a33bfd4d0e9c3f97",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2025/03/14/audio_85905a0bee.mp3?filename=leberch-cinematic-tense-313612.mp3",
+  "query": "tense news background ambient cinematic",
+  "retrieved": "2026-11-14T06:40:28.408Z"
+}

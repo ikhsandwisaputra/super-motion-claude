@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/grafik-investasi-ai-2025.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Investasi swasta di AI: AS jauh di depan, bahkan dari Tiongkok",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Amerika Serikat",
+      "nilai": "285,9",
+      "fakta": 6,
+      "klaim": "Investasi swasta AI 2025: AS US$285,9 miliar, Tiongkok US$12,4 miliar (Stanford HAI; AI Weekly, 3 Sep 2026) ·"
+    },
+    {
+      "label": "Tiongkok",
+      "nilai": "12,4",
+      "fakta": 6,
+      "klaim": "Investasi swasta AI 2025: AS US$285,9 miliar, Tiongkok US$12,4 miliar (Stanford HAI; AI Weekly, 3 Sep 2026) ·"
+    }
+  ],
+  "sumber": [
+    "https://hai.stanford.edu/ai-index/2026-ai-index-report",
+    "https://aiweekly.co/node/11748"
+  ],
+  "sumberTeks": "Sumber: hai.stanford.edu, aiweekly.co (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-b-infrastruktur-ai.md",
+  "dibuat": "2026-11-13T15:33:44.278Z"
+}

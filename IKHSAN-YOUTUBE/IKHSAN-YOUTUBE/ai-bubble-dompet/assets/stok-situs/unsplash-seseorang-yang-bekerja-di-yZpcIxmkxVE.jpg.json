@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-seseorang-yang-bekerja-di-yZpcIxmkxVE.jpg",
+  "provider": "unsplash",
+  "id": "yZpcIxmkxVE",
+  "kind": "image",
+  "title": "Seseorang yang bekerja di motherboard komputer",
+  "author": "Yuriy Vertikov",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/seseorang-yang-bekerja-di-motherboard-komputer-yZpcIxmkxVE",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Yuriy Vertikov / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Tangan memasang/memegang modul RAM di board server, resolusi tinggi.",
+  "bytes": 539153,
+  "sha256": "c211b66f1521602b4b145ceebc53546a6f4dd0bb083a5d571509003154895e91",
+  "fileUrl": "https://images.unsplash.com/photo-1730389433457-dc2f357d8a46",
+  "query": "computer ram install hands",
+  "retrieved": "2026-11-14T13:56:10.135Z"
+}

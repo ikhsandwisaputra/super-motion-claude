@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/B2_1.jpg",
+  "provider": "wikimedia",
+  "id": "Recipe_that_I_made.jpg",
+  "kind": "image",
+  "title": "Recipe that I made",
+  "author": "TheRegencyCook",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Recipe_that_I_made.jpg",
+  "license": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: TheRegencyCook / Wikimedia Commons (CC BY-SA 4.0)",
+  "catatan": "Slot B2: Puding jahe + kertas resep tulisan tangan di meja kayu (tampak atas). CC BY-SA: hasil turunan foto ini (crop/grade) tetap di bawah BY-SA.",
+  "warning": "Resep berbahasa Inggris, tidak khas Indonesia",
+  "ukuranVarian": null,
+  "alasanCocok": "Puding jahe + kertas resep tulisan tangan di meja kayu (tampak atas)",
+  "bytes": 1359777,
+  "sha256": "60defc8781e01a7663a07f791d6ce6cf5c620c7dc82340a4ee9caabc3455fdfd",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:Recipe_that_I_made.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

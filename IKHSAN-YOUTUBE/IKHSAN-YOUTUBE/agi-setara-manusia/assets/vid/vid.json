@@ -1,0 +1,282 @@
+{
+ "central_processor": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-central-processor-on-an-35977437.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "child_mother": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-child-and-mother-bonding-over-7270074.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "laptop_displays": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-laptop-displays-code-on-its-11274341.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "man_irons": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-man-irons-clothes-on-an-5901671.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "robot_dances": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-robot-dances-rhythmically-8084504.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "animated_journey": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-animated-journey-through-a-31301243.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "barista_skillfully": {
+  "n": 80,
+  "fps": 15,
+  "src": "pexels-video-barista-skillfully-pours-water-40047520.mp4",
+  "ss": 0.6,
+  "len": 5.31
+ },
+ "busy_night": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-busy-night-traffic-on-jakarta-s-37589611.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "child_engaging": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-child-engaging-in-creative-play-7270073.mp4",
+  "ss": 0.68,
+  "len": 6.0
+ },
+ "hand_making": {
+  "n": 83,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-hand-making-a-6687506.mp4",
+  "ss": 0.63,
+  "len": 5.55
+ },
+ "humanoid_robot": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-humanoid-robot-5854603.mp4",
+  "ss": 0.9,
+  "len": 6.0
+ },
+ "hands_typing": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-hands-typing-on-a-4352275.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "metal_hard": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-metal-hard-drives-in-38496193.mp4",
+  "ss": 0.75,
+  "len": 6.0
+ },
+ "neatly_stacked": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-neatly-stacked-8346823.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "pour_coffee": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-pour-over-coffee-8447242.mp4",
+  "ss": 0.96,
+  "len": 6.0
+ },
+ "network_cables": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-shot-of-network-cables-1085656.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "hand_holding": {
+  "n": 86,
+  "fps": 15,
+  "src": "pexels-video-close-up-view-of-a-hand-holding-12611453.mp4",
+  "ss": 0.65,
+  "len": 5.73
+ },
+ "hands_typing2": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-view-of-hands-typing-on-31183719.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "electronic": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-detailed-close-up-of-electronic-6754820.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "programming": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-detailed-view-of-programming-29458457.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "server_units": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-detailed-view-of-server-units-7140928.mp4",
+  "ss": 0.94,
+  "len": 6.0
+ },
+ "dynamic_traffic": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-dynamic-traffic-in-central-37438592.mp4",
+  "ss": 0.9,
+  "len": 6.0
+ },
+ "efficient_folding": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-efficient-folding-of-denim-jeans-6961718.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "futuristic_robot": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-futuristic-robot-demonstrates-8084617.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "hands_typing3": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-hands-typing-on-a-laptop-in-a-4841394.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "high_tech": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-high-tech-robotic-arm-operating-32386532.mp4",
+  "ss": 0.99,
+  "len": 6.0
+ },
+ "robotic_arm": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-robotic-arm-in-warehouse-stacks-16938947.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "showcase_cutting": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-showcase-of-cutting-edge-8084493.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "tattooed_hands": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-tattooed-hands-preparing-coffee-5499724.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "vibrant_visualizatio": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-vibrant-visualization-of-neural-29184317.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "yellow_robotic": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-yellow-robotic-arm-operates-in-a-32386518.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "young_child": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-young-child-stacking-colorful-3676970.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "brain_nervous": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-brain-nervous-sci-fi-free-stock-159049.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "brain_think": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-brain-think-nervous-system-free-94745.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "chess_board": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-chess-board-chess-pieces-chess-32384.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "clouds_skies": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-clouds-skies-moving-free-stock-123409.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "code_coding": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-code-coding-programming-free-32767.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "jakarta_indonesia": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-jakarta-indonesia-city-free-337951.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "neuron_brain": {
+  "n": 72,
+  "fps": 15,
+  "src": "pixabay-video-neuron-brain-mind-free-stock-91633.mp4",
+  "ss": 0.54,
+  "len": 4.8
+ },
+ "robot_robotic": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-robot-robotic-arm-production-160986.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ }
+}

@@ -1,0 +1,16 @@
+{
+  "file": "assets/rockstar-resmi/gtavi-clip-02-jason-duval-muted.mp4",
+  "jenis": "kutipan_video_resmi_muted",
+  "status": "kutipan",
+  "bolehUntuk": [
+    "ulasan",
+    "berita",
+    "edukasi"
+  ],
+  "url": "https://www.rockstargames.com/VI/media/videos",
+  "media": "Rockstar Games",
+  "audio": "tanpa audio (di-mute lewat ffmpeg -an untuk menghindari Content ID musik berlisensi)",
+  "diambil": "2026-11-20",
+  "sumberTeks": "Sumber: Rockstar Games · rockstargames.com/VI/media",
+  "catatan": "Aset resmi dari situs rockstargames.com/VI/media berstatus 🟠 kutipan edukasi/ulasan (All Rights Reserved Take-Two ToS Pasal 2.1 & 2.3). WAJIB tampilkan teks sumber di layar, potongan pendek transformatif, BUKAN untuk thumbnail/promosi, dan DILARANG dimasukkan ke Generative AI Tools."
+}

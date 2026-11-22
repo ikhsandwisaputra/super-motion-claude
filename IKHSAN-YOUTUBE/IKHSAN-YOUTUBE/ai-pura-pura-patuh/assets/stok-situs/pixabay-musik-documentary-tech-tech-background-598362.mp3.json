@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-musik-documentary-tech-tech-background-598362.mp3",
+  "provider": "pixabay",
+  "id": "598362",
+  "kind": "musik",
+  "title": "Documentary tech, Tech background, Documentary background music. Free for use.",
+  "author": "331music",
+  "authorUrl": "https://pixabay.com/users/331music-40510117/",
+  "sourceUrl": "https://pixabay.com/music/ambient-documentary-tech-background-598362/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: 331music / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Musik latar ambient teknologi dokumenter bernuansa serius, investigatif, tempo tenang-menengah, durasi 2-3 menit bebas Content ID untuk narasi panjang YouTube",
+  "durasi": "PT2M14S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 4281573,
+  "sha256": "68ae999119ca5983e10b3b00e20751427c9437bc2f89cbea4e22bbbc4976d97f",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/09/06/audio_2ee2ccf2a7.mp3?filename=331music-documentary-tech-background-598362.mp3",
+  "query": "dark ambient technology documentary",
+  "retrieved": "2026-11-19T09:56:03.068Z"
+}

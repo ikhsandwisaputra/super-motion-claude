@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-an-it-professional-configuring-442150.jpg",
+  "provider": "pexels",
+  "id": "442150",
+  "kind": "image",
+  "title": "An IT professional configuring network cables in a server rack, focusing on Ethernet connections.",
+  "author": "Field Engineer",
+  "authorUrl": "https://www.pexels.com/@field-engineer-147254/",
+  "sourceUrl": "https://www.pexels.com/photo/electronics-engineer-fixing-cables-on-server-442150/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Field Engineer / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Teknisi/insinyur terlihat di ruang atau lorong server, resolusi tinggi Pexels.",
+  "bytes": 454581,
+  "sha256": "75d76c680159be4c80fadcff4f211db70d57a1158d483c7db34b4ab45013e340",
+  "fileUrl": "https://images.pexels.com/photos/442150/pexels-photo-442150.jpeg",
+  "query": "it technician server rack",
+  "retrieved": "2026-11-14T13:55:43.828Z"
+}

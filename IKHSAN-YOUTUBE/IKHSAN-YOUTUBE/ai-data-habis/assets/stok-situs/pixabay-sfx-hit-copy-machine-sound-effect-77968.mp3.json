@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-hit-copy-machine-sound-effect-77968.mp3",
+  "provider": "pixabay",
+  "id": "77968",
+  "kind": "sfx",
+  "title": "Hit copy machine sound effect",
+  "author": "freesound_community",
+  "authorUrl": "https://pixabay.com/users/freesound_community-46691455/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-hit-copy-machine-77968/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: freesound_community / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Suara mesin fotokopi pendek (14 dtk) untuk analogi salinan dari salinan; perlu didengar",
+  "durasi": "PT14S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 283200,
+  "sha256": "78c1936784b4cd545c345bf931ed3fa83da2629f6293a3b3967c32ce405fa3d7",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2022/03/15/audio_6660321116.mp3?filename=freesound_community-hit-copy-machine-77968.mp3",
+  "query": "photocopier copy machine",
+  "retrieved": "2026-11-15T04:42:42.274Z"
+}

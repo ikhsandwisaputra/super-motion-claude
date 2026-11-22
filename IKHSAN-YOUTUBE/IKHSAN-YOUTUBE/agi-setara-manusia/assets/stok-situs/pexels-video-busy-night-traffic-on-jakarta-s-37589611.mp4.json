@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-busy-night-traffic-on-jakarta-s-37589611.mp4",
+  "provider": "pexels",
+  "id": "37589611",
+  "kind": "video",
+  "title": "Busy night traffic on Jakarta's Sudirman street with city skyline.",
+  "author": "Nasser Akbar",
+  "authorUrl": "https://www.pexels.com/@nasserakbar/",
+  "sourceUrl": "https://www.pexels.com/video/vibrant-night-traffic-in-jakarta-cityscape-37589611/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Nasser Akbar / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "kota Jakarta: lalu lintas siang, malam, timelapse skyline berawan; tanpa wajah fokus",
+  "bytes": 20629029,
+  "sha256": "9c7fc3e9a099df4ac7f5eeab32a9ea9dd9e48699e07f8646e9eaac51b4d7a165",
+  "fileUrl": "https://videos.pexels.com/video-files/37589611/15930385_1920_1080_25fps.mp4",
+  "query": "jakarta city traffic skyline",
+  "retrieved": "2026-11-15T19:37:36.644Z"
+}

@@ -1,0 +1,61 @@
+{
+  "lokasi": "rockstar-north-edinburgh",
+  "sumber": "OpenFreeMap / OpenStreetMap, Esri World Imagery / OpenStreetMap",
+  "credit": "Sumber: AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026",
+  "z": 15.5,
+  "w": 1920,
+  "h": 1080,
+  "proyeksi": "3d-perspektif",
+  "kamera3d": {
+    "miring": 62,
+    "arah": 25,
+    "elevasi": 1.3
+  },
+  "pusat": [
+    -3.1763591,
+    55.9505812
+  ],
+  "poi": {},
+  "tampilan": [
+    {
+      "file": "rockstar-north-edinburgh-3d_gelap-z16.png",
+      "tampilan": "3d_gelap",
+      "zoom": 15.5,
+      "skala": "100 m",
+      "geo": {
+        "proyeksi": "3d-perspektif",
+        "lat": 55.9505812,
+        "lng": -3.1763591,
+        "zoom": 15.5,
+        "miring": 62,
+        "arah": 25,
+        "elevasi": 1.3,
+        "w": 1920,
+        "h": 1080,
+        "lebarCss": 1280,
+        "tinggiCss": 720,
+        "scale": 1.5
+      }
+    },
+    {
+      "file": "rockstar-north-edinburgh-3d_satelit-z16.png",
+      "tampilan": "3d_satelit",
+      "zoom": 15.5,
+      "skala": "100 m",
+      "geo": {
+        "proyeksi": "3d-perspektif",
+        "lat": 55.9505812,
+        "lng": -3.1763591,
+        "zoom": 15.5,
+        "miring": 62,
+        "arah": 25,
+        "elevasi": 1.6,
+        "w": 1920,
+        "h": 1080,
+        "lebarCss": 1280,
+        "tinggiCss": 720,
+        "scale": 1.5
+      }
+    }
+  ]
+}

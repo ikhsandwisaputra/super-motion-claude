@@ -1,0 +1,32 @@
+{
+  "file": "assets/grafik/apjii-akses-ai-2025-2026-2.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Responden yang mengakses AI justru turun",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Survei 2025",
+      "nilai": "27,3",
+      "fakta": 37,
+      "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+    },
+    {
+      "label": "Survei 2026",
+      "nilai": "18,2",
+      "fakta": 37,
+      "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+    }
+  ],
+  "sumber": [
+    "https://www.metrotvnews.com/read/kqYCdR56-survei-apjii-gen-z-paling-banyak-mengakses-ai",
+    "https://www.bloombergtechnoz.com/detail-news/112110/survei-apjii-ai-makin-populer-di-ri-gen-z-pengguna-terbesar",
+    "https://rri.co.id/denpasar/hiburan/2513597/survei-apjii-2026-gen-z-pengguna-ai-paling-aktif"
+  ],
+  "sumberTeks": "Sumber: metrotvnews.com, bloombergtechnoz.com, rri.co.id (diolah)",
+  "faktaDari": "fakta.json tugas aktif",
+  "dibuat": "2026-11-15T19:58:31.920Z"
+}

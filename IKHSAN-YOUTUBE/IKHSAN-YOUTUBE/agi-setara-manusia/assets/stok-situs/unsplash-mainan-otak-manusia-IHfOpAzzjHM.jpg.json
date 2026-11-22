@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-mainan-otak-manusia-IHfOpAzzjHM.jpg",
+  "provider": "unsplash",
+  "id": "IHfOpAzzjHM",
+  "kind": "image",
+  "title": "mainan otak manusia",
+  "author": "Robina Weermeijer",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/mainan-otak-manusia-IHfOpAzzjHM",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Robina Weermeijer / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "model otak anatomi/neuron, latar polos, tanpa teks",
+  "bytes": 357315,
+  "sha256": "854c1c9ba12db3b8095c57df8afb512eefa098a4356db0a3055329d89e934664",
+  "fileUrl": "https://images.unsplash.com/photo-1559757175-5700dde675bc",
+  "query": "human brain anatomy model",
+  "retrieved": "2026-11-15T19:42:40.075Z"
+}

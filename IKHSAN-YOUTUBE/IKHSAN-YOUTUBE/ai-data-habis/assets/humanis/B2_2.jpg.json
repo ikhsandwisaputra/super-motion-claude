@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/B2_2.jpg",
+  "provider": "wikimedia",
+  "id": "17th_century_recipe_book_Wellcome_L0074536.jpg",
+  "kind": "image",
+  "title": "17th century recipe book Wellcome L0074536",
+  "author": "Wellcome Collection",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:17th_century_recipe_book_Wellcome_L0074536.jpg",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: Wellcome Collection / Wikimedia Commons (CC BY 4.0)",
+  "catatan": "Slot B2: Buku resep tulisan tangan abad ke-17 terbuka (tekstur kertas tua).",
+  "warning": "Resep berbahasa Inggris kuno, tidak khas Indonesia",
+  "ukuranVarian": null,
+  "alasanCocok": "Buku resep tulisan tangan abad ke-17 terbuka (tekstur kertas tua)",
+  "bytes": 2889116,
+  "sha256": "2a81311824372af3dc86c9a7bea810cee4bdc102742293d8f12faf4106b5bee4",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:17th_century_recipe_book_Wellcome_L0074536.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

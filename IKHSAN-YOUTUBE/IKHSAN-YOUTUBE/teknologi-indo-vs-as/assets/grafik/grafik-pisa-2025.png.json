@@ -1,0 +1,44 @@
+{
+  "file": "assets/grafik/grafik-pisa-2025.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Skor PISA 2025: selisih sekitar 100 poin",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Matematika · Indonesia",
+      "nilai": "364",
+      "fakta": 3,
+      "klaim": "PISA 2025 (rilis OECD 8 Sep 2026), matematika: Indonesia 364, AS 463 (= rata-rata OECD) (OECD Education GPS, dua profil negara) ·"
+    },
+    {
+      "label": "Matematika · AS",
+      "nilai": "463",
+      "fakta": 3,
+      "klaim": "PISA 2025 (rilis OECD 8 Sep 2026), matematika: Indonesia 364, AS 463 (= rata-rata OECD) (OECD Education GPS, dua profil negara) ·"
+    },
+    {
+      "label": "Sains · Indonesia",
+      "nilai": "389",
+      "fakta": 4,
+      "klaim": "Sains: Indonesia 389, AS 502, rata-rata OECD 482 · sumber sama"
+    },
+    {
+      "label": "Sains · AS",
+      "nilai": "502",
+      "fakta": 4,
+      "klaim": "Sains: Indonesia 389, AS 502, rata-rata OECD 482 · sumber sama"
+    }
+  ],
+  "sumber": [
+    "https://gpseducation.oecd.org/CountryProfile?primaryCountry=IDN&topic=PI&treshold=10",
+    "https://gpseducation.oecd.org/CountryProfile?primaryCountry=USA&treshold=10&topic=PI",
+    "https://gpseducation.oecd.org/CountryProfile?primaryCountry=USA&topic=PI&treshold=10"
+  ],
+  "sumberTeks": "Sumber: OECD (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+  "dibuat": "2026-11-13T15:33:44.617Z"
+}

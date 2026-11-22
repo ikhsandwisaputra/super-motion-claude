@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-aerial-footage-of-a-geothermal-36498924.mp4",
+  "provider": "pexels",
+  "id": "36498924",
+  "kind": "video",
+  "title": "Aerial footage of a geothermal power plant emitting steam, highlighting renewable energy.",
+  "author": "Gylfi Gylfason",
+  "authorUrl": "https://www.pexels.com/@just-icelandic/",
+  "sourceUrl": "https://www.pexels.com/video/aerial-view-of-geothermal-energy-plant-36498924/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Gylfi Gylfason / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "barisan sel kipas menara pendingin mengeluarkan uap air putih sudut diagonal atas persis pola R4",
+  "bytes": 10836589,
+  "sha256": "00349310f2a6dc8460a6068e1930f9f69a01c328ca7951794ea94fe9ef4ca136",
+  "fileUrl": "https://videos.pexels.com/video-files/36498924/15476500_1920_1080_30fps.mp4",
+  "query": "cooling tower steam power plant",
+  "retrieved": "2026-11-18T14:58:24.717Z"
+}

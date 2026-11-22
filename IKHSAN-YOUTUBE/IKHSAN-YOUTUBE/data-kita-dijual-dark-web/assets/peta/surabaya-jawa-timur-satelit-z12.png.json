@@ -1,0 +1,39 @@
+{
+  "file": "assets/peta/surabaya-jawa-timur-satelit-z12.png",
+  "jenis": "peta",
+  "status": "kutipan",
+  "bolehUntuk": [
+    "ulasan",
+    "berita",
+    "edukasi"
+  ],
+  "sumber": "Google Maps",
+  "lisensi": "Google Maps (Google Geo Guidelines)",
+  "url": "https://www.google.com/maps/@-7.257472,112.752088,27266m/data=!3m1!1e3?hl=id&entry=ttu&g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D",
+  "lokasi": "Surabaya, Jawa Timur",
+  "tampilan": "satelit",
+  "labelTampilan": "Satelit",
+  "lat": -7.2574719,
+  "lng": 112.7520883,
+  "zoom": 12,
+  "ukuran": "1920×1080",
+  "skala": "2 km",
+  "atribusi": "Data peta ©2026",
+  "sumberTeks": "Sumber: Google Maps (Data peta ©2026), diakses 20 Nov 2026",
+  "catatan": "Tangkapan Google Maps (Google Geo Guidelines): diizinkan untuk edukasi/ulasan/berita (termasuk YouTube monetisasi) selama atribusi Google & penyedia citra tetap jelas di layar selama peta tampil (jangan dipotong atau hanya di end card). Bukan untuk iklan/promosi komersial tanpa izin resmi / Google Maps Platform API.",
+  "geo": {
+    "lat": -7.257472,
+    "lng": 112.752088,
+    "zoom": 12,
+    "w": 1920,
+    "h": 1080,
+    "lebarCss": 1280,
+    "tinggiCss": 720,
+    "scale": 1.5,
+    "west": 112.532361,
+    "east": 112.971815,
+    "north": -7.134849,
+    "south": -7.380061
+  },
+  "ditangkap": "2026-11-20T07:43:14.179Z"
+}

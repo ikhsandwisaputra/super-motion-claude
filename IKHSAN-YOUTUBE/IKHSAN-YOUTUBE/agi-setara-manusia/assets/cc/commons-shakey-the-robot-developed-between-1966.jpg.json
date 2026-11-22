@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-shakey-the-robot-developed-between-1966.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto oleh Carlo Nardone from Roma, Italy via Wikimedia Commons dengan lisensi CC BY-SA 2.0",
+  "license": {
+    "name": "CC BY-SA 2.0",
+    "url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "attributionRequired": true,
+    "commercial": true,
+    "shareAlike": true,
+    "noDerivatives": false
+  },
+  "catatan": "ShareAlike: kalau foto ini diubah (crop/filter/montase), hasil ubahannya wajib berlisensi CC BY-SA yang sama. Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": "ShareAlike",
+  "title": "Shakey the Robot (developed between 1966-1972 at SRI International) - Computer History Museum (2007-11-10 23.16.01 by Carlo Nardone)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Shakey_the_Robot_(developed_between_1966-1972_at_SRI_International)_-_Computer_History_Museum_(2007-11-10_23.16.01_by_Carlo_Nardone).jpg",
+  "credit": "Foto oleh Carlo Nardone from Roma, Italy via Wikimedia Commons dengan lisensi CC BY-SA 2.0",
+  "bytes": 727436,
+  "sha256": "38260b14081f77b783d98f824a391395a58ca92a01683dcf3e11efbac6e7435b",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Shakey_the_Robot_%28developed_between_1966-1972_at_SRI_International%29_-_Computer_History_Museum_%282007-11-10_23.16.01_by_Carlo_Nardone%29.jpg",
+  "query": "Shakey the Robot SRI",
+  "alasanCocok": "Shakey utuh, kotak dan kamera di atas, mirip R2 (CHM), CC BY-SA 2.0",
+  "retrieved": "2026-11-15T20:05:26.827Z"
+}

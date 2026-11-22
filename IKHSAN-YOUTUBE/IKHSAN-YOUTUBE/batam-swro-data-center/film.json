@@ -1,0 +1,20 @@
+{
+  "slug": "batam-swro-data-center",
+  "out": "batam-swro-data-center",
+  "versi": 1,
+  "vo": "audio/voiceover/bsw_vo_ahmad_{n}",
+  "voice": { "nama": "Ahmad", "id": "d888tBvGmQT2u05J1xTv", "model": "eleven_v4" },
+  "bed": "stok:mixkit-musik-voxscape-571.mp3",
+  "score_intro": "aset/batam-swro-data-center/assets/stok-situs/mixkit-musik-cyberpunk-city-140.mp3",
+  "score_off": 0.3,
+  "chapters": [
+    { "dir": "intro", "vo": "01", "voff": 0.5, "dur": 54.48, "wav": "build/mix_full.wav" },
+    { "dir": "bab-peta", "vo": "03" },
+    { "dir": "bab-1", "vo": "04" },
+    { "dir": "bab-2", "vo": "05" },
+    { "dir": "bab-3", "vo": "06" },
+    { "dir": "bab-4", "vo": "07" },
+    { "dir": "puncak", "vo": "08" },
+    { "dir": "penutup", "vo": "09" }
+  ]
+}

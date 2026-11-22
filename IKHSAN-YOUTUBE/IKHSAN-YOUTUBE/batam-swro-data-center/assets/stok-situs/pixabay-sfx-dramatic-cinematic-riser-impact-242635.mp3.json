@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-dramatic-cinematic-riser-impact-242635.mp3",
+  "provider": "pixabay",
+  "id": "242635",
+  "kind": "sfx",
+  "title": "Dramatic cinematic riser impact sound effect",
+  "author": "Universfield",
+  "authorUrl": "https://pixabay.com/users/universfield-28281460/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-cinematic-riser-impact-242635/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Universfield / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "SFX transisi cepat 1-4 dtk dan impact 2-8 dtk bebas klaim untuk pergantian bab dan penekanan angka",
+  "durasi": "PT4S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 138240,
+  "sha256": "792b5ca3ff047bab10344966812f85e57891de0b8f0e8d93286fa27228f0ed09",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2024/09/20/audio_3912589570.mp3?filename=universfield-cinematic-riser-impact-242635.mp3",
+  "query": "cinematic transition whoosh impact",
+  "retrieved": "2026-11-18T14:59:37.077Z"
+}

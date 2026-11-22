@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-detailed-image-of-a-server-rack-1148820.jpg",
+  "provider": "pexels",
+  "id": "1148820",
+  "kind": "image",
+  "title": "Detailed image of a server rack with glowing lights in a modern data center.",
+  "author": "panumas nikhomkhai",
+  "authorUrl": "https://www.pexels.com/@cookiecutter/",
+  "sourceUrl": "https://www.pexels.com/photo/close-up-photo-of-mining-rig-1148820/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: panumas nikhomkhai / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "rak server pusat data, lorong lemari server, tanpa orang fokus dan tanpa logo",
+  "bytes": 262570,
+  "sha256": "3b39c5f109d20c922b1cb6f4627061fa31d00c191b7e3ec24694c0675e15e24b",
+  "fileUrl": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg",
+  "query": "data center server racks aisle",
+  "retrieved": "2026-11-15T19:43:09.429Z"
+}

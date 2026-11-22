@@ -1,0 +1,271 @@
+[
+  {
+    "file": "assets/grafik/pendapatan-hari-1-gta-6.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Pendapatan Hari-1 GTA 6 Lampaui Rumor Biaya Produksi",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Batas Rumor Anggaran",
+        "nilai": "1,5",
+        "fakta": 4,
+        "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+      },
+      {
+        "label": "Hari-1 GTA 6 (Sensor Tower)",
+        "nilai": "2,36",
+        "fakta": 1,
+        "klaim": "Dalam waktu kurang dari 24 jam sejak rilis (termasuk *pre-order*), firma analitik pasar Sensor Tower memperkirakan GTA 6 meraih pendapatan sekitar US\\$2,36 miliar dari 24,58–24,59 juta kopi terjual—dengan porsi 75% di PlayStation dan 25% di Xbox—melampaui rekor hari pertama GTA V sebesar US\\$800 jut"
+      },
+      {
+        "label": "Target FY27 Take-Two",
+        "nilai": "8,2",
+        "fakta": 3,
+        "klaim": "Fondasi bisnis raksasa GTA 6 bertumpu pada dominasi waralaba *Grand Theft Auto* yang telah menjual nyaris 480 juta kopi secara global (diperbarui dari >470 juta per Juni 2026 dan ~475 juta per Agustus 2026), dengan *GTA V* saja menembus lebih dari 230 juta hingga nyaris 235 juta kopi lintas tiga gen"
+      }
+    ],
+    "sumber": [
+      "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+      "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar",
+      "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/",
+      "https://www.tweaktown.com/news/114795/gta-6-day-one-sales-estimates-break-24-5-million-with-dollars2-36-billion-earned/index.html",
+      "https://ir.take2games.com/static-files/c4c4f7f0-6a7c-4159-b97f-089a76580c38",
+      "https://www.gamedeveloper.com/business/gta-v-surpasses-230-million-sales-months-before-gta-vi-touches-down",
+      "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+    ],
+    "sumberTeks": "Sumber: sea.ign.com, gta6everything.com, deadline.com, dll. (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:10.002Z"
+  },
+  {
+    "file": "assets/grafik/lonjakan-staf-rockstar.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Rockstar Gandakan Staf Global, India Jadi Kontributor Besar",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Rockstar India (Bengaluru)",
+        "nilai": "1.600",
+        "fakta": 6,
+        "klaim": "Rockstar India yang berbasis di Whitefield, Bengaluru dilaporkan mengerahkan lebih dari 1.600 developer untuk GTA 6—menjadikannya salah satu kontributor studio terbesar dalam jaringan global Rockstar—dengan laporan media menyebut kontribusi pada lingkungan *open-world*, aset 3D, serta area *Vice Bea"
+      },
+      {
+        "label": "Staf 2018 (RDR2)",
+        "nilai": "2.441",
+        "fakta": 4,
+        "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+      },
+      {
+        "label": "Staf 2026 (12 Kantor)",
+        "nilai": "4.711",
+        "fakta": 4,
+        "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+      }
+    ],
+    "sumber": [
+      "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html",
+      "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681",
+      "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+      "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar"
+    ],
+    "sumberTeks": "Sumber: firstpost.com, channelnewsasia.com, sea.ign.com, dll. (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:10.428Z"
+  },
+  {
+    "file": "assets/grafik/rekor-trailer-24jam.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Tiga Momen Promosi GTA 6 Sapu Bersih Rekor Global",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Extended Look Netflix (4 Hari)",
+        "nilai": "31,1",
+        "fakta": 10,
+        "klaim": "Pada 27 Agustus 2026, Rockstar menggandeng Netflix untuk menayangkan perdana *Grand Theft Auto VI: An Extended Look* (berdurasi 27 menit, direkam sepenuhnya dari *in-game footage* PS5) secara eksklusif selama 6 jam sebelum tayang di YouTube; tayangan itu meraih 31,1 juta *views* di Netflix dalam 4 h"
+      },
+      {
+        "label": "MrBeast (Rekor YT Lama)",
+        "nilai": "59,4",
+        "fakta": 9,
+        "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+      },
+      {
+        "label": "GTA 6 Trailer 1 (24 Jam)",
+        "nilai": "93",
+        "fakta": 9,
+        "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+      },
+      {
+        "label": "GTA 6 Trailer 2 (24 Jam)",
+        "nilai": "475",
+        "fakta": 9,
+        "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+      }
+    ],
+    "sumber": [
+      "https://variety.com/2026/tv/news/gta-6-netflix-extended-look-views-1236848409/",
+      "https://www.gamesindustry.biz/gta-6-extended-look-reaches-311m-views-on-netflix-in-four-days-making-it-the-most-viewed-title-last-week",
+      "https://variety.com/2023/digital/news/grand-theft-auto-6-youtube-record-most-viewed-trailer-1235828208/",
+      "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/",
+      "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html"
+    ],
+    "sumberTeks": "Sumber: variety.com, gamesindustry.biz, hollywoodreporter.com, dll. (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:30.873Z"
+  },
+  {
+    "file": "assets/grafik/puncak-livestream-gta6.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Livestream Rilis GTA 6 Pecahkan Rekor 7,91 Juta Penonton",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "GTA 6 (Kick)",
+        "nilai": "1,50",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      },
+      {
+        "label": "Valorant (Rekor Rilis)",
+        "nilai": "1,74",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      },
+      {
+        "label": "League of Legends (Twitch)",
+        "nilai": "3,11",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      },
+      {
+        "label": "GTA 6 (YouTube)",
+        "nilai": "3,22",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      },
+      {
+        "label": "GTA 6 (Twitch)",
+        "nilai": "3,31",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      },
+      {
+        "label": "Total Lintas Platform GTA 6",
+        "nilai": "7,91",
+        "fakta": 12,
+        "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)"
+      }
+    ],
+    "sumber": [
+      "https://streamscharts.com/news/gta-vi-breaks-streaming-launch-records-within-minutes-its-release",
+      "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/",
+      "https://www.polygon.com/gta-6-streaming-record-twitch-viewers-reviews/"
+    ],
+    "sumberTeks": "Sumber: streamscharts.com, variety.com, polygon.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:31.277Z"
+  },
+  {
+    "file": "assets/grafik/top-streamer-dunia-gta6.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Windah Basudara Puncaki Streamer GTA 6 Dunia",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Rubius (Spanyol)",
+        "nilai": "358.695",
+        "fakta": 13,
+        "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+      },
+      {
+        "label": "alanzoka (Brasil)",
+        "nilai": "361.813",
+        "fakta": 13,
+        "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+      },
+      {
+        "label": "IShowSpeed (AS)",
+        "nilai": "371.840",
+        "fakta": 13,
+        "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+      },
+      {
+        "label": "Windah Basudara (ID)",
+        "nilai": "392.505",
+        "fakta": 13,
+        "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+      }
+    ],
+    "sumber": [
+      "https://tekno.kompas.com/read/2026/11/19/09050067/windah-basudara-jadi-streamer-gta-6-paling-banyak-ditonton-lampaui-ishowspeed",
+      "https://radarpati.jawapos.com/gadget/2611190047/windah-basudara-pecahkan-rekor-jadi-streamer-gta-6-dengan-penonton-terbanyak-kalahkan-ishowspeed"
+    ],
+    "sumberTeks": "Sumber: Kompas.com, radarpati.jawapos.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:31.663Z"
+  },
+  {
+    "file": "assets/grafik/harga-ps-store-indonesia.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Harga GTA 6 di PS Store Indonesia Naik 11% Pas Hari Rilis",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Standard (Pre-Order)",
+        "nilai": "1.190.000",
+        "fakta": 14,
+        "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+      },
+      {
+        "label": "Standard (Hari Rilis)",
+        "nilai": "1.321.000",
+        "fakta": 14,
+        "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+      },
+      {
+        "label": "Ultimate (Pre-Order)",
+        "nilai": "1.490.000",
+        "fakta": 14,
+        "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+      },
+      {
+        "label": "Ultimate (Hari Rilis)",
+        "nilai": "1.654.000",
+        "fakta": 14,
+        "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+      }
+    ],
+    "sumber": [
+      "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta",
+      "https://carisinyal.com/news/harga-gta-6-di-ps-store-naik/"
+    ],
+    "sumberTeks": "Sumber: Kompas.com, carisinyal.com (diolah)",
+    "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+    "dibuat": "2026-11-20T11:19:32.070Z"
+  }
+]

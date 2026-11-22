@@ -1,0 +1,44 @@
+{
+  "file": "assets/grafik/jatuh-5-nov-2026.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Satu hari, 5 November 2026",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "S&P 500",
+      "nilai": "4,4",
+      "fakta": 2,
+      "klaim": "5 Nov 2026: Nasdaq -5,5%, S&P 500 -4,4%, Dow -1.833 poin; Nasdaq 11,9% di bawah rekor Oktober. (AP, 5 Nov 2026; Le Monde, 7 Nov 2026; Open Magazine, 6 Nov 2026)"
+    },
+    {
+      "label": "Nasdaq",
+      "nilai": "5,5",
+      "fakta": 2,
+      "klaim": "5 Nov 2026: Nasdaq -5,5%, S&P 500 -4,4%, Dow -1.833 poin; Nasdaq 11,9% di bawah rekor Oktober. (AP, 5 Nov 2026; Le Monde, 7 Nov 2026; Open Magazine, 6 Nov 2026)"
+    },
+    {
+      "label": "Nvidia",
+      "nilai": "9,3",
+      "fakta": 3,
+      "klaim": "Saham AI individu jatuh: Nvidia -9,3%, AMD -17,3%, CoreWeave -9,8% di hari yang sama; Nvidia kini -2,6% sejak awal 2026. (AP, 5 Nov 2026; Open Magazine, 6 Nov 2026)"
+    },
+    {
+      "label": "AMD",
+      "nilai": "17,3",
+      "fakta": 3,
+      "klaim": "Saham AI individu jatuh: Nvidia -9,3%, AMD -17,3%, CoreWeave -9,8% di hari yang sama; Nvidia kini -2,6% sejak awal 2026. (AP, 5 Nov 2026; Open Magazine, 6 Nov 2026)"
+    }
+  ],
+  "sumber": [
+    "https://www.foxcarolina.com/2026/11/05/brutal-sell-off-ai-stocks-sends-wall-street-reeling-sp-500-sees-worst-day-since-2025-liberation-day-tariffs/",
+    "https://www.lemonde.fr/en/opinion/article/2026/11/07/the-ai-bubble-faces-reality_6774319_23.html",
+    "https://openthemagazine.com/technology/quick-take-why-did-the-nasdaq-fall-55-seven-things-to-know-about-wall-streets-ai-sell-off"
+  ],
+  "sumberTeks": "Sumber: foxcarolina.com, lemonde.fr, openthemagazine.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-14-ai-bubble-a-apa-dan-status.md",
+  "dibuat": "2026-11-14T06:32:34.842Z"
+}

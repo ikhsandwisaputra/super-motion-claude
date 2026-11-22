@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/arc-agi-3-astra-dua-pembungkus.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Model yang sama, skornya beda jauh",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Pembungkus standar",
+      "nilai": "62,7",
+      "fakta": 17,
+      "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+    },
+    {
+      "label": "Pembungkus vendor",
+      "nilai": "99,9",
+      "fakta": 17,
+      "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+    }
+  ],
+  "sumber": [
+    "https://arcprize.org/blog/astra",
+    "https://thenextweb.com/news/openai-astra-arc-agi-3-harness-62-7-vs-99-9-benchmark-revisions"
+  ],
+  "sumberTeks": "Sumber: arcprize.org, thenextweb.com (diolah)",
+  "faktaDari": "fakta.json tugas aktif",
+  "dibuat": "2026-11-15T19:57:54.142Z"
+}

@@ -1,0 +1,59 @@
+{
+ "slug": "ai-data-habis",
+ "out": "ai-data-habis",
+ "versi": 1,
+ "vo": "audio/voiceover/adh_vo_ahmad_{n}",
+ "voice": {
+  "nama": "Ahmad",
+  "id": "d888tBvGmQT2u05J1xTv",
+  "model": "eleven_v4"
+ },
+ "bed": "stok:mixkit-musik-voxscape-571.mp3",
+ "score_intro": "audio/music/ivs_score_intro.mp3",
+ "score_off": 12.0,
+ "chapters": [
+  {
+   "dir": "intro",
+   "vo": "01",
+   "voff": 0.5,
+   "dur": 47.64,
+   "wav": "build/mix_full.wav"
+  },
+  {
+   "dir": "bab-peta",
+   "vo": "03"
+  },
+  {
+   "dir": "bab-1",
+   "vo": "04"
+  },
+  {
+   "dir": "bab-2",
+   "vo": "05"
+  },
+  {
+   "dir": "bab-3",
+   "vo": "06"
+  },
+  {
+   "dir": "bab-4",
+   "vo": "07"
+  },
+  {
+   "dir": "bab-5",
+   "vo": "08"
+  },
+  {
+   "dir": "puncak",
+   "vo": "09"
+  },
+  {
+   "dir": "penutup",
+   "vo": "10"
+  }
+ ],
+ "score_pre": [
+  0.4,
+  16.0
+ ]
+}

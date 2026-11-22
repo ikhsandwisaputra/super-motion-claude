@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-sfx-cinematic-tunnel-reverb-woosh-1486.wav",
+  "provider": "mixkit",
+  "id": "1486",
+  "kind": "sfx",
+  "title": "Cinematic tunnel reverb woosh",
+  "author": null,
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-sound-effects/discover/whoosh-transition/",
+  "license": {
+    "name": "Mixkit Sound Effects Free License",
+    "url": "https://mixkit.co/license/#sfxFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "whoosh transisi pendek 1-6 dtk untuk pergantian bab",
+  "durasi": "0:06",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 1785332,
+  "sha256": "0c5943e1f934e51d6d40f62ce6448f38be1cbaada103fe6e4ce95c82b660733b",
+  "fileUrl": "https://assets.mixkit.co/active_storage/sfx/1486/1486.wav",
+  "query": "whoosh transition",
+  "retrieved": "2026-11-15T19:44:05.415Z"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-musik-tutorial-explainer-corporate-632759.mp3",
+  "provider": "pixabay",
+  "id": "632759",
+  "kind": "musik",
+  "title": "Tutorial explainer corporate background music",
+  "author": "AtlasAudio",
+  "authorUrl": "https://pixabay.com/users/atlasaudio-54514918/",
+  "sourceUrl": "https://pixabay.com/music/corporate-tutorial-explainer-632759/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: AtlasAudio / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Instrumental tenang-penasaran untuk eksplainer teknologi, 3-4 menit, tanpa Content ID; perlu didengar Ikhsan",
+  "durasi": "PT3M22S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 6466664,
+  "sha256": "6ed7ea2959c29e584ad2fbf363d830b25518d13563205dec35cb303b95080ffa",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/11/05/audio_03e06da3a7.mp3?filename=atlasaudio-tutorial-explainer-632759.mp3",
+  "query": "calm curious technology explainer instrumental ambient",
+  "retrieved": "2026-11-15T04:41:48.198Z"
+}

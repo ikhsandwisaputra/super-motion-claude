@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-summit-supercomputer-2018.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto oleh OLCF at ORNL via Wikimedia Commons dengan lisensi CC BY 2.0",
+  "license": {
+    "name": "CC BY 2.0",
+    "url": "https://creativecommons.org/licenses/by/2.0/",
+    "attributionRequired": true,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "Summit Supercomputer 2018",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Summit_Supercomputer_2018.jpg",
+  "credit": "Foto oleh OLCF at ORNL via Wikimedia Commons dengan lisensi CC BY 2.0",
+  "bytes": 472142,
+  "sha256": "ce5dd1bd49cc5a94715da65e28a1f8de0b82eb28b349e2218f9bce79fb9a8ca0",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Summit_Supercomputer_2018.jpg/1920px-Summit_Supercomputer_2018.jpg",
+  "query": "Wikimedia Commons supercomputer server",
+  "alasanCocok": "Deretan kabinet rak superkomputer/server hitam di ruang pusat data berlampu putih/biru dengan sudut perspektif lorong diagonal sesuai pola R1, R2, R7, R10 pada lembar referensi",
+  "retrieved": "2026-11-19T09:53:54.338Z"
+}

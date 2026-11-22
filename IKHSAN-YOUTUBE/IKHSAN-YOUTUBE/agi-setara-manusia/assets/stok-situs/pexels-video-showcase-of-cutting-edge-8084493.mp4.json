@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-showcase-of-cutting-edge-8084493.mp4",
+  "provider": "pexels",
+  "id": "8084493",
+  "kind": "video",
+  "title": "Showcase of cutting-edge robotics in a modern setting.",
+  "author": "Pavel Danilyuk",
+  "authorUrl": "https://www.pexels.com/@pavel-danilyuk/",
+  "sourceUrl": "https://www.pexels.com/video/a-footage-of-a-white-robot-on-a-black-surface-8084493/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Pavel Danilyuk / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "robot humanoid putih tanpa logo di latar gelap polos; robot berwajah mirip manusia",
+  "bytes": 3677540,
+  "sha256": "0134d415c5230b3a965801d6e517ac496d4acd17a1169e19c1f69d6164b1632a",
+  "fileUrl": "https://videos.pexels.com/video-files/8084493/8084493-hd_1920_1080_25fps.mp4",
+  "query": "humanoid robot walking",
+  "retrieved": "2026-11-15T19:35:28.701Z"
+}

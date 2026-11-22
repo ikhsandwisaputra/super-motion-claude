@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-sfx-small-electric-glitch-2595.wav",
+  "provider": "mixkit",
+  "id": "2595",
+  "kind": "sfx",
+  "title": "Small electric glitch",
+  "author": null,
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-sound-effects/glitch/",
+  "license": {
+    "name": "Mixkit Sound Effects Free License",
+    "url": "https://mixkit.co/license/#sfxFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "glitch ringan 1 dtk",
+  "durasi": "0:01",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 180480,
+  "sha256": "a0b1fc7da700d4ee99294b242039836717a9e9e2c53ffa308b72dda7c22a7578",
+  "fileUrl": "https://assets.mixkit.co/active_storage/sfx/2595/2595.wav",
+  "query": "glitch digital",
+  "retrieved": "2026-11-13T15:40:11.380Z"
+}

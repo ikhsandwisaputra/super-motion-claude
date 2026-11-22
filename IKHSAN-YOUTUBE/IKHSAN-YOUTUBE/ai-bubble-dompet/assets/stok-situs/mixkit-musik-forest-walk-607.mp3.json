@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-musik-forest-walk-607.mp3",
+  "provider": "mixkit",
+  "id": "607",
+  "kind": "musik",
+  "title": "Forest Walk",
+  "author": "Eugenio Mininni",
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-stock-music/ambient/",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/#musicFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: Eugenio Mininni / Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Bed tegang-pelan (#7 Tense 3:50, #13 Cinematic Tense, #4 Vastness 3:50, #18 Voxscape 5:00 ambient gelap) dan reflektif penutup (#10 Feedback Dreams, #24 Forest Walk); dengarkan dulu",
+  "durasi": "2:54",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 5577546,
+  "sha256": "a26472673d06e47655b5d93ea7917a420a2b095e68bdc988c0a3dc255b249747",
+  "fileUrl": "https://assets.mixkit.co/music/607/607.mp3",
+  "query": "tense news background ambient cinematic",
+  "retrieved": "2026-11-14T06:40:21.506Z"
+}

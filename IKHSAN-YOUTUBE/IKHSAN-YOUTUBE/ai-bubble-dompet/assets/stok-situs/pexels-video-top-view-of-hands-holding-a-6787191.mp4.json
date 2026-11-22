@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-top-view-of-hands-holding-a-6787191.mp4",
+  "provider": "pexels",
+  "id": "6787191",
+  "kind": "video",
+  "title": "Top view of hands holding a smartphone with a blank screen on a white desk.",
+  "author": "Artem Podrez",
+  "authorUrl": "https://www.pexels.com/@artempodrez/",
+  "sourceUrl": "https://www.pexels.com/video/person-holding-a-blank-screen-smartphone-6787191/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Artem Podrez / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "Tangan memegang/mengetik di HP, tanpa wajah, tanpa logo (referensi captcha; dinilai dari sampul)",
+  "bytes": 1001827,
+  "sha256": "d1f673cfad895fd04849da10486bfbf62e26fa2a6bd78aed48471aa6f27b7438",
+  "fileUrl": "https://videos.pexels.com/video-files/6787191/6787191-hd_1920_1080_30fps.mp4",
+  "query": "smartphone store display shelf gadgets",
+  "retrieved": "2026-11-14T06:38:46.547Z"
+}

@@ -1,0 +1,32 @@
+{
+  "file": "assets/grafik/grafik-ecommerce-indo-vs-as.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Belanja online AS satu kuartal ±4 kali e-commerce kita setahun",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia (setahun)",
+      "nilai": "85",
+      "fakta": 0,
+      "klaim": "Indonesia 2026: GMV ekonomi digital US$119 miliar (≈Rp2.162,6 triliun), +16%; e-commerce US$85 miliar (Kompas 11 Nov 2026; Antara 11 Nov 2026) ·"
+    },
+    {
+      "label": "AS (satu kuartal)",
+      "nilai": "340,2",
+      "fakta": 2,
+      "klaim": "AS e-commerce ritel Q2 2026: US$340,2 miliar (musiman), 17,1% dari total ritel, +12,2% yoy (Census, 17 Agu 2026; halaman memberi catatan revisi 19 Nov 2026)"
+    }
+  ],
+  "sumber": [
+    "https://tekno.kompas.com/read/2026/11/11/16220087/ekonomi-digital-indonesia-tembus-rp-2.162-triliun-pada-2026-e-commerce-terbesar",
+    "https://www.antaranews.com/berita/5847095/ekonomi-digital-ri-tumbuh-rp21-kuadriliun-di-2026-meski-ekonomi-berat",
+    "https://www.census.gov/retail/mrts/www/data/pdf/ec_current.pdf"
+  ],
+  "sumberTeks": "Sumber: Kompas.com, ANTARA, census.gov (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+  "dibuat": "2026-11-13T15:33:45.238Z"
+}

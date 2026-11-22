@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-a-person-makes-a-contactless-6602062.mp4",
+  "provider": "pexels",
+  "id": "6602062",
+  "kind": "video",
+  "title": "A person makes a contactless payment using a smartphone at a coffee shop.",
+  "author": "Pavel Danilyuk",
+  "authorUrl": "https://www.pexels.com/@pavel-danilyuk/",
+  "sourceUrl": "https://www.pexels.com/video/a-person-paying-bills-using-smartphone-6602062/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Pavel Danilyuk / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "tangan scan QR / bayar dengan ponsel, tanpa wajah",
+  "bytes": 6236658,
+  "sha256": "535769d58e7bd9d63491b3562306e381b02e3fabe327c60c23e433fa991ddaa8",
+  "fileUrl": "https://videos.pexels.com/video-files/6602062/6602062-hd_1920_1080_30fps.mp4",
+  "query": "paying with QR code smartphone scan at market stall",
+  "retrieved": "2026-11-13T15:36:14.464Z"
+}

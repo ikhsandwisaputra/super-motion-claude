@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-musik-driving-ambition-32.mp3",
+  "provider": "mixkit",
+  "id": "32",
+  "kind": "musik",
+  "title": "Driving Ambition",
+  "author": "Ahjay Stelino",
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-stock-music/mood/uplifting/",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/#musicFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: Ahjay Stelino / Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "musik twist/puncak lebih naik, uplifting-epic, 1:40-2:10, tanpa Content ID",
+  "durasi": "1:42",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 3270947,
+  "sha256": "e3c88488e65b8c87a6f06120983ce2cb12ea3aeba99f8cadb7ee5d6d284ef2c6",
+  "fileUrl": "https://assets.mixkit.co/music/32/32.mp3",
+  "query": "epic uplifting cinematic build revelation",
+  "retrieved": "2026-11-13T15:38:33.406Z"
+}

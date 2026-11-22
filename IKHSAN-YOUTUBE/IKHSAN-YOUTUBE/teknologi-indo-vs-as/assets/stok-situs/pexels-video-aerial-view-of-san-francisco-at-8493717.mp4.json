@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-aerial-view-of-san-francisco-at-8493717.mp4",
+  "provider": "pexels",
+  "id": "8493717",
+  "kind": "video",
+  "title": "Aerial view of San Francisco at sunset showcasing skyline and bridge.",
+  "author": "ArtHouse Studio",
+  "authorUrl": "https://www.pexels.com/@arthousestudio/",
+  "sourceUrl": "https://www.pexels.com/video/drone-footage-of-a-city-8493717/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: ArtHouse Studio / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1366×720",
+  "alasanCocok": "skyline udara San Francisco",
+  "bytes": 7816938,
+  "sha256": "c5b13d9a677c3bad015bdc7329872d9e78ad0c875d49953cf33a4ff8482326eb",
+  "fileUrl": "https://videos.pexels.com/video-files/8493717/8493717-hd_1366_720_24fps.mp4",
+  "query": "San Francisco skyline aerial",
+  "retrieved": "2026-11-13T15:35:21.058Z"
+}

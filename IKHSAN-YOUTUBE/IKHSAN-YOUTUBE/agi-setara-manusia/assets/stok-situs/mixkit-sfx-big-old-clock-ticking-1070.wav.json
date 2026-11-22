@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-sfx-big-old-clock-ticking-1070.wav",
+  "provider": "mixkit",
+  "id": "1070",
+  "kind": "sfx",
+  "title": "Big old clock ticking",
+  "author": null,
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-sound-effects/discover/clock-ticking/",
+  "license": {
+    "name": "Mixkit Sound Effects Free License",
+    "url": "https://mixkit.co/license/#sfxFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "tick jam dinding dan timer untuk beat 'katanya sebentar lagi' sejak 1950-an",
+  "durasi": "0:35",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 6347882,
+  "sha256": "03da1e576efa1a7d07eedbc366a56bd88bc09bb3c5691592d6a47a7c28636799",
+  "fileUrl": "https://assets.mixkit.co/active_storage/sfx/1070/1070.wav",
+  "query": "clock ticking",
+  "retrieved": "2026-11-15T19:45:40.496Z"
+}

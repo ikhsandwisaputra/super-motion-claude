@@ -1,0 +1,32 @@
+{
+  "file": "assets/grafik/produksi-air-nongsa-kemarau.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Produksi Air Nongsa Anjlok saat Kemarau",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Normal",
+      "nilai": 90,
+      "fakta": 7,
+      "klaim": "BP Batam membantah pasokan air warga dialihkan ke data center (membantah tudingan aliran 160 LPS) dan menyebut kemarau / El Niño menyusutkan Waduk Nongsa sekitar 4,5 meter sehingga produksi di Nongsa turun dari normal 90 LPS menjadi sekitar 25 LPS. (CNBC Indonesia, 6 Okt 2026; detikSumut, 5 Okt 2026"
+    },
+    {
+      "label": "Okt 2026",
+      "nilai": 25,
+      "fakta": 7,
+      "klaim": "BP Batam membantah pasokan air warga dialihkan ke data center (membantah tudingan aliran 160 LPS) dan menyebut kemarau / El Niño menyusutkan Waduk Nongsa sekitar 4,5 meter sehingga produksi di Nongsa turun dari normal 90 LPS menjadi sekitar 25 LPS. (CNBC Indonesia, 6 Okt 2026; detikSumut, 5 Okt 2026"
+    }
+  ],
+  "sumber": [
+    "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center",
+    "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center",
+    "https://rri.co.id/batam/regional/2792268/waduk-nongsa-kering-bukan-karena-industri-data-center-melainkan-faktor-cuaca"
+  ],
+  "sumberTeks": "Sumber: CNBC Indonesia, detikcom, rri.co.id (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-18-batam-swro-data-center.md",
+  "dibuat": "2026-11-18T14:51:18.815Z"
+}

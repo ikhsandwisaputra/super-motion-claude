@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-musik-dark-ambient-sci-fi-documentary-268026.mp3",
+  "provider": "pixabay",
+  "id": "268026",
+  "kind": "musik",
+  "title": "Dark ambient sci-fi documentary cinematic music",
+  "author": "mariokhol",
+  "authorUrl": "https://pixabay.com/users/mariokhol-17683309/",
+  "sourceUrl": "https://pixabay.com/music/upbeat-dark-ambient-sci-fi-documentary-268026/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: mariokhol / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Musik latar ambient teknologi dokumenter bernuansa serius, investigatif, tempo tenang-menengah, durasi 2-3 menit bebas Content ID untuk narasi panjang YouTube",
+  "durasi": "PT3M12S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 6133133,
+  "sha256": "2c3ac82802da18a77dd6ef1ffd1ce1ce6cdf4adc345f99178e470231ae17facd",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2024/11/24/audio_38195ed8b1.mp3?filename=mariokhol-dark-ambient-sci-fi-documentary-268026.mp3",
+  "query": "dark ambient technology documentary",
+  "retrieved": "2026-11-19T09:56:00.718Z"
+}

@@ -1,0 +1,128 @@
+{
+ "logo": {
+  "n": 210,
+  "fps": 15,
+  "src": "gtavi-clip-01-cover-art-animation-muted.mp4",
+  "ss": 6.0,
+  "len": 14.0
+ },
+ "jason": {
+  "n": 15,
+  "fps": 15,
+  "src": "gtavi-clip-02-jason-duval-muted.mp4",
+  "ss": 0,
+  "len": 1.0
+ },
+ "lucia": {
+  "n": 23,
+  "fps": 15,
+  "src": "gtavi-clip-03-lucia-caminos-muted.mp4",
+  "ss": 0,
+  "len": 1.5
+ },
+ "klub": {
+  "n": 39,
+  "fps": 15,
+  "src": "gtavi-gameplay-01-out-now-muted.mp4",
+  "ss": 0.2,
+  "len": 2.6
+ },
+ "kapal": {
+  "n": 45,
+  "fps": 15,
+  "src": "gtavi-gameplay-01-out-now-muted.mp4",
+  "ss": 7.0,
+  "len": 3.0
+ },
+ "tangga": {
+  "n": 48,
+  "fps": 15,
+  "src": "gtavi-gameplay-01-out-now-muted.mp4",
+  "ss": 9.6,
+  "len": 3.2
+ },
+ "telepon": {
+  "n": 45,
+  "fps": 15,
+  "src": "gtavi-gameplay-02-launch-trailer-muted.mp4",
+  "ss": 0.2,
+  "len": 3.0
+ },
+ "kotamalam": {
+  "n": 45,
+  "fps": 15,
+  "src": "gtavi-gameplay-02-launch-trailer-muted.mp4",
+  "ss": 4.6,
+  "len": 3.0
+ },
+ "mobil2": {
+  "n": 45,
+  "fps": 15,
+  "src": "gtavi-gameplay-02-launch-trailer-muted.mp4",
+  "ss": 7.4,
+  "len": 3.0
+ },
+ "senja": {
+  "n": 42,
+  "fps": 15,
+  "src": "gtavi-gameplay-02-launch-trailer-muted.mp4",
+  "ss": 12.2,
+  "len": 2.8
+ },
+ "interogasi": {
+  "n": 36,
+  "fps": 15,
+  "src": "gtavi-gameplay-03-trailer-1-vice-city-muted.mp4",
+  "ss": 0.1,
+  "len": 2.4
+ },
+ "laut": {
+  "n": 39,
+  "fps": 15,
+  "src": "gtavi-gameplay-03-trailer-1-vice-city-muted.mp4",
+  "ss": 2.5,
+  "len": 2.6
+ },
+ "pantai": {
+  "n": 39,
+  "fps": 15,
+  "src": "gtavi-gameplay-03-trailer-1-vice-city-muted.mp4",
+  "ss": 5.0,
+  "len": 2.6
+ },
+ "menara": {
+  "n": 39,
+  "fps": 15,
+  "src": "gtavi-gameplay-03-trailer-1-vice-city-muted.mp4",
+  "ss": 9.4,
+  "len": 2.6
+ },
+ "flamingo": {
+  "n": 30,
+  "fps": 15,
+  "src": "gtavi-gameplay-03-trailer-1-vice-city-muted.mp4",
+  "ss": 12.0,
+  "len": 3.0
+ },
+ "lorong": {
+  "n": 90,
+  "fps": 15,
+  "src": "gtavi-gameplay-04-extended-look-ps5-a-muted.mp4",
+  "ss": 0.0,
+  "len": 6.0
+ },
+ "nyetir": {
+  "n": 135,
+  "fps": 15,
+  "src": "gtavi-gameplay-05-extended-look-ps5-b-muted.mp4",
+  "ss": 0.0,
+  "len": 9.0
+ },
+ "garasi": {
+  "n": 105,
+  "fps": 15,
+  "src": "gtavi-gameplay-06-extended-look-ps5-c-muted.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ }
+}

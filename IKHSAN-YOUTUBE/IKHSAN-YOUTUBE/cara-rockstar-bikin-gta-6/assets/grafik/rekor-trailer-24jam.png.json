@@ -1,0 +1,46 @@
+{
+  "file": "assets/grafik/rekor-trailer-24jam.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Tiga Momen Promosi GTA 6 Sapu Bersih Rekor Global",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Extended Look Netflix (4 Hari)",
+      "nilai": "31,1",
+      "fakta": 10,
+      "klaim": "Pada 27 Agustus 2026, Rockstar menggandeng Netflix untuk menayangkan perdana *Grand Theft Auto VI: An Extended Look* (berdurasi 27 menit, direkam sepenuhnya dari *in-game footage* PS5) secara eksklusif selama 6 jam sebelum tayang di YouTube; tayangan itu meraih 31,1 juta *views* di Netflix dalam 4 h"
+    },
+    {
+      "label": "MrBeast (Rekor YT Lama)",
+      "nilai": "59,4",
+      "fakta": 9,
+      "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+    },
+    {
+      "label": "GTA 6 Trailer 1 (24 Jam)",
+      "nilai": "93",
+      "fakta": 9,
+      "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+    },
+    {
+      "label": "GTA 6 Trailer 2 (24 Jam)",
+      "nilai": "475",
+      "fakta": 9,
+      "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j"
+    }
+  ],
+  "sumber": [
+    "https://variety.com/2026/tv/news/gta-6-netflix-extended-look-views-1236848409/",
+    "https://www.gamesindustry.biz/gta-6-extended-look-reaches-311m-views-on-netflix-in-four-days-making-it-the-most-viewed-title-last-week",
+    "https://variety.com/2023/digital/news/grand-theft-auto-6-youtube-record-most-viewed-trailer-1235828208/",
+    "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/",
+    "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html"
+  ],
+  "sumberTeks": "Sumber: variety.com, gamesindustry.biz, hollywoodreporter.com, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:30.873Z"
+}

@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-visiontek-geforce-256.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto: Hyins via Wikimedia Commons (domain publik)",
+  "license": {
+    "name": "Domain publik",
+    "url": null,
+    "attributionRequired": false,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "VisionTek GeForce 256",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:VisionTek_GeForce_256.jpg",
+  "credit": "Foto: Hyins via Wikimedia Commons (domain publik)",
+  "bytes": 632911,
+  "sha256": "3000ecca7473b7c249b1e5de98ba667ecae0f876aad1eec3e0b8bb959654df60",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/VisionTek_GeForce_256.jpg/1920px-VisionTek_GeForce_256.jpg",
+  "query": "Nvidia GPU graphics card chip",
+  "alasanCocok": "Papan GPU Nvidia nyata (perangkat, chip dekat, tanpa logo besar); bukan H100 modern, dipakai berlabel 'GeForce 256, 1999' sebagai sejarah GPU",
+  "retrieved": "2026-11-14T06:32:22.651Z"
+}

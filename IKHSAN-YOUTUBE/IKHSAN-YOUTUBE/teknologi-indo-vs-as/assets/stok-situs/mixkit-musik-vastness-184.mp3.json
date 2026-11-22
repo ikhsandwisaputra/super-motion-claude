@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-musik-vastness-184.mp3",
+  "provider": "mixkit",
+  "id": "184",
+  "kind": "musik",
+  "title": "Vastness",
+  "author": "Andrew Ev",
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-stock-music/ambient/",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/#musicFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: Andrew Ev / Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "bed ambient tekno santai, panjang 5:00 + 3:50 untuk disambung ke 11 menit, Mixkit tanpa Content ID",
+  "durasi": "3:50",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 7356125,
+  "sha256": "3ffae7ccd5ea6f612f75efdf9a8318ccce79a5e4f355b26e233631330a57660f",
+  "fileUrl": "https://assets.mixkit.co/music/184/184.mp3",
+  "query": "documentary technology ambient calm corporate",
+  "retrieved": "2026-11-13T15:38:19.296Z"
+}

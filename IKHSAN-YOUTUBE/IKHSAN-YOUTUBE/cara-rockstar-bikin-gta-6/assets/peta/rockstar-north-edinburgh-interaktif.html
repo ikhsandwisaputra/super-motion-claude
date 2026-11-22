@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>rockstar-north-edinburgh — Penjelajah Peta Interaktif</title>
+<style>
+  :root {
+    --bg: #0c0f14; --panel: #141922; --panel2: #1b2230; --border: #273144;
+    --ink: #eef2f8; --muted: #94a3b8; --accent: #38bdf8; --accent2: #22c55e; --warn: #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); font: 14px/1.45 'Inter', 'Noto Sans', system-ui, sans-serif; overflow: hidden; }
+  .app { display: grid; grid-template-rows: auto auto 1fr auto; height: 100vh; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; padding: 10px 16px; background: var(--panel); border-bottom: 1px solid var(--border); }
+  .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .badge { font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; background: rgba(56,189,248,.16); color: var(--accent); border: 1px solid rgba(56,189,248,.35); padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  h1 { margin: 0; font-size: 16px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 38vw; }
+  .meta { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+  .spacer { flex: 1; }
+  .actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  button, select, a.btn { background: var(--panel2); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 6px 11px; font: 600 12px/1.2 inherit; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: .15s border-color, .15s background; }
+  button:hover, select:hover, a.btn:hover { border-color: var(--accent); background: #212b3d; }
+  button.active { background: rgba(56,189,248,.18); border-color: var(--accent); color: #e0f2fe; }
+  button.primary { background: #0284c7; border-color: #38bdf8; color: #fff; }
+  button.primary:hover { background: #0369a1; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 16px; background: #10151e; border-bottom: 1px solid var(--border); }
+  .group { display: inline-flex; align-items: center; gap: 4px; padding-right: 10px; margin-right: 4px; border-right: 1px solid var(--border); }
+  .group:last-child { border-right: 0; padding-right: 0; }
+  .lbl { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-right: 4px; }
+  .ctrl3d { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+  .ctrl3d strong { color: var(--ink); min-width: 34px; text-align: right; font-variant-numeric: tabular-nums; }
+  .ctrl3d input[type="range"] { width: 82px; accent-color: var(--accent); }
+  main { position: relative; overflow: hidden; background: #05070a; display: flex; align-items: center; justify-content: center; }
+  .stage-wrap { position: relative; width: 100%; height: 100%; overflow: hidden; cursor: grab; user-select: none; }
+  .stage-wrap.dragging { cursor: grabbing; }
+  .stage { position: absolute; left: 50%; top: 50%; transform-origin: center center; will-change: transform; }
+  .layer { position: relative; display: inline-block; line-height: 0; box-shadow: 0 20px 60px rgba(0,0,0,.65); border-radius: 6px; overflow: hidden; }
+  .layer img { display: block; max-width: 92vw; max-height: calc(100vh - 175px); width: auto; height: auto; pointer-events: none; user-select: none; }
+  .compare-top { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .compare-top img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; max-width: none; max-height: none; object-fit: cover; }
+  .divider { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--accent); box-shadow: 0 0 12px rgba(56,189,248,.8); cursor: ew-resize; z-index: 5; }
+  .divider::after { content: '◀ ▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--accent); color: #06121f; font: 700 11px/1 system-ui; padding: 6px 8px; border-radius: 999px; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,.5); }
+  .cmp-tag { position: absolute; top: 12px; z-index: 6; background: rgba(12,15,20,.82); color: #fff; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; border: 1px solid rgba(255,255,255,.15); pointer-events: none; }
+  .cmp-tag.left { left: 12px; } .cmp-tag.right { right: 12px; }
+  .pins { position: absolute; inset: 0; pointer-events: none; z-index: 4; }
+  .pin { position: absolute; transform: translate(-50%, -100%); pointer-events: auto; cursor: pointer; }
+  .pin-dot { width: 14px; height: 14px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.6); margin: 0 auto; }
+  .pin-lbl { margin-top: 4px; background: rgba(12,15,20,.9); color: #fff; font-weight: 600; font-size: 11px; line-height: 1.3; padding: 3px 8px; border-radius: 5px; border: 1px solid rgba(255,255,255,.22); white-space: nowrap; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.5); }
+  .hud { position: absolute; left: 14px; bottom: 14px; z-index: 8; display: flex; flex-wrap: wrap; gap: 8px; pointer-events: none; }
+  .pill { background: rgba(12,15,20,.86); backdrop-filter: blur(8px); border: 1px solid var(--border); border-radius: 8px; padding: 5px 10px; font-size: 12px; font-variant-numeric: tabular-nums; color: #e2e8f0; }
+  .pill strong { color: var(--accent); }
+  .warn-banner { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); z-index: 9; background: rgba(245,158,11,.18); border: 1px solid rgba(245,158,11,.55); color: #fde68a; padding: 6px 12px; border-radius: 8px; font-size: 12px; max-width: 80vw; text-align: center; }
+  .grid-view { width: 100%; height: 100%; overflow: auto; padding: 18px; display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 14px; align-content: start; }
+  .grid-view.cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; cursor: pointer; transition: .15s transform, .15s border-color; }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .card img { width: 100%; display: block; aspect-ratio: 16/9; object-fit: cover; background: #000; }
+  .card-cap { padding: 9px 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .card-cap strong { font-size: 13px; } .card-cap span { font-size: 11px; color: var(--muted); }
+  .live3d-wrap { position: relative; width: 100%; height: 100%; background: #060a12; }
+  #map3d { width: 100%; height: 100%; }
+  .live3d-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(6,10,18,.82); color: var(--ink); font-size: 14px; font-weight: 600; z-index: 12; text-align: center; padding: 20px; }
+  .poi3d { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+  .poi3d-lbl { background: rgba(8,12,20,.9); color: #f8fafc; border: 1px solid rgba(255,255,255,.26); border-radius: 6px; padding: 3px 8px; font-size: 11px; font-weight: 700; white-space: nowrap; box-shadow: 0 3px 10px rgba(0,0,0,.55); margin-bottom: 4px; }
+  .poi3d-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.65); }
+  .maplibregl-ctrl-attrib { background: rgba(8,12,20,.78) !important; color: #cbd5e1 !important; font: 11px/1.35 system-ui, sans-serif !important; padding: 3px 9px !important; }
+  .maplibregl-ctrl-attrib a { color: #93c5fd !important; text-decoration: none !important; }
+  .maplibregl-ctrl-scale { background: rgba(8,12,20,.78) !important; color: #e2e8f0 !important; border-color: #94a3b8 !important; }
+  footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding: 8px 16px; background: var(--panel); border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+  .toast { position: fixed; right: 16px; bottom: 52px; background: #0f172a; border: 1px solid var(--accent); color: #e0f2fe; padding: 8px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; opacity: 0; transform: translateY(8px); transition: .2s; pointer-events: none; z-index: 30; }
+  .toast.show { opacity: 1; transform: translateY(0); }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="brand">
+      <span class="badge">Peta 2D & 3D · Valid</span>
+      <h1 id="judul"></h1>
+      <span class="meta" id="metaKoord"></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="actions">
+      <button id="btnPinToggle" title="Tampilkan/sembunyikan pin koordinat">📍 Pin POI</button>
+      <button id="btnSalinKoord" title="Salin koordinat pusat">📋 Koordinat</button>
+      <button id="btnSalinGeo" title="Salin JSON geo-referensi / kamera 3D untuk Ahtor/studio">📐 Geo JSON</button>
+      <a class="btn" id="linkMaps" target="_blank" rel="noopener noreferrer">🗺️ Buka di Google Maps ↗</a>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="group" id="modeBtns">
+      <span class="lbl">Mode</span>
+      <button data-mode="jelajah" class="active">🔍 Jelajah</button>
+      <button data-mode="banding">↔️ Bandingkan</button>
+      <button data-mode="grid">⊞ Semua View</button>
+      <button data-mode="live3d" id="btnMode3d">🌐 3D Live</button>
+    </div>
+    <div class="group" id="viewTabs"></div>
+    <div class="group hidden" id="cmpControls">
+      <span class="lbl">Kiri</span><select id="selKiri"></select>
+      <span class="lbl">Kanan</span><select id="selKanan"></select>
+      <input type="range" id="rngSplit" min="0" max="100" value="50" style="width:120px">
+    </div>
+    <div class="group" id="zoomControls">
+      <button id="btnZoomOut" title="Perkecil pratinjau">−</button>
+      <span class="meta" id="lblScale">100%</span>
+      <button id="btnZoomIn" title="Perbesar pratinjau">+</button>
+      <button id="btnReset" title="Reset posisi (R)">Reset</button>
+      <button id="btnPlay" class="hidden" title="Putar urutan tampilan/zoom">▶ Putar Seri</button>
+    </div>
+    <div class="group hidden" id="live3dControls">
+      <span class="lbl">Gaya</span>
+      <button data-style3d="3d_satelit" class="active">Satelit 3D</button>
+      <button data-style3d="3d_peta">Peta Gedung</button>
+      <button data-style3d="3d_gelap">Gelap</button>
+      <button data-style3d="3d_globe">Globe</button>
+    </div>
+    <div class="group hidden" id="live3dSliders">
+      <label class="ctrl3d">Miring <input type="range" id="rngPitch" min="0" max="80" value="62"><strong id="valPitch">62°</strong></label>
+      <label class="ctrl3d">Arah <input type="range" id="rngBear" min="0" max="360" value="25"><strong id="valBear">25°</strong></label>
+      <label class="ctrl3d">Elevasi <input type="range" id="rngExag" min="0" max="3" step="0.1" value="1.6"><strong id="valExag">1.6×</strong></label>
+      <select id="selPoi3d" class="hidden" title="Terbang ke POI"></select>
+      <button id="btnReset3d" title="Reset kamera 3D (R)">Reset 3D</button>
+      <button id="btnCopyCam3d" class="primary" title="Salin parameter kamera 3D untuk tool peta Ahri">📋 Kamera 3D</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="stage-wrap" id="stageWrap">
+      <div class="warn-banner hidden" id="warnBanner"></div>
+      <div class="stage" id="stage">
+        <div class="layer" id="layerBox">
+          <img id="imgMain" alt="Peta">
+          <div class="compare-top hidden" id="cmpTop"><img id="imgRight" alt="Pembanding peta"></div>
+          <div class="divider hidden" id="divider"></div>
+          <div class="cmp-tag left hidden" id="tagLeft"></div>
+          <div class="cmp-tag right hidden" id="tagRight"></div>
+          <div class="pins" id="pins"></div>
+        </div>
+      </div>
+      <div class="hud">
+        <div class="pill" id="hudView"></div>
+        <div class="pill" id="hudCursor">Kursor: geser ke peta · klik untuk salin lat,lng</div>
+      </div>
+    </div>
+    <div class="grid-view hidden" id="gridView"></div>
+    <div class="live3d-wrap hidden" id="live3dWrap">
+      <div id="map3d"></div>
+      <div class="live3d-msg hidden" id="live3dMsg">Memuat mesin 3D MapLibre GL JS…</div>
+      <div class="hud" style="bottom: 42px;">
+        <div class="pill" id="hud3dCam"></div>
+        <div class="pill" id="hud3dCursor">Seret = geser · Klik-kanan/Ctrl+seret = miring & putar 360°</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div id="footAttr"></div>
+    <div id="footFile"></div>
+  </footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+const DATA = {"judul":"rockstar-north-edinburgh","lokasi":"Rockstar North, Holyrood Road, Edinburgh","lat":55.9505812,"lng":-3.1763591,"urlMaps":"https://www.google.com/maps/place/Rockstar+North/@55.9505812,-3.1763591,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c78ea549774b:0x4f58968789b4051!8m2!3d55.9505812!4d-3.1763591!16s%2Fg%2F11bwkhmymj?hl=id\u0026entry=ttu\u0026g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D","diambil":"2026-11-20T11:19:39.391Z","rute":null,"ada3d":true,"live3dInit":{"mode":"3d_gelap","zoom":15.5,"miring":62,"arah":25,"elevasi":1.3},"titik":[],"items":[{"idx":0,"namaFile":"rockstar-north-edinburgh-3d_gelap-z16.png","tampilan":"3d_gelap","label":"3D Miring · Gelap Editorial","zoom":15.5,"skala":"100 m","atribusi":"AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors","sumberTeks":"Sumber: AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026","url":"https://www.google.com/maps/place/Rockstar+North/@55.9505812,-3.1763591,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c78ea549774b:0x4f58968789b4051!8m2!3d55.9505812!4d-3.1763591!16s%2Fg%2F11bwkhmymj?hl=id\u0026entry=ttu\u0026g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D","geo":{"proyeksi":"3d-perspektif","lat":55.9505812,"lng":-3.1763591,"zoom":15.5,"miring":62,"arah":25,"elevasi":1.3,"w":1920,"h":1080,"lebarCss":1280,"tinggiCss":720,"scale":1.5},"ukuran":"1920×1080","peringatan":null},{"idx":1,"namaFile":"rockstar-north-edinburgh-3d_satelit-z16.png","tampilan":"3d_satelit","label":"3D Miring · Satelit","zoom":15.5,"skala":"100 m","atribusi":"AWS Terrain | © Esri, Maxar, Earthstar Geographics | © OpenFreeMap · © OpenStreetMap contributors","sumberTeks":"Sumber: AWS Terrain | © Esri, Maxar, Earthstar Geographics | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026","url":"https://www.google.com/maps/place/Rockstar+North/@55.9505812,-3.1763591,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c78ea549774b:0x4f58968789b4051!8m2!3d55.9505812!4d-3.1763591!16s%2Fg%2F11bwkhmymj?hl=id\u0026entry=ttu\u0026g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D","geo":{"proyeksi":"3d-perspektif","lat":55.9505812,"lng":-3.1763591,"zoom":15.5,"miring":62,"arah":25,"elevasi":1.6,"w":1920,"h":1080,"lebarCss":1280,"tinggiCss":720,"scale":1.5},"ukuran":"1920×1080","peringatan":null}]};
+const MAPLIBRE_CSS = ["https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.css","https://cdn.jsdelivr.net/npm/maplibre-gl@5.1.0/dist/maplibre-gl.css"];
+const MAPLIBRE_JS = ["https://unpkg.com/maplibre-gl@5.1.0/dist/maplibre-gl.js","https://cdn.jsdelivr.net/npm/maplibre-gl@5.1.0/dist/maplibre-gl.js"];
+const LIBERTY_URL = "https://tiles.openfreemap.org/styles/liberty";
+
+function buildMapLibre3dStyle(baseLiberty, mode, opts) {
+  const style = JSON.parse(JSON.stringify(baseLiberty));
+  const exag = Number.isFinite(Number(opts && opts.exaggeration)) ? Number(opts.exaggeration) : 1.4;
+  const isGlobe = mode === '3d_globe';
+  const isSat = mode === '3d_satelit' || isGlobe;
+  const isDark = mode === '3d_gelap';
+
+  if (style.sources && style.sources.openmaptiles) {
+    style.sources.openmaptiles.attribution = '© OpenFreeMap · © OpenStreetMap contributors';
+  }
+  if (style.sources && style.sources.natural_earth_shaded_relief) {
+    delete style.sources.natural_earth_shaded_relief.attribution;
+  }
+
+  if (isSat) {
+    style.sources.sat = {
+      type: 'raster',
+      tiles: ['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],
+      tileSize: 256,
+      maxzoom: 18,
+      attribution: '© Esri, Maxar, Earthstar Geographics'
+    };
+    const keepLayers = (style.layers || []).filter((l) => {
+      if (l.type === 'symbol') return true;
+      if (l.type === 'line' && /boundary|border|admin/i.test(l.id)) return true;
+      return false;
+    }).map((l) => {
+      if (l.type === 'symbol') {
+        return {
+          ...l,
+          paint: {
+            ...(l.paint || {}),
+            'text-color': '#ffffff',
+            'text-halo-color': 'rgba(6,10,18,0.88)',
+            'text-halo-width': 1.6
+          }
+        };
+      }
+      if (l.type === 'line') {
+        return { ...l, paint: { ...(l.paint || {}), 'line-color': 'rgba(255,220,120,0.78)' } };
+      }
+      return l;
+    });
+    style.layers = [{ id: 'sat-base', type: 'raster', source: 'sat' }, ...keepLayers];
+  } else if (isDark) {
+    for (const l of (style.layers || [])) {
+      if (l.type === 'background') l.paint = { 'background-color': '#0b101b' };
+      else if (l.type === 'fill' && /water/i.test(l.id)) l.paint = { ...(l.paint || {}), 'fill-color': '#071526' };
+      else if (l.type === 'fill' && /park|wood|forest|grass|landcover|landuse/i.test(l.id)) l.paint = { ...(l.paint || {}), 'fill-color': '#101b29', 'fill-opacity': 0.8 };
+      else if (l.type === 'fill' && /building/i.test(l.id)) l.paint = { ...(l.paint || {}), 'fill-color': '#1c2a40' };
+      else if (l.type === 'fill') l.paint = { ...(l.paint || {}), 'fill-color': '#121a28', 'fill-opacity': 0.85 };
+      else if (l.type === 'fill-extrusion') l.paint = {
+        'fill-extrusion-color': ['interpolate', ['linear'], ['coalesce', ['get', 'render_height'], 10], 0, '#18263b', 40, '#243c5e', 120, '#38bdf8'],
+        'fill-extrusion-height': ['coalesce', ['get', 'render_height'], 12],
+        'fill-extrusion-base': ['coalesce', ['get', 'render_min_height'], 0],
+        'fill-extrusion-opacity': 0.92
+      };
+      else if (l.type === 'line' && /motorway|trunk|primary/i.test(l.id)) l.paint = { ...(l.paint || {}), 'line-color': '#38bdf8', 'line-opacity': 0.8 };
+      else if (l.type === 'line' && /boundary|border|admin/i.test(l.id)) l.paint = { ...(l.paint || {}), 'line-color': '#f43f5e', 'line-opacity': 0.82 };
+      else if (l.type === 'line' && /road|street|secondary|tertiary|rail|bridge|tunnel/i.test(l.id)) l.paint = { ...(l.paint || {}), 'line-color': '#334155', 'line-opacity': 0.65 };
+      else if (l.type === 'line') l.paint = { ...(l.paint || {}), 'line-color': '#1e293b', 'line-opacity': 0.55 };
+      else if (l.type === 'symbol' && l.paint) {
+        l.paint = { ...l.paint, 'text-color': '#e2e8f0', 'text-halo-color': '#060a12', 'text-halo-width': 1.5 };
+      }
+    }
+  } else {
+    for (const l of (style.layers || [])) {
+      if (l.type === 'fill-extrusion') l.paint = { ...(l.paint || {}), 'fill-extrusion-opacity': 0.9 };
+    }
+  }
+
+  style.sources.dem = {
+    type: 'raster-dem',
+    tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
+    encoding: 'terrarium',
+    tileSize: 256,
+    maxzoom: 15,
+    attribution: 'AWS Terrain'
+  };
+  if (isDark && exag > 0) {
+    // Hillshade gelap sinematik agar lereng gunung/lembah pada mode 3d_gelap tetap terpahat dramatis (bukan rata polos).
+    style.sources.demShade = {
+      type: 'raster-dem',
+      tiles: ['https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'],
+      encoding: 'terrarium',
+      tileSize: 256,
+      maxzoom: 13
+    };
+    const hsLayer = {
+      id: 'dark-hillshade',
+      type: 'hillshade',
+      source: 'demShade',
+      paint: {
+        'hillshade-highlight-color': '#38649c',
+        'hillshade-shadow-color': '#02050a',
+        'hillshade-accent-color': '#2563eb',
+        'hillshade-exaggeration': 0.85,
+        'hillshade-illumination-direction': 315
+      }
+    };
+    const idxLine = (style.layers || []).findIndex((l) => l.type === 'line' || l.type === 'fill-extrusion' || l.type === 'symbol');
+    if (idxLine >= 0) style.layers.splice(idxLine, 0, hsLayer);
+    else style.layers.push(hsLayer);
+  }
+  if (exag > 0) style.terrain = { source: 'dem', exaggeration: exag };
+  else delete style.terrain;
+  if (isGlobe) style.projection = { type: 'globe' };
+  else delete style.projection;
+
+  style.sky = (isDark || isGlobe)
+    ? { 'sky-color': '#050811', 'sky-horizon-blend': 0.5, 'horizon-color': '#172842', 'horizon-fog-blend': 0.7, 'fog-color': '#0b1526', 'fog-ground-blend': 0.45 }
+    : { 'sky-color': '#1d4b82', 'sky-horizon-blend': 0.5, 'horizon-color': '#8cb8de', 'horizon-fog-blend': 0.65, 'fog-color': '#a8c6df', 'fog-ground-blend': 0.35 };
+  return style;
+}
+const $ = (id) => document.getElementById(id);
+let mode = 'jelajah';
+let activeIdx = 0;
+let leftIdx = 0;
+let rightIdx = Math.min(1, DATA.items.length - 1);
+let splitPct = 50;
+let zoomScale = 1, panX = 0, panY = 0;
+let showPins = true;
+let customPins = [];
+let playTimer = null;
+
+// State 3D Live (lazy-loaded saat tab 🌐 3D Live dibuka)
+let map3d = null, baseLibertyCache = null, live3dLoading = false;
+let live3dMode = DATA.live3dInit.mode || '3d_satelit';
+let live3dExag = DATA.live3dInit.elevasi ?? 1.6;
+let markers3d = [];
+
+function toast(msg) {
+  const el = $('toast'); el.textContent = msg; el.classList.add('show');
+  clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), 2400);
+}
+function isFlatGeo(geo) { return !!(geo && typeof geo.west === 'number' && typeof geo.east === 'number' && typeof geo.north === 'number' && typeof geo.south === 'number'); }
+function mercY(lat) { const r = Math.max(-85.0511, Math.min(85.0511, lat)) * Math.PI / 180; return (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2; }
+function invMercY(y) { const n = Math.PI - 2 * Math.PI * Math.max(0, Math.min(1, y)); return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n))); }
+function pxToLatLng(rx, ry, geo) {
+  if (!isFlatGeo(geo)) return null;
+  const lng = geo.west + rx * (geo.east - geo.west);
+  const y0 = mercY(geo.north), y1 = mercY(geo.south);
+  const lat = invMercY(y0 + ry * (y1 - y0));
+  return { lat: Math.round(lat * 1e6) / 1e6, lng: Math.round(lng * 1e6) / 1e6 };
+}
+function latLngToPct(lat, lng, geo) {
+  if (!isFlatGeo(geo)) return null;
+  const rx = (lng - geo.west) / (geo.east - geo.west || 1);
+  const y0 = mercY(geo.north), y1 = mercY(geo.south);
+  const ry = (mercY(lat) - y0) / (y1 - y0 || 1);
+  return { x: rx * 100, y: ry * 100, ok: rx >= -0.02 && rx <= 1.02 && ry >= -0.02 && ry <= 1.02 };
+}
+
+function itemLabel(it) {
+  return it.label + (it.zoom !== null && it.zoom !== undefined ? ' · z' + it.zoom : '');
+}
+function applyTransform() {
+  $('stage').style.transform = 'translate(-50%, -50%) translate(' + panX + 'px,' + panY + 'px) scale(' + zoomScale + ')';
+  $('lblScale').textContent = Math.round(zoomScale * 100) + '%';
+}
+function renderPins(geo) {
+  const box = $('pins'); box.innerHTML = '';
+  if (!showPins || !isFlatGeo(geo)) return;
+  const all = [...DATA.titik, ...customPins];
+  for (const p of all) {
+    const pos = latLngToPct(p.lat, p.lng, geo);
+    if (!pos || !pos.ok) continue;
+    const d = document.createElement('div'); d.className = 'pin';
+    d.style.left = pos.x + '%'; d.style.top = pos.y + '%';
+    d.title = p.nama + ' (' + p.lat + ', ' + p.lng + ')' + (p.catatan ? ' — ' + p.catatan : '');
+    const dot = document.createElement('div'); dot.className = 'pin-dot'; dot.style.background = p.warna || '#f43f5e';
+    const lbl = document.createElement('div'); lbl.className = 'pin-lbl'; lbl.textContent = p.nama;
+    d.append(dot, lbl);
+    d.onclick = (e) => { e.stopPropagation(); navigator.clipboard?.writeText(p.lat + ', ' + p.lng); toast('Disalin: ' + p.nama + ' (' + p.lat + ', ' + p.lng + ')'); };
+    box.appendChild(d);
+  }
+}
+
+function loadScriptCss(cssUrls, jsUrls) {
+  return new Promise((resolve, reject) => {
+    if (window.maplibregl) return resolve();
+    let idx = 0;
+    const tryNext = () => {
+      if (idx >= jsUrls.length) return reject(new Error('Gagal memuat MapLibre GL JS (cek koneksi internet; tab Jelajah/Bandingkan/Semua View tetap berjalan offline).'));
+      const c = document.createElement('link'); c.rel = 'stylesheet'; c.href = cssUrls[idx]; document.head.appendChild(c);
+      const s = document.createElement('script'); s.src = jsUrls[idx];
+      s.onload = () => (window.maplibregl ? resolve() : (idx++, tryNext()));
+      s.onerror = () => { idx++; tryNext(); };
+      document.head.appendChild(s);
+    };
+    tryNext();
+  });
+}
+
+function getCam3dJson() {
+  if (!map3d) return null;
+  const c = map3d.getCenter();
+  const bear = ((map3d.getBearing() % 360) + 360) % 360;
+  return {
+    tampilan: live3dMode,
+    lat: Math.round(c.lat * 1e6) / 1e6,
+    lng: Math.round(c.lng * 1e6) / 1e6,
+    zoom: Math.round(map3d.getZoom() * 10) / 10,
+    miring: Math.round(map3d.getPitch() * 10) / 10,
+    arah: Math.round(bear * 10) / 10,
+    elevasi: Math.round(live3dExag * 10) / 10,
+  };
+}
+
+function syncHud3d() {
+  if (!map3d) return;
+  const cam = getCam3dJson();
+  $('rngPitch').value = Math.round(cam.miring); $('valPitch').textContent = Math.round(cam.miring) + '°';
+  $('rngBear').value = Math.round(cam.arah); $('valBear').textContent = Math.round(cam.arah) + '°';
+  $('rngExag').value = String(cam.elevasi); $('valExag').textContent = cam.elevasi.toFixed(1) + '×';
+  const el = $('hud3dCam'); el.textContent = '';
+  const st = document.createElement('strong'); st.textContent = '3D Live · ';
+  el.append(st, document.createTextNode('z' + cam.zoom + ' · Miring ' + Math.round(cam.miring) + '° · Arah ' + Math.round(cam.arah) + '° · Elevasi ' + cam.elevasi.toFixed(1) + '×'));
+}
+
+function syncMarkers3d() {
+  for (const m of markers3d) m.remove();
+  markers3d = [];
+  if (!map3d || !showPins) return;
+  const all = [...DATA.titik, ...customPins];
+  for (const p of all) {
+    const el = document.createElement('div'); el.className = 'poi3d';
+    const lbl = document.createElement('div'); lbl.className = 'poi3d-lbl'; lbl.textContent = p.nama;
+    const dot = document.createElement('div'); dot.className = 'poi3d-dot'; dot.style.background = p.warna || '#f43f5e';
+    el.append(lbl, dot);
+    el.onclick = (e) => {
+      e.stopPropagation();
+      map3d.flyTo({ center: [p.lng, p.lat], zoom: Math.max(map3d.getZoom(), 14.5), pitch: Math.max(map3d.getPitch(), 60), duration: 1100 });
+      navigator.clipboard?.writeText(p.lat + ', ' + p.lng);
+      toast('Terbang ke ' + p.nama + ' (' + p.lat + ', ' + p.lng + ')');
+    };
+    markers3d.push(new maplibregl.Marker({ element: el, anchor: 'bottom' }).setLngLat([p.lng, p.lat]).addTo(map3d));
+  }
+}
+
+async function ensureLive3d() {
+  if (map3d) { setTimeout(() => map3d.resize(), 40); return; }
+  if (live3dLoading) return;
+  live3dLoading = true;
+  const msg = $('live3dMsg');
+  msg.textContent = 'Memuat peta 3D interaktif (MapLibre GL JS + OpenFreeMap + AWS Terrain)…';
+  msg.classList.remove('hidden');
+  try {
+    await loadScriptCss(MAPLIBRE_CSS, MAPLIBRE_JS);
+    if (!baseLibertyCache) {
+      const r = await fetch(LIBERTY_URL);
+      if (!r.ok) throw new Error('Gagal memuat style peta 3D (HTTP ' + r.status + ')');
+      baseLibertyCache = await r.json();
+    }
+    const initCfg = DATA.live3dInit;
+    live3dMode = initCfg.mode || '3d_satelit';
+    live3dExag = initCfg.elevasi ?? 1.6;
+    const style = buildMapLibre3dStyle(baseLibertyCache, live3dMode, { exaggeration: live3dExag });
+    map3d = new maplibregl.Map({
+      container: 'map3d',
+      attributionControl: { compact: false },
+      center: [DATA.lng, DATA.lat],
+      zoom: initCfg.zoom ?? 13,
+      pitch: initCfg.miring ?? 62,
+      bearing: initCfg.arah ?? 25,
+      maxPitch: 85,
+      style
+    });
+    map3d.addControl(new maplibregl.NavigationControl({ visualizePitch: true }), 'top-right');
+    map3d.addControl(new maplibregl.ScaleControl({ maxWidth: 130, unit: 'metric' }), 'bottom-left');
+    map3d.on('load', () => { msg.classList.add('hidden'); syncMarkers3d(); syncHud3d(); });
+    map3d.on('move', syncHud3d);
+    map3d.on('mousemove', (e) => {
+      const la = Math.round(e.lngLat.lat * 1e6) / 1e6, lo = Math.round(e.lngLat.lng * 1e6) / 1e6;
+      const hc = $('hud3dCursor'); hc.textContent = 'Kursor 3D: ';
+      const st = document.createElement('strong'); st.textContent = la + ', ' + lo;
+      hc.append(st, document.createTextNode(' (klik = salin · klik-kanan = miring/putar)'));
+    });
+    map3d.on('click', (e) => {
+      const la = Math.round(e.lngLat.lat * 1e6) / 1e6, lo = Math.round(e.lngLat.lng * 1e6) / 1e6;
+      navigator.clipboard?.writeText(la + ', ' + lo);
+      toast('Koordinat 3D disalin: ' + la + ', ' + lo);
+    });
+    for (const b of $('live3dControls').querySelectorAll('button[data-style3d]')) {
+      b.classList.toggle('active', b.dataset.style3d === live3dMode);
+    }
+  } catch (e) {
+    msg.textContent = '⚠ ' + (e.message || e);
+  } finally {
+    live3dLoading = false;
+  }
+}
+
+function switchStyle3d(newMode) {
+  if (!map3d || !baseLibertyCache) return;
+  live3dMode = newMode;
+  for (const b of $('live3dControls').querySelectorAll('button[data-style3d]')) {
+    b.classList.toggle('active', b.dataset.style3d === live3dMode);
+  }
+  const style = buildMapLibre3dStyle(baseLibertyCache, live3dMode, { exaggeration: live3dExag });
+  map3d.setStyle(style);
+  if (newMode === '3d_globe' && map3d.getZoom() > 7) {
+    map3d.easeTo({ zoom: 3.6, pitch: 35, bearing: 0, duration: 900 });
+  } else if (newMode !== '3d_globe' && map3d.getZoom() < 5) {
+    map3d.easeTo({ center: [DATA.lng, DATA.lat], zoom: Math.max(11, DATA.live3dInit.zoom || 13), pitch: 62, duration: 900 });
+  }
+  syncHud3d();
+}
+
+function renderActive() {
+  const it = DATA.items[activeIdx] || DATA.items[0];
+  if (!it) return;
+  const isLive3d = mode === 'live3d';
+  $('stageWrap').classList.toggle('hidden', mode === 'grid' || isLive3d);
+  $('gridView').classList.toggle('hidden', mode !== 'grid');
+  $('live3dWrap').classList.toggle('hidden', !isLive3d);
+  $('cmpControls').classList.toggle('hidden', mode !== 'banding');
+  $('viewTabs').classList.toggle('hidden', mode === 'banding' || isLive3d);
+  $('zoomControls').classList.toggle('hidden', mode === 'grid' || isLive3d);
+  $('live3dControls').classList.toggle('hidden', !isLive3d);
+  $('live3dSliders').classList.toggle('hidden', !isLive3d);
+  for (const b of $('modeBtns').querySelectorAll('button')) b.classList.toggle('active', b.dataset.mode === mode);
+  for (const b of $('viewTabs').querySelectorAll('button')) b.classList.toggle('active', Number(b.dataset.idx) === activeIdx);
+
+  if (isLive3d) {
+    $('footAttr').textContent = '3D Live Interaktif · OpenFreeMap / © OpenStreetMap contributors · Esri World Imagery · AWS Terrain';
+    $('footFile').textContent = 'Klik "📋 Kamera 3D" untuk menyalin sudut tepat ke tool peta Ahri';
+    ensureLive3d();
+    return;
+  }
+
+  function setHud(el, boldText, restText) {
+    el.textContent = '';
+    const s = document.createElement('strong'); s.textContent = boldText;
+    el.append(s, document.createTextNode(restText));
+  }
+  if (mode === 'banding' && DATA.items.length >= 2) {
+    const L = DATA.items[leftIdx], R = DATA.items[rightIdx];
+    $('imgMain').src = R.namaFile;
+    $('imgRight').src = L.namaFile;
+    $('cmpTop').classList.remove('hidden');
+    $('divider').classList.remove('hidden');
+    $('tagLeft').classList.remove('hidden'); $('tagLeft').textContent = itemLabel(L);
+    $('tagRight').classList.remove('hidden'); $('tagRight').textContent = itemLabel(R);
+    $('cmpTop').style.clipPath = 'inset(0 ' + (100 - splitPct) + '% 0 0)';
+    $('divider').style.left = splitPct + '%';
+    setHud($('hudView'), 'Banding: ', itemLabel(L) + ' vs ' + itemLabel(R));
+    $('footAttr').textContent = L.sumberTeks || R.sumberTeks || '';
+    $('footFile').textContent = L.namaFile + ' · ' + R.namaFile;
+    $('warnBanner').classList.add('hidden');
+    const g = isFlatGeo(L.geo) ? L.geo : (isFlatGeo(R.geo) ? R.geo : null);
+    renderPins(g);
+    $('hudCursor').textContent = g ? 'Kursor: geser ke peta · klik untuk salin lat,lng' : 'Tampilan 3D perspektif — klik "🌐 3D Live" untuk putar & miringkan bebas';
+  } else {
+    $('imgMain').src = it.namaFile;
+    $('cmpTop').classList.add('hidden'); $('divider').classList.add('hidden');
+    $('tagLeft').classList.add('hidden'); $('tagRight').classList.add('hidden');
+    setHud($('hudView'), itemLabel(it), (it.skala ? ' · Skala ' + it.skala : '') + (it.ukuran ? ' · ' + it.ukuran : ''));
+    $('footAttr').textContent = it.sumberTeks || it.atribusi || '';
+    $('footFile').textContent = 'Berkas: ' + it.namaFile;
+    if (it.peringatan) { $('warnBanner').textContent = '⚠️ ' + it.peringatan; $('warnBanner').classList.remove('hidden'); }
+    else $('warnBanner').classList.add('hidden');
+    renderPins(it.geo);
+    if (it.geo && it.geo.miring !== undefined) {
+      setHud($('hudCursor'), 'Kamera 3D: ', 'Miring ' + it.geo.miring + '° · Arah ' + it.geo.arah + '° · Elevasi ' + it.geo.elevasi + '× (klik "🌐 3D Live" untuk ubah sudut)');
+    } else if (isFlatGeo(it.geo)) {
+      $('hudCursor').textContent = 'Kursor: geser ke peta · klik untuk salin lat,lng';
+    } else {
+      $('hudCursor').textContent = 'Pratinjau panorama · seret untuk geser, gulir untuk zoom';
+    }
+  }
+  $('linkMaps').href = it.url || DATA.urlMaps || 'https://www.google.com/maps';
+}
+
+function init() {
+  $('judul').textContent = DATA.judul;
+  $('metaKoord').textContent = (DATA.lat !== null ? DATA.lat + ', ' + DATA.lng : '') + (DATA.rute ? ' · ' + DATA.rute : '');
+  if (DATA.items.length < 2) $('modeBtns').querySelector('[data-mode="banding"]').classList.add('hidden');
+  if (DATA.items.length >= 2) $('btnPlay').classList.remove('hidden');
+  if (DATA.lat === null || DATA.lng === null) $('btnMode3d').classList.add('hidden');
+
+  if (DATA.titik.length) {
+    const sp = $('selPoi3d');
+    sp.classList.remove('hidden');
+    sp.add(new Option('📍 Terbang ke POI…', ''));
+    DATA.titik.forEach((p, i) => sp.add(new Option(p.nama, String(i))));
+    sp.onchange = () => {
+      if (sp.value === '' || !map3d) return;
+      const p = DATA.titik[Number(sp.value)];
+      if (p) map3d.flyTo({ center: [p.lng, p.lat], zoom: 15, pitch: 62, duration: 1300 });
+      sp.value = '';
+    };
+  }
+
+  const tabs = $('viewTabs'), sL = $('selKiri'), sR = $('selKanan'), grid = $('gridView');
+  if (DATA.items.length === 2 || DATA.items.length === 4) grid.classList.add('cols-2');
+  DATA.items.forEach((it, i) => {
+    const b = document.createElement('button'); b.dataset.idx = i; b.textContent = (i + 1) + '. ' + itemLabel(it);
+    b.onclick = () => { activeIdx = i; if (mode === 'grid' || mode === 'live3d') mode = 'jelajah'; renderActive(); };
+    tabs.appendChild(b);
+    sL.add(new Option(itemLabel(it), i, false, i === leftIdx));
+    sR.add(new Option(itemLabel(it), i, false, i === rightIdx));
+    const card = document.createElement('div'); card.className = 'card';
+    const im = document.createElement('img'); im.src = it.namaFile; im.alt = itemLabel(it);
+    const cap = document.createElement('div'); cap.className = 'card-cap';
+    const st = document.createElement('strong'); st.textContent = itemLabel(it);
+    const sp = document.createElement('span'); sp.textContent = it.skala || it.ukuran || '';
+    cap.append(st, sp); card.append(im, cap);
+    card.onclick = () => { activeIdx = i; mode = 'jelajah'; renderActive(); };
+    grid.appendChild(card);
+  });
+
+  for (const b of $('modeBtns').querySelectorAll('button')) b.onclick = () => { mode = b.dataset.mode; renderActive(); };
+  for (const b of $('live3dControls').querySelectorAll('button[data-style3d]')) b.onclick = () => switchStyle3d(b.dataset.style3d);
+  $('rngPitch').oninput = (e) => { if (map3d) map3d.setPitch(Number(e.target.value)); };
+  $('rngBear').oninput = (e) => { if (map3d) map3d.setBearing(Number(e.target.value)); };
+  $('rngExag').oninput = (e) => {
+    live3dExag = Number(e.target.value);
+    if (map3d) {
+      if (live3dExag > 0) map3d.setTerrain({ source: 'dem', exaggeration: live3dExag });
+      else map3d.setTerrain(null);
+      syncHud3d();
+    }
+  };
+  $('btnReset3d').onclick = () => {
+    if (!map3d) return;
+    const c = DATA.live3dInit;
+    map3d.flyTo({ center: [DATA.lng, DATA.lat], zoom: c.zoom ?? 13, pitch: c.miring ?? 62, bearing: c.arah ?? 25, duration: 900 });
+  };
+  $('btnCopyCam3d').onclick = () => {
+    const cam = getCam3dJson();
+    if (!cam) return;
+    navigator.clipboard?.writeText(JSON.stringify(cam, null, 2));
+    toast('Kamera 3D disalin (miring ' + cam.miring + '°, arah ' + cam.arah + '°, z' + cam.zoom + ')');
+  };
+
+  sL.onchange = () => { leftIdx = Number(sL.value); renderActive(); };
+  sR.onchange = () => { rightIdx = Number(sR.value); renderActive(); };
+  $('rngSplit').oninput = (e) => { splitPct = Number(e.target.value); renderActive(); };
+  $('btnZoomIn').onclick = () => { zoomScale = Math.min(6, zoomScale * 1.25); applyTransform(); };
+  $('btnZoomOut').onclick = () => { zoomScale = Math.max(0.4, zoomScale / 1.25); applyTransform(); };
+  $('btnReset').onclick = () => { zoomScale = 1; panX = 0; panY = 0; applyTransform(); };
+  $('btnPinToggle').onclick = () => { showPins = !showPins; $('btnPinToggle').classList.toggle('active', showPins); syncMarkers3d(); renderActive(); };
+  $('btnPinToggle').classList.add('active');
+  $('btnSalinKoord').onclick = () => { navigator.clipboard?.writeText(DATA.lat + ', ' + DATA.lng); toast('Koordinat pusat disalin: ' + DATA.lat + ', ' + DATA.lng); };
+  $('btnSalinGeo').onclick = () => {
+    if (mode === 'live3d' && map3d) {
+      navigator.clipboard?.writeText(JSON.stringify(getCam3dJson(), null, 2));
+      toast('Kamera 3D JSON disalin ke clipboard');
+      return;
+    }
+    const it = DATA.items[activeIdx];
+    navigator.clipboard?.writeText(JSON.stringify(it?.geo || DATA, null, 2));
+    toast('Geo JSON disalin ke clipboard');
+  };
+  $('btnPlay').onclick = () => {
+    if (playTimer) { clearInterval(playTimer); playTimer = null; $('btnPlay').textContent = '▶ Putar Seri'; $('btnPlay').classList.remove('primary'); return; }
+    mode = 'jelajah'; $('btnPlay').textContent = '⏹ Stop'; $('btnPlay').classList.add('primary');
+    playTimer = setInterval(() => { activeIdx = (activeIdx + 1) % DATA.items.length; renderActive(); }, 1400);
+  };
+
+  // Drag pan, wheel zoom, divider drag, & coordinate inspector (mode statis)
+  let dragging = false, dragDiv = false, sx = 0, sy = 0, spx = 0, spy = 0, moved = false;
+  $('divider').onmousedown = (e) => { e.stopPropagation(); dragDiv = true; };
+  $('stageWrap').onmousedown = (e) => { dragging = true; moved = false; sx = e.clientX; sy = e.clientY; spx = panX; spy = panY; $('stageWrap').classList.add('dragging'); };
+  window.onmousemove = (e) => {
+    if (mode === 'live3d') return;
+    if (dragDiv) {
+      const r = $('layerBox').getBoundingClientRect();
+      splitPct = Math.max(0, Math.min(100, ((e.clientX - r.left) / (r.width || 1)) * 100));
+      $('rngSplit').value = Math.round(splitPct); renderActive(); return;
+    }
+    if (dragging) {
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+      panX = spx + dx; panY = spy + dy; applyTransform();
+    }
+    const it = DATA.items[mode === 'banding' ? leftIdx : activeIdx];
+    const r = $('layerBox').getBoundingClientRect();
+    if (isFlatGeo(it?.geo) && e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
+      const p = pxToLatLng((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, it.geo);
+      if (p) {
+        const hc = $('hudCursor'); hc.textContent = 'Kursor: ';
+        const s = document.createElement('strong'); s.textContent = p.lat + ', ' + p.lng;
+        hc.append(s, document.createTextNode(' (klik = pin & salin)'));
+      }
+    }
+  };
+  window.onmouseup = () => { dragging = false; dragDiv = false; $('stageWrap').classList.remove('dragging'); };
+  $('layerBox').onclick = (e) => {
+    if (moved || mode === 'live3d') return;
+    const it = DATA.items[mode === 'banding' ? leftIdx : activeIdx];
+    if (!isFlatGeo(it?.geo)) return;
+    const r = $('layerBox').getBoundingClientRect();
+    const p = pxToLatLng((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height, it.geo);
+    if (!p) return;
+    customPins.push({ nama: 'Titik #' + (customPins.length + 1), lat: p.lat, lng: p.lng, warna: '#38bdf8' });
+    navigator.clipboard?.writeText(p.lat + ', ' + p.lng);
+    toast('Pin & salin: ' + p.lat + ', ' + p.lng);
+    renderPins(it.geo);
+  };
+  $('stageWrap').addEventListener('wheel', (e) => {
+    e.preventDefault();
+    zoomScale = Math.max(0.4, Math.min(6, zoomScale * (e.deltaY < 0 ? 1.15 : 0.87)));
+    applyTransform();
+  }, { passive: false });
+  window.addEventListener('keydown', (e) => {
+    if (e.target && /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) return;
+    if (e.key >= '1' && e.key <= '9') { const i = Number(e.key) - 1; if (i < DATA.items.length) { activeIdx = i; mode = 'jelajah'; renderActive(); } }
+    else if (e.key === 'r' || e.key === 'R') {
+      if (mode === 'live3d') $('btnReset3d').click();
+      else { zoomScale = 1; panX = 0; panY = 0; applyTransform(); }
+    }
+  });
+  applyTransform();
+  renderActive();
+}
+init();
+</script>
+</body>
+</html>

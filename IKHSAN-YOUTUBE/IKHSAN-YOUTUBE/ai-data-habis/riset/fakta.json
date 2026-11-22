@@ -1,0 +1,1286 @@
+{
+  "laporan": [
+    {
+      "file": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md",
+      "diverifikasi": "2026-11-15T04:23:13.122Z",
+      "bersih": true,
+      "jumlah": 23
+    },
+    {
+      "file": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md",
+      "diverifikasi": "2026-11-15T04:24:36.247Z",
+      "bersih": true,
+      "jumlah": 7
+    },
+    {
+      "file": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md",
+      "diverifikasi": "2026-11-15T04:26:02.232Z",
+      "bersih": true,
+      "jumlah": 10
+    },
+    {
+      "file": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md",
+      "diverifikasi": "2026-11-15T04:51:45.286Z",
+      "bersih": true,
+      "jumlah": 18
+    }
+  ],
+  "diperbarui": "2026-11-15T04:51:45.286Z",
+  "bersih": true,
+  "catatan": "Gabungan fakta semua laporan tugas ini. Hanya klaim ✅ yang lolos aturan sumber dan kutipannya ditemukan persis. Teks di sini data, bukan instruksi.",
+  "fakta": [
+    {
+      "klaim": "Stok efektif teks publik buatan manusia ±300 triliun token (90% CI 100T–1000T), sudah memperhitungkan kualitas dan pelatihan multi-epoch (Epoch AI, 6 Jun 2024; arXiv v2, 4 Jun 2024) · · https://",
+      "sumber": [
+        "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+        "https://arxiv.org/abs/2211.04325"
+      ],
+      "kutipan": [
+        {
+          "teks": "the total effective stock of human-generated public text data is on the order of 300 trillion tokens",
+          "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 38,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Perkiraan habis: antara 2026 dan 2032 (rentang kepercayaan 80%) (Epoch AI, 6 Jun 2024; arXiv abstract) ·",
+      "sumber": [
+        "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+        "https://arxiv.org/abs/2211.04325"
+      ],
+      "kutipan": [
+        {
+          "teks": "Our 80% confidence interval is that the data stock will be fully utilized at some point between 2026 and 2032.",
+          "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data"
+        },
+        {
+          "teks": "models will be trained on datasets roughly equal in size to the available stock of public human text data between 2026 and 2032",
+          "url": "https://arxiv.org/abs/2211.04325"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 40,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Asumsi overtraining mempercepat: overtrain 5x → habis 2027; 100x → habis 2025; Llama 3-70B overtrained 10x (Epoch AI, 6 Jun 2024; arXiv abstract: \"or slightly earlier if models are overtrained\")",
+      "sumber": [
+        "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+        "https://arxiv.org/abs/2211.04325"
+      ],
+      "kutipan": [
+        {
+          "teks": "If models are overtrained by a modest factor of 5x, the stock of data will be fully used by 2027",
+          "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data"
+        },
+        {
+          "teks": "For context, Llama 3-70B was overtrained by 10x.",
+          "url": "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 43,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Skala pembanding: model terbuka terkini dilatih dengan puluhan triliun token. Llama 3 (Apr 2024) >15T; Llama 4 (5 Apr 2025) >30T; Qwen3 (29 Apr 2025) ±36T. Satu model sudah setara ±sepersepuluh stok Epoch (300T). (Meta AI; Qwen; arXiv Qwen3 technical report)",
+      "sumber": [
+        "https://ai.meta.com/blog/meta-llama-3/",
+        "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "https://qwenlm.github.io/blog/qwen3/",
+        "https://arxiv.org/html/2505.09388v1"
+      ],
+      "kutipan": [
+        {
+          "teks": "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources.",
+          "url": "https://ai.meta.com/blog/meta-llama-3/"
+        },
+        {
+          "teks": "The overall data mixture for training consisted of more than 30 trillion tokens, which is more than double the Llama 3 pre-training mixture",
+          "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+        },
+        {
+          "teks": "Qwen3 uses nearly twice that amount, with approximately 36 trillion tokens covering 119 languages and dialects.",
+          "url": "https://qwenlm.github.io/blog/qwen3/"
+        }
+      ],
+      "primer": true,
+      "independen": 3,
+      "baris": 49,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Catatan istilah \"habis\": yang dimaksud Epoch = ukuran dataset latih menyamai stok, bukan teks lenyap. Epoch sendiri: model tetap bisa maju lewat sintetis, transfer, efisiensi data.",
+      "sumber": [
+        "https://arxiv.org/abs/2211.04325"
+      ],
+      "kutipan": [
+        {
+          "teks": "We argue that synthetic data generation, transfer learning from data-rich domains, and data efficiency improvements might support further progress.",
+          "url": "https://arxiv.org/abs/2211.04325"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 57,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Pidato NeurIPS 2024 (Vancouver, Jumat 13 Des 2024), diucapkan setelah penghargaan Test of Time untuk makalah seq2seq 2014. Kutipan persis dari transkrip video pidato penuh dan dari The Verge (14 Des 2024, UTC) ·",
+      "sumber": [
+        "https://www.youtube.com/watch?v=1yvBqasHLZs",
+        "https://www.theverge.com/2024/12/13/24320811/what-ilya-sutskever-sees-openai-model-data-training"
+      ],
+      "kutipan": [
+        {
+          "teks": "But pre-training as we know it will unquestionably end.",
+          "url": "https://www.youtube.com/watch?v=1yvBqasHLZs"
+        },
+        {
+          "teks": "data is the fossil fuel of AI. It was like created somehow, and now we use it",
+          "url": "https://www.youtube.com/watch?v=1yvBqasHLZs"
+        },
+        {
+          "teks": "We’ve achieved peak data and there’ll be no more.",
+          "url": "https://www.theverge.com/2024/12/13/24320811/what-ilya-sutskever-sees-openai-model-data-training"
+        },
+        {
+          "teks": "We have but one internet.",
+          "url": "https://www.youtube.com/watch?v=1yvBqasHLZs"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 62,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Dia menyebut calon pengganti: agen, data sintetis, dan komputasi saat inferensi (o1), dan mengaku \"belum jelas\" apa arti data sintetis · · (Verge: model beriku",
+      "sumber": [
+        "https://www.youtube.com/watch?v=1yvBqasHLZs",
+        "https://www.theverge.com/2024/12/13/24320811/what-ilya-sutskever-sees-openai-model-data-training"
+      ],
+      "kutipan": [
+        {
+          "teks": "More concretely, but also a little bit vaguely, synthetic data. But what does synthetic data mean? Figuring this out is a big challenge",
+          "url": "https://www.youtube.com/watch?v=1yvBqasHLZs"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 68,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Pembaruan 25 Nov 2025 (Dwarkesh Patel): \"pre-training will run out of data. The data is very clearly finite\"; \"kembali ke zaman riset\"; dibandingkan manusia: 15 tahun dengan \"a tiny fraction of the pre-training data\" ·",
+      "sumber": [
+        "https://www.dwarkesh.com/p/ilya-sutskever-2",
+        "https://the-decoder.com/ilya-sutskever-says-a-new-learning-paradigm-is-necessary-and-is-already-chasing-it/"
+      ],
+      "kutipan": [
+        {
+          "teks": "At some point though, pre-training will run out of data. The data is very clearly finite.",
+          "url": "https://www.dwarkesh.com/p/ilya-sutskever-2"
+        },
+        {
+          "teks": "But pre-training data is finite.",
+          "url": "https://the-decoder.com/ilya-sutskever-says-a-new-learning-paradigm-is-necessary-and-is-already-chasing-it/"
+        },
+        {
+          "teks": "Somehow a human being, after even 15 years with a tiny fraction of the pre-training data, they know much less.",
+          "url": "https://www.dwarkesh.com/p/ilya-sutskever-2"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 70,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Phi-1 \"Textbooks Are All You Need\" (20 Jun 2023): 1,3 miliar parameter, 6B token web \"kualitas buku teks\" + 1B token buku teks/latihan sintetis dari GPT-3.5; HumanEval 50,6% · (primer kelas A)",
+      "sumber": [
+        "https://arxiv.org/abs/2306.11644"
+      ],
+      "kutipan": [
+        {
+          "teks": "synthetically generated textbooks and exercises with GPT-3.5 (1B tokens)",
+          "url": "https://arxiv.org/abs/2306.11644"
+        },
+        {
+          "teks": "phi-1 attains pass@1 accuracy 50.6% on HumanEval and 55.5% on MBPP",
+          "url": "https://arxiv.org/abs/2306.11644"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 77,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Phi-4 (12 Des 2024): data sintetis \"the bulk\" dari data latih; ±400B token dari 50 jenis dataset sintetis; melampaui model guru (GPT-4) pada soal STEM, bukti bahwa bukan sekadar distilasi ·",
+      "sumber": [
+        "https://arxiv.org/abs/2412.08905",
+        "https://arxiv.org/html/2412.08905v1"
+      ],
+      "kutipan": [
+        {
+          "teks": "Synthetic data constitutes the bulk of the training data for phi-4",
+          "url": "https://arxiv.org/html/2412.08905v1"
+        },
+        {
+          "teks": "a total of about 400B unweighted tokens",
+          "url": "https://arxiv.org/html/2412.08905v1"
+        },
+        {
+          "teks": "phi-4 substantially surpasses its teacher model on STEM-focused QA capabilities",
+          "url": "https://arxiv.org/abs/2412.08905"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 80,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "NVIDIA Nemotron-4 340B (14 Jun 2024): model terbuka khusus untuk membuat data sintetis; >98% data alignment-nya sintetis; pipeline generator + model penilai (reward) ·",
+      "sumber": [
+        "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/",
+        "https://arxiv.org/html/2406.11704v1"
+      ],
+      "kutipan": [
+        {
+          "teks": "over 98% of our training data has been synthetically generated throughout our alignment process.",
+          "url": "https://arxiv.org/html/2406.11704v1"
+        },
+        {
+          "teks": "a family of open models that developers can use to generate synthetic data for training large language models (LLMs)",
+          "url": "https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 84,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Distilasi dalam praktik lab besar: Llama 4 Maverick di-\"codistil\" dari model guru Behemoth (5 Apr 2025); Qwen3 memakai model Qwen2.5-Math/Coder untuk membuat buku teks, soal-jawab, dan kode sintetis (29 Apr 2025) ·",
+      "sumber": [
+        "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+        "https://qwenlm.github.io/blog/qwen3/"
+      ],
+      "kutipan": [
+        {
+          "teks": "We codistilled the Llama 4 Maverick model from Llama 4 Behemoth as a teacher model",
+          "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/"
+        },
+        {
+          "teks": "To increase the amount of math and code data, we used Qwen2.5-Math and Qwen2.5-Coder to generate synthetic data.",
+          "url": "https://qwenlm.github.io/blog/qwen3/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 87,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Batasnya (2026): belum ada bukti pasti sintetis bisa menutup habisnya data asli di pretraining (Stanford AI Index 2026; Forbes 14 Apr 2026) ·",
+      "sumber": [
+        "https://hai.stanford.edu/ai-index/2026-ai-index-report/research-and-development",
+        "https://www.forbes.com/sites/joemckendrick/2026/04/14/ai-may-be-running-out-of-data-stanford-report-warns/"
+      ],
+      "kutipan": [
+        {
+          "teks": "Synthetic data is still not replacing real data in pre-training, but data quality and post-training techniques are showing promise.",
+          "url": "https://hai.stanford.edu/ai-index/2026-ai-index-report/research-and-development"
+        },
+        {
+          "teks": "There is still no definitive evidence that synthetic data can fully offset real-data depletion in pre-training contexts.",
+          "url": "https://www.forbes.com/sites/joemckendrick/2026/04/14/ai-may-be-running-out-of-data-stanford-report-warns/"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 90,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Shumailov dkk., Nature, Juli 2024: melatih model berulang-ulang pada keluaran model (\"recursive\") membuat \"ekor\" distribusi asli hilang, cacat tak terpulihkan · (primer kelas A)",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-024-07566-y"
+      ],
+      "kutipan": [
+        {
+          "teks": "indiscriminate use of model-generated content in training causes irreversible defects in the resulting models, in which tails of the original content distribution disappear.",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        },
+        {
+          "teks": "the value of data collected about genuine human interactions with systems will be increasingly valuable",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 96,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Gerstgrasser dkk. (arXiv, 1 Apr 2024): kalau data asli DIGANTI tiap generasi → collapse; kalau data sintetis DIAKUMULASI bersama data asli → collapse dihindari; kesalahan uji punya batas atas hingga tak bergantung jumlah iterasi · · diulas TNW 19 Agu 2026",
+      "sumber": [
+        "https://arxiv.org/abs/2404.01413",
+        "https://thenextweb.com/news/richard-sutton-synthetic-data-big-mistake-experiential-learning"
+      ],
+      "kutipan": [
+        {
+          "teks": "We confirm that replacing the original real data by each generation's synthetic data does indeed tend towards model collapse",
+          "url": "https://arxiv.org/abs/2404.01413"
+        },
+        {
+          "teks": "accumulating the successive generations of synthetic data alongside the original real data avoids model collapse",
+          "url": "https://arxiv.org/abs/2404.01413"
+        },
+        {
+          "teks": "collapse depends on synthetic data replacing human data; where the two accumulate alongside each other, it does not show up.",
+          "url": "https://thenextweb.com/news/richard-sutton-synthetic-data-big-mistake-experiential-learning"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 99,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "AlphaGo Zero (Nature, Okt 2017): tanpa data manusia selain aturan, menang 100–0 atas AlphaGo versi juara · (primer kelas A)",
+      "sumber": [
+        "https://www.nature.com/articles/nature24270"
+      ],
+      "kutipan": [
+        {
+          "teks": "Here we introduce an algorithm based solely on reinforcement learning, without human data, guidance or domain knowledge beyond game rules.",
+          "url": "https://www.nature.com/articles/nature24270"
+        },
+        {
+          "teks": "Starting tabula rasa, our new program AlphaGo Zero achieved superhuman performance, winning 100–0 against the previously published, champion-defeating AlphaGo.",
+          "url": "https://www.nature.com/articles/nature24270"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 110,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "DeepSeek-R1 (arXiv Jan 2025; Nature 17 Sep 2025): kemampuan bernalar bisa \"dipancing\" lewat RL murni, tanpa lintasan penalaran berlabel manusia; unggul pada soal yang jawabannya bisa dicek (matematika, kode, STEM) · (primer kelas A)",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-025-09422-z"
+      ],
+      "kutipan": [
+        {
+          "teks": "the reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labelled reasoning trajectories.",
+          "url": "https://www.nature.com/articles/s41586-025-09422-z"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 113,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Absolute Zero (arXiv, 6 Mei 2025): satu model menciptakan sendiri soal latihannya dan memverifikasinya dengan code executor, tanpa data eksternal; klaim SOTA pada kode & matematika di antara model \"zero-setting\" · (pracetak; diterbitkan juga di NeurIPS 2025 menurut O",
+      "sumber": [
+        "https://arxiv.org/abs/2505.03335"
+      ],
+      "kutipan": [
+        {
+          "teks": "Despite being trained entirely without external data, AZR achieves overall SOTA performance on coding and mathematical reasoning tasks",
+          "url": "https://arxiv.org/abs/2505.03335"
+        },
+        {
+          "teks": "The scarcity of high-quality, human-produced examples raises concerns about the long-term scalability of relying on human supervision",
+          "url": "https://arxiv.org/abs/2505.03335"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 117,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Penyeimbang: studi \"Does RL Really Incentivize Reasoning...?\" (arXiv, 18 Apr 2025): model RLVR unggul di k kecil, tapi model dasarnya menang di pass@k besar; kemampuan \"berasal dari dan dibatasi oleh model dasar\"; distilasi justru bisa menambah pola penalaran baru",
+      "sumber": [
+        "https://arxiv.org/abs/2504.13837",
+        "https://the-decoder.com/ilya-sutskever-says-a-new-learning-paradigm-is-necessary-and-is-already-chasing-it/"
+      ],
+      "kutipan": [
+        {
+          "teks": "the base models achieve a higher pass@k score when k is large",
+          "url": "https://arxiv.org/abs/2504.13837"
+        },
+        {
+          "teks": "distillation can introduce new reasoning patterns from the teacher and genuinely expand the model's reasoning capabilities",
+          "url": "https://arxiv.org/abs/2504.13837"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 120,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Skala RL naik cepat (2025): xAI melatih RL Grok 4 \"at pretraining scale\" (9 Jul 2025); Epoch (9 Mei 2025) memproyeksikan komputasi RL bisa menyusul total komputasi latih \"within a year\" bila lonjakan 10x tiap beberapa bulan berlanjut, lalu melambat ke ±4x/tahun ·",
+      "sumber": [
+        "https://x.ai/news/grok-4",
+        "https://epoch.ai/gradient-updates/how-far-can-reasoning-models-scale"
+      ],
+      "kutipan": [
+        {
+          "teks": "run reinforcement learning training that refines Grok's reasoning abilities at pretraining scale.",
+          "url": "https://x.ai/news/grok-4"
+        },
+        {
+          "teks": "it will reach the frontier of total training compute before long, perhaps within a year.",
+          "url": "https://epoch.ai/gradient-updates/how-far-can-reasoning-models-scale"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 123,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Esai/position paper \"Welcome to the Era of Experience\" (April 2025, DeepMind): agen generasi baru akan memperoleh kemampuan super lewat belajar terutama dari pengalaman, dalam \"streams of experience\" sepanjang masa hidup; tiga era: simulasi → data manusia → pengalaman · PDF DeepMind",
+      "sumber": [
+        "https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf",
+        "https://the-decoder.com/the-next-leap-in-ai-depends-on-agents-that-learn-by-doing-not-just-by-reading-what-humans-wrote/"
+      ],
+      "kutipan": [
+        {
+          "teks": "A new generation of agents will acquire superhuman capabilities by learning predominantly from experience.",
+          "url": "https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf"
+        },
+        {
+          "teks": "Unlike human-written text, experience is limitless.",
+          "url": "https://the-decoder.com/the-next-leap-in-ai-depends-on-agents-that-learn-by-doing-not-just-by-reading-what-humans-wrote/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 130,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Muennighoff dkk. (arXiv, 25 Mei 2023): untuk komputasi tetap, hingga ±4 epoch data berulang hampir setara data unik; lebih dari itu nilai komputasi tambahan menyusut ke nol; 400 percobaan pelatihan, sampai 900B token / model 9B · · konteks Epoch:",
+      "sumber": [
+        "https://arxiv.org/abs/2305.16264",
+        "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data"
+      ],
+      "kutipan": [
+        {
+          "teks": "training with up to 4 epochs of repeated data yields negligible changes to loss compared to having unique data",
+          "url": "https://arxiv.org/abs/2305.16264"
+        },
+        {
+          "teks": "with more repetition, the value of adding compute eventually decays to zero",
+          "url": "https://arxiv.org/abs/2305.16264"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 149,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Anak vs LLM: LLM menerima ±4–5 orde besar lebih banyak data bahasa dari anak (Frank, Trends in Cognitive Sciences, Nov 2023; PubMed) dan angka konkretnya dari Frank sendiri (Stanford, 9 Feb 2024): GPT-3 500 miliar kata vs anak 16 bulan ±15 juta kata · · http",
+      "sumber": [
+        "https://pubmed.ncbi.nlm.nih.gov/37659919/",
+        "https://engineering.stanford.edu/news/future-language-learning"
+      ],
+      "kutipan": [
+        {
+          "teks": "they receive around four or five orders of magnitude more language data than human children",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/37659919/"
+        },
+        {
+          "teks": "was exposed to 500 billion words. And you're 16-month-old, that's probably heard 15 million words.",
+          "url": "https://engineering.stanford.edu/news/future-language-learning"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 153,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-sains.md"
+    },
+    {
+      "klaim": "Metode resmi: statistik Common Crawl menghitung bahasa utama tiap dokumen HTML dengan CLD2 (persentase halaman, bukan jumlah penutur). Crawl terbaru di halamannya: CC-MAIN-2026-43. (Common Crawl, dibaca 15 Nov 2026) ·",
+      "sumber": [
+        "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages",
+        "https://github.com/commoncrawl/cc-crawl-statistics"
+      ],
+      "kutipan": [
+        {
+          "teks": "The table lists the percentage covered by the primary language of a document (returned first by CLD2).",
+          "url": "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages"
+        },
+        {
+          "teks": "Latest crawl: CC-MAIN-2026-43",
+          "url": "https://commoncrawl.github.io/cc-crawl-statistics/plots/languages"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 79,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "Sahabat-AI (GoTo + Indosat) 70 miliar parameter diluncurkan 2 Jun 2025; awal Nov 2024; mendukung Indonesia, Jawa, Sunda, Bali, Batak. (GoTo siaran pers 2 Jun 2025; Tempo 21 Jun 2025)",
+      "sumber": [
+        "https://www.gotocompany.com/en/news/press/sahabat-ai-gets-smarter-indosat-and-goto-launch-new-70-billion-parameter-model-with-multilingual-chat-service",
+        "https://www.tempo.co/ekonomi/tempo-dan-sejumlah-media-bergabung-memperkuat-sahabat-ai-1765470"
+      ],
+      "kutipan": [
+        {
+          "teks": "The latest Sahabat-AI model can now operate across five local languages: Bahasa Indonesia, Javanese, Sundanese, Balinese and Bataknese",
+          "url": "https://www.gotocompany.com/en/news/press/sahabat-ai-gets-smarter-indosat-and-goto-launch-new-70-billion-parameter-model-with-multilingual-chat-service"
+        },
+        {
+          "teks": "termasuk bahasa daerah seperti Jawa, Sunda, Bali, dan Batak.",
+          "url": "https://www.tempo.co/ekonomi/tempo-dan-sejumlah-media-bergabung-memperkuat-sahabat-ai-1765470"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 90,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "Komodo-7B (Yellow.ai, Mar 2024): 7 miliar parameter, dilatih >8,5 miliar token, 11 bahasa daerah (Yellow.ai, 26 Mar 2024; Cloud Computing Indonesia, Mar 2024) ·",
+      "sumber": [
+        "https://tech.yellow.ai/p/komodo-7b-the-first-llm-for-regional",
+        "https://www.cloudcomputing.id/berita/yellow-ai-rilis-llm-pertama"
+      ],
+      "kutipan": [
+        {
+          "teks": "Komodo-7B has 7 billion parameters and is trained on over 8.5 billion tokens.",
+          "url": "https://tech.yellow.ai/p/komodo-7b-the-first-llm-for-regional"
+        },
+        {
+          "teks": "telah dilatih dengan dataset yang mencakup lebih dari 8,5 miliar token bahasa Indonesia dan bahasa daerah.",
+          "url": "https://www.cloudcomputing.id/berita/yellow-ai-rilis-llm-pertama"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 96,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "SEA-LION v4.8 (arXiv Sep 2026): korpus 150 miliar token berisi data instruksi, penalaran, kode, dan paralel dua bahasa; pasca-pelatihan memakai \"online on-policy distillation\". Contoh nyata pergeseran dari \"data web mentah\" ke data buatan/instruksi. (arXiv 2609.18310, kelas A)",
+      "sumber": [
+        "https://arxiv.org/html/2609.18310v1"
+      ],
+      "kutipan": [
+        {
+          "teks": "We construct a 150B-token CPT corpus consisting of Southeast Asian instruction data, reasoning-oriented data, code, and bilingual parallel data.",
+          "url": "https://arxiv.org/html/2609.18310v1"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 104,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "Peta jalan nasional: pembahasan antarkementerian RPerpres Peta Jalan AI 2026–2029 dan RPerpres Etika AI rampung 5 Mei 2026; per 27 Agu–4 Sep 2026 belum terbit (menunggu tanda tangan Presiden). (Komdigi JDIH; Infobanknews 27 Agu 2026; Kontan 4 Sep 2026) ·",
+      "sumber": [
+        "https://jdih.komdigi.go.id/berita/view/116",
+        "https://infobanknews.com/komdigi-siapkan-peta-jalan-ai-2026-2029-begini-progresnya",
+        "https://nasional.kontan.co.id/news/dua-perpres-ai-tinggal-tunggu-tanda-tangan-prabowo"
+      ],
+      "kutipan": [
+        {
+          "teks": "Berakhirnya rapat finalisasi pada Selasa (5/5/2026) menandai selesainya tahapan pembahasan lintas kementerian",
+          "url": "https://jdih.komdigi.go.id/berita/view/116"
+        },
+        {
+          "teks": "Pemerintah tengah menyiapkan Peraturan Presiden (Perpres) tentang Peta Jalan Kecerdasan Artifisial (Artificial Intelligence/AI) Nasional 2026-2029.",
+          "url": "https://infobanknews.com/komdigi-siapkan-peta-jalan-ai-2026-2029-begini-progresnya"
+        },
+        {
+          "teks": "disebut tinggal menunggu tanda tangan Presiden Prabowo Subianto.",
+          "url": "https://nasional.kontan.co.id/news/dua-perpres-ai-tinggal-tunggu-tanda-tangan-prabowo"
+        }
+      ],
+      "primer": true,
+      "independen": 3,
+      "baris": 106,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "SE Menkominfo No. 9 Tahun 2023 tentang Etika Kecerdasan Artifisial ada di JDIH Komdigi; memuat nilai perlindungan data pribadi. (kelas A) · · sifatnya SE (pedoman), bukan UU. Tang",
+      "sumber": [
+        "https://jdih.komdigi.go.id/produk_hukum/view/id/883/t/surat+edaran+menteri+komunikasi+dan+informatika+nomor+9+tahun+2023"
+      ],
+      "kutipan": [
+        {
+          "teks": "Penyelenggaraan Kecerdasan Artifisial harus memastikan pelindungan data pribadi sesuai ketentuan peraturan perundang-undangan.",
+          "url": "https://jdih.komdigi.go.id/produk_hukum/view/id/883/t/surat+edaran+menteri+komunikasi+dan+informatika+nomor+9+tahun+2023"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 118,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "Meta: postingan publik Facebook/Instagram dipakai melatih AI generatif (pernyataan Meta Sep 2024; Eropa Apr 2025); narasi \"Goodbye Meta AI\" disebut hoaks oleh Pemprov DKI. (Jala Hoaks Jakarta, kelas A; CNN Indonesia 17 Apr 2025)",
+      "sumber": [
+        "https://jalahoaks.jakarta.go.id/detail/HOAKS-NARASI-GOODBYE-META-AI-MENCEGAH-PENGGUNAAN-DATA-PERSONAL",
+        "https://www.cnnindonesia.com/teknologi/20250417103425-192-1219710/latih-ai-meta-bakal-gunakan-data-pengguna-facebook-dan-instagram"
+      ],
+      "kutipan": [
+        {
+          "teks": "Post yang dibagikan secara publik di Instagram dan Facebook - termasuk foto dan teks - merupakan bagian dari data",
+          "url": "https://jalahoaks.jakarta.go.id/detail/HOAKS-NARASI-GOODBYE-META-AI-MENCEGAH-PENGGUNAAN-DATA-PERSONAL"
+        },
+        {
+          "teks": "Pengguna yang tidak menginginkan hal tersebut, dapat mengubah pengaturan akun menjadi privat untuk meminimalkan risiko.",
+          "url": "https://jalahoaks.jakarta.go.id/detail/HOAKS-NARASI-GOODBYE-META-AI-MENCEGAH-PENGGUNAAN-DATA-PERSONAL"
+        },
+        {
+          "teks": "Meta mengaku akan mulai melatih model kecerdasan buatan (AI) mereka dengan data publik dari pengguna Facebook dan Instagram di Eropa.",
+          "url": "https://www.cnnindonesia.com/teknologi/20250417103425-192-1219710/latih-ai-meta-bakal-gunakan-data-pengguna-facebook-dan-instagram"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 122,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-indonesia.md"
+    },
+    {
+      "klaim": "Studi \"Consent in Crisis\" (Longpre dkk.; Data Provenance Initiative): audit 14.000 domain di balik C4, RefinedWeb, Dolma. Dalam setahun (2023-04 s.d. 2024-04) ~5%+ token seluruh C4, atau 28%+ token sumber kritis C4, dibatasi penuh via robots.txt; 45% C4 dibatasi via ToS. (arXiv, 2024-07-20; NYT, 202",
+      "sumber": [
+        "https://arxiv.org/abs/2407.14933",
+        "https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
+      ],
+      "kutipan": [
+        {
+          "teks": "rendering ~5%+ of all tokens in C4, or 28%+ of the most actively maintained, critical sources in C4, fully restricted from use.",
+          "url": "https://arxiv.org/abs/2407.14933"
+        },
+        {
+          "teks": "For Terms of Service crawling restrictions, a full 45% of C4 is now restricted.",
+          "url": "https://arxiv.org/abs/2407.14933"
+        },
+        {
+          "teks": "5 percent of all data, and 25 percent of data from the highest-quality sources, has been restricted",
+          "url": "https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 38,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Lonjakan terjadi setelah GPTBot dan sejenisnya diumumkan: sekitar 1% token (pertengahan 2023) menjadi 5-7% (Apr 2024); di domain \"kepala\" 20-33%. (arXiv PDF, 2024-07-25; The Register, 2024-07-22) ·",
+      "sumber": [
+        "https://arxiv.org/pdf/2407.14933",
+        "https://www.theregister.com/software/2024/07/22/ai-training-data-pool-shrinks-as-sites-ban-creepy-crawlers/754225"
+      ],
+      "kutipan": [
+        {
+          "teks": "~1% of C4, RefinedWeb, and Dolma tokens were restricted in mid 2023, as compared to 5-7% of tokens in April 2024.",
+          "url": "https://arxiv.org/pdf/2407.14933"
+        },
+        {
+          "teks": "between 20 and 33 percent of the top domains have enacted complete restrictions on crawlers",
+          "url": "https://www.theregister.com/software/2024/07/22/ai-training-data-pool-shrinks-as-sites-ban-creepy-crawlers/754225"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 42,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Cloudflare 1 Jul 2025: \"pertama\" penyedia infrastruktur internet yang memblokir crawler AI tanpa izin/bayaran secara bawaan; setiap domain baru ditanya saat mendaftar; pelanggan lama bisa mengatur sendiri. Cloudflare menyebut mengelola lalu lintas \"20% of the web\" dan >1 juta pelanggan sudah memilih",
+      "sumber": [
+        "https://www.cloudflare.com/press/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large/",
+        "https://www.helpnetsecurity.com/2025/07/01/cloudflare-blocks-ai-crawlers/",
+        "https://blog.cloudflare.com/content-independence-day-no-ai-crawl-without-compensation"
+      ],
+      "kutipan": [
+        {
+          "teks": "AI companies will now be required to obtain explicit permission from a website before scraping.",
+          "url": "https://www.cloudflare.com/press/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large/"
+        },
+        {
+          "teks": "More than one million customers have since chosen this option",
+          "url": "https://www.cloudflare.com/press/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large/"
+        },
+        {
+          "teks": "Cloudflare is now the first major internet infrastructure company to block AI crawlers by default",
+          "url": "https://www.helpnetsecurity.com/2025/07/01/cloudflare-blocks-ai-crawlers/"
+        },
+        {
+          "teks": "is changing the default to block AI crawlers unless they pay creators for their content.",
+          "url": "https://blog.cloudflare.com/content-independence-day-no-ai-crawl-without-compensation"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 46,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Reddit–Google ≈ US$60 juta/tahun (dilaporkan, bukan angka resmi perusahaan): Reuters (2024-02-22) berdasar satu dari tiga sumber; Bloomberg lebih dulu melaporkan US$60 juta tanpa menyebut pembeli. Reddit & Google mengumumkan kemitraan 22 Feb 2024 tanpa angka.",
+      "sumber": [
+        "https://www.thestar.com.my/tech/tech-news/2024/02/22/exclusive-reddit-in-ai-content-licensing-deal-with-google-sources-say",
+        "https://www.dailymaverick.co.za/article/2024-02-23-reddit-trumpets-revenue-source-besides-ads-lucrative-ai-deals"
+      ],
+      "kutipan": [
+        {
+          "teks": "The contract with Alphabet-owned Google is worth about $60 million per year, according to one of the sources.",
+          "url": "https://www.thestar.com.my/tech/tech-news/2024/02/22/exclusive-reddit-in-ai-content-licensing-deal-with-google-sources-say"
+        },
+        {
+          "teks": "Bloomberg had earlier reported the existence of a $60 million AI deal.",
+          "url": "https://www.dailymaverick.co.za/article/2024-02-23-reddit-trumpets-revenue-source-besides-ads-lucrative-ai-deals"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 57,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "S-1 Reddit (Feb 2024): kontrak lisensi data total US$203 juta, 2–3 tahun (angka perusahaan, dikutip media; S-1 aslinya tidak dibaca langsung). ·",
+      "sumber": [
+        "https://www.dailymaverick.co.za/article/2024-02-23-reddit-trumpets-revenue-source-besides-ads-lucrative-ai-deals",
+        "https://www.404media.co/reddit-we-are-in-the-early-stages-of-monetizing-our-user-base-2/"
+      ],
+      "kutipan": [
+        {
+          "teks": "entered into licensing agreements with an aggregate value of $203 million, with terms ranging from two to three years",
+          "url": "https://www.dailymaverick.co.za/article/2024-02-23-reddit-trumpets-revenue-source-besides-ads-lucrative-ai-deals"
+        },
+        {
+          "teks": "will pay it at least $203 million over the next 2-3 years",
+          "url": "https://www.404media.co/reddit-we-are-in-the-early-stages-of-monetizing-our-user-base-2/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 60,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Reddit Q2 2026 (dilaporkan 30 Jul 2026): pendapatan iklan US$762 juta; lini \"other\" yang membawa lisensi data US$43 juta (+24%). (PPC Land, 2026-07-31; Crypto Briefing, 2026-08-17) ·",
+      "sumber": [
+        "https://ppc.land/reddit-ad-revenue-hits-762-million-as-stock-drops-12-5-on-search-fears/",
+        "https://cryptobriefing.com/reddit-data-licensing-revenue-openai-google/"
+      ],
+      "kutipan": [
+        {
+          "teks": "with other revenue, the line that carries data licensing, contributing $43 million on 24% growth.",
+          "url": "https://ppc.land/reddit-ad-revenue-hits-762-million-as-stock-drops-12-5-on-search-fears/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 65,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Shutterstock–OpenAI (11 Jul 2023): perjanjian enam tahun; OpenAI mendapat lisensi data latih gambar, video, musik. Nilai tidak diumumkan (jangan pakai angka \"US$50 juta\" dari situs SEO). (siaran pers Shutterstock; VentureBeat 2023-07-13) ·",
+      "sumber": [
+        "https://www.aap.com.au/aapreleases/cision20230711ae52967/",
+        "https://venturebeat.com/ai/shutterstock-signs-6-year-training-data-agreement-with-openai"
+      ],
+      "kutipan": [
+        {
+          "teks": "OpenAI has secured a license for access to additional Shutterstock training data",
+          "url": "https://www.aap.com.au/aapreleases/cision20230711ae52967/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 76,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Associated Press–OpenAI (2023): kesepakatan dua tahun untuk akses sebagian arsip teks AP (sejak 1985), AP disebut yang pertama mengumumkan kesepakatan semacam ini dengan OpenAI. (VentureBeat 2023-07-13; Al Jazeera 2026-07-09; siaran pers AP sendiri belum dibaca)",
+      "sumber": [
+        "https://venturebeat.com/ai/shutterstock-signs-6-year-training-data-agreement-with-openai",
+        "https://www.aljazeera.com/economy/2026/7/9/nyt-led-group-asks-court-to-sanction-openai-in-us-copyright-dispute"
+      ],
+      "kutipan": [
+        {
+          "teks": "the Associated Press (AP) has entered a two-year agreement with OpenAI to share access to select news content and technology.",
+          "url": "https://venturebeat.com/ai/shutterstock-signs-6-year-training-data-agreement-with-openai"
+        },
+        {
+          "teks": "The Associated Press was the first to announce such a deal with OpenAI in 2023.",
+          "url": "https://www.aljazeera.com/economy/2026/7/9/nyt-led-group-asks-court-to-sanction-openai-in-us-copyright-dispute"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 78,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Bartz v. Anthropic: persetujuan final 20 Jul 2026 oleh Hakim Araceli Martínez-Olguín (Hakim Alsup yang memberi persetujuan awal tahun 2025 sudah pensiun). Penyelesaian US$1,5 miliar; ≈US$3.000 per karya untuk ±500 ribu karya (dibagi penulis dan penerbit); biaya pengacara US$101,6 juta; ±350 penulis",
+      "sumber": [
+        "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/",
+        "https://thenextweb.com/news/anthropic-1-5-billion-copyright-settlement-approved",
+        "https://www.newstribune.com/news/2026/jul/24/judge-approves-anthropics-15b-settlement-with/"
+      ],
+      "kutipan": [
+        {
+          "teks": "The payout will deliver $3,000 per work across an estimated 500,000 works",
+          "url": "https://techcrunch.com/2026/07/20/anthropics-landmark-1-5b-copyright-settlement-is-approved/"
+        },
+        {
+          "teks": "granted final approval on 20 July",
+          "url": "https://thenextweb.com/news/anthropic-1-5-billion-copyright-settlement-approved"
+        },
+        {
+          "teks": "Judge William Alsup found that training a model on lawfully purchased books was fair use",
+          "url": "https://thenextweb.com/news/anthropic-1-5-billion-copyright-settlement-approved"
+        },
+        {
+          "teks": "Some 350 authors in the Anthropic lawsuit opted out of the settlement",
+          "url": "https://www.newstribune.com/news/2026/jul/24/judge-approves-anthropics-15b-settlement-with/"
+        },
+        {
+          "teks": "Their lawyers were awarded $101.6 million in fees.",
+          "url": "https://www.newstribune.com/news/2026/jul/24/judge-approves-anthropics-15b-settlement-with/"
+        }
+      ],
+      "primer": false,
+      "independen": 3,
+      "baris": 86,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Mercor Seri C (27 Okt 2025): US$350 juta, dipimpin Felicis, valuasi US$10 miliar (5x Seri B). Pelanggannya disebut termasuk OpenAI dan Nvidia; jaringan kontraktor >US$1,5 juta/hari. (blog Mercor, primer; News IO 2025-10-27; Benzinga 2025-11-22) ·",
+      "sumber": [
+        "https://www.mercor.com/blog/series-c",
+        "https://newsio.com/2025/10/27/ai-startup-mercor-now-valued-at-10-billion-with-new-350-million-funding-round/",
+        "https://www.benzinga.com/news/topics/25/11/49021486/mercor-ceo-brendan-foody-calls-it-a-new-category-of-work-as-his-10-billion-company-pays-humans-over-1"
+      ],
+      "kutipan": [
+        {
+          "teks": "This round values Mercor at $10 billion, 5x our Series B valuation.",
+          "url": "https://www.mercor.com/blog/series-c"
+        },
+        {
+          "teks": "who are collectively paid over $1.5 million each day",
+          "url": "https://newsio.com/2025/10/27/ai-startup-mercor-now-valued-at-10-billion-with-new-350-million-funding-round/"
+        },
+        {
+          "teks": "Mercor is paying more than $1.5 million a day to people training artificial intelligence systems.",
+          "url": "https://www.benzinga.com/news/topics/25/11/49021486/mercor-ceo-brendan-foody-calls-it-a-new-category-of-work-as-his-10-billion-company-pays-humans-over-1"
+        }
+      ],
+      "primer": false,
+      "independen": 3,
+      "baris": 113,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-industri.md"
+    },
+    {
+      "klaim": "Makalah Nature 2024: yang hilang pertama kali adalah \"ekor\" distribusi (kejadian berprobabilitas rendah), dan efeknya dikaitkan ke keadilan bagi kelompok terpinggirkan. (Shumailov dkk., Nature, 24 Jul 2024; Rice/ScienceDaily + MAD sebagai penguat independen)",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-024-07566-y"
+      ],
+      "kutipan": [
+        {
+          "teks": "indiscriminate use of model-generated content in training causes irreversible defects in the resulting models, in which tails of the original content distribution disappear",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        },
+        {
+          "teks": "At first, the tails (low-probability events) begin to disappear as a result of the low probability of sampling them",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        },
+        {
+          "teks": "Preserving the ability of LLMs to model low-probability events is essential to the fairness of their predictions: such events are often relevant to marginalized groups.",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 38,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "MAD (\"Model Autophagy Disorder\", Alemohammad dkk., Rice): tanpa data nyata yang segar, kualitas atau keragaman model turun terus; julukannya meniru \"penyakit sapi gila\". (arXiv, 4 Jul 2023, pracetak; dipresentasikan di ICLR 2024 per Rice; ScienceDaily 30 Jul 2024)",
+      "sumber": [
+        "https://arxiv.org/abs/2307.01850",
+        "https://www.sciencedaily.com/releases/2024/07/240730134759.htm"
+      ],
+      "kutipan": [
+        {
+          "teks": "without enough fresh real data in each generation of an autophagous loop, future generative models are doomed",
+          "url": "https://arxiv.org/abs/2307.01850"
+        },
+        {
+          "teks": "the more fresh data, the healthier the AI",
+          "url": "https://www.sciencedaily.com/releases/2024/07/240730134759.htm"
+        },
+        {
+          "teks": "even after a few generations of such training, the new models can become irreparably corrupted",
+          "url": "https://www.sciencedaily.com/releases/2024/07/240730134759.htm"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 42,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Keragaman bahasa keluaran turun tiap generasi, paling parah untuk tugas kreatif (Guo dkk., NAACL Findings, Jun 2024; arXiv 16 Nov 2023; didukung Nature + MAD di atas).",
+      "sumber": [
+        "https://arxiv.org/abs/2311.09807"
+      ],
+      "kutipan": [
+        {
+          "teks": "a consistent decrease in the diversity of the model outputs through successive iterations, especially remarkable for tasks demanding high levels of creativity",
+          "url": "https://arxiv.org/abs/2311.09807"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 46,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Antar-LLM sendiri sudah seragam (bukan hanya generasi ke generasi): jawaban LLM lebih mirip satu sama lain daripada jawaban manusia satu sama lain. (Wenger & Kenett, arXiv 31 Jan 2025, kemudian terbit PNAS Nexus 2026; rilis Duke via EurekAlert) ·",
+      "sumber": [
+        "https://arxiv.org/abs/2501.19361",
+        "https://www.eurekalert.org/news-releases/1123936"
+      ],
+      "kutipan": [
+        {
+          "teks": "LLM responses are much more similar to other LLM responses than human responses are to each other",
+          "url": "https://arxiv.org/abs/2501.19361"
+        },
+        {
+          "teks": "LLMs are less creative as a population than humans.",
+          "url": "https://www.eurekalert.org/news-releases/1123936"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 48,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Web penuh terjemahan mesin, paling dominan di bahasa sumber daya rendah. Thompson dkk. (Amazon; arXiv 11 Jan 2024; ACL Findings Agu 2024) menemukan konten paralel multi-bahasa berkualitas rendah (kemungkinan terjemahan mesin) \"mendominasi\" terjemahan di bahasa sumber daya rendah, dan bias pemilihan:",
+      "sumber": [
+        "https://arxiv.org/abs/2401.05749",
+        "https://aclanthology.org/2024.findings-acl.103/"
+      ],
+      "kutipan": [
+        {
+          "teks": "it also constitutes a large fraction of the total web content in those languages",
+          "url": "https://arxiv.org/abs/2401.05749"
+        },
+        {
+          "teks": "Our work raises serious concerns about training models such as multilingual large language models on both monolingual and bilingual data scraped from the web.",
+          "url": "https://arxiv.org/abs/2401.05749"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 59,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Indonesia mencoba menambal dari sisi data lokal: Sahabat-AI (GoTo + Indosat) menggandeng empat media sebagai mitra. (Tempo, 21 Jun 2025; Kompas.com, 21 Jun 2025; siaran pers GoTo, Jun 2025) ·",
+      "sumber": [
+        "https://www.tempo.co/ekonomi/tempo-dan-sejumlah-media-bergabung-memperkuat-sahabat-ai-1765470",
+        "https://tekno.kompas.com/read/2025/06/21/08561977/kg-media-dukung-pengembangan-model-bahasa-besar-sahabat-ai?page=all",
+        "https://www.gotocompany.com/en/news/press/sahabat-ai-gets-smarter-indosat-and-goto-launch-new-70-billion-parameter-model-with-multilingual-chat-service"
+      ],
+      "kutipan": [
+        {
+          "teks": "bergabung sebagai mitra dalam pengembangan model bahasa besar",
+          "url": "https://tekno.kompas.com/read/2025/06/21/08561977/kg-media-dukung-pengembangan-model-bahasa-besar-sahabat-ai?page=all"
+        },
+        {
+          "teks": "as well as media groups such as Kompas Group, Republika, Tempo, and Hukumonline, to ensure that Sahabat-AI is optimized for local context and cultural relevance",
+          "url": "https://www.gotocompany.com/en/news/press/sahabat-ai-gets-smarter-indosat-and-goto-launch-new-70-billion-parameter-model-with-multilingual-chat-service"
+        }
+      ],
+      "primer": false,
+      "independen": 3,
+      "baris": 64,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Analogi low-background steel dan arsipnya. Baja sebelum uji bom atom bebas radioaktivitas buatan; analogi untuk teks sebelum ChatGPT (30 Nov 2022). John Graham-Cumming mendaftarkan lowbackgroundsteel.ai Mar 2023. Pengarsipan: Wikipedia Inggris Agu 2022, Common Crawl Agu 2022, koran AS 1730-1969, Arc",
+      "sumber": [
+        "https://www.theregister.com/2025/06/15/ai_model_collapse_pollution",
+        "https://lowbackgroundsteel.ai/"
+      ],
+      "kutipan": [
+        {
+          "teks": "So the analogy works here because you need something that happened before a certain date.",
+          "url": "https://www.theregister.com/2025/06/15/ai_model_collapse_pollution"
+        },
+        {
+          "teks": "It was an analogy that just popped into my head and I liked the idea of a repository of known human-created stuff.",
+          "url": "https://www.theregister.com/2025/06/15/ai_model_collapse_pollution"
+        },
+        {
+          "teks": "A complete dump of the English Wikipedia from August 2022, predating the widespread injection of AI-generated text into the encyclopedia.",
+          "url": "https://lowbackgroundsteel.ai/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 85,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "wordfreq berhenti diperbarui karena web tercemar teks AI (contoh nyata \"baja\" yang rusak). Penulisnya (Robyn Speer, catatan Sep 2024) bilang tak ada informasi andal soal bahasa manusia pasca-2021; ia juga mengutip kenaikan frekuensi kata \"delve\" sekitar sepuluh kali lipat. (GitHub SUNSET.md; GitHub",
+      "sumber": [
+        "https://github.com/rspeer/wordfreq/blob/master/SUNSET.md",
+        "https://github.com/rspeer/wordfreq",
+        "https://lowbackgroundsteel.ai/"
+      ],
+      "kutipan": [
+        {
+          "teks": "I don't think anyone has reliable information about post-2021 language usage by humans.",
+          "url": "https://github.com/rspeer/wordfreq/blob/master/SUNSET.md"
+        },
+        {
+          "teks": "The project is no longer being updated because of AI contamination of its sources",
+          "url": "https://lowbackgroundsteel.ai/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 89,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Makalah Nature sendiri bilang data interaksi manusia dengan LLM jadi makin berharga.",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-024-07566-y"
+      ],
+      "kutipan": [
+        {
+          "teks": "data about human interactions with LLMs will be increasingly valuable",
+          "url": "https://www.nature.com/articles/s41586-024-07566-y"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 92,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "SynthID-Text (Google DeepMind) sudah dipasang di produksi. Nature (23 Okt 2024): skema watermark teks yang menjaga kualitas; uji langsung pada hampir 20 juta respons Gemini.",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-024-08025-4"
+      ],
+      "kutipan": [
+        {
+          "teks": "SynthID-Text, a production-ready text watermarking scheme that preserves text quality and enables high detection accuracy",
+          "url": "https://www.nature.com/articles/s41586-024-08025-4"
+        },
+        {
+          "teks": "nearly 20 million responses from live Gemini interactions",
+          "url": "https://www.nature.com/articles/s41586-024-08025-4"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 101,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Tapi watermark teks rapuh terhadap parafrase dan terjemah-balik. (NIST AI 100-4, Nov 2024; Han dkk., arXiv 27 Agu 2025, TrustCom 2025; Chiodo di The Register) ·",
+      "sumber": [
+        "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf",
+        "https://arxiv.org/abs/2508.20228",
+        "https://www.theregister.com/2025/06/15/ai_model_collapse_pollution"
+      ],
+      "kutipan": [
+        {
+          "teks": "In practical settings, paraphrasing has been found to substantially reduce",
+          "url": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-4.pdf"
+        },
+        {
+          "teks": "SynthID-Text is vulnerable to meaning-preserving attacks, such as paraphrasing, copy-paste modifications, and back-translation, which can significantly degrade watermark detectability",
+          "url": "https://arxiv.org/abs/2508.20228"
+        },
+        {
+          "teks": "very hard to label text and very easy to clean off watermarking",
+          "url": "https://www.theregister.com/2025/06/15/ai_model_collapse_pollution"
+        }
+      ],
+      "primer": true,
+      "independen": 3,
+      "baris": 107,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Menyimpan data nyata mencegah collapse; yang mengganti data nyata berbahaya. Stanford AI Index 2026 merangkum: collapse bisa dihindari bila data nyata tetap ada di set latih, tapi sekadar menambah data tidak otomatis menolong. (Stanford HAI, AI Index 2026 bab 1; MAD; Gerstgrasser dkk., arXiv 1 Apr 2",
+      "sumber": [
+        "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf",
+        "https://arxiv.org/abs/2307.01850"
+      ],
+      "kutipan": [
+        {
+          "teks": "such collapse can be avoided if real data remains part of the training set",
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 117,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "AlphaGeometry (Nature, 17 Jan 2024): dilatih dari nol dengan ~100 juta teorema sintetis, tanpa contoh bukti manusia; menyelesaikan 25 dari 30 soal geometri olimpiade (metode terbaik sebelumnya: 10). (Nature; Fortune, 10 Jan 2025) ·",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-023-06747-5",
+        "https://fortune.com/2025/01/10/elon-musk-ai-training-data-running-out-human-synthetic-slop/"
+      ],
+      "kutipan": [
+        {
+          "teks": "sidesteps the need for human demonstrations by synthesizing millions of theorems and proofs across different levels of complexity",
+          "url": "https://www.nature.com/articles/s41586-023-06747-5"
+        },
+        {
+          "teks": "AlphaGeometry solves 25, outperforming the previous best method that only solves ten problems",
+          "url": "https://www.nature.com/articles/s41586-023-06747-5"
+        },
+        {
+          "teks": "Google DeepMind used an artificially generated pool of 100 million unique examples to train its system AlphaGeometry",
+          "url": "https://fortune.com/2025/01/10/elon-musk-ai-training-data-running-out-human-synthetic-slop/"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 122,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "AlphaProof (Nature; daring 12 Nov 2025, edisi cetak Mar 2026): belajar lewat RL pada jutaan soal yang diterjemahkan otomatis ke bahasa formal Lean, jadi setiap bukti dicek mesin; bersama AlphaGeometry 2 setara medali perak IMO 2024. Kuncinya verifier: salah/benar bisa dicek tanpa manusia. · https://",
+      "sumber": [
+        "https://www.nature.com/articles/s41586-025-09833-y"
+      ],
+      "kutipan": [
+        {
+          "teks": "learns to find formal proofs through RL by training on millions of auto-formalized problems",
+          "url": "https://www.nature.com/articles/s41586-025-09833-y"
+        },
+        {
+          "teks": "reaching a score equivalent to that of a silver medallist",
+          "url": "https://www.nature.com/articles/s41586-025-09833-y"
+        },
+        {
+          "teks": "grounded, verifiable experience at scale",
+          "url": "https://www.nature.com/articles/s41586-025-09833-y"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 126,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Stanford AI Index 2026: gambaran seimbang. Campuran data nyata + sintetis bisa mempercepat latih 5–10 kali, tapi tidak melampaui data nyata; tidak ada bukti pasti sintetis menutup kelangkaan data nyata di pra-pelatihan; pelatihan sintetis murni berhasil terutama di model kecil.",
+      "sumber": [
+        "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf"
+      ],
+      "kutipan": [
+        {
+          "teks": "Synthetic data is still not replacing real data in pre-training",
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf"
+        },
+        {
+          "teks": "There is still no definitive evidence that synthetic data can fully offset real-data depletion in pre-training contexts.",
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf"
+        },
+        {
+          "teks": "Hybrid training approaches, which combine real and synthetic data, can significantly accelerate training, sometimes by a factor of five to 10 at scale",
+          "url": "https://hai.stanford.edu/assets/files/ai_index_report_2026_chapter_1_research_development.pdf"
+        }
+      ],
+      "primer": true,
+      "independen": 1,
+      "baris": 130,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Yang bilang ini serius: Baraniuk (Rice): \"MAD could poison the data quality and diversity of the entire internet\" (skenario ekstrem jika tak dikendalikan). Shumailov dkk. (Nature): akses ke distribusi asli penting bila ekor menentukan.",
+      "sumber": [
+        "https://www.sciencedaily.com/releases/2024/07/240730134759.htm",
+        "https://www.nature.com/articles/s41586-024-07566-y"
+      ],
+      "kutipan": [
+        {
+          "teks": "MAD could poison the data quality and diversity of the entire internet",
+          "url": "https://www.sciencedaily.com/releases/2024/07/240730134759.htm"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 137,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Elon Musk (xAI, 8 Jan 2025): data manusia \"habis\", jalan keluarnya data sintetis; sekaligus mengakui risikonya. (Fortune 10 Jan 2025; TechCrunch 9 Jan 2025) ·",
+      "sumber": [
+        "https://fortune.com/2025/01/10/elon-musk-ai-training-data-running-out-human-synthetic-slop/",
+        "https://techcrunch.com/2025/01/08/elon-musk-agrees-that-weve-exhausted-ai-training-data/"
+      ],
+      "kutipan": [
+        {
+          "teks": "The cumulative sum of human knowledge has been exhausted in AI training",
+          "url": "https://fortune.com/2025/01/10/elon-musk-ai-training-data-running-out-human-synthetic-slop/"
+        },
+        {
+          "teks": "That happened basically last year",
+          "url": "https://techcrunch.com/2025/01/08/elon-musk-agrees-that-weve-exhausted-ai-training-data/"
+        },
+        {
+          "teks": "Some research suggests that synthetic data can lead to model collapse",
+          "url": "https://techcrunch.com/2025/01/08/elon-musk-agrees-that-weve-exhausted-ai-training-data/"
+        }
+      ],
+      "primer": false,
+      "independen": 2,
+      "baris": 141,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    },
+    {
+      "klaim": "Status pembahasan: rapat finalisasi lintas kementerian selesai 5 Mei 2026. (JDIH Komdigi; Katadata 15 Apr 2026) ·",
+      "sumber": [
+        "https://jdih.komdigi.go.id/berita/view/116",
+        "https://katadata.co.id/digital/teknologi/69df0e8039515/dua-perpres-ai-segera-terbit-atur-tiga-tingkatan-risiko-dan-mitigasi-kerugian"
+      ],
+      "kutipan": [
+        {
+          "teks": "Berakhirnya rapat finalisasi pada Selasa (5/5/2026) menandai selesainya tahapan pembahasan lintas kementerian",
+          "url": "https://jdih.komdigi.go.id/berita/view/116"
+        }
+      ],
+      "primer": true,
+      "independen": 2,
+      "baris": 156,
+      "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-15-ai-data-habis-dampak.md"
+    }
+  ]
+}

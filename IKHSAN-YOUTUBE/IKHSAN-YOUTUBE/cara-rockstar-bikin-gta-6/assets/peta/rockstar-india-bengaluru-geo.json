@@ -1,0 +1,61 @@
+{
+  "lokasi": "rockstar-india-bengaluru",
+  "sumber": "OpenFreeMap / OpenStreetMap, Esri World Imagery / OpenStreetMap",
+  "credit": "Sumber: AWS Terrain | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026",
+  "z": 14.5,
+  "w": 1920,
+  "h": 1080,
+  "proyeksi": "3d-perspektif",
+  "kamera3d": {
+    "miring": 62,
+    "arah": 25,
+    "elevasi": 1.3
+  },
+  "pusat": [
+    77.7499721,
+    12.9698196
+  ],
+  "poi": {},
+  "tampilan": [
+    {
+      "file": "rockstar-india-bengaluru-3d_gelap-z15.png",
+      "tampilan": "3d_gelap",
+      "zoom": 14.5,
+      "skala": "300 m",
+      "geo": {
+        "proyeksi": "3d-perspektif",
+        "lat": 12.9698196,
+        "lng": 77.7499721,
+        "zoom": 14.5,
+        "miring": 62,
+        "arah": 25,
+        "elevasi": 1.3,
+        "w": 1920,
+        "h": 1080,
+        "lebarCss": 1280,
+        "tinggiCss": 720,
+        "scale": 1.5
+      }
+    },
+    {
+      "file": "rockstar-india-bengaluru-3d_satelit-z15.png",
+      "tampilan": "3d_satelit",
+      "zoom": 14.5,
+      "skala": "300 m",
+      "geo": {
+        "proyeksi": "3d-perspektif",
+        "lat": 12.9698196,
+        "lng": 77.7499721,
+        "zoom": 14.5,
+        "miring": 62,
+        "arah": 25,
+        "elevasi": 1.6,
+        "w": 1920,
+        "h": 1080,
+        "lebarCss": 1280,
+        "tinggiCss": 720,
+        "scale": 1.5
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/skor-agi-gpt4-gpt5.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Seberapa \"manusia\" AI menurut satu rapor AGI",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "GPT-4 (2023)",
+      "nilai": "27",
+      "fakta": 2,
+      "klaim": "\"A Definition of AGI\" (Hendrycks dkk., 33 penulis, arXiv 2510.18212, 21 Okt 2025, v3 3 Des 2025): AGI = menyamai keluasan dan kemahiran kognitif orang dewasa berpendidikan baik; 10 domain kognitif dari teori Cattell-Horn-Carroll; skor GPT-4 (2023) 27%, GPT-5 (2025) 57%; kekurangan terbesar di memori"
+    },
+    {
+      "label": "GPT-5 (2025)",
+      "nilai": "57",
+      "fakta": 2,
+      "klaim": "\"A Definition of AGI\" (Hendrycks dkk., 33 penulis, arXiv 2510.18212, 21 Okt 2025, v3 3 Des 2025): AGI = menyamai keluasan dan kemahiran kognitif orang dewasa berpendidikan baik; 10 domain kognitif dari teori Cattell-Horn-Carroll; skor GPT-4 (2023) 27%, GPT-5 (2025) 57%; kekurangan terbesar di memori"
+    }
+  ],
+  "sumber": [
+    "https://arxiv.org/abs/2510.18212",
+    "https://arxiv.org/pdf/2510.18212"
+  ],
+  "sumberTeks": "Sumber: arXiv (diolah)",
+  "faktaDari": "fakta.json tugas aktif",
+  "dibuat": "2026-11-15T19:58:11.128Z"
+}

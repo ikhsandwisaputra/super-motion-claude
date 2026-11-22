@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-seorang-pria-dan-seorang-wanita-ZvhZBzwmLic.jpg",
+  "provider": "unsplash",
+  "id": "ZvhZBzwmLic",
+  "kind": "image",
+  "title": "seorang pria dan seorang wanita bertukar ponsel di sebuah toko",
+  "author": "NSYS Group",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/seorang-pria-dan-seorang-wanita-bertukar-ponsel-di-sebuah-toko-ZvhZBzwmLic",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: NSYS Group / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Pola referensi konter HP ITC: etalase kaca berisi deretan HP, transaksi tangan penjual-pembeli di atas etalase (#3); lorong pusat elektronik ramai dengan kios-kios dan pengunjung (#13, mirip lorong ITC R7). Suasana toko terang, banyak HP dipajang.",
+  "bytes": 630556,
+  "sha256": "8b8815d0a8044ab5071afe51294e031e1dba8a6ecfb50b6aa26c28dcb5e9f9d2",
+  "fileUrl": "https://images.unsplash.com/photo-1697545806245-9795b6056141",
+  "query": "mobile phone store glass display counter seller",
+  "retrieved": "2026-11-14T13:56:59.669Z"
+}

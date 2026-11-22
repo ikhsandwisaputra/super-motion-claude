@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-musik-trailer-music-cinematic-epic-495939.mp3",
+  "provider": "pixabay",
+  "id": "495939",
+  "kind": "musik",
+  "title": "Trailer music, Cinematic, Epic trailer music. Free for use.",
+  "author": "VitMatNotes",
+  "authorUrl": "https://pixabay.com/users/vitmatnotes-41706538/",
+  "sourceUrl": "https://pixabay.com/music/epic-classical-edge-of-revelation-495939/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: VitMatNotes / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "musik twist/puncak lebih naik, uplifting-epic, 1:40-2:10, tanpa Content ID",
+  "durasi": "PT2M7S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 4065071,
+  "sha256": "08ab5a6935c4821b1a8962acf27ee4d2dbb502a1d59a59fef353f1bb74924b75",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/03/05/audio_0358531562.mp3?filename=vitmatnotes-edge-of-revelation-495939.mp3",
+  "query": "epic uplifting cinematic build revelation",
+  "retrieved": "2026-11-13T15:38:39.004Z"
+}

@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-mt4c1024-hd.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto oleh ZeptoBars via Wikimedia Commons dengan lisensi CC BY 3.0",
+  "license": {
+    "name": "CC BY 3.0",
+    "url": "https://creativecommons.org/licenses/by/3.0/",
+    "attributionRequired": true,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "MT4C1024-HD",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:MT4C1024-HD.jpg",
+  "credit": "Foto oleh ZeptoBars via Wikimedia Commons dengan lisensi CC BY 3.0",
+  "bytes": 710267,
+  "sha256": "c4402949584cc59ffb95ad34666d6bd65c8bc95f5065a67384ade6637f90a6b8",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/MT4C1024-HD.jpg/1920px-MT4C1024-HD.jpg",
+  "query": "DRAM memory module RAM wafer",
+  "alasanCocok": "#2 modul DIMM depan-belakang seperti R2 (modul RAM beserta chip); #1 foto die DRAM (chip memori close-up), pola 'chip memori close-up'",
+  "retrieved": "2026-11-14T06:33:13.893Z"
+}

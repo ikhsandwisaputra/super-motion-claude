@@ -1,0 +1,43 @@
+{
+  "file": "assets/grafik/harga-ps-store-indonesia.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Harga GTA 6 di PS Store Indonesia Naik 11% Pas Hari Rilis",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Standard (Pre-Order)",
+      "nilai": "1.190.000",
+      "fakta": 14,
+      "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+    },
+    {
+      "label": "Standard (Hari Rilis)",
+      "nilai": "1.321.000",
+      "fakta": 14,
+      "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+    },
+    {
+      "label": "Ultimate (Pre-Order)",
+      "nilai": "1.490.000",
+      "fakta": 14,
+      "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+    },
+    {
+      "label": "Ultimate (Hari Rilis)",
+      "nilai": "1.654.000",
+      "fakta": 14,
+      "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C"
+    }
+  ],
+  "sumber": [
+    "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta",
+    "https://carisinyal.com/news/harga-gta-6-di-ps-store-naik/"
+  ],
+  "sumberTeks": "Sumber: Kompas.com, carisinyal.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:32.070Z"
+}

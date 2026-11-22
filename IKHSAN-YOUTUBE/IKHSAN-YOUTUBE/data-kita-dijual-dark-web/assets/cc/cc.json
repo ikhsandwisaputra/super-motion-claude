@@ -1,0 +1,52 @@
+[
+  {
+    "file": "assets/cc/commons-indonesian-identity-card.jpg",
+    "provider": "wikimedia",
+    "kind": "image",
+    "author": "Foto: SYAMSURIAL via Wikimedia Commons (domain publik)",
+    "license": {
+      "name": "Domain publik",
+      "url": null,
+      "attributionRequired": false,
+      "commercial": true,
+      "shareAlike": false,
+      "noDerivatives": false
+    },
+    "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+    "warning": null,
+    "title": "Indonesian identity card",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Indonesian_identity_card.jpg",
+    "credit": "Foto: SYAMSURIAL via Wikimedia Commons (domain publik)",
+    "bytes": 315671,
+    "sha256": "704bbe97f14790bed585ef582c17413e4cad7ccb17f2f0f8c2f550277b1d7852",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/4/44/Indonesian_identity_card.jpg",
+    "query": "ID card Indonesia KTP",
+    "alasanCocok": "Kartu Tanda Penduduk (KTP) Republik Indonesia tampak depan dengan latar biru sesuai pola referensi identitas warga",
+    "retrieved": "2026-11-20T07:43:52.241Z"
+  },
+  {
+    "file": "assets/cc/commons-mprdprbuilding.jpg",
+    "provider": "wikimedia",
+    "kind": "image",
+    "author": "Foto: Davidelit via Wikimedia Commons (domain publik)",
+    "license": {
+      "name": "Domain publik",
+      "url": null,
+      "attributionRequired": false,
+      "commercial": true,
+      "shareAlike": false,
+      "noDerivatives": false
+    },
+    "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+    "warning": null,
+    "title": "MPRDPRBuilding",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:MPRDPRBuilding.jpg",
+    "credit": "Foto: Davidelit via Wikimedia Commons (domain publik)",
+    "bytes": 525691,
+    "sha256": "23cc6145de39aba7b167f271a46f455e98c0596640cfbee524ff04904f1ab3c3",
+    "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/MPRDPRBuilding.jpg/1920px-MPRDPRBuilding.jpg",
+    "query": "Gedung DPR RI Jakarta",
+    "alasanCocok": "Gedung Nusantara MPR/DPR RI tampak depan beratap kubah hijau tempat rapat kerja evaluasi PDNS 2 BSSN dan Komisi I",
+    "retrieved": "2026-11-20T07:44:06.736Z"
+  }
+]

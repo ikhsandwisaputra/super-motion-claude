@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-a-close-up-view-of-a-40057550.mp4",
+  "provider": "pexels",
+  "id": "40057550",
+  "kind": "video",
+  "title": "A close-up view of a telecommunications tower surrounded by lush trees during sunset.",
+  "author": "Ashish Jatiani",
+  "authorUrl": "https://www.pexels.com/@ashish-jatiani-3221174/",
+  "sourceUrl": "https://www.pexels.com/video/cell-tower-amidst-greenery-at-sunset-40057550/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Ashish Jatiani / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "menara BTS hijau; satelit orbit bumi sebagai ilustrasi umum (bukan SATRIA-1 asli)",
+  "bytes": 4546565,
+  "sha256": "6302f401e9e61949c630a5d6fc615730a0cc10122c724d71b03cccb262ff4230",
+  "fileUrl": "https://videos.pexels.com/video-files/40057550/17098440_1920_1080_24fps.mp4",
+  "query": "cell tower telecommunication antenna sky",
+  "retrieved": "2026-11-13T15:41:09.818Z"
+}

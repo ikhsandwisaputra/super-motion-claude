@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-frontier-supercomputer-2.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto oleh OLCF at ORNL via Wikimedia Commons dengan lisensi CC BY 2.0",
+  "license": {
+    "name": "CC BY 2.0",
+    "url": "https://creativecommons.org/licenses/by/2.0/",
+    "attributionRequired": true,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "Frontier Supercomputer (2)",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Frontier_Supercomputer_(2).jpg",
+  "credit": "Foto oleh OLCF at ORNL via Wikimedia Commons dengan lisensi CC BY 2.0",
+  "bytes": 940905,
+  "sha256": "1d43d0b296d7570a4f3ef4d9bc560fa0eec7b82095725a57e4a2778ffb223e9d",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Frontier_Supercomputer_%282%29.jpg/1920px-Frontier_Supercomputer_%282%29.jpg",
+  "query": "Wikimedia Commons supercomputer server",
+  "alasanCocok": "Deretan kabinet rak superkomputer/server hitam di ruang pusat data berlampu putih/biru dengan sudut perspektif lorong diagonal sesuai pola R1, R2, R7, R10 pada lembar referensi",
+  "retrieved": "2026-11-19T09:53:52.518Z"
+}

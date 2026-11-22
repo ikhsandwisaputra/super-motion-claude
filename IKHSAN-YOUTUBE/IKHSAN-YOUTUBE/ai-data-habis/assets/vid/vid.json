@@ -1,0 +1,107 @@
+{
+ "ketik": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-hands-typing-on-a-1395943.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "ketik2": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-view-of-hands-typing-on-4873238.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "server3": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-detailed-view-of-server-units-7140928.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "kabel3": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-ethernet-cables-connected-to-a-7140937.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "gembok": {
+  "n": 75,
+  "fps": 15,
+  "src": "pexels-video-golden-padlock-on-a-chain-link-4976967.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "gerbang": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-locked-gate-with-a-3999371.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "cetak": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-printing-press-37533325.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "robot": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-high-tech-robotic-arm-operating-32386532.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "anak_tunjuk": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-a-young-child-points-to-a-7308352.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "go": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-hands-setting-up-traditional-go-39277761.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "digital": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-visual-depiction-of-a-digital-30607101.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "macro": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-stunning-macro-video-of-colorful-33717724.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "kereta": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-high-speed-38826405.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "tenang": {
+  "n": 90,
+  "fps": 15,
+  "src": "pexels-video-explore-the-tranquility-of-a-38668053.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ },
+ "map_dok": {
+  "n": 90,
+  "fps": 15,
+  "src": "pixabay-video-file-folder-document-free-stock-349087.mp4",
+  "ss": 1.0,
+  "len": 6.0
+ }
+}

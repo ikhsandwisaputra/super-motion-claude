@@ -1,0 +1,41 @@
+{
+  "lokasi": "miami-vice-city",
+  "sumber": "Esri World Imagery / OpenStreetMap",
+  "credit": "Sumber: AWS Terrain | © Esri, Maxar, Earthstar Geographics | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026",
+  "z": 14,
+  "w": 1920,
+  "h": 1080,
+  "proyeksi": "3d-perspektif",
+  "kamera3d": {
+    "miring": 62,
+    "arah": 25,
+    "elevasi": 1.6
+  },
+  "pusat": [
+    -80.1300455,
+    25.790654
+  ],
+  "poi": {},
+  "tampilan": [
+    {
+      "file": "miami-vice-city-3d_satelit-z14.png",
+      "tampilan": "3d_satelit",
+      "zoom": 14,
+      "skala": "500 m",
+      "geo": {
+        "proyeksi": "3d-perspektif",
+        "lat": 25.790654,
+        "lng": -80.1300455,
+        "zoom": 14,
+        "miring": 62,
+        "arah": 25,
+        "elevasi": 1.6,
+        "w": 1920,
+        "h": 1080,
+        "lebarCss": 1280,
+        "tinggiCss": 720,
+        "scale": 1.5
+      }
+    }
+  ]
+}

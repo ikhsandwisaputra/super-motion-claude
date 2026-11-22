@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-cinematic-swoosh-impact-sound-454392.mp3",
+  "provider": "pixabay",
+  "id": "454392",
+  "kind": "sfx",
+  "title": "Cinematic swoosh impact sound effect",
+  "author": "Universfield",
+  "authorUrl": "https://pixabay.com/users/universfield-28281460/",
+  "sourceUrl": "https://pixabay.com/sound-effects/cinematic-swoosh-impact-454392/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: Universfield / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "SFX transisi cepat 1-4 dtk dan impact 2-8 dtk bebas klaim untuk pergantian bab dan penekanan angka",
+  "durasi": "PT2S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 75232,
+  "sha256": "ad1e275980bc3cccc770908bb8bb3921f9274e4593fd35b0b33385dd247ee778",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2025/12/20/audio_72fa0239b0.mp3?filename=universfield-cinematic-swoosh-impact-454392.mp3",
+  "query": "cinematic transition whoosh impact",
+  "retrieved": "2026-11-18T14:59:31.701Z"
+}

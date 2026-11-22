@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-musik-voxscape-571.mp3",
+  "provider": "mixkit",
+  "id": "571",
+  "kind": "musik",
+  "title": "Voxscape",
+  "author": "Eugenio Mininni",
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-stock-music/ambient/",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/#musicFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: Eugenio Mininni / Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Bed tegang-pelan (#7 Tense 3:50, #13 Cinematic Tense, #4 Vastness 3:50, #18 Voxscape 5:00 ambient gelap) dan reflektif penutup (#10 Feedback Dreams, #24 Forest Walk); dengarkan dulu",
+  "durasi": "5:00",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 9585775,
+  "sha256": "926b63a89893778d5f1f04662f46ac08405cef5a9bc361253dc660061e029394",
+  "fileUrl": "https://assets.mixkit.co/music/571/571.mp3",
+  "query": "tense news background ambient cinematic",
+  "retrieved": "2026-11-14T06:40:14.297Z"
+}

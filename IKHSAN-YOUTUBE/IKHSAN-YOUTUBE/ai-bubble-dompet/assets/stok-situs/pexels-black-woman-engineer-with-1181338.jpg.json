@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-black-woman-engineer-with-1181338.jpg",
+  "provider": "pexels",
+  "id": "1181338",
+  "kind": "image",
+  "title": "Black woman engineer with crossed arms standing in a server room, smiling confidently.",
+  "author": "Christina Morillo",
+  "authorUrl": "https://www.pexels.com/@divinetechygirl/",
+  "sourceUrl": "https://www.pexels.com/photo/female-engineer-leaning-on-glass-1181338/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Christina Morillo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Teknisi/insinyur terlihat di ruang atau lorong server, resolusi tinggi Pexels.",
+  "bytes": 457359,
+  "sha256": "7b90820d09ef28b8561a30834f4df311c98d07b831b83a34022b33fd4ff49b2a",
+  "fileUrl": "https://images.pexels.com/photos/1181338/pexels-photo-1181338.jpeg",
+  "query": "it technician server rack",
+  "retrieved": "2026-11-14T13:55:45.685Z"
+}

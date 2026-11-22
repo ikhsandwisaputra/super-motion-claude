@@ -1,0 +1,42 @@
+{
+  "file": "assets/peta/miami-vice-city-3d_satelit-z14.png",
+  "jenis": "peta",
+  "status": "kutipan",
+  "bolehUntuk": [
+    "ulasan",
+    "berita",
+    "edukasi"
+  ],
+  "sumber": "Esri World Imagery / OpenStreetMap",
+  "lisensi": "Esri World Imagery · OpenStreetMap (ODbL) · AWS Terrain",
+  "url": "https://www.google.com/maps/place/Miami+Beach,+Florida,+Florida,+Amerika+Serikat/@25.8158635,-80.1438969,13z/data=!3m1!4b1!4m6!3m5!1s0x88d9a6172bfeddb9:0x37be1741259463eb!8m2!3d25.790654!4d-80.1300455!16zL20vMHJubXk?hl=id&entry=ttu&g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D",
+  "lokasi": "miami-vice-city",
+  "tampilan": "3d_satelit",
+  "labelTampilan": "3D Miring · Satelit",
+  "lat": 25.790654,
+  "lng": -80.1300455,
+  "zoom": 14,
+  "miring": 62,
+  "arah": 25,
+  "elevasi": 1.6,
+  "ukuran": "1920×1080",
+  "skala": "500 m",
+  "atribusi": "AWS Terrain | © Esri, Maxar, Earthstar Geographics | © OpenFreeMap · © OpenStreetMap contributors",
+  "sumberTeks": "Sumber: AWS Terrain | © Esri, Maxar, Earthstar Geographics | © OpenFreeMap · © OpenStreetMap contributors, diakses 20 Nov 2026",
+  "catatan": "Peta 3D satelit (Esri World Imagery · OpenStreetMap · AWS Terrain): diizinkan untuk edukasi/ulasan/berita selama atribusi penyedia citra & peta tetap jelas di layar. Untuk iklan/promosi komersial, gunakan mode 3d_peta/3d_gelap (data terbuka OSM) atau lisensi Esri.",
+  "geo": {
+    "proyeksi": "3d-perspektif",
+    "lat": 25.790654,
+    "lng": -80.1300455,
+    "zoom": 14,
+    "miring": 62,
+    "arah": 25,
+    "elevasi": 1.6,
+    "w": 1920,
+    "h": 1080,
+    "lebarCss": 1280,
+    "tinggiCss": 720,
+    "scale": 1.5
+  },
+  "ditangkap": "2026-11-20T11:20:37.155Z"
+}

@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-record-scratch-comedy-vinyl-108233.mp3",
+  "provider": "pixabay",
+  "id": "108233",
+  "kind": "sfx",
+  "title": "Record scratch comedy vinyl sound effect",
+  "author": "freesound_community",
+  "authorUrl": "https://pixabay.com/users/freesound_community-46691455/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-record-scratch-108233/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: freesound_community / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "record scratch humor, pendek",
+  "durasi": "PT2S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 33120,
+  "sha256": "41a5a066115252129cbd31eb3ff037929abffdddb35d930e64334cff05484312",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2022/03/26/audio_7d318dd030.mp3?filename=freesound_community-record_scratch-108233.mp3",
+  "query": "record scratch",
+  "retrieved": "2026-11-13T15:39:30.976Z"
+}

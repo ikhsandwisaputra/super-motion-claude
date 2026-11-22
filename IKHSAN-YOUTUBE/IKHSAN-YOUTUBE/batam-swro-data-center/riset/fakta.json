@@ -1,0 +1,308 @@
+{
+ "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-18-batam-swro-data-center.md",
+ "diverifikasi": "2026-11-18T14:49:02.818Z",
+ "fakta": [
+  {
+   "klaim": "Peletakan batu pertama (groundbreaking) SWRO Kabil dilakukan Kamis 5 November 2026 oleh Citramas Group bersama Kepala BP Batam Amsakar Achmad dengan nilai investasi US$32,8 juta atau sekitar Rp600 miliar. (BP Batam, 5 Nov 2026; Antara News, 5 Nov 2026; Kompas.com, 5 Nov 2026)",
+   "sumber": [
+    "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/",
+    "https://www.antaranews.com/berita/5833607/batam-mulai-bangun-swro-untuk-penuhi-kebutuhan-air-pusat-data",
+    "https://regional.kompas.com/read/2026/11/05/154204578/batam-olah-air-laut-jadi-air-bersih-demi-industri-data-center-telan?page=all"
+   ],
+   "kutipan": [
+    {
+     "teks": "Kepala BP Batam, Amsakar Achmad, menghadiri Groundbreaking pembangunan Sea Water Reverse Osmosis (SWRO) Kabil, Kamis (5/11/2026).",
+     "url": "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/"
+    },
+    {
+     "teks": "Pembangunan SWRO tahap pertama ini merupakan komitmen investasi dari Citramas Group dengan nilai proyek sebesar USD 32,8 juta atau sekitar Rp 600 miliar.",
+     "url": "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/"
+    },
+    {
+     "teks": "Nilai investasi pembangunan fasilitas SWRO tahap ini mencapai Rp600 miliar.",
+     "url": "https://www.antaranews.com/berita/5833607/batam-mulai-bangun-swro-untuk-penuhi-kebutuhan-air-pusat-data"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 34
+  },
+  {
+   "klaim": "Tahap pertama SWRO Kabil berkapasitas produksi 300 liter per detik (LPS) dengan pipa transmisi 12 km dari Kabil ke Nongsa, dan direncanakan ditambah 400 LPS pada tahap kedua hingga total 700 LPS pada 2030. (BP Batam, 5 Nov 2026; Antara News, 5 Nov 2026; Kompas.com, 5 Nov 2026)",
+   "sumber": [
+    "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/",
+    "https://www.antaranews.com/berita/5833607/batam-mulai-bangun-swro-untuk-penuhi-kebutuhan-air-pusat-data",
+    "https://regional.kompas.com/read/2026/11/05/154204578/batam-olah-air-laut-jadi-air-bersih-demi-industri-data-center-telan?page=all"
+   ],
+   "kutipan": [
+    {
+     "teks": "Tahap pertama ini memiliki kapasitas produksi sebesar 300 lps. Pembangunan akan berlanjut untuk tahap kedua dengan kapasitas produksi 400 lps.",
+     "url": "https://bpbatam.go.id/groundbreaking-swro-kabil-investasi-rp-600-miliar-perkuat-pasokan-air-data-centre/"
+    },
+    {
+     "teks": "Fasilitas ini akan dilengkapi pipa transmisi untuk menyalurkan air bersih dari Kabil ke Nongsa sepanjang 12 kilometer. Lalu 300 LPS hanya tahap pertama, kita akan tambah secara bertahap hingga 700 LPS di 2030,",
+     "url": "https://www.antaranews.com/berita/5833607/batam-mulai-bangun-swro-untuk-penuhi-kebutuhan-air-pusat-data"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 38
+  },
+  {
+   "klaim": "Setiap investasi pusat data di Batam wajib membangun instalasi air mandiri berbasis SWRO agar tidak mengganggu kuota air waduk masyarakat; dalam 2–3 tahun ke depan BP Batam memproyeksikan tambahan SWRO ±750 liter/detik hingga ±1.000 liter/detik di KEK Nongsa dan Kabil. (BP Batam, 24 Sep 2026; Pemko",
+   "sumber": [
+    "https://bpbatam.go.id/bp-batam-dorong-data-center-bangun-infrastruktur-swro-pasokan-air-masyarakat-terjaga-melalui-waduk/",
+    "https://kelbukittempayan.batam.go.id/2026/09/28/jaga-air-waduk-untuk-masyarakat-batam-siapkan-solusi-kebutuhan-air-data-center-lewat-swro-2/",
+    "https://regional.kompas.com/read/2026/10/16/170000178/pengembang-data-center-di-batam-kini-wajib-bangun-instalasi-air-mandiri?page=all"
+   ],
+   "kutipan": [
+    {
+     "teks": "Kepala BP Batam sekaligus Wali Kota Batam, Amsakar Achmad, mengatakan, setiap investasi data centre wajib membangun instalasi SWRO untuk kebutuhan operasionalnya.",
+     "url": "https://bpbatam.go.id/bp-batam-dorong-data-center-bangun-infrastruktur-swro-pasokan-air-masyarakat-terjaga-melalui-waduk/"
+    },
+    {
+     "teks": "Dalam dua hingga tiga tahun mendatang, Batam diproyeksikan memperoleh tambahan kapasitas produksi air melalui SWRO sekitar 750 liter per detik pada tahap awal. Kapasitas tersebut ditargetkan meningkat menjadi sekitar 1.000 liter per detik melalui pembangunan SWRO di dua kawasan, yakni KEK Nongsa dan kawasan industri Kabil.",
+     "url": "https://kelbukittempayan.batam.go.id/2026/09/28/jaga-air-waduk-untuk-masyarakat-batam-siapkan-solusi-kebutuhan-air-data-center-lewat-swro-2/"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 41
+  },
+  {
+   "klaim": "BP Batam menegaskan air hasil SWRO yang berlebih dari kebutuhan pusat data berpotensi dimanfaatkan bagi masyarakat, sementara pasokan Waduk Duriangkang ke proyek pusat data saat ini bersifat sementara selama konstruksi. (BP Batam, 24 Sep 2026; Kompas.com, 16 Okt 2026)",
+   "sumber": [
+    "https://bpbatam.go.id/bp-batam-dorong-data-center-bangun-infrastruktur-swro-pasokan-air-masyarakat-terjaga-melalui-waduk/",
+    "https://regional.kompas.com/read/2026/10/16/170000178/pengembang-data-center-di-batam-kini-wajib-bangun-instalasi-air-mandiri?page=all"
+   ],
+   "kutipan": [
+    {
+     "teks": "Apabila kapasitas air hasil pengolahan nantinya melebihi kebutuhan operasional data center, kelebihan kapasitas tersebut berpotensi dimanfaatkan untuk kebutuhan masyarakat.",
+     "url": "https://bpbatam.go.id/bp-batam-dorong-data-center-bangun-infrastruktur-swro-pasokan-air-masyarakat-terjaga-melalui-waduk/"
+    },
+    {
+     "teks": "Sementara, pasokan air baku dari Waduk Duriangkang yang disalurkan ke fasilitas data center saat ini sifatnya hanya sementara dan sangat terbatas selama masa konstruksi.",
+     "url": "https://regional.kompas.com/read/2026/10/16/170000178/pengembang-data-center-di-batam-kini-wajib-bangun-instalasi-air-mandiri?page=all"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 44
+  },
+  {
+   "klaim": "Penduduk Kota Batam mencapai 1.394.459 jiwa berdasarkan Data Konsolidasi Bersih (DKB) Semester II Tahun 2025. (Disdukcapil Kota Batam, 27 Mar 2026, kelas A)",
+   "sumber": [
+    "https://disdukcapil.batam.go.id/2026/03/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Total penduduk kita telah mencapai 1.394.459 Jiwa",
+     "url": "https://disdukcapil.batam.go.id/2026/03/"
+    }
+   ],
+   "primer": true,
+   "independen": 1,
+   "baris": 49
+  },
+  {
+   "klaim": "Batam tidak memiliki sumber air alami seperti sungai besar atau mata air; seluruh sistem penyediaan air bersih mengandalkan waduk tadah hujan, dan Ombudsman RI mencatat 18 wilayah bermasalah (*stress area*) yang tidak terjangkau aliran air secara optimal. (BP Batam Infrastruktur, 8 Nov 2025, kelas A",
+   "sumber": [
+    "https://bpbatam.go.id/tentang-batam/infrastruktur-batam/",
+    "https://ombudsman.go.id/artikel/r/pwkinternal--layanan-air-spam-batam-masih-buruk",
+    "https://www.kompas.id/artikel/dugaan-krisis-air-akibat-pusat-data-di-batam-pemerintah-koordinasi-lintas-kementerian"
+   ],
+   "kutipan": [
+    {
+     "teks": "Pasokan air bersih di Batam dikelola melalui Sistem Penyediaan Air Minum (SPAM) dengan memanfaatkan enam waduk utama: Duriangkang, Sei Ladi, Mukakuning, Piayu, Sei Harapan, dan Nongsa.",
+     "url": "https://bpbatam.go.id/tentang-batam/infrastruktur-batam/"
+    },
+    {
+     "teks": "Terdapat 18 wilayah bermasalah (stress area) yang tidak terjangkau aliran air, sebagian daerah lainnya teraliri air tetapi tidak maksimal karena hanya beberapa jam hidup dalam sehari.",
+     "url": "https://ombudsman.go.id/artikel/r/pwkinternal--layanan-air-spam-batam-masih-buruk"
+    },
+    {
+     "teks": "Batam menghadapi tekanan terhadap ketersediaan air baku karena tidak memiliki sumber air alami, seperti sungai ataupun mata air. Batam hanya mengandalkan air hujan yang ditampung di enam waduk.",
+     "url": "https://www.kompas.id/artikel/dugaan-krisis-air-akibat-pusat-data-di-batam-pemerintah-koordinasi-lintas-kementerian"
+    }
+   ],
+   "primer": true,
+   "independen": 3,
+   "baris": 51
+  },
+  {
+   "klaim": "Pada 5 Oktober 2026, sekitar 300-an warga Kelurahan Sambau (Kecamatan Nongsa) berunjuk rasa di depan kawasan Nongsa Digital Park setelah mengalami air bersih mati berbulan-bulan dan menduga berkaitan dengan proyek data center. (detikSumut, 5 Okt 2026; CNBC Indonesia, 6 Okt 2026; Kompas.id, 13 Okt 20",
+   "sumber": [
+    "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center",
+    "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center",
+    "https://www.kompas.id/artikel/dugaan-krisis-air-akibat-pusat-data-di-batam-pemerintah-koordinasi-lintas-kementerian"
+   ],
+   "kutipan": [
+    {
+     "teks": "Ratusan warga Kavling Sambau, Kecamatan Nongsa, Batam, Kepulauan Riau (Kepri), menggelar aksi protes terkait persoalan air bersih.",
+     "url": "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center"
+    },
+    {
+     "teks": "Sekitar 300-an orang mengikuti aksi.",
+     "url": "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 55
+  },
+  {
+   "klaim": "BP Batam membantah pasokan air warga dialihkan ke data center (membantah tudingan aliran 160 LPS) dan menyebut kemarau / El Niño menyusutkan Waduk Nongsa sekitar 4,5 meter sehingga produksi di Nongsa turun dari normal 90 LPS menjadi sekitar 25 LPS. (CNBC Indonesia, 6 Okt 2026; detikSumut, 5 Okt 2026",
+   "sumber": [
+    "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center",
+    "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center",
+    "https://rri.co.id/batam/regional/2792268/waduk-nongsa-kering-bukan-karena-industri-data-center-melainkan-faktor-cuaca"
+   ],
+   "kutipan": [
+    {
+     "teks": "Biasanya di Nongsa ini kita produksi 90 liter per detik. Hari ini kita tinggal memproduksi kurang lebih 25 liter per detik,",
+     "url": "https://www.detik.com/sumut/berita/d-8692975/warga-sambau-batam-sebut-air-mati-sejak-ada-data-center"
+    },
+    {
+     "teks": "Dia juga membantah adanya pasokan air yang mengalir ke data center, termasuk dugaan 160 LPS menuju ke kawasan data center.",
+     "url": "https://www.cnbcindonesia.com/tech/20261006081941-37-773616/warga-batam-mengeluh-tak-dapat-air-sejak-ada-data-center"
+    },
+    {
+     "teks": "Kepala BP Batam sekaligus Wali Kota Batam, Amsakar Achmad, menyebut penyusutan Waduk Nongsa sekitar 4,5 meter diatas permukaan air laut, terjadi akibat minimnya curah hujan pada siklus cuaca El Nino, bukan karena kebutuhan air industri data center yang berkembang di kawasan tersebut.",
+     "url": "https://rri.co.id/batam/regional/2792268/waduk-nongsa-kering-bukan-karena-industri-data-center-melainkan-faktor-cuaca"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 58
+  },
+  {
+   "klaim": "Pada Selasa 20 Oktober 2026, Instalasi Pengolahan Air Minum (IPAM) Nongsa berhenti memproduksi air bersih akibat menyusutnya air baku di Waduk Nongsa, sehingga pasokan pelanggan dialihkan dari Waduk Duriangkang. (Batam Pos, 21 Okt 2026; Batamnews, 20 Okt 2026; Tribunbatam, 20 Okt 2026)",
+   "sumber": [
+    "https://batampos.jawapos.com/batam/2610210011/produksi-air-bersih-waduk-nongsa-berhenti-pasokan-dialihkan-dari-duriangkang",
+    "https://www.batamnews.co.id/berita-131106-waduk-nongsa-kritis-ipam-setop-produksi-pasokan-air-dialihkan-dari-duriangkang.html",
+    "https://batam.tribunnews.com/kota-batam/698472/waduk-nongsa-berhenti-produksi-pelanggan-kini-bergantung-pada-suplai-duriangkang"
+   ],
+   "kutipan": [
+    {
+     "teks": "Produksi air bersih dari Instalasi Pengolahan Air Minum (IPAM) Nongsa, Batam, berhenti sejak Selasa (20/10/2026) akibat menyusutnya volume air baku di Waduk Nongsa.",
+     "url": "https://batampos.jawapos.com/batam/2610210011/produksi-air-bersih-waduk-nongsa-berhenti-pasokan-dialihkan-dari-duriangkang"
+    },
+    {
+     "teks": "Penghentian produksi tersebut disampaikan PT Air Batam Hilir melalui pemberitahuan resmi, Selasa (20/10/2026) pukul 06.00 WIB.",
+     "url": "https://www.batamnews.co.id/berita-131106-waduk-nongsa-kritis-ipam-setop-produksi-pasokan-air-dialihkan-dari-duriangkang.html"
+    },
+    {
+     "teks": "Untuk mengantisipasi dampaknya, PT Air Batam Hilir membuka jalur perpipaan dari Waduk Duriangkang dan menambahkan pompa di depan Markas Polda Kepulauan Riau (Kepri).",
+     "url": "https://batam.tribunnews.com/kota-batam/698472/waduk-nongsa-berhenti-produksi-pelanggan-kini-bergantung-pada-suplai-duriangkang"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 62
+  },
+  {
+   "klaim": "Sebuah pusat data berukuran kecil 1 MW yang memakai pendingin penguapan (*cooling tower* atau *adiabatic economiser*) dapat mengonsumsi sekitar 25,5 juta liter air per tahun. (David Mytton, *Nature npj Clean Water*, 15 Feb 2021, kelas A)",
+   "sumber": [
+    "https://www.nature.com/articles/s41545-021-00101-w"
+   ],
+   "kutipan": [
+    {
+     "teks": "can use around 25.5 million litres of water per year",
+     "url": "https://www.nature.com/articles/s41545-021-00101-w"
+    }
+   ],
+   "primer": true,
+   "independen": 1,
+   "baris": 70
+  },
+  {
+   "klaim": "Pendinginan berbasis penguapan (*evaporative cooling*) di pusat data menguapkan habis 70–90% (rata-rata sekitar 80%) air yang diambil sehingga tidak kembali ke daerah aliran air setempat. (arXiv 2606.21760v1, 2026, kelas A; ar5iv 2304.03271, kelas A) ·",
+   "sumber": [
+    "https://arxiv.org/html/2606.21760v1",
+    "https://ar5iv.labs.arxiv.org/html/2304.03271"
+   ],
+   "kutipan": [
+    {
+     "teks": "Evaporative cooling at the data centre consumptively removes 70–90% of withdrawn water from the watershed, a consumptive loss not captured by conventional withdrawal statistics.",
+     "url": "https://arxiv.org/html/2606.21760v1"
+    },
+    {
+     "teks": "With good water quality, roughly 80% of water withdrawal is evaporated",
+     "url": "https://ar5iv.labs.arxiv.org/html/2304.03271"
+    }
+   ],
+   "primer": true,
+   "independen": 1,
+   "baris": 72
+  },
+  {
+   "klaim": "Pada iklim panas, sistem pendingin penguapan di pusat data mengonsumsi 1,8 hingga 3,0 liter air per kWh beban TI (dan rata-rata rentang global 1–9 liter/kWh); sementara pendingin kering tanpa air (*dry cooling*) menuntut listrik 25–35% lebih besar. (arXiv 2607.13443v1, Jul 2026, kelas A; arXiv 2606.",
+   "sumber": [
+    "https://arxiv.org/html/2607.13443v1",
+    "https://arxiv.org/html/2606.21760v1",
+    "https://ar5iv.labs.arxiv.org/html/2304.03271"
+   ],
+   "kutipan": [
+    {
+     "teks": "In hot climates, evaporative cooling systems consume 1.8 to 3.0 liters of water per kWh of IT load",
+     "url": "https://arxiv.org/html/2607.13443v1"
+    },
+    {
+     "teks": "Dry cooling requires 25–35% more electricity",
+     "url": "https://arxiv.org/html/2606.21760v1"
+    },
+    {
+     "teks": "data centers can evaporate approximately 1 – 9 liters per kWh of server energy",
+     "url": "https://ar5iv.labs.arxiv.org/html/2304.03271"
+    }
+   ],
+   "primer": true,
+   "independen": 1,
+   "baris": 75
+  },
+  {
+   "klaim": "Pelatihan model AI besar seperti GPT-3 saja diperkirakan menguapkan sekitar 700.000 liter air tawar bersih di pusat data, dan konflik air data center juga terjadi secara global (Uruguay, Chile, Belanda, Irlandia). (arXiv 2606.21760v1, Jun 2026, kelas A; ar5iv 2304.03271, kelas A)",
+   "sumber": [
+    "https://arxiv.org/html/2606.21760v1",
+    "https://ar5iv.labs.arxiv.org/html/2304.03271"
+   ],
+   "kutipan": [
+    {
+     "teks": "Training GPT-3 alone consumed roughly 700,000 litres of freshwater for on-site cooling",
+     "url": "https://arxiv.org/html/2606.21760v1"
+    },
+    {
+     "teks": "In Uruguay, Google reformulated a planned hyperscale facility, ultimately adopting air cooling in place of evaporative systems, after the country’s worst drought in seven decades",
+     "url": "https://arxiv.org/html/2606.21760v1"
+    },
+    {
+     "teks": "The Netherlands and Ireland have imposed moratoriums on new construction citing cumulative water and energy pressure",
+     "url": "https://arxiv.org/html/2606.21760v1"
+    }
+   ],
+   "primer": true,
+   "independen": 1,
+   "baris": 79
+  },
+  {
+   "klaim": "Teknologi SWRO standar mengolah air laut (salinitas acuan 35.000 ppm) pada tingkat pemulihan (*recovery rate*) umum sekitar 50% (kisaran 40–50%), artinya setengah menjadi air bersih dan setengah lainnya menjadi air garam pekat (*brine*) sekitar 70.000 ppm, dengan konsumsi energi tipikal 2,70 kWhe/m³",
+   "sumber": [
+    "https://www.energy.gov/sites/prod/files/2017/12/f46/Seawater_desalination_bandwidth_study_2017.pdf",
+    "https://www.osti.gov/servlets/purl/1479651"
+   ],
+   "kutipan": [
+    {
+     "teks": "the concentrate salinity (70,000 ppm with a recovery of 50% for membrane systems",
+     "url": "https://www.energy.gov/sites/prod/files/2017/12/f46/Seawater_desalination_bandwidth_study_2017.pdf"
+    },
+    {
+     "teks": "m3 of produced water for brackish (~5 g/L) and seawater (35 g/L) at a 50% recovery.",
+     "url": "https://www.osti.gov/servlets/purl/1479651"
+    }
+   ],
+   "primer": true,
+   "independen": 2,
+   "baris": 85
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-majestic-aerial-view-of-san-10689266.mp4",
+  "provider": "pexels",
+  "id": "10689266",
+  "kind": "video",
+  "title": "Majestic aerial view of San Francisco's iconic skyline and urban landscape.",
+  "author": "Mey Sam",
+  "authorUrl": "https://www.pexels.com/@meysam/",
+  "sourceUrl": "https://www.pexels.com/video/aerial-cityscape-of-san-francisco-10689266/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Mey Sam / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "skyline udara San Francisco",
+  "bytes": 29664533,
+  "sha256": "9c4d0c1c0ac4aad2f7e0712d9b7b36b404062afafafa2827e49dadd1536d43ca",
+  "fileUrl": "https://videos.pexels.com/video-files/10689266/10689266-hd_1920_1080_30fps.mp4",
+  "query": "San Francisco skyline aerial",
+  "retrieved": "2026-11-13T15:35:38.358Z"
+}

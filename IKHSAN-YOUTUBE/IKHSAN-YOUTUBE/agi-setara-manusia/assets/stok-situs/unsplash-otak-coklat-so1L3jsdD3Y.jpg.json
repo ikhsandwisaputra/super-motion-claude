@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/unsplash-otak-coklat-so1L3jsdD3Y.jpg",
+  "provider": "unsplash",
+  "id": "so1L3jsdD3Y",
+  "kind": "image",
+  "title": "otak coklat",
+  "author": "Robina Weermeijer",
+  "authorUrl": null,
+  "sourceUrl": "https://unsplash.com/id/foto/otak-coklat-so1L3jsdD3Y",
+  "license": {
+    "name": "Unsplash License",
+    "url": "https://unsplash.com/license",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Robina Weermeijer / Unsplash",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "model otak anatomi/neuron, latar polos, tanpa teks",
+  "bytes": 270993,
+  "sha256": "b882b994a98a0480906e6f5f9c82ed373be901f6f7a125e00f4746407710e1c3",
+  "fileUrl": "https://images.unsplash.com/photo-1559757175-0eb30cd8c063",
+  "query": "human brain anatomy model",
+  "retrieved": "2026-11-15T19:42:38.212Z"
+}

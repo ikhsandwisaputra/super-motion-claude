@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-barista-skillfully-pours-water-40047520.mp4",
+  "provider": "pexels",
+  "id": "40047520",
+  "kind": "video",
+  "title": "Barista skillfully pours water in a Chemex for perfect coffee.",
+  "author": "Airam Dato-on",
+  "authorUrl": "https://www.pexels.com/@airamdphoto/",
+  "sourceUrl": "https://www.pexels.com/video/artisan-pour-over-coffee-brewing-techniques-40047520/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Airam Dato-on / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "tangan membuat kopi di dapur (seduh/pour over), wajah tidak fokus",
+  "bytes": 1668403,
+  "sha256": "bfa2fee6730ee10315b0e6a6d6423994ba3329fe6301e284a204b2a0333a469e",
+  "fileUrl": "https://videos.pexels.com/video-files/40047520/17095001_1920_1080_24fps.mp4",
+  "query": "making coffee kitchen morning",
+  "retrieved": "2026-11-15T19:39:15.394Z"
+}

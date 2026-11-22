@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-clean-minimal-pop-ui-sound-467466.mp3",
+  "provider": "pixabay",
+  "id": "467466",
+  "kind": "sfx",
+  "title": "Clean minimal pop UI sound effect",
+  "author": "DRAGON-STUDIO",
+  "authorUrl": "https://pixabay.com/users/dragon-studio-38165424/",
+  "sourceUrl": "https://pixabay.com/sound-effects/clean-minimal-pop-467466/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: DRAGON-STUDIO / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "pop angka/counter naik, pendek",
+  "durasi": "PT2S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 52224,
+  "sha256": "958db4383b77e65b0962e00825190620209d4ac2ad1da91fe3432027e38defcc",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/01/16/audio_01a85379c2.mp3?filename=dragon-studio-clean-minimal-pop-467466.mp3",
+  "query": "number counter rising pop",
+  "retrieved": "2026-11-13T15:39:55.307Z"
+}

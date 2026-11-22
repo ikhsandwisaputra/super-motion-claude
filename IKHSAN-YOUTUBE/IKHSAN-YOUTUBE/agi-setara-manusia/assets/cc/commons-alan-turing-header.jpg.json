@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-alan-turing-header.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto: Elliott & Fry via Wikimedia Commons (domain publik)",
+  "license": {
+    "name": "Domain publik",
+    "url": null,
+    "attributionRequired": false,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "Alan turing header",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alan_turing_header.jpg",
+  "credit": "Foto: Elliott & Fry via Wikimedia Commons (domain publik)",
+  "bytes": 143128,
+  "sha256": "bea6dc69cabb952d57478df6dcdefe8c4489344e87c147bc6c1d9a41d1122ea6",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Alan_turing_header.jpg",
+  "query": "Alan Turing",
+  "alasanCocok": "Potret hitam-putih Turing muda close-up, mirip R3/R6 referensi, PD (Elliott & Fry)",
+  "retrieved": "2026-11-15T20:05:38.793Z"
+}

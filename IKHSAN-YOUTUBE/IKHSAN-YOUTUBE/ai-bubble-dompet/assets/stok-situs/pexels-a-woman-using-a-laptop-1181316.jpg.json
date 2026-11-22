@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-a-woman-using-a-laptop-1181316.jpg",
+  "provider": "pexels",
+  "id": "1181316",
+  "kind": "image",
+  "title": "A woman using a laptop navigating a contemporary data center with mirrored servers.",
+  "author": "Christina Morillo",
+  "authorUrl": "https://www.pexels.com/@divinetechygirl/",
+  "sourceUrl": "https://www.pexels.com/photo/engineer-holding-laptop-1181316/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: Christina Morillo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Teknisi/insinyur terlihat di ruang atau lorong server, resolusi tinggi Pexels.",
+  "bytes": 568110,
+  "sha256": "bd74cfc44786e2ee48f15d95649044a588f1c9ed7fae5768f167b799d673a4e3",
+  "fileUrl": "https://images.pexels.com/photos/1181316/pexels-photo-1181316.jpeg",
+  "query": "it technician server rack",
+  "retrieved": "2026-11-14T13:55:47.578Z"
+}

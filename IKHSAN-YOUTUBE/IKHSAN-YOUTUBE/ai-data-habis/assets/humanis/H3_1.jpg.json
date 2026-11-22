@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/H3_1.jpg",
+  "provider": "wikimedia",
+  "id": "Lontar_manuscripts.jpg",
+  "kind": "image",
+  "title": "Lontar manuscripts",
+  "author": "Carma citrawati",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lontar_manuscripts.jpg",
+  "license": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: Carma citrawati / Wikimedia Commons (CC BY-SA 4.0)",
+  "catatan": "Slot H3: Tumpukan naskah lontar Bali di perpustakaan. CC BY-SA: hasil turunan foto ini (crop/grade) tetap di bawah BY-SA.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Tumpukan naskah lontar Bali di perpustakaan",
+  "bytes": 2541258,
+  "sha256": "2fe7815dc504c7681879a4012c731b56332af567fceec5ab0fcdb5b6221c7583",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:Lontar_manuscripts.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "file": "assets/grafik/grafik-internet-rumah-ookla.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Internet rumah: AS 6 kali lebih kencang",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia",
+      "nilai": "52,62",
+      "fakta": 0,
+      "klaim": "Indonesia mobile median unduh 70,77 Mbps, peringkat 65 dunia; fixed 52,62 Mbps, peringkat 112 (Ookla halaman negara, edisi September 2026; Medcom, 29 Okt 2026) ·"
+    },
+    {
+      "label": "Amerika Serikat",
+      "nilai": "314,35",
+      "fakta": 1,
+      "klaim": "AS mobile 190,59 Mbps (peringkat 11), fixed 314,35 Mbps (peringkat 7) (Ookla halaman negara September 2026, screenshot angka; World at Scale, 9 Nov 2026) ·"
+    }
+  ],
+  "sumber": [
+    "https://www.speedtest.net/global-index/indonesia",
+    "https://www.medcom.id/nasional/peristiwa/9K5yoQ0K-hari-internet-2026-ini-posisi-kecepatan-internet-indonesia-di-asia-tenggara",
+    "https://www.speedtest.net/global-index/united-states",
+    "https://worldatscale.com/technology/fastest-internet-speed-by-country/"
+  ],
+  "sumberTeks": "Sumber: speedtest.net, medcom.id, worldatscale.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-b-infrastruktur-ai.md",
+  "dibuat": "2026-11-13T15:33:43.613Z"
+}

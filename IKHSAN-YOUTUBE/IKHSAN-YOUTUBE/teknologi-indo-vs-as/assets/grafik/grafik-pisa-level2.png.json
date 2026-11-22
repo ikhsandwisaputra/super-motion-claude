@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/grafik-pisa-level2.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Hanya 17% siswa kita lolos level dasar matematika",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia",
+      "nilai": "17",
+      "fakta": 5,
+      "klaim": "Hanya 17% siswa Indonesia mencapai Level 2+ matematika (OECD 65%; AS 65%) ·"
+    },
+    {
+      "label": "Amerika Serikat",
+      "nilai": "65",
+      "fakta": 5,
+      "klaim": "Hanya 17% siswa Indonesia mencapai Level 2+ matematika (OECD 65%; AS 65%) ·"
+    }
+  ],
+  "sumber": [
+    "https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/indonesia_9c880f8a-en.html",
+    "https://www.oecd.org/en/publications/pisa-2025-results-volume-i-country-notes_2d4ff9ea-en/united-states_0c8cbc7c-en.html"
+  ],
+  "sumberTeks": "Sumber: OECD (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+  "dibuat": "2026-11-13T15:33:44.914Z"
+}

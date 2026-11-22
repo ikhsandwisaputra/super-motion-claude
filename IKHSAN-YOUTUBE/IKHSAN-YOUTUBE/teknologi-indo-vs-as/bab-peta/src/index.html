@@ -1,0 +1,32 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#000}canvas{display:block;width:960px;height:540px}</style>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+import { makeRenderer, FPS } from './engine.js';
+import { makeFilm } from './film.js';
+import { addPortal } from './portal.js';
+const q = new URLSearchParams(location.search);
+window.ready = (async () => {
+  const fonts = [
+    new FontFace('League Gothic', 'url(../fonts/LeagueGothic.ttf)', { stretch: '75% 100%' }),
+    new FontFace('Fraunces', 'url(../fonts/Fraunces-Italic.ttf)', { style: 'italic', weight: '100 900' }),
+    new FontFace('Space Mono', 'url(../fonts/SpaceMono-Regular.ttf)', { weight: '400' }),
+    new FontFace('Space Mono', 'url(../fonts/SpaceMono-Bold.ttf)', { weight: '700' }),
+  ];
+  for (const f of fonts) { await f.load(); document.fonts.add(f); }
+  await document.fonts.ready;
+  const scene = makeFilm();
+  await scene.load();
+  if (q.get('K')) scene.K = +q.get('K');
+  if (q.get('portal') !== '0') addPortal(scene, { inn: true, out: true, seed: 2 });
+  const R = makeRenderer(scene);
+  window.render = R;
+  window.renderAt = (t, K = 1) => R(Math.round(t * FPS), K === 1, false, t);       // Motion Studio: exact-time still
+  window.preview = t => { R(Math.round(t * FPS), true, true, t); };                // Motion Studio: live preview, no readback
+  window.NFRAMES = Math.round(scene.dur * FPS); window.FILM_FPS = FPS;
+  window.collectCues = () => scene.cues();
+  if (q.get('play')) { const t0 = performance.now(); const loop = () => { window.render(Math.floor((performance.now() - t0) / 1000 * FPS) % window.NFRAMES, true); requestAnimationFrame(loop); }; loop(); }
+  return true;
+})();
+</script></body></html>

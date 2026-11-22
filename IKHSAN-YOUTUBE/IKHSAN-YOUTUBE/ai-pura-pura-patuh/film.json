@@ -1,0 +1,51 @@
+{
+  "slug": "ai-pura-pura-patuh",
+  "out": "ai-pura-pura-patuh",
+  "versi": 2,
+  "vo": "audio/voiceover/app_vo_ahmad_{n}",
+  "voice": {
+    "nama": "Ahmad",
+    "id": "d888tBvGmQT2u05J1xTv",
+    "model": "eleven_v3"
+  },
+  "bed": "stok:mixkit-musik-voxscape-571.mp3",
+  "score_intro": "aset/ai-pura-pura-patuh/assets/stok-situs/pixabay-musik-dark-ambient-sci-fi-documentary-268026.mp3",
+  "score_off": 0.3,
+  "chapters": [
+    {
+      "dir": "intro",
+      "vo": "01",
+      "voff": 0.5,
+      "dur": 77.2,
+      "wav": "build/mix_full.wav"
+    },
+    {
+      "dir": "bab-peta",
+      "vo": "03"
+    },
+    {
+      "dir": "bab-1",
+      "vo": "04"
+    },
+    {
+      "dir": "bab-2",
+      "vo": "05"
+    },
+    {
+      "dir": "bab-3",
+      "vo": "06"
+    },
+    {
+      "dir": "bab-4",
+      "vo": "07"
+    },
+    {
+      "dir": "puncak",
+      "vo": "08"
+    },
+    {
+      "dir": "penutup",
+      "vo": "09"
+    }
+  ]
+}

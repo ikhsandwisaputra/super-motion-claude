@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pixabay-technician-connecting-cables-in-4922449.jpg",
+  "provider": "pixabay",
+  "id": "4922449",
+  "kind": "image",
+  "title": "Technician connecting cables in a server rack during network maintenance.",
+  "author": "This_is_Engineering",
+  "authorUrl": "https://pixabay.com/users/this_is_engineering-11384528/",
+  "sourceUrl": "https://pixabay.com/photos/engineer-engineering-broadcast-4922449/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: This_is_Engineering / Pixabay",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Rak server pusat data modern dengan pencahayaan biru/merah di ruang server tanpa watermark",
+  "bytes": 160107,
+  "sha256": "c87695bd4f38111e97c71757ccd31979b0eaead953fbb373bb72ce2ed4134ed1",
+  "fileUrl": "https://cdn.pixabay.com/photo/2020/03/11/15/17/engineer-4922449_1280.jpg",
+  "query": "data center server rack",
+  "retrieved": "2026-11-20T07:44:52.607Z"
+}

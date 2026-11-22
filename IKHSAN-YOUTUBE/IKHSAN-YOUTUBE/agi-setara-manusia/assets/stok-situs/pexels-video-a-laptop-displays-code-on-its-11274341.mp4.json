@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-a-laptop-displays-code-on-its-11274341.mp4",
+  "provider": "pexels",
+  "id": "11274341",
+  "kind": "video",
+  "title": "A laptop displays code on its screen, showcasing programming in progress.",
+  "author": "Raddy",
+  "authorUrl": "https://www.pexels.com/@raddy-184979479/",
+  "sourceUrl": "https://www.pexels.com/video/close-up-of-a-computer-screen-with-javascript-code-11274341/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Raddy / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "layar kode, teks kode tanpa logo/merek terbaca",
+  "bytes": 5412353,
+  "sha256": "ac622aea0848c72f06fdd923ac26c1a9cb34c6f43e86a53a78fb6454fa8ad16b",
+  "fileUrl": "https://videos.pexels.com/video-files/11274341/11274341-hd_1920_1080_25fps.mp4",
+  "query": "code on computer screen programming",
+  "retrieved": "2026-11-15T19:40:46.591Z"
+}

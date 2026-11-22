@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-close-up-of-tower-servers-in-a-17489151.jpg",
+  "provider": "pexels",
+  "id": "17489151",
+  "kind": "image",
+  "title": "Close-up of tower servers in a data center with blue and red lighting.",
+  "author": "panumas nikhomkhai",
+  "authorUrl": "https://www.pexels.com/@cookiecutter/",
+  "sourceUrl": "https://www.pexels.com/photo/line-of-pc-towers-17489151/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: panumas nikhomkhai / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Rak server pusat data modern dengan pencahayaan biru/merah di ruang server tanpa watermark",
+  "bytes": 310241,
+  "sha256": "71f07170e225d752eddc348118b2a69a771e26b132f66d7365e1ded385af634c",
+  "fileUrl": "https://images.pexels.com/photos/17489151/pexels-photo-17489151.jpeg",
+  "query": "data center server rack",
+  "retrieved": "2026-11-20T07:44:54.478Z"
+}

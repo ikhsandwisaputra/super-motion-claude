@@ -1,0 +1,42 @@
+{
+  "file": "assets/grafik/pendapatan-hari-1-gta-6.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Pendapatan Hari-1 GTA 6 Lampaui Rumor Biaya Produksi",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Batas Rumor Anggaran",
+      "nilai": "1,5",
+      "fakta": 4,
+      "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+    },
+    {
+      "label": "Hari-1 GTA 6 (Sensor Tower)",
+      "nilai": "2,36",
+      "fakta": 1,
+      "klaim": "Dalam waktu kurang dari 24 jam sejak rilis (termasuk *pre-order*), firma analitik pasar Sensor Tower memperkirakan GTA 6 meraih pendapatan sekitar US\\$2,36 miliar dari 24,58–24,59 juta kopi terjual—dengan porsi 75% di PlayStation dan 25% di Xbox—melampaui rekor hari pertama GTA V sebesar US\\$800 jut"
+    },
+    {
+      "label": "Target FY27 Take-Two",
+      "nilai": "8,2",
+      "fakta": 3,
+      "klaim": "Fondasi bisnis raksasa GTA 6 bertumpu pada dominasi waralaba *Grand Theft Auto* yang telah menjual nyaris 480 juta kopi secara global (diperbarui dari >470 juta per Juni 2026 dan ~475 juta per Agustus 2026), dengan *GTA V* saja menembus lebih dari 230 juta hingga nyaris 235 juta kopi lintas tiga gen"
+    }
+  ],
+  "sumber": [
+    "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+    "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar",
+    "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/",
+    "https://www.tweaktown.com/news/114795/gta-6-day-one-sales-estimates-break-24-5-million-with-dollars2-36-billion-earned/index.html",
+    "https://ir.take2games.com/static-files/c4c4f7f0-6a7c-4159-b97f-089a76580c38",
+    "https://www.gamedeveloper.com/business/gta-v-surpasses-230-million-sales-months-before-gta-vi-touches-down",
+    "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+  ],
+  "sumberTeks": "Sumber: sea.ign.com, gta6everything.com, deadline.com, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:10.002Z"
+}

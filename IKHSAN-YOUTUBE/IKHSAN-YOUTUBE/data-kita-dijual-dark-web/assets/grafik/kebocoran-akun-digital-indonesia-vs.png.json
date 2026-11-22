@@ -1,0 +1,37 @@
+{
+  "file": "assets/grafik/kebocoran-akun-digital-indonesia-vs.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Kebocoran Akun Digital Indonesia vs Filipina (Semester I 2026)",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia (Kuartal I 2026)",
+      "nilai": 915746,
+      "fakta": 7,
+      "klaim": "Indonesia menempati peringkat ke-1 tertinggi di Asia Tenggara dalam jumlah akun yang mengalami kebocoran data sepanjang Semester I 2026 (Januari–Juni 2026) dengan sekitar 1,22 juta akun terdampak (915.746 akun pada Kuartal I dan 300.416 akun pada Kuartal II 2026), melampaui Filipina (841.122 akun) d"
+    },
+    {
+      "label": "Filipina (Semester I 2026)",
+      "nilai": 841122,
+      "fakta": 7,
+      "klaim": "Indonesia menempati peringkat ke-1 tertinggi di Asia Tenggara dalam jumlah akun yang mengalami kebocoran data sepanjang Semester I 2026 (Januari–Juni 2026) dengan sekitar 1,22 juta akun terdampak (915.746 akun pada Kuartal I dan 300.416 akun pada Kuartal II 2026), melampaui Filipina (841.122 akun) d"
+    },
+    {
+      "label": "Indonesia (Kuartal II 2026)",
+      "nilai": 300416,
+      "fakta": 7,
+      "klaim": "Indonesia menempati peringkat ke-1 tertinggi di Asia Tenggara dalam jumlah akun yang mengalami kebocoran data sepanjang Semester I 2026 (Januari–Juni 2026) dengan sekitar 1,22 juta akun terdampak (915.746 akun pada Kuartal I dan 300.416 akun pada Kuartal II 2026), melampaui Filipina (841.122 akun) d"
+    }
+  ],
+  "sumber": [
+    "https://csirt.tabalongkab.go.id/posts/kebocoran-data-indonesia-tertinggi-di-asia-tenggara-pada-semester-i-2026",
+    "https://surfshark.com/research/data-breach-monitoring"
+  ],
+  "sumberTeks": "Sumber: csirt.tabalongkab.go.id, surfshark.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-kebocoran-data-indonesia-dark-web.md",
+  "dibuat": "2026-11-20T07:43:06.142Z"
+}

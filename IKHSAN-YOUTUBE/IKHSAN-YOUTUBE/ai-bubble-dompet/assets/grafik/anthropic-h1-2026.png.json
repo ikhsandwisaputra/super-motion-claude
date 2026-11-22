@@ -1,0 +1,37 @@
+{
+  "file": "assets/grafik/anthropic-h1-2026.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Rugi besar, tapi sebagian besar di atas kertas",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Pendapatan",
+      "nilai": "16,3",
+      "fakta": 8,
+      "klaim": "Anthropic (prospektus S-1, 26 Okt 2026): pendapatan H1 2026 $16,3 miliar, rugi bersih $80,7 miliar (sebagian besar $72,4 miliar = biaya akuntansi nilai wajar obligasi konversi), rugi operasi $693 juta. (Fortune, 26 Okt 2026; NYT, 26 Okt 2026)"
+    },
+    {
+      "label": "Rugi bersih",
+      "nilai": "80,7",
+      "fakta": 8,
+      "klaim": "Anthropic (prospektus S-1, 26 Okt 2026): pendapatan H1 2026 $16,3 miliar, rugi bersih $80,7 miliar (sebagian besar $72,4 miliar = biaya akuntansi nilai wajar obligasi konversi), rugi operasi $693 juta. (Fortune, 26 Okt 2026; NYT, 26 Okt 2026)"
+    },
+    {
+      "label": "Pos akuntansi",
+      "nilai": "72,4",
+      "fakta": 8,
+      "klaim": "Anthropic (prospektus S-1, 26 Okt 2026): pendapatan H1 2026 $16,3 miliar, rugi bersih $80,7 miliar (sebagian besar $72,4 miliar = biaya akuntansi nilai wajar obligasi konversi), rugi operasi $693 juta. (Fortune, 26 Okt 2026; NYT, 26 Okt 2026)"
+    }
+  ],
+  "sumber": [
+    "https://fortune.com/2026/10/26/anthropics-s-1/",
+    "https://www.nytimes.com/2026/10/26/technology/anthropic-ipo-finances.html"
+  ],
+  "sumberTeks": "Sumber: fortune.com, The New York Times (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-14-ai-bubble-a-apa-dan-status.md",
+  "dibuat": "2026-11-14T06:32:29.078Z"
+}

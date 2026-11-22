@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-close-up-of-terminal-commands-on-6804117.mp4",
+  "provider": "pexels",
+  "id": "6804117",
+  "kind": "video",
+  "title": "Close-up of terminal commands on screen, focused on software development.",
+  "author": "cottonbro studio",
+  "authorUrl": "https://www.pexels.com/@cottonbro/",
+  "sourceUrl": "https://www.pexels.com/video/a-computer-code-running-on-screen-6804117/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: cottonbro studio / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1366×720",
+  "alasanCocok": "Layar monitor terminal gelap menampilkan baris log instalasi paket Python/AI dan kode pemrograman dari sudut close-up sesuai pola R1, R3, R4, R8 pada lembar referensi",
+  "bytes": 7372965,
+  "sha256": "8177d5d7826dcc04a29e5fb4442685cceb2f2d17f8c113727473f2cf7e68e62e",
+  "fileUrl": "https://videos.pexels.com/video-files/6804117/6804117-hd_1366_720_25fps.mp4",
+  "query": "computer code terminal screen",
+  "retrieved": "2026-11-19T09:55:37.564Z"
+}

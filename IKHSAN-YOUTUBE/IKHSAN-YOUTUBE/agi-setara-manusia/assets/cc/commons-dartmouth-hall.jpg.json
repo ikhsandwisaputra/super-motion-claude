@@ -1,0 +1,25 @@
+{
+  "file": "assets/cc/commons-dartmouth-hall.jpg",
+  "provider": "wikimedia",
+  "kind": "image",
+  "author": "Foto: w:User:Daderot via Wikimedia Commons (domain publik)",
+  "license": {
+    "name": "Domain publik",
+    "url": null,
+    "attributionRequired": false,
+    "commercial": true,
+    "shareAlike": false,
+    "noDerivatives": false
+  },
+  "catatan": "Lisensi hak cipta tidak sama dengan izin memakai wajah orang: foto tokoh/orang aman untuk konteks berita/ulasan/edukasi, bukan untuk iklan atau kesan dukungan (endorsement).",
+  "warning": null,
+  "title": "Dartmouth Hall",
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dartmouth_Hall.jpg",
+  "credit": "Foto: w:User:Daderot via Wikimedia Commons (domain publik)",
+  "bytes": 679644,
+  "sha256": "0217d6e06f4b0127a7f61e07bacae2b5c2f026ccdb0be1199a63a29d53627221",
+  "fileUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Dartmouth_Hall.jpg",
+  "query": "Dartmouth Hall Dartmouth College",
+  "alasanCocok": "Dartmouth Hall tampak depan lanskap (mirip R1/R9) CC0; litograf lama kampus PD untuk nuansa arsip",
+  "retrieved": "2026-11-15T20:05:04.453Z"
+}

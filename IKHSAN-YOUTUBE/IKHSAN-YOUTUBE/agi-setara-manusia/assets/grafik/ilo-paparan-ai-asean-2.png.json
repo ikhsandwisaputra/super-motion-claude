@@ -1,0 +1,55 @@
+{
+  "file": "assets/grafik/ilo-paparan-ai-asean-2.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "1 dari 5 pekerjaan di Indonesia tersentuh AI",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Singapura",
+      "nilai": "42,2",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    },
+    {
+      "label": "Filipina",
+      "nilai": "28,1",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    },
+    {
+      "label": "Rata-rata ASEAN",
+      "nilai": "22,9",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    },
+    {
+      "label": "Indonesia",
+      "nilai": "21,7",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    },
+    {
+      "label": "Vietnam",
+      "nilai": "20,8",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    },
+    {
+      "label": "Thailand",
+      "nilai": "20,6",
+      "fakta": 34,
+      "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+    }
+  ],
+  "sumber": [
+    "https://www.ilo.org/sites/default/files/2026-07/ILO%20Brief%20ASEAN%20AI%20v11%20clean.pdf",
+    "https://www.kompas.id/artikel/ilo-ai-generatif-belum-mengancam-phk-massal-di-asean-tetapi-pekerjaan-mulai-berubah"
+  ],
+  "sumberTeks": "Sumber: ilo.org, Kompas.id (diolah)",
+  "faktaDari": "fakta.json tugas aktif",
+  "dibuat": "2026-11-15T19:58:31.617Z"
+}

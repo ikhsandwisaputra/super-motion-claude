@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-a-robot-dances-rhythmically-8084504.mp4",
+  "provider": "pexels",
+  "id": "8084504",
+  "kind": "video",
+  "title": "A robot dances rhythmically, highlighting modern robotics technology.",
+  "author": "Pavel Danilyuk",
+  "authorUrl": "https://www.pexels.com/@pavel-danilyuk/",
+  "sourceUrl": "https://www.pexels.com/video/a-robot-doing-movements-8084504/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Pavel Danilyuk / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "robot humanoid putih tanpa logo di latar gelap polos; robot berwajah mirip manusia",
+  "bytes": 4221545,
+  "sha256": "525cf6d92925c7aa06662352ff46c00f36bca36dee7ca4cf19fd08bf16e90684",
+  "fileUrl": "https://videos.pexels.com/video-files/8084504/8084504-hd_1920_1080_25fps.mp4",
+  "query": "humanoid robot walking",
+  "retrieved": "2026-11-15T19:35:33.411Z"
+}

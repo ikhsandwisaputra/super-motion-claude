@@ -1,0 +1,39 @@
+{
+  "file": "assets/grafik/lonjakan-staf-rockstar.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Rockstar Gandakan Staf Global, India Jadi Kontributor Besar",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Rockstar India (Bengaluru)",
+      "nilai": "1.600",
+      "fakta": 6,
+      "klaim": "Rockstar India yang berbasis di Whitefield, Bengaluru dilaporkan mengerahkan lebih dari 1.600 developer untuk GTA 6—menjadikannya salah satu kontributor studio terbesar dalam jaringan global Rockstar—dengan laporan media menyebut kontribusi pada lingkungan *open-world*, aset 3D, serta area *Vice Bea"
+    },
+    {
+      "label": "Staf 2018 (RDR2)",
+      "nilai": "2.441",
+      "fakta": 4,
+      "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+    },
+    {
+      "label": "Staf 2026 (12 Kantor)",
+      "nilai": "4.711",
+      "fakta": 4,
+      "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi"
+    }
+  ],
+  "sumber": [
+    "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html",
+    "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681",
+    "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+    "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar"
+  ],
+  "sumberTeks": "Sumber: firstpost.com, channelnewsasia.com, sea.ign.com, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:10.428Z"
+}

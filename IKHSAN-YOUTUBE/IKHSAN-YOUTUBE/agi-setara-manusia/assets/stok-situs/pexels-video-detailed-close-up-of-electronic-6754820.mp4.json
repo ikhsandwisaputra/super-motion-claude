@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-detailed-close-up-of-electronic-6754820.mp4",
+  "provider": "pexels",
+  "id": "6754820",
+  "kind": "video",
+  "title": "Detailed close-up of electronic circuit board revealing intricate pathways.",
+  "author": "Tima Miroshnichenko",
+  "authorUrl": "https://www.pexels.com/@tima-miroshnichenko/",
+  "sourceUrl": "https://www.pexels.com/video/printed-circuit-board-close-up-6754820/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Tima Miroshnichenko / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "chip/prosesor/PCB close-up tanpa logo merek terbaca",
+  "bytes": 6065363,
+  "sha256": "345ca41b6eb59503ce0ac1003561c10955b0b7c4ccf7170eea395fca48c2db2b",
+  "fileUrl": "https://videos.pexels.com/video-files/6754820/6754820-hd_1920_1080_25fps.mp4",
+  "query": "computer chip circuit board GPU close up",
+  "retrieved": "2026-11-15T19:41:16.504Z"
+}

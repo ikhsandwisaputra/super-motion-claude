@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/H1_1.jpg",
+  "provider": "wikimedia",
+  "id": "Man_using_smartphone.jpg",
+  "kind": "image",
+  "title": "Man using smartphone",
+  "author": "Adrian disini",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Man_using_smartphone.jpg",
+  "license": {
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: Adrian disini / Wikimedia Commons (CC BY 4.0)",
+  "catatan": "Slot H1: Pria memotret pakai HP di tepi sungai/taman, pengunjung lain di sekitar (bukan close-up tangan).",
+  "warning": "Wajah orang biasa terlihat kecil; bukan close-up tangan",
+  "ukuranVarian": null,
+  "alasanCocok": "Pria memotret pakai HP di tepi sungai/taman, pengunjung lain di sekitar (bukan close-up tangan)",
+  "bytes": 1920253,
+  "sha256": "a8e504f8468ddffd056a86d840ecb35ac2ad19d91765238838e24f940de71a0e",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:Man_using_smartphone.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

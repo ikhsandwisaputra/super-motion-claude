@@ -1,0 +1,23 @@
+{
+ "code_flow": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-dynamic-computer-code-and-data-852292.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ },
+ "terminal_monitor": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-a-monitor-displaying-6804121.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ },
+ "hands_typing": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-hands-typing-on-a-laptop-with-8720756.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ }
+}

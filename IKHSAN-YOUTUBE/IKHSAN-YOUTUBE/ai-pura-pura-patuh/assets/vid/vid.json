@@ -1,0 +1,23 @@
+{
+ "terminal_screen": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-terminal-screen-displaying-35475314.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ },
+ "text_and_code": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-close-up-view-of-text-and-code-35475054.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ },
+ "terminal_cmds": {
+  "n": 105,
+  "fps": 15,
+  "src": "pexels-video-close-up-of-terminal-commands-on-6804117.mp4",
+  "ss": 0.5,
+  "len": 7.0
+ }
+}

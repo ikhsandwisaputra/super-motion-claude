@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-a-young-child-points-to-a-7308352.mp4",
+  "provider": "pexels",
+  "id": "7308352",
+  "kind": "video",
+  "title": "A young child points to a storybook page while reading indoors.",
+  "author": "Leeloo The First",
+  "authorUrl": "https://www.pexels.com/@leeloothefirst/",
+  "sourceUrl": "https://www.pexels.com/video/kid-reading-a-story-book-7308352/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Leeloo The First / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "Anak membaca buku cerita bergambar, tangan dan buku saja, tanpa wajah",
+  "bytes": 4817377,
+  "sha256": "e4ebbf918e0ad2616ce5acc490a905a6090c412e3042fc5edc4a50684996af55",
+  "fileUrl": "https://videos.pexels.com/video-files/7308352/7308352-hd_1920_1080_30fps.mp4",
+  "query": "child learning to read book hands",
+  "retrieved": "2026-11-15T04:41:31.148Z"
+}

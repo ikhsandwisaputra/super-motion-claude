@@ -1,0 +1,47 @@
+{
+  "file": "assets/grafik/data-latih-vs-stok-2.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Satu model sudah melahap ±1/10 stok teks manusia",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Llama 3 (2024)",
+      "nilai": 15,
+      "fakta": 3,
+      "klaim": "Skala pembanding: model terbuka terkini dilatih dengan puluhan triliun token. Llama 3 (Apr 2024) >15T; Llama 4 (5 Apr 2025) >30T; Qwen3 (29 Apr 2025) ±36T. Satu model sudah setara ±sepersepuluh stok Epoch (300T). (Meta AI; Qwen; arXiv Qwen3 technical report)"
+    },
+    {
+      "label": "Llama 4 (2025)",
+      "nilai": 30,
+      "fakta": 3,
+      "klaim": "Skala pembanding: model terbuka terkini dilatih dengan puluhan triliun token. Llama 3 (Apr 2024) >15T; Llama 4 (5 Apr 2025) >30T; Qwen3 (29 Apr 2025) ±36T. Satu model sudah setara ±sepersepuluh stok Epoch (300T). (Meta AI; Qwen; arXiv Qwen3 technical report)"
+    },
+    {
+      "label": "Qwen3 (2025)",
+      "nilai": 36,
+      "fakta": 3,
+      "klaim": "Skala pembanding: model terbuka terkini dilatih dengan puluhan triliun token. Llama 3 (Apr 2024) >15T; Llama 4 (5 Apr 2025) >30T; Qwen3 (29 Apr 2025) ±36T. Satu model sudah setara ±sepersepuluh stok Epoch (300T). (Meta AI; Qwen; arXiv Qwen3 technical report)"
+    },
+    {
+      "label": "Stok teks publik (Epoch AI)",
+      "nilai": 300,
+      "fakta": 0,
+      "klaim": "Stok efektif teks publik buatan manusia ±300 triliun token (90% CI 100T–1000T), sudah memperhitungkan kualitas dan pelatihan multi-epoch (Epoch AI, 6 Jun 2024; arXiv v2, 4 Jun 2024) · · https://"
+    }
+  ],
+  "sumber": [
+    "https://ai.meta.com/blog/meta-llama-3/",
+    "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+    "https://qwenlm.github.io/blog/qwen3/",
+    "https://arxiv.org/html/2505.09388v1",
+    "https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+    "https://arxiv.org/abs/2211.04325"
+  ],
+  "sumberTeks": "Sumber: ai.meta.com, qwenlm.github.io, arXiv, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/tugas/20261115-110952-9e9d/fakta.json",
+  "dibuat": "2026-11-15T04:40:24.358Z"
+}

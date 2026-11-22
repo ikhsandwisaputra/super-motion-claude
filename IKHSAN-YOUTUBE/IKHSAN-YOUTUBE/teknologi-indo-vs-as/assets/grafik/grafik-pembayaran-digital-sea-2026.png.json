@@ -1,0 +1,37 @@
+{
+  "file": "assets/grafik/grafik-pembayaran-digital-sea-2026.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Pembayaran digital: Indonesia nomor satu di Asia Tenggara",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Indonesia",
+      "nilai": "595",
+      "fakta": 6,
+      "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+    },
+    {
+      "label": "Malaysia",
+      "nilai": "261",
+      "fakta": 6,
+      "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+    },
+    {
+      "label": "Thailand",
+      "nilai": "215",
+      "fakta": 6,
+      "klaim": "Indonesia pasar pembayaran digital terbesar di SEA 2026 (GTV US$595 miliar; Malaysia 261, Thailand 215), pertumbuhan 13%, bukan tertinggi (Databoks, 13 Nov 2026, merujuk e-Conomy SEA 2026; Google, 21 Okt 2026)"
+    }
+  ],
+  "sumber": [
+    "https://databoks.katadata.co.id/ekonomi-makro/statistik/6af695aa572b2/indonesia-pasar-pembayaran-digital-terbesar-di-asia-tenggara-pada-2026",
+    "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/"
+  ],
+  "sumberTeks": "Sumber: Katadata, blog.google (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-13-indo-vs-as-c-ekonomi-talenta.md",
+  "dibuat": "2026-11-13T15:38:28.590Z"
+}

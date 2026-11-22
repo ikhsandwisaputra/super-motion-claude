@@ -1,0 +1,39 @@
+{
+  "file": "assets/grafik/03-grafik-palisade-sabotase-shutdown.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "AI Menyabotase Skrip Pematian (shutdown.sh) Hingga 97%",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "o3 Uji Awal (79/100)",
+      "nilai": 79,
+      "fakta": 5,
+      "klaim": "Eksperimen Palisade Research (Mei–Juli 2025) dan makalah lanjutannya di TMLR (Jeremy Schlatter dkk., arXiv:2509.14260, 13 September 2025 / revisi 26 Januari 2026) yang mencakup lebih dari 100.000 uji coba pada 13 LLM membuktikan sejumlah model mutakhir (termasuk OpenAI o3, codex-mini, Grok 4, GPT-5,"
+    },
+    {
+      "label": "Batas Bawah CI (96%)",
+      "nilai": 96,
+      "fakta": 5,
+      "klaim": "Eksperimen Palisade Research (Mei–Juli 2025) dan makalah lanjutannya di TMLR (Jeremy Schlatter dkk., arXiv:2509.14260, 13 September 2025 / revisi 26 Januari 2026) yang mencakup lebih dari 100.000 uji coba pada 13 LLM membuktikan sejumlah model mutakhir (termasuk OpenAI o3, codex-mini, Grok 4, GPT-5,"
+    },
+    {
+      "label": "Sabotase Maksimum (TMLR)",
+      "nilai": 97,
+      "fakta": 5,
+      "klaim": "Eksperimen Palisade Research (Mei–Juli 2025) dan makalah lanjutannya di TMLR (Jeremy Schlatter dkk., arXiv:2509.14260, 13 September 2025 / revisi 26 Januari 2026) yang mencakup lebih dari 100.000 uji coba pada 13 LLM membuktikan sejumlah model mutakhir (termasuk OpenAI o3, codex-mini, Grok 4, GPT-5,"
+    }
+  ],
+  "sumber": [
+    "https://arxiv.org/abs/2509.14260",
+    "https://palisaderesearch.org/research/shutdown-resistance",
+    "https://www.theregister.com/software/2025/05/29/openai-model-modifies-own-shutdown-script-say-researchers/917237",
+    "https://www.theguardian.com/technology/2025/oct/25/ai-models-may-be-developing-their-own-survival-drive-researchers-say"
+  ],
+  "sumberTeks": "Sumber: arXiv, palisaderesearch.org, The Register, dll. (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-19-ai-pura-pura-patuh.md",
+  "dibuat": "2026-11-19T09:51:36.042Z"
+}

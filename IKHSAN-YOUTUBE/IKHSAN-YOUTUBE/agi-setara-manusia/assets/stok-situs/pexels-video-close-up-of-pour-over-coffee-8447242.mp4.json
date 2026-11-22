@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-close-up-of-pour-over-coffee-8447242.mp4",
+  "provider": "pexels",
+  "id": "8447242",
+  "kind": "video",
+  "title": "Close-up of pour-over coffee preparation with Chemex in a kitchen.",
+  "author": "Los Muertos Crew",
+  "authorUrl": "https://www.pexels.com/@cristian-rojas/",
+  "sourceUrl": "https://www.pexels.com/video/a-person-pouring-hot-water-in-a-chemex-8447242/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Los Muertos Crew / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "tangan membuat kopi di dapur (seduh/pour over), wajah tidak fokus",
+  "bytes": 6170874,
+  "sha256": "2592a700a12b3a5d9fd2467c266d3a967346d70f38efa3b8e5ce144bd19afd70",
+  "fileUrl": "https://videos.pexels.com/video-files/8447242/8447242-hd_1920_1080_24fps.mp4",
+  "query": "making coffee kitchen morning",
+  "retrieved": "2026-11-15T19:39:21.477Z"
+}

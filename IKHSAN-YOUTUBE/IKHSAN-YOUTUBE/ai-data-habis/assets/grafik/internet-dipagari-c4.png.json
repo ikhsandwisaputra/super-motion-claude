@@ -1,0 +1,31 @@
+{
+  "file": "assets/grafik/internet-dipagari-c4.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Dalam setahun, sumber terbaik paling banyak dipagari",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Seluruh C4",
+      "nilai": 5,
+      "fakta": 30,
+      "klaim": "Studi \"Consent in Crisis\" (Longpre dkk.; Data Provenance Initiative): audit 14.000 domain di balik C4, RefinedWeb, Dolma. Dalam setahun (2023-04 s.d. 2024-04) ~5%+ token seluruh C4, atau 28%+ token sumber kritis C4, dibatasi penuh via robots.txt; 45% C4 dibatasi via ToS. (arXiv, 2024-07-20; NYT, 202"
+    },
+    {
+      "label": "Sumber kritis C4",
+      "nilai": 28,
+      "fakta": 30,
+      "klaim": "Studi \"Consent in Crisis\" (Longpre dkk.; Data Provenance Initiative): audit 14.000 domain di balik C4, RefinedWeb, Dolma. Dalam setahun (2023-04 s.d. 2024-04) ~5%+ token seluruh C4, atau 28%+ token sumber kritis C4, dibatasi penuh via robots.txt; 45% C4 dibatasi via ToS. (arXiv, 2024-07-20; NYT, 202"
+    }
+  ],
+  "sumber": [
+    "https://arxiv.org/abs/2407.14933",
+    "https://www.nytimes.com/2024/07/19/technology/ai-data-restrictions.html"
+  ],
+  "sumberTeks": "Sumber: arXiv, The New York Times (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/tugas/20261115-110952-9e9d/fakta.json",
+  "dibuat": "2026-11-15T04:40:14.915Z"
+}

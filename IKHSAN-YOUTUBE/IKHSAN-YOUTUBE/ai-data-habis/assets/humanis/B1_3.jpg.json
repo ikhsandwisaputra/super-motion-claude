@@ -1,0 +1,26 @@
+{
+  "file": "assets/humanis/B1_3.jpg",
+  "provider": "wikimedia",
+  "id": "Warung_Angkringan.jpg",
+  "kind": "image",
+  "title": "Warung Angkringan",
+  "author": "SATELITBM",
+  "authorUrl": null,
+  "sourceUrl": "https://commons.wikimedia.org/wiki/File:Warung_Angkringan.jpg",
+  "license": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "attributionRequired": true,
+    "commercial": true
+  },
+  "credit": "Foto: SATELITBM / Wikimedia Commons (CC BY-SA 4.0)",
+  "catatan": "Slot B1: Angkringan malam: penjual di balik gerobak, lampu temaram. CC BY-SA: hasil turunan foto ini (crop/grade) tetap di bawah BY-SA.",
+  "warning": "Wajah penjual terlihat (orang biasa)",
+  "ukuranVarian": null,
+  "alasanCocok": "Angkringan malam: penjual di balik gerobak, lampu temaram",
+  "bytes": 433510,
+  "sha256": "fc0dfd9ad7e69860f5da8055853ac062c413f2c74a34026204a0c53e7e296bf9",
+  "fileUrl": "https://commons.wikimedia.org/wiki/File:Warung_Angkringan.jpg",
+  "query": "Ahri PESAN-AHRI-01",
+  "retrieved": "2026-11-15T09:19:55.514810+00:00"
+}

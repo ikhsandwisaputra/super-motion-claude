@@ -1,0 +1,72 @@
+{
+ "server_units": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-detailed-view-of-server-units-7140928.mp4",
+  "ss": 0.5,
+  "len": 6.5
+ },
+ "server_rack": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-detailed-shot-of-a-poweredge-7140931.mp4",
+  "ss": 0.5,
+  "len": 6.5
+ },
+ "server_room": {
+  "n": 98,
+  "fps": 15,
+  "src": "pixabay-video-data-center-server-room-cloud-380332.mp4",
+  "ss": 0.5,
+  "len": 6.5
+ },
+ "network_cables": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-close-up-shot-of-network-cables-1085656.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ },
+ "ocean_waves": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-drone-captures-powerful-ocean-9806390.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ },
+ "ocean_aerial": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-drone-footage-of-ocean-waves-1918465.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ },
+ "waduk_surut": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-drone-captures-a-bridge-over-a-33598090.mp4",
+  "ss": 2.0,
+  "len": 6.5
+ },
+ "tanah_retak": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-drone-footage-of-a-vast-cracked-30124780.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ },
+ "keran_tetes": {
+  "n": 98,
+  "fps": 15,
+  "src": "pixabay-video-water-tap-fountain-waterdrop-147074.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ },
+ "cooling_tower": {
+  "n": 98,
+  "fps": 15,
+  "src": "pexels-video-aerial-footage-of-a-geothermal-36498924.mp4",
+  "ss": 1.0,
+  "len": 6.5
+ }
+}

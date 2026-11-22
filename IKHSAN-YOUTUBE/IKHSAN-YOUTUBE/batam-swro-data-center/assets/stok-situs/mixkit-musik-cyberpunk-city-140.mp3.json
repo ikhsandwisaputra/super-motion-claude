@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/mixkit-musik-cyberpunk-city-140.mp3",
+  "provider": "mixkit",
+  "id": "140",
+  "kind": "musik",
+  "title": "Cyberpunk City",
+  "author": "Alejandro Magaña (A. M.)",
+  "authorUrl": null,
+  "sourceUrl": "https://mixkit.co/free-stock-music/ambient/",
+  "license": {
+    "name": "Mixkit Stock Music Free License",
+    "url": "https://mixkit.co/license/#musicFree",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Musik: Alejandro Magaña (A. M.) / Mixkit",
+  "catatan": "Mixkit Free License: komersial tanpa atribusi/akun. Hanya item Free License (Restricted = personal, ditolak tool). Musik/SFX: dilarang di CD/DVD/game/siaran TV-radio sebagai karya mandiri; klaim Content ID tidak dijamin nol. Teks lengkap: url lisensi.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "Mixkit tanpa Content ID: ambient tenang 3:50 (Vastness), nuansa serius/tegang 2:29 (Feedback Dreams), dan teknologi modern 1:40 (Cyberpunk City)",
+  "durasi": "1:40",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 3191654,
+  "sha256": "08e4b8058344db486580e409edfead2e72f0d1b4ad02d5ad1176caa71f2e011a",
+  "fileUrl": "https://assets.mixkit.co/music/140/140.mp3",
+  "query": "ambient technology documentary",
+  "retrieved": "2026-11-18T14:59:04.229Z"
+}

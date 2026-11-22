@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-explore-a-high-tech-32386530.mp4",
+  "provider": "pexels",
+  "id": "32386530",
+  "kind": "video",
+  "title": "Explore a high-tech semiconductor manufacturing facility with advanced machines.",
+  "author": "Usman AbdulrasheedGambo",
+  "authorUrl": "https://www.pexels.com/@theonlyabdulla/",
+  "sourceUrl": "https://www.pexels.com/video/modern-semiconductor-manufacturing-facility-32386530/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: Usman AbdulrasheedGambo / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "cleanroom fasilitas manufaktur semikonduktor",
+  "bytes": 3347413,
+  "sha256": "9bdc59efe8b3cfb1672a8697ce55db924fd9cd8ba977a2679442a407b9c6fb8b",
+  "fileUrl": "https://videos.pexels.com/video-files/32386530/13814717_1920_1080_100fps.mp4",
+  "query": "semiconductor wafer cleanroom chip manufacturing",
+  "retrieved": "2026-11-13T15:34:13.014Z"
+}

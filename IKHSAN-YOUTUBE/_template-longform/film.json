@@ -1,0 +1,19 @@
+{
+  "slug": "_template-longform",
+  "out": "judul-singkat",
+  "versi": 1,
+  "vo": "audio/voiceover/xxx_vo_ahmad_{n}",
+  "voice": { "nama": "Ahmad", "id": "d888tBvGmQT2u05J1xTv", "model": "eleven_v4" },
+  "bed": "stok:mixkit-musik-voxscape-571.mp3",
+  "score_intro": "audio/music/ivs_score_intro.mp3",
+  "score_off": 0.3,
+  "chapters": [
+    { "dir": "intro", "vo": "01", "voff": 0.5, "dur": 36.2, "wav": "build/mix_full.wav" },
+    { "dir": "bab-peta" },
+    { "dir": "bab-1" },
+    { "dir": "bab-2" },
+    { "dir": "bab-3" },
+    { "dir": "puncak" },
+    { "dir": "penutup" }
+  ]
+}

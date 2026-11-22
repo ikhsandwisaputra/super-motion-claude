@@ -1,0 +1,29 @@
+{
+  "file": "assets/stok-situs/pixabay-sfx-dramatic-whoosh-swing-cinematic-487667.mp3",
+  "provider": "pixabay",
+  "id": "487667",
+  "kind": "sfx",
+  "title": "Dramatic whoosh swing cinematic sound effect",
+  "author": "DRAGON-STUDIO",
+  "authorUrl": "https://pixabay.com/users/dragon-studio-38165424/",
+  "sourceUrl": "https://pixabay.com/sound-effects/film-special-effects-dramatic-whoosh-swing-487667/",
+  "license": {
+    "name": "Pixabay Content License",
+    "url": "https://pixabay.com/service/license-summary/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "SFX: DRAGON-STUDIO / Pixabay",
+  "catatan": "Pixabay Content License: komersial tanpa atribusi (kredit dianjurkan). Dilarang menjual/mendistribusikan ulang audio apa adanya. Trek \"Content ID Registered\" bisa memicu klaim otomatis YouTube: simpan URL halaman + sertifikat lisensi untuk menyanggah.",
+  "warning": null,
+  "ukuranVarian": null,
+  "alasanCocok": "SFX transisi cepat 1-4 dtk dan impact 2-8 dtk bebas klaim untuk pergantian bab dan penekanan angka",
+  "durasi": "PT2S",
+  "contentId": false,
+  "sertifikat": null,
+  "bytes": 61440,
+  "sha256": "7f05b708b35a65e7aec3443bedfeac6d99614edf931a5ee52a8ad304de532b5f",
+  "fileUrl": "https://cdn.pixabay.com/download/audio/2026/02/19/audio_582c1e13ac.mp3?filename=dragon-studio-dramatic-whoosh-swing-487667.mp3",
+  "query": "cinematic transition whoosh impact",
+  "retrieved": "2026-11-18T14:59:35.225Z"
+}

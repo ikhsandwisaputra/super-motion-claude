@@ -1,0 +1,26 @@
+{
+  "file": "assets/stok-situs/pexels-video-explore-a-modern-server-room-5028622.mp4",
+  "provider": "pexels",
+  "id": "5028622",
+  "kind": "video",
+  "title": "Explore a modern server room filled with advanced networking equipment and servers.",
+  "author": "ALL IZ Well",
+  "authorUrl": "https://www.pexels.com/@all-iz-well-3182153/",
+  "sourceUrl": "https://www.pexels.com/video/database-storage-of-a-server-5028622/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Video: ALL IZ Well / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "ukuranVarian": "1920×1080",
+  "alasanCocok": "rak server dan kabel jaringan data center",
+  "bytes": 18825285,
+  "sha256": "6c7896c65708e3e7b804179ad04677c5a8607b4f0b07429512d2e27c9d442c55",
+  "fileUrl": "https://videos.pexels.com/video-files/5028622/5028622-hd_1920_1080_25fps.mp4",
+  "query": "server room data center aisle",
+  "retrieved": "2026-11-13T15:33:38.240Z"
+}

@@ -1,0 +1,43 @@
+{
+  "file": "assets/grafik/top-streamer-dunia-gta6.png",
+  "jenis": "grafik",
+  "status": "aman",
+  "judul": "Windah Basudara Puncaki Streamer GTA 6 Dunia",
+  "tipe": "batang",
+  "tema": "gelap",
+  "bahasa": "id",
+  "ukuran": "1920×1080",
+  "data": [
+    {
+      "label": "Rubius (Spanyol)",
+      "nilai": "358.695",
+      "fakta": 13,
+      "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+    },
+    {
+      "label": "alanzoka (Brasil)",
+      "nilai": "361.813",
+      "fakta": 13,
+      "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+    },
+    {
+      "label": "IShowSpeed (AS)",
+      "nilai": "371.840",
+      "fakta": 13,
+      "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+    },
+    {
+      "label": "Windah Basudara (ID)",
+      "nilai": "392.505",
+      "fakta": 13,
+      "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695"
+    }
+  ],
+  "sumber": [
+    "https://tekno.kompas.com/read/2026/11/19/09050067/windah-basudara-jadi-streamer-gta-6-paling-banyak-ditonton-lampaui-ishowspeed",
+    "https://radarpati.jawapos.com/gadget/2611190047/windah-basudara-pecahkan-rekor-jadi-streamer-gta-6-dengan-penonton-terbanyak-kalahkan-ishowspeed"
+  ],
+  "sumberTeks": "Sumber: Kompas.com, radarpati.jawapos.com (diolah)",
+  "faktaDari": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+  "dibuat": "2026-11-20T11:19:31.663Z"
+}

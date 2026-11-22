@@ -1,0 +1,25 @@
+{
+  "file": "assets/stok-situs/pexels-elderly-man-wearing-eyeglasses-7545296.jpg",
+  "provider": "pexels",
+  "id": "7545296",
+  "kind": "image",
+  "title": "Elderly man wearing eyeglasses reading documents next to a laptop at home.",
+  "author": "SHVETS production",
+  "authorUrl": "https://www.pexels.com/@shvets-production/",
+  "sourceUrl": "https://www.pexels.com/photo/an-elderly-man-holding-documents-7545296/",
+  "license": {
+    "name": "Pexels License",
+    "url": "https://www.pexels.com/license/",
+    "attributionRequired": false,
+    "commercial": true
+  },
+  "credit": "Foto: SHVETS production / Pexels",
+  "catatan": "Boleh untuk komersial tanpa wajib kredit (kredit tetap dianjurkan). Dilarang: menjual ulang foto apa adanya, menyiratkan orang/merek di foto mendukung produk, memakai orang yang dikenali secara menyinggung. Izin model/properti tidak dijamin: hindari wajah yang dikenali & logo untuk iklan. Ringkasan, bukan teks lisensi: lihat url lisensi.",
+  "warning": null,
+  "alasanCocok": "Orang memeriksa struk/faktur dengan uang dan kalkulator, tangan terlihat.",
+  "bytes": 249510,
+  "sha256": "ea1d929bb6683c0834e5646aa7895487ebf78d768f8877c6b9d8ae76ff08766e",
+  "fileUrl": "https://images.pexels.com/photos/7545296/pexels-photo-7545296.jpeg",
+  "query": "man checking shopping receipt",
+  "retrieved": "2026-11-14T13:55:24.883Z"
+}

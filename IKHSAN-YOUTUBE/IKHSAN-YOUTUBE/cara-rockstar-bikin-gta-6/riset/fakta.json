@@ -1,0 +1,425 @@
+{
+ "laporan": "/home/ikhsands/Proyek/asisten-agi-claude/laporan/2026-11-20-cara-rockstar-bikin-gta-6.md",
+ "diverifikasi": "2026-11-20T11:12:28.607Z",
+ "fakta": [
+  {
+   "klaim": "Grand Theft Auto VI resmi dirilis secara global pada Kamis, 19 November 2026 untuk konsol PlayStation 5 (termasuk PS5 Pro) dan Xbox Series X|S dengan harga global US\\$79,99 (Standard Edition) dan US\\$99,99 (Ultimate Edition), sedangkan versi kotak fisik yang dijual sejak 12 November 2026 berisi kode",
+   "sumber": [
+    "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi",
+    "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+    "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta"
+   ],
+   "kutipan": [
+    {
+     "teks": "Launching November 19, 2026, for the PlayStation® 5 computer entertainment systems and Xbox Series X|S games and entertainment systems for $79.99",
+     "url": "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
+    },
+    {
+     "teks": "The physical version of Grand Theft Auto VI, containing a download code inside the box, will be available starting November 12, 2026 to support pre-loading.",
+     "url": "https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 38
+  },
+  {
+   "klaim": "Dalam waktu kurang dari 24 jam sejak rilis (termasuk *pre-order*), firma analitik pasar Sensor Tower memperkirakan GTA 6 meraih pendapatan sekitar US\\$2,36 miliar dari 24,58–24,59 juta kopi terjual—dengan porsi 75% di PlayStation dan 25% di Xbox—melampaui rekor hari pertama GTA V sebesar US\\$800 jut",
+   "sumber": [
+    "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/",
+    "https://www.tweaktown.com/news/114795/gta-6-day-one-sales-estimates-break-24-5-million-with-dollars2-36-billion-earned/index.html"
+   ],
+   "kutipan": [
+    {
+     "teks": "Sensor Tower estimates GTA 6 sold 24.58 million copies on launch day, generating about $2.36 billion, with sales split 75% PlayStation and 25% Xbox.",
+     "url": "https://www.tweaktown.com/news/114795/gta-6-day-one-sales-estimates-break-24-5-million-with-dollars2-36-billion-earned/index.html"
+    },
+    {
+     "teks": "Currently, the download-only GTA VI has sold 24.59 million units, with 75% of them on PlayStation and the remainder on Xbox consoles.",
+     "url": "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 42
+  },
+  {
+   "klaim": "Penerimaan kritikus saat embargo ulasan dibuka menjelang peluncuran menempatkan GTA 6 di skor 99 pada agregator Metacritic (berdasarkan 147 ulasan kritikus) dan skor 98 di OpenCritic (Forbes, 19 November 2026; Polygon, 18 November 2026)",
+   "sumber": [
+    "https://www.forbes.com/sites/conormurray/2026/11/19/grand-theft-auto-vi-passes-18-billion-in-revenue-on-release-day-eclipses-the-odysseys-box-office-total/?streamIndex=0",
+    "https://www.polygon.com/gta-6-streaming-record-twitch-viewers-reviews/"
+   ],
+   "kutipan": [
+    {
+     "teks": "“GTA VI” currently has a near-perfect score of 99 on review aggregator Metacritic based on 147 critic reviews, currently making it the highest-rated game of all time on the site.",
+     "url": "https://www.forbes.com/sites/conormurray/2026/11/19/grand-theft-auto-vi-passes-18-billion-in-revenue-on-release-day-eclipses-the-odysseys-box-office-total/?streamIndex=0"
+    },
+    {
+     "teks": "The game currently holds a 99 on Metacritic and a 98 on OpenCritic, with several outlets awarding perfect scores.",
+     "url": "https://www.polygon.com/gta-6-streaming-record-twitch-viewers-reviews/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 46
+  },
+  {
+   "klaim": "Fondasi bisnis raksasa GTA 6 bertumpu pada dominasi waralaba *Grand Theft Auto* yang telah menjual nyaris 480 juta kopi secara global (diperbarui dari >470 juta per Juni 2026 dan ~475 juta per Agustus 2026), dengan *GTA V* saja menembus lebih dari 230 juta hingga nyaris 235 juta kopi lintas tiga gen",
+   "sumber": [
+    "https://ir.take2games.com/static-files/c4c4f7f0-6a7c-4159-b97f-089a76580c38",
+    "https://www.gamedeveloper.com/business/gta-v-surpasses-230-million-sales-months-before-gta-vi-touches-down",
+    "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+   ],
+   "kutipan": [
+    {
+     "teks": "Franchise has sold nearly 480 million units",
+     "url": "https://ir.take2games.com/static-files/c4c4f7f0-6a7c-4159-b97f-089a76580c38"
+    },
+    {
+     "teks": "GTA V has sold nearly 235 million copies worldwide, according to Rockstar's parent company, Take-Two Interactive",
+     "url": "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+    },
+    {
+     "teks": "We are reiterating our Fiscal 2027 outlook for Net Bookings of $8 to $8.2 billion",
+     "url": "https://www.gamedeveloper.com/business/gta-v-surpasses-230-million-sales-months-before-gta-vi-touches-down"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 50
+  },
+  {
+   "klaim": "Untuk membangun GTA 6, Rockstar Games menggandakan ukuran organisasinya dari 2.441 staf saat *Red Dead Redemption 2* rilis pada 2018 menjadi 4.711 staf di 12 kantor global; sementara untuk biaya produksi, Kepala Penerbitan Rockstar Jennifer Kolbe membantah rumor anggaran melampaui US\\$1,5 miliar (bi",
+   "sumber": [
+    "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos",
+    "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar"
+   ],
+   "kutipan": [
+    {
+     "teks": "Rockstar now has 4,711 staff across 12 offices, up from the 2,441 staff it had when Red Dead Redemption 2 came out in 2018.",
+     "url": "https://sea.ign.com/grand-theft-auto-vi-rumored-title/250419/rockstar-pushes-back-on-rumor-gta-6-cost-more-than-15-billion-to-make-but-its-still-probably-the-mos"
+    },
+    {
+     "teks": "Jennifer Kolbe, Rockstar’s head of publishing, has rejected a rumour that Grand Theft Auto VI cost more than $1.5 billion to develop.",
+     "url": "https://www.gta6everything.com/news/gta-6-budget-not-over-1-5-billion-rockstar"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 59
+  },
+  {
+   "klaim": "Secara teknis, pengujian Digital Foundry menunjukkan GTA 6 (di atas mesin internal RAGE dengan ukuran berkas instalasi ~212 GB) merender resolusi internal 1440p pada target 30 FPS baik di PS5 standar maupun PS5 Pro, dengan pencahayaan *ray-traced global illumination* (RTGI) dan refleksi *ray-traced*",
+   "sumber": [
+    "https://www.tweaktown.com/news/114763/gta-6-deemed-the-single-most-visually-striking-game-of-the-generation-by-tech-experts/index.html",
+    "https://gagadget.com/en/734844-gta-vi-runs-at-30-fps-on-ps5-and-ps5-pro-digital-foundry-finds/",
+    "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta"
+   ],
+   "kutipan": [
+    {
+     "teks": "Digital Foundry says GTA 6 runs at 1440p and 30 FPS on both PS5 and PS5 Pro, with PSSR giving the Pro near 4K visuals",
+     "url": "https://www.tweaktown.com/news/114763/gta-6-deemed-the-single-most-visually-striking-game-of-the-generation-by-tech-experts/index.html"
+    },
+    {
+     "teks": "Ray-traced lighting and reflections, which simulate how light bounces, appear on both consoles. The Pro adds ray-traced shadows with smoother edges.",
+     "url": "https://gagadget.com/en/734844-gta-vi-runs-at-30-fps-on-ps5-and-ps5-pro-digital-foundry-finds/"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 67
+  },
+  {
+   "klaim": "Rockstar India yang berbasis di Whitefield, Bengaluru dilaporkan mengerahkan lebih dari 1.600 developer untuk GTA 6—menjadikannya salah satu kontributor studio terbesar dalam jaringan global Rockstar—dengan laporan media menyebut kontribusi pada lingkungan *open-world*, aset 3D, serta area *Vice Bea",
+   "sumber": [
+    "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html",
+    "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+   ],
+   "kutipan": [
+    {
+     "teks": "More than 1,600 developers from Bengaluru worked on GTA-6: Rockstar India’s Bengaluru studio contributed to the development of the highly anticipated game.",
+     "url": "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html"
+    },
+    {
+     "teks": "However, the company has not disclosed which parts of the game were developed in India.",
+     "url": "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 75
+  },
+  {
+   "klaim": "Kekuatan studio Rockstar di Bengaluru berakar pada akuisisi 91,82% saham studio produksi seni game lokal Dhruva Interactive (didirikan Rajesh Rao dan sebelumnya menggarap aset *Halo 5*, *Forza Horizon 3*, hingga *Sea of Thieves*) dari perusahaan Swedia Starbreeze pada Mei 2019 senilai US\\$7,9 juta (",
+   "sumber": [
+    "https://www.gamesindustry.biz/rockstar-acquires-dhruva-from-starbreeze-for-usd7-9m",
+    "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+   ],
+   "kutipan": [
+    {
+     "teks": "Today, Rockstar Games has announced it has acquired Indian art production studio Dhruva Interactive for $7.9 million from Starbreeze.",
+     "url": "https://www.gamesindustry.biz/rockstar-acquires-dhruva-from-starbreeze-for-usd7-9m"
+    },
+    {
+     "teks": "Rao said Dhruva's expertise attracted Rockstar Games, which acquired the company from Swedish gaming firm Starbreeze in 2019 for US$7.9 million",
+     "url": "https://www.channelnewsasia.com/asia/indias-game-developers-helped-build-grand-theft-auto-vi-now-they-want-create-hits-their-own-6561681"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 79
+  },
+  {
+   "klaim": "CEO Take-Two Interactive Strauss Zelnick menegaskan GTA 6 tetap dipasarkan secara agresif melalui kampanye terpusat yang singkat namun berdampak besar menjelang rilis—berbeda dari GTA V pada 2013, Take-Two tidak lagi banyak membeli iklan televisi jaringan (*network television*) dan beralih penuh ke",
+   "sumber": [
+    "https://www.gamedeveloper.com/marketing/strauss-zelnick-says-gta-vi-needs-to-be-marketed-aggressively-despite-global-brand-awareness",
+    "https://rockstarintel.com/gta-6-marketing-will-be-significant-and-different-from-gta-vs-says-take-two-ceo/",
+    "https://deadline.com/2026/11/gta-6-sales-launch-day-surge-videogame-1237229514/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Strauss Zelnick, CEO of Rockstar Games parent company Take-Two Interactive, says that Grand Theft Auto VI still needs to be \"marketed aggressively\"",
+     "url": "https://www.gamedeveloper.com/marketing/strauss-zelnick-says-gta-vi-needs-to-be-marketed-aggressively-despite-global-brand-awareness"
+    },
+    {
+     "teks": "For GTA VI, the CEO confirms “We won’t be buying a lot of network television” this time around.",
+     "url": "https://rockstarintel.com/gta-6-marketing-will-be-significant-and-different-from-gta-vs-says-take-two-ceo/"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 87
+  },
+  {
+   "klaim": "Dua trailer utama GTA 6 berturut-turut memecahkan rekor global: *Trailer 1* (4 Desember 2023) menembus lebih dari 93 juta tayangan YouTube dalam 24 jam (mengalahkan rekor non-musik MrBeast 59,4 juta), sedangkan *Trailer 2* (6 Mei 2025) mencetak lebih dari 475 juta tayangan lintas platform dalam 24 j",
+   "sumber": [
+    "https://variety.com/2023/digital/news/grand-theft-auto-6-youtube-record-most-viewed-trailer-1235828208/",
+    "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/",
+    "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html"
+   ],
+   "kutipan": [
+    {
+     "teks": "YouTube announced that the first trailer for Grand Theft Auto VI reached the “extraordinary milestone” of generating more than 93 million views in the initial 24-hour period",
+     "url": "https://variety.com/2023/digital/news/grand-theft-auto-6-youtube-record-most-viewed-trailer-1235828208/"
+    },
+    {
+     "teks": "Rockstar released the second trailer for Grand Theft Auto VI on Tuesday, and the company tells The Hollywood Reporter that it has received over 475 million views across platforms.",
+     "url": "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/"
+    },
+    {
+     "teks": "its second trailer garnered more than 475 million views across platforms in the same period, according to Take-Two Interactive, Rockstar Games’ parent company.",
+     "url": "https://www.firstpost.com/explainers/gta-6-how-1600-bengaluru-developers-helped-build-the-blockbuster-video-game-14061168.html"
+    },
+    {
+     "teks": "Spotify says that streams of the song soared by 182,000 percent since its release",
+     "url": "https://www.hollywoodreporter.com/business/digital/grand-theft-auto-6-trailer-views-record-1236210396/"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 91
+  },
+  {
+   "klaim": "Pada 27 Agustus 2026, Rockstar menggandeng Netflix untuk menayangkan perdana *Grand Theft Auto VI: An Extended Look* (berdurasi 27 menit, direkam sepenuhnya dari *in-game footage* PS5) secara eksklusif selama 6 jam sebelum tayang di YouTube; tayangan itu meraih 31,1 juta *views* di Netflix dalam 4 h",
+   "sumber": [
+    "https://variety.com/2026/tv/news/gta-6-netflix-extended-look-views-1236848409/",
+    "https://www.gamesindustry.biz/gta-6-extended-look-reaches-311m-views-on-netflix-in-four-days-making-it-the-most-viewed-title-last-week"
+   ],
+   "kutipan": [
+    {
+     "teks": "the 27-minute “GTAVI” special drew 31.1 million views.",
+     "url": "https://variety.com/2026/tv/news/gta-6-netflix-extended-look-views-1236848409/"
+    },
+    {
+     "teks": "The 30-minute preview led Netflix's English-language film list in 87 of 93 tracked countries",
+     "url": "https://www.gamesindustry.biz/gta-6-extended-look-reaches-311m-views-on-netflix-in-four-days-making-it-the-most-viewed-title-last-week"
+    },
+    {
+     "teks": "Web traffic increased by 125%, temporarily causing the streaming service to crash.",
+     "url": "https://www.gamesindustry.biz/gta-6-extended-look-reaches-311m-views-on-netflix-in-four-days-making-it-the-most-viewed-title-last-week"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 97
+  },
+  {
+   "klaim": "Pada 11 Agustus 2023, Rockstar Games secara resmi mengakuisisi Cfx.re—tim pengembang di balik *FiveM* dan *RedM*, platform peladen *roleplay* (RP) terbesar untuk *GTA V* dan *Red Dead Redemption 2*—untuk secara resmi merangkul komunitas RP dan kreator yang menjaga popularitas GTA lintas dekade (Game",
+   "sumber": [
+    "https://www.gamespot.com/articles/rockstar-acquires-gta-role-playing-community-as-gta-6-continues-development/1100-6516790/",
+    "https://rockstarintel.com/rockstar-games-acquire-gta-online-fivem-mod-team-cfx-re/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Rockstar Games has announced that it has acquired FiveM and RedM, the popular role-playing communities dedicated to Grand Theft Auto 5 and Red Dead Redemption 2.",
+     "url": "https://www.gamespot.com/articles/rockstar-acquires-gta-role-playing-community-as-gta-6-continues-development/1100-6516790/"
+    },
+    {
+     "teks": "In an unexpected announcement, Rockstar Games have revealed the acquisition of cfx.re, the development team behind popular mods FiveM and RedM that allowed roleplay (GTA RP).",
+     "url": "https://rockstarintel.com/rockstar-games-acquire-gta-online-fivem-mod-team-cfx-re/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 106
+  },
+  {
+   "klaim": "Saat peluncuran GTA 6, data awal Streams Charts mencatat rekor puncak penonton serentak lintas platform sebesar 7,91 juta penonton (3,31 juta di Twitch, 3,22 juta di YouTube, dan 1,50 juta di Kick), melampaui rekor peluncuran *Valorant* (1,74 juta) sekaligus menyalip *League of Legends* (3,11 juta)",
+   "sumber": [
+    "https://streamscharts.com/news/gta-vi-breaks-streaming-launch-records-within-minutes-its-release",
+    "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/",
+    "https://www.polygon.com/gta-6-streaming-record-twitch-viewers-reviews/"
+   ],
+   "kutipan": [
+    {
+     "teks": "Grand Theft Auto VI set new streaming viewership records during its launch, reaching 7.91 million concurrent viewers across livestreaming platforms at its peak.",
+     "url": "https://streamscharts.com/news/gta-vi-breaks-streaming-launch-records-within-minutes-its-release"
+    },
+    {
+     "teks": "According to the preliminary data, the game recorded individual platform peaks of 3.31 million on Twitch, 3.22 million on YouTube and 1.50 million on Kick",
+     "url": "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/"
+    },
+    {
+     "teks": "Overall, Twitch viewership was up 111% compared with the previous week.",
+     "url": "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 110
+  },
+  {
+   "klaim": "YouTuber gaming asal Indonesia, Windah Basudara, menempati peringkat ke-1 dunia sebagai *streamer* GTA 6 dengan jumlah penonton serentak terbanyak versi Streams Charts mencapai 392.505 penonton di YouTube—mengungguli IShowSpeed (371.840 di YouTube), alanzoka (361.813 di Twitch), dan Rubius (358.695",
+   "sumber": [
+    "https://tekno.kompas.com/read/2026/11/19/09050067/windah-basudara-jadi-streamer-gta-6-paling-banyak-ditonton-lampaui-ishowspeed",
+    "https://radarpati.jawapos.com/gadget/2611190047/windah-basudara-pecahkan-rekor-jadi-streamer-gta-6-dengan-penonton-terbanyak-kalahkan-ishowspeed"
+   ],
+   "kutipan": [
+    {
+     "teks": "sosok yang biasa dipanggil \"Bang Windah\" itu tercatat mendapatkan total tertinggi mencapai 392.505 penonton.",
+     "url": "https://tekno.kompas.com/read/2026/11/19/09050067/windah-basudara-jadi-streamer-gta-6-paling-banyak-ditonton-lampaui-ishowspeed"
+    },
+    {
+     "teks": "Berdasarkan data Streams Charts pada Kamis (19/11/2026), siaran langsung Windah berhasil menarik 392.505 penonton dalam waktu bersamaan.",
+     "url": "https://radarpati.jawapos.com/gadget/2611190047/windah-basudara-pecahkan-rekor-jadi-streamer-gta-6-dengan-penonton-terbanyak-kalahkan-ishowspeed"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 115
+  },
+  {
+   "klaim": "Tepat pada hari rilis 19 November 2026, harga GTA 6 di PlayStation Store Indonesia naik sekitar 11% dibanding masa *pre-order*—Standard Edition naik Rp131.000 dari Rp1.190.000 menjadi Rp1.321.000 dan Ultimate Edition naik Rp164.000 dari Rp1.490.000 menjadi Rp1.654.000—sementara bonus *Vintage Vice C",
+   "sumber": [
+    "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta",
+    "https://carisinyal.com/news/harga-gta-6-di-ps-store-naik/"
+   ],
+   "kutipan": [
+    {
+     "teks": "harga GTA 6 Standard Edition kini naik menjadi Rp 1.321.000. Sementara itu, GTA 6 Ultimate Edition dibanderol Rp 1.654.000.",
+     "url": "https://tekno.kompas.com/read/2026/11/19/16245367/harga-gta-6-di-indonesia-naik-standard-edition-kini-rp-13-juta"
+    },
+    {
+     "teks": "Harga Grand Theft Auto VI (GTA 6) di PlayStation Store Indonesia resmi naik sekitar 11 persen pada hari peluncurannya, Kamis (19/11/2026)",
+     "url": "https://carisinyal.com/news/harga-gta-6-di-ps-store-naik/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 123
+  },
+  {
+   "klaim": "Gelombang *pre-download* dan peluncuran berkas 212 GB GTA 6 mencetak rekor trafik internet global sepanjang masa di operator Internet Exchange DE-CIX sebesar 33,03 terabit per detik (Tbit/s) pada 18 November 2026 pukul 20.20 CET (25% lebih tinggi dari pekan normal awal 2026), dengan puncak di Frankf",
+   "sumber": [
+    "https://www.de-cix.net/en/about-de-cix/media/press-releases/gta-vi-global-data-traffic-hits-record-breaking-high",
+    "https://variety.com/2026/gaming/news/gta-6-launch-livestream-internet-traffic-records-1236953145/"
+   ],
+   "kutipan": [
+    {
+     "teks": "data throughput across DE-CIX's Internet Exchanges worldwide reached a new record-breaking high of 33.03 terabits per second.",
+     "url": "https://www.de-cix.net/en/about-de-cix/media/press-releases/gta-vi-global-data-traffic-hits-record-breaking-high"
+    },
+    {
+     "teks": "The 22.30 terabits per second recorded in Frankfurt are equivalent to approximately 13 complete downloads of the game every single second.*",
+     "url": "https://www.de-cix.net/en/about-de-cix/media/press-releases/gta-vi-global-data-traffic-hits-record-breaking-high"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 127
+  },
+  {
+   "klaim": "Dalam sejarah pengembangan GTA 6, Rockstar mengalami kebocoran terbesarnya pada September 2022 ketika Arion Kurtaj (anggota geng peretas Lapsus\\$ yang sedang berada dalam jaminan polisi di hotel Travelodge dengan laptop disita) menyusup ke Slack internal Rockstar memakai Amazon Fire Stick, TV hotel,",
+   "sumber": [
+    "https://www.bbc.com/news/articles/cq99exy89dngo",
+    "https://www.theguardian.com/uk-news/2023/dec/21/british-teenager-behind-gta-6-hack-receives-indefinite-hospital-order"
+   ],
+   "kutipan": [
+    {
+     "teks": "With his computer confiscated, Kurtaj hacked Rockstar using an Amazon Fire Stick plugged into his hotel room television along with a Bluetooth keyboard and mouse.",
+     "url": "https://www.bbc.com/news/articles/cq99exy89dngo"
+    },
+    {
+     "teks": "Rockstar Games said it cost the firm $5m (£3.79m) to recover from the hack, plus thousands of hours of staff time.",
+     "url": "https://www.bbc.com/news/articles/cq99exy89dngo"
+    },
+    {
+     "teks": "A teenager who stole 90 clips of the unreleased Grand Theft Auto 6 game as part of a hacking spree has been sentenced to an indefinite hospital order.",
+     "url": "https://www.theguardian.com/uk-news/2023/dec/21/british-teenager-behind-gta-6-hack-receives-indefinite-hospital-order"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 131
+  },
+  {
+   "klaim": "Tahun 2026 di markas Rockstar North (Edinburgh) juga diwarnai dua insiden besar: (1) kerusakan salah satu *heating boiler* pada pagi 19 Januari 2026 yang mengerahkan 7 kendaraan pemadam kebakaran (tanpa korban, studio tetap beroperasi), dan (2) sidang pengadilan ketenagakerjaan di Glasgow (November",
+   "sumber": [
+    "https://www.gamesindustry.biz/emergency-services-called-to-grand-theft-auto-maker-rockstar-north-after-reported-boiler-explosion",
+    "https://gameinformer.com/2026/01/19/rockstar-north-open-and-operational-after-fire-crews-respond-to-reported-boiler-room",
+    "https://www.bbc.com/news/articles/c5dj1gjlk3jyo"
+   ],
+   "kutipan": [
+    {
+     "teks": "\"Early Monday morning, there was a malfunction in one of the heating boilers at Rockstar North,\" the spokesperson told GamesIndustry.biz.",
+     "url": "https://www.gamesindustry.biz/emergency-services-called-to-grand-theft-auto-maker-rockstar-north-after-reported-boiler-explosion"
+    },
+    {
+     "teks": "The dismissal of 34 workers from Rockstar North were the tactics of \"shock and awe\" designed to punish trade union activity, an employment tribunal has heard.",
+     "url": "https://www.bbc.com/news/articles/c5dj1gjlk3jyo"
+    },
+    {
+     "teks": "\"Individuals across the UK and Canada were dismissed for gross misconduct following the sharing of confidential company information, not because of alleged trade union membership or activity.",
+     "url": "https://www.bbc.com/news/articles/c5dj1gjlk3jyo"
+    }
+   ],
+   "primer": false,
+   "independen": 3,
+   "baris": 136
+  },
+  {
+   "klaim": "Meskipun dapat diunduh langsung dari situs resmi Rockstar, seluruh gambar, *screenshot*, *artwork*, video, musik, dan *gameplay* GTA 6 BUKAN aset bebas hak cipta (🟢): Terms of Service Take-Two Interactive (Pasal 2.1 & 2.3) menahan seluruh hak cipta dan secara eksplisit melarang pemakaian materi Roc",
+   "sumber": [
+    "https://support.rockstargames.com/articles/7bNaeoMFTV0iUDGhStTXvz/policy-on-posting-copyrighted-rockstar-games-material",
+    "https://www.take2games.com/legal/en-US/"
+   ],
+   "kutipan": [
+    {
+     "teks": "\"Non-commercial\" means that you don't make money through the game footage you post or use the material as part of a promotion for a product or service.",
+     "url": "https://support.rockstargames.com/articles/7bNaeoMFTV0iUDGhStTXvz/policy-on-posting-copyrighted-rockstar-games-material"
+    },
+    {
+     "teks": "Take-Two Interactive reserves the right to have its copyrighted material taken down at any time.",
+     "url": "https://support.rockstargames.com/articles/7bNaeoMFTV0iUDGhStTXvz/policy-on-posting-copyrighted-rockstar-games-material"
+    },
+    {
+     "teks": "nothing in the limited license granted in this Agreement authorizes the use of the Services (including the Content), Virtual Items, or your Account in any manner to develop, train, enhance, or provide source material for, or promote, any Generative AI Tools",
+     "url": "https://www.take2games.com/legal/en-US/"
+    }
+   ],
+   "primer": false,
+   "independen": 2,
+   "baris": 150
+  }
+ ]
+}

@@ -1,0 +1,320 @@
+[
+  {
+    "file": "assets/grafik/arc-agi-3-astra-dua-pembungkus.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Model yang sama, skornya beda jauh",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Pembungkus standar",
+        "nilai": "62,7",
+        "fakta": 17,
+        "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+      },
+      {
+        "label": "Pembungkus vendor",
+        "nilai": "99,9",
+        "fakta": 17,
+        "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+      }
+    ],
+    "sumber": [
+      "https://arcprize.org/blog/astra",
+      "https://thenextweb.com/news/openai-astra-arc-agi-3-harness-62-7-vs-99-9-benchmark-revisions"
+    ],
+    "sumberTeks": "Sumber: arcprize.org, thenextweb.com (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:57:54.142Z"
+  },
+  {
+    "file": "assets/grafik/arc-agi-3-skor-standar-nov-2026.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Ujian yang Maret lalu nyaris nol, kini tembus 60–80%",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "GPT-6 Astra (3 Sep)",
+        "nilai": "62,7",
+        "fakta": 17,
+        "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+      },
+      {
+        "label": "Gemini 4 Carbon (10 Nov)",
+        "nilai": "65,1",
+        "fakta": 19,
+        "klaim": "Gemini 4 Carbon (Google, 10 Nov 2026): ARC-AGI-3 99,1% di Provider Adapter, 65,1% di Standard. (ARC Prize, 10 Nov 2026; Google, 10 Nov 2026 untuk rilis modelnya) ·"
+      },
+      {
+        "label": "Claude Fable 5.2 (9 Nov)",
+        "nilai": "81,2",
+        "fakta": 20,
+        "klaim": "Claude Fable 5.2 (Anthropic, 9 Nov 2026): ARC-AGI-3 81,2% Standard, 97,7% Provider Adapter. Anthropic merilis Fable 5.2 dan Mythos 5.2; evaluator eksternal termasuk UK AI Security Institute dan METR. (ARC Prize; Anthropic, 9 Nov 2026) · · https"
+      }
+    ],
+    "sumber": [
+      "https://arcprize.org/blog/astra",
+      "https://thenextweb.com/news/openai-astra-arc-agi-3-harness-62-7-vs-99-9-benchmark-revisions",
+      "https://arcprize.org/results/google-gemini-4-carbon",
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "https://arcprize.org/results/anthropic-claude-fable-5-2",
+      "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    ],
+    "sumberTeks": "Sumber: arcprize.org, thenextweb.com, blog.google, dll. (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:10.787Z"
+  },
+  {
+    "file": "assets/grafik/skor-agi-gpt4-gpt5.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Seberapa \"manusia\" AI menurut satu rapor AGI",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "GPT-4 (2023)",
+        "nilai": "27",
+        "fakta": 2,
+        "klaim": "\"A Definition of AGI\" (Hendrycks dkk., 33 penulis, arXiv 2510.18212, 21 Okt 2025, v3 3 Des 2025): AGI = menyamai keluasan dan kemahiran kognitif orang dewasa berpendidikan baik; 10 domain kognitif dari teori Cattell-Horn-Carroll; skor GPT-4 (2023) 27%, GPT-5 (2025) 57%; kekurangan terbesar di memori"
+      },
+      {
+        "label": "GPT-5 (2025)",
+        "nilai": "57",
+        "fakta": 2,
+        "klaim": "\"A Definition of AGI\" (Hendrycks dkk., 33 penulis, arXiv 2510.18212, 21 Okt 2025, v3 3 Des 2025): AGI = menyamai keluasan dan kemahiran kognitif orang dewasa berpendidikan baik; 10 domain kognitif dari teori Cattell-Horn-Carroll; skor GPT-4 (2023) 27%, GPT-5 (2025) 57%; kekurangan terbesar di memori"
+      }
+    ],
+    "sumber": [
+      "https://arxiv.org/abs/2510.18212",
+      "https://arxiv.org/pdf/2510.18212"
+    ],
+    "sumberTeks": "Sumber: arXiv (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:11.128Z"
+  },
+  {
+    "file": "assets/grafik/ilo-paparan-ai-asean.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "1 dari 5 pekerjaan di Indonesia bersinggungan dengan AI generatif",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Singapura",
+        "nilai": "42,2",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Filipina",
+        "nilai": "28,1",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Rata-rata ASEAN",
+        "nilai": "22,9",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Indonesia",
+        "nilai": "21,7",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Vietnam",
+        "nilai": "20,8",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Thailand",
+        "nilai": "20,6",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      }
+    ],
+    "sumber": [
+      "https://www.ilo.org/sites/default/files/2026-07/ILO%20Brief%20ASEAN%20AI%20v11%20clean.pdf",
+      "https://www.kompas.id/artikel/ilo-ai-generatif-belum-mengancam-phk-massal-di-asean-tetapi-pekerjaan-mulai-berubah"
+    ],
+    "sumberTeks": "Sumber: ilo.org, Kompas.id (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:11.411Z"
+  },
+  {
+    "file": "assets/grafik/apjii-akses-ai-2025-2026.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Yang mengaku pernah mengakses AI justru turun",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Survei 2025",
+        "nilai": "27,3",
+        "fakta": 37,
+        "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+      },
+      {
+        "label": "Survei 2026",
+        "nilai": "18,2",
+        "fakta": 37,
+        "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+      }
+    ],
+    "sumber": [
+      "https://www.metrotvnews.com/read/kqYCdR56-survei-apjii-gen-z-paling-banyak-mengakses-ai",
+      "https://www.bloombergtechnoz.com/detail-news/112110/survei-apjii-ai-makin-populer-di-ri-gen-z-pengguna-terbesar",
+      "https://rri.co.id/denpasar/hiburan/2513597/survei-apjii-2026-gen-z-pengguna-ai-paling-aktif"
+    ],
+    "sumberTeks": "Sumber: metrotvnews.com, bloombergtechnoz.com, rri.co.id (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:11.705Z"
+  },
+  {
+    "file": "assets/grafik/arc-agi-3-skor-standar-nov-2026-2.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Maret 2026 nyaris nol, November tembus 81%",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "GPT-6 Astra (3 Sep)",
+        "nilai": "62,7",
+        "fakta": 17,
+        "klaim": "GPT-6 Astra (OpenAI, rilis 3 Sep 2026): 62,7% di harness Standard ARC Prize vs 99,9% di harness Provider Adapter. Sama modelnya, beda pembungkus. ARC Prize: Astra memakai lebih sedikit aksi daripada median manusia penguji pada 96% level. (ARC Prize blog; TNW, 6 Sep 2026)"
+      },
+      {
+        "label": "Gemini 4 Carbon (10 Nov)",
+        "nilai": "65,1",
+        "fakta": 19,
+        "klaim": "Gemini 4 Carbon (Google, 10 Nov 2026): ARC-AGI-3 99,1% di Provider Adapter, 65,1% di Standard. (ARC Prize, 10 Nov 2026; Google, 10 Nov 2026 untuk rilis modelnya) ·"
+      },
+      {
+        "label": "Claude Fable 5.2 (9 Nov)",
+        "nilai": "81,2",
+        "fakta": 20,
+        "klaim": "Claude Fable 5.2 (Anthropic, 9 Nov 2026): ARC-AGI-3 81,2% Standard, 97,7% Provider Adapter. Anthropic merilis Fable 5.2 dan Mythos 5.2; evaluator eksternal termasuk UK AI Security Institute dan METR. (ARC Prize; Anthropic, 9 Nov 2026) · · https"
+      }
+    ],
+    "sumber": [
+      "https://arcprize.org/blog/astra",
+      "https://thenextweb.com/news/openai-astra-arc-agi-3-harness-62-7-vs-99-9-benchmark-revisions",
+      "https://arcprize.org/results/google-gemini-4-carbon",
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/",
+      "https://arcprize.org/results/anthropic-claude-fable-5-2",
+      "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    ],
+    "sumberTeks": "Sumber: arcprize.org, thenextweb.com, blog.google, dll. (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:31.328Z"
+  },
+  {
+    "file": "assets/grafik/ilo-paparan-ai-asean-2.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "1 dari 5 pekerjaan di Indonesia tersentuh AI",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Singapura",
+        "nilai": "42,2",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Filipina",
+        "nilai": "28,1",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Rata-rata ASEAN",
+        "nilai": "22,9",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Indonesia",
+        "nilai": "21,7",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Vietnam",
+        "nilai": "20,8",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      },
+      {
+        "label": "Thailand",
+        "nilai": "20,6",
+        "fakta": 34,
+        "klaim": "ILO (laporan ASEAN, Juli 2026; estimasi 2025): 21,7% pekerjaan Indonesia berada di okupasi dengan paparan AI generatif di atas minimal (Filipina 28,1%, Vietnam 20,8%, Thailand 20,6%; Singapura 42,2%; ASEAN 22,9% ≈ 80 juta pekerja). (ILO Brief, 6 Jul 2026 [laporan terbit 8 Jul 2026]; Kompas.id, 17 Ju"
+      }
+    ],
+    "sumber": [
+      "https://www.ilo.org/sites/default/files/2026-07/ILO%20Brief%20ASEAN%20AI%20v11%20clean.pdf",
+      "https://www.kompas.id/artikel/ilo-ai-generatif-belum-mengancam-phk-massal-di-asean-tetapi-pekerjaan-mulai-berubah"
+    ],
+    "sumberTeks": "Sumber: ilo.org, Kompas.id (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:31.617Z"
+  },
+  {
+    "file": "assets/grafik/apjii-akses-ai-2025-2026-2.png",
+    "jenis": "grafik",
+    "status": "aman",
+    "judul": "Responden yang mengakses AI justru turun",
+    "tipe": "batang",
+    "tema": "gelap",
+    "bahasa": "id",
+    "ukuran": "1920×1080",
+    "data": [
+      {
+        "label": "Survei 2025",
+        "nilai": "27,3",
+        "fakta": 37,
+        "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+      },
+      {
+        "label": "Survei 2026",
+        "nilai": "18,2",
+        "fakta": 37,
+        "klaim": "APJII 2026 (survei 1 Feb–15 Mar 2026, 8.700 responden usia ≥13 tahun, 38 provinsi): 18,2% responden mengakses AI, turun dari 27,3% pada 2025; Gen Z 29,4%; alasan terbesar belum pakai = tidak tahu AI (46,6%). (MetroTV 22 Mei 2026; Bloomberg Technoz 17 Jun 2026; RRI 25 Jun 2026)"
+      }
+    ],
+    "sumber": [
+      "https://www.metrotvnews.com/read/kqYCdR56-survei-apjii-gen-z-paling-banyak-mengakses-ai",
+      "https://www.bloombergtechnoz.com/detail-news/112110/survei-apjii-ai-makin-populer-di-ri-gen-z-pengguna-terbesar",
+      "https://rri.co.id/denpasar/hiburan/2513597/survei-apjii-2026-gen-z-pengguna-ai-paling-aktif"
+    ],
+    "sumberTeks": "Sumber: metrotvnews.com, bloombergtechnoz.com, rri.co.id (diolah)",
+    "faktaDari": "fakta.json tugas aktif",
+    "dibuat": "2026-11-15T19:58:31.920Z"
+  }
+]
