@@ -1,0 +1,427 @@
+# RESEP: stasiun utuh di film yang sudah dirender (dibangun `pustaka.py index`)
+Jangan dibaca utuh. Cari: `rg -n "<kata>" aset/_pustaka/RESEP.md`, lalu buka bagian itu saja: `sed -n "<baris>,+60p" <file>`.
+Komponen yang sudah digeneralisasi ada di INDEX.md (pakai itu dulu). Path relatif ke folder kerja.
+
+## ivs · Indo vs AS (teknologi-indo-vs-as, 2026-11-14)
+### bab-1 · aset/teknologi-indo-vs-as/bab-1/src/film.js
+- S3 "Jarak = Kedalaman": constants + card art (ported from tes-jarak) · :15
+- Pembuka bab · :54
+- Lab, kampus, divisi riset [push] · :61
+- Paten = sertifikat ide [whip] · :75
+- Selama video ini [push] · :100
+- HP, aplikasi, chip [whip] · :102
+- Kantor paten kita ramai [truck] · :114
+- Pasarnya di sini [push] · :131
+- Ikuti uangnya [cut] · :147
+- Selembar Rp10.000 [rise] · :154
+- Kata pejabat kita [whip] · :156
+- Bisnis ×4 federal [truck] · :164
+- Kota sejuta orang [whip] · :174
+- Satu pemain vs satu tim [rise] · :188
+- Dana riset naik [whip] · :190
+- Dibagi rata [push] · :204
+- GII 2026 #55 [truck] · :206
+- Ide butuh jalan [whip] · :208
+- S3: camera, world, screen type · :221
+- S4: 11 minutes vs 4,5 hours · :300
+- S8: one Rp10.000 note, the share for research · :328
+- S12: one player vs a full team + bench · :354
+- S14: the calculator · :371
+- S15: GII 2026 ladder · :396
+### bab-2 · aset/teknologi-indo-vs-as/bab-2/src/film.js
+- Pembuka bab · :89
+- Kuis: HP atau Wi-Fi? [push] · :97
+- Ookla · HP: < 3× [whip] · :114
+- Rumah: 6× lipat [push] · :128
+- Unduh 1 GB [rise] · :138
+- HP > Wi-Fi rumah [whip] · :148
+- Gudangnya: pusat data [truck] · :162
+- 5.427 pusat data [whip] · :180
+- Otak di balik layar [rise] · :194
+- Investasi AI US$285,9 M [push] · :201
+- > 23× Tiongkok [whip] · :213
+- Model AI: 59 vs 35 [truck] · :224
+- Chip: TSMC [rise] · :239
+- CHIPS: US$6,6 M ke TSMC Arizona [push] · :253
+- Kita punya apa? Sahabat-AI [whip] · :273
+- Parameter = kenop [rise] · :293
+- Microsoft US$1,7 M · Indosat 1 GW [push] · :310
+- SATRIA-1 [truck] · :335
+- Berangkat dari Florida [cut] · :348
+- Uang. Dan manusia. [whip] · :358
+### bab-3 · aset/teknologi-indo-vs-as/bab-3/src/film.js
+- S2: three US months vs our whole year (area = money) · :94
+- S3: kue + klik · :128
+- S5: PISA on a number line · :164
+- S6: level 2 as a staircase · :189
+- S9: IMD rank strip · :211
+- S11 + S12: papan skor, then the page turns · :234
+- Pembuka · tanggal kembar · :274
+- e-Conomy SEA: US$119 M [whip] · :286
+- Kuartal AS ≈ 4× setahun kita [cut] · :300
+- Kue kecil, klik dari luar [truck] · :302
+- Sekolah [cut] · :303
+- PISA 364 vs 463 [whip] · :309
+- Level 2 = batas dasar [rise] · :311
+- 100 anak: 17 vs 65 [push] · :312
+- Bukan salah anaknya [push] · :323
+- IMD 2026: 40 → 48 [cut] · :336
+- Tiga pintu [rise] · :337
+- Papan skor suram [whip] · :343
+- Buka halamannya [cut] · :344
+### penutup · aset/teknologi-indo-vs-as/penutup/src/film.js
+- S1 pipeline: two pipes, AS (top, thick all the way) and Indonesia (thin upstream, as wide + lime downstream) · :39
+- S2 checklist (opinion): four rows tick on their phrase · :89
+- S3 comment fill-in: ghost answers type into the blank, lime caret blinks · :112
+- S4 bakso cart + QR (code-drawn line art, grained) → "buatan kita" → Jakarta Post · :131
+- S5: the Indonesia card, then the camera pulls back through a corridor of grey cards · :187
+- Sejauh apa jaraknya? · :197
+- Hulu vs hilir [whip] · :203
+- Yang perlu dikejar [whip] · :206
+- Tulis di komentar [push] · :208
+- QR gerobak bakso [rise] · :210
+- Layar akhir [push] · :213
+### puncak · aset/teknologi-indo-vs-as/puncak/src/film.js
+- S0: the split-flap scoreboard (bab-peta) that turns 180° · :61
+- 595 vs MY+TH [whip] · :133
+- QRIS [cut] · :161
+- Kasir: stiker per aplikasi → satu [truck] · :166
+- Pedagang kecil [whip] · :190
+- USTR: QRIS + GPN [cut] · :214
+- GPN: rute dalam negeri [truck] · :223
+- Kesepakatan dagang 2026 [whip] · :225
+- Bukan chip, bukan satelit [push] · :241
+- ATURAN MAIN [cut] · :254
+- 1 vs 140 menuliskannya [truck] · :268
+- Dugaan direvisi [whip] · :287
+- Jangan tepuk dada [cut] · :298
+- S6: GPN map — a domestic route that never leaves the border · :314
+
+## abd · AI Bubble (ai-bubble-dompet, 2026-11-15)
+### bab-peta · aset/ai-bubble-dompet/bab-peta/src/film.js
+- S4 route map: chip → 4 routes → wallet · :51
+- S6 Papan Tersangka: Ahpo's A04 board + split-flap letters on its tiles · :77
+- S0 · three bubbles rise off the mirror floor; numbers land on "tiga" · :122
+- S1 · "gelembung itu apa?" soap bubbles seen through the glass [push] · :132
+- S2 · "kenapa AI dicurigai?" the bubble pumps on "menggelembung" [whip] · :139
+- S3 · "jalur ke dompet" the wallet floats inside the third bubble [rise] · :148
+- S5 · disclaimer: one lime word, the trading line gets struck [push] · :156
+### bab-1 · aset/ai-bubble-dompet/bab-1/src/film.js
+- S0 · masih inget batu akik? a stone on the etalase, the price bubble forms · :135
+- S1 · harga climbs in steps, kualitas stays flat [push] · :141
+- S2 · keyakinan goyah: the bubble trembles, the buyers vanish [whip] · :157
+- S3 · close on the etalase: the price deflates, the stone stays [push] · :163
+- S4 · bahasa resmi: IMF [rise] · :168
+- S6 · pendorongnya satu: everyone expects "up" [cut] · :175
+- S7 · gelembung itu BUKAN palsu / tipu-tipu [whip] · :181
+- S8 · internet 2000: the internet was real [truck] · :191
+- S9 · harga outruns nilai; the gap is real soap film [push] · :197
+- S10 · sejak Oktober 2025 (CNBC full-frame rides over it) [whip] · :220
+- S11 · IMF: mirip heboh internet 25 tahun lalu [rise] · :225
+- S12 · Bank of England: valuations stretched (BoE full-frame rides over it) [whip] · :237
+- S13 · the question: a bubble keeps swelling [push] · :245
+### bab-2 · aset/ai-bubble-dompet/bab-2/src/film.js
+- S2 · the three giants (columns → one tower) · :72
+- S9 · Anthropic chart geometry (shared by S9 and S10) · :74
+- S0 · kita lihat dari duit yang mereka keluarin dulu · :78
+- S1 · server racks: gedung, chip, listrik, RAM [rise] · :83
+- S3 · rupiahin: kurs × 500 miliar, a rolling counter, coin stacks [rise] · :114
+- S4 · APBN 2026 [whip] · :122
+- S6 · tahun depan: > US$1 triliun, inside a swelling bubble [whip] · :155
+- S7 · two buckets: keluar overflows, masuk barely covers the floor [rise] · :165
+- S8 · Anthropic (DW full rides over the start) [whip] · :176
+- S10 · operating loss "cuma" 693 juta: a sliver at true scale + a loupe [whip] · :228
+- S11 · versi kantong mereka + Ahri's chart as the receipt [push] · :245
+- S12 · angka serem ≠ cerita utuh [whip] · :252
+- S13 · angka adem ≠ aman · BACA ANGKANYA SAMPAI HABIS [push] · :259
+- S14 · sinyal jujur: janji investasi yang mulai ciut (the plate shrinks) [rise] · :266
+- S15 · NVIDIA → OpenAI, up to 100 miliar (NVIDIA full rides over the start) [whip] · :272
+- S16 · Maret 2026: 100 struck through in lime, 30 lands [push] · :283
+- S17 · 100 squares, a lime cut, 70 fall away · GeForce 256 photo [whip] · :293
+- S18 · disunat → a receipt prints the recount [push] · :311
+- S19 · IMF: one of the three biggest threats (IMF full rides over the start) [whip] · :328
+- S20 · the checklist: every sign of this chapter, ticked [rise] · :345
+- S21 · the question (the screen cracks in over()) [push] · :355
+### bab-3 · aset/ai-bubble-dompet/bab-3/src/film.js
+- S0 · Jawabannya: 5 November 2026 — and a crack runs through the date · :113
+- S1 · Nasdaq: the price line is a crack, and it breaks [whip] · :120
+- S2 · S&P 500 −4,4 % (Open full rides over the start) [truck] · :133
+- S3 · Nvidia −9,3 %, AMD −17,3 % + Ahri's chart [whip] · :143
+- S4 · three triggers, typographic (Le Monde full rides over pemilu) [rise] · :154
+- S6 · Nasdaq tower + a bubble that wobbles but holds [whip] · :181
+- S7 · jatuh sehari ≠ besok ambruk semuanya [truck] · :191
+- S8 · dot-com: 31 months of slow slide vs one day at the same scale (Fool full first) [whip] · :204
+- S9 · the balance: 2000 saham vs 2026 utang + kontrak (analisis redaksi) [rise] · :221
+- S10 · the bills fall due before the income arrives [push] · :244
+- S11 · two confident guesses (Krugman full first) [whip] · :265
+- S12 · cek jalurnya satu per satu [rise] · :274
+- S13 · dot map: the camera rides the head from Wall Street to Indonesia [truck] · :286
+### bab-4 · aset/ai-bubble-dompet/bab-4/src/film.js
+- S0 · "Oke, bursa Amerika goyang." A crack runs through it · :314
+- S1 · kita cuma mau beli HP baru [push] · :321
+- S2 · Peta Jalur, jalur 1 [whip] · :328
+- S3 · HP, laptop, server AI: all need RAM (Ahpo A02 + DIMM + hands) [truck] · :331
+- S4 · Rel Orderan: one kitchen, two orders [rise] · :342
+- S5 · capacity is limited, the big order jumps the queue; relabel on "Nah" [truck] · :354
+- S7 · TrendForce + Counterpoint: AI data centres push memory prices [whip] · :371
+- S8 · Di toko, efeknya langsung kerasa · ITC [push] · :381
+- S9 · dalam setahun ≈ 2× (kata pedagang) [truck] · :389
+- S10 · Label Ayun: Ahpo's A03 phone, the price tag swings at 7 and 45 [whip] · :398
+- S11 · −9 % shipments: 9 of 100 phone boxes drop out [push] · :426
+- S12 · Struk Termal: the receipt feeds up out of the printer, line by line [truck] · :443
+- S13 · the bubble pops, the price tag stays: belum tentu [whip] · :470
+- S14 · year ruler: mahal sampai 2027, agak longgar 2028 [rise] · :482
+- S15 · girders rise slowly; the contracts are already tied [truck] · :498
+- S16 · saham jatuh sehari ≠ pabrik jadi sehari [whip] · :515
+- S17 · HP lama masih sehat? dirawat aja dulu (saran redaksi) [push] · :529
+- S18 · Peta Jalur, jalur 2 [whip] · :538
+- S19 · IHSG Oktober −16,7 % [truck] · :541
+- S20 · the temptation: blame AI (three headlines) [push] · :551
+- S21 · KSSK: who is in it [truck] · :557
+- S22 · Papan: penyebab versi KSSK [whip] · :571
+- S22b · duit beredar lagi seret (faucet) + MSCI [push] · :578
+- S23 · Juli 2026: chip stocks crack down, IHSG rises (Kompas full rides over the start) [whip] · :599
+- S24 · asing beli bersih Rp1,2 T [push] · :612
+- S25 · Papan Tersangka: IHSG / JATUH / AI? → SALAH / KAMBING / HITAM [whip] · :622
+- S27 · bukan berarti kebal 100 % [rise] · :630
+- S28 · investor dunia panik: duit kabur (analisis redaksi) [truck] · :636
+- S29 · efek samping, bukan biang kerok (A04 stamp frame) [push] · :653
+- S30 · Peta Jalur, jalur 3 [whip] · :663
+- S31 · Batam, 360 MW (Jakarta Globe full rides over the start) [truck] · :666
+- S32 · 170.000 GPU, bertahap 2027 → 2028 (Ahpo A01 rack) [push] · :674
+- S33 · Microsoft US$1,7 miliar ≈ Rp28,3 T [whip] · :692
+- S34 · the bubble around the building pops, the building stays [rise] · :702
+- S35 · siapa yang nanggung risikonya kalau yang nyewa sepi [push] · :712
+- S36 · yang macet justru bukan gara-gara gelembung (lime barrier) [truck] · :718
+- S37 · Jatiluhur: disetop, izinnya belum beres [whip] · :729
+- S38 · PLN: 159 pelanggan pusat data [push] · :747
+- S39 · duit investor, listrik, air: dipake bareng-bareng [truck] · :760
+- S40 · Peta Jalur, jalur 4 [whip] · :771
+- S41 · Embun Beku: coupons fall, then freeze mid-air (frost in over) [rise] · :774
+- S42 · pendanaan 2025 US$356–358 juta, turun ±separuh (Bisnis full rides over the start) [truck] · :790
+- S43 · Jan–Sep 2026: 14 pendanaan, 0 IPO [push] · :803
+- S44 · AI belum pecah, startup kita udah kedinginan duluan (frost callback) [truck] · :817
+- S45 · duit gampang berhenti ngalir; yang bertahan punya pelanggan (opini) [push] · :825
+### puncak · aset/ai-bubble-dompet/puncak/src/film.js
+- S0 · "Sekarang anggap aja gelembungnya beneran meletus." · :120
+- S1 · "Terus, apa yang nyisa?" [whip] · :132
+- S2 · split-flap year 2026 → 2000 [push] · :137
+- S3 · akhir 1990-an, telcos race to bury fibre [rise] · :150
+- S4 · the bubble pops, ±95 % of the fibre goes dark [whip] · :168
+- S5 · KABEL GELAP: the bundle dies core by core [push] · :181
+- S6 · harga turun hampir dua pertiga dalam tiga tahun [truck] · :189
+- S7 · dicap buang-buang duit → relit for cloud + streaming [whip] · :205
+- S8 · Menurut kami, polanya bisa mirip [push] · :220
+- S9 · the twist: company falls, investor drops, the building stays = NYATA [rise] · :235
+- S10 · Jam Usang: fibre (decades) vs AI chip (a few years) [whip] · :252
+- S11 · the GPU daydream pops [push] · :272
+- S12 · Ahpo A06 layered parallax: gedung · listrik · orang [truck] · :289
+- S13 · the scale: WARISAN vs BEBAN, tergantung kita siap [push] · :301
+### penutup · aset/ai-bubble-dompet/penutup/src/film.js
+- S0 · four routes, memory brightest · :91
+- S1 · the HP price tag swings in and ticks up [whip] · :127
+- S2 · the three suspects return, card 3 = TERBUKTI [push] · :157
+- S3 · the comment field: template only, the lime caret visits each blank [whip] · :179
+- S4 · KOMENTAR JADI PETA: comments fly in and dock as pins [push] · :203
+- S5 · dive to Batam: listrik? air? [push] · :218
+- S6 · calm plate under the end screen [push] · :247
+
+## adh · AI kehabisan data (ai-data-habis, 2026-11-16)
+### bab-peta · aset/ai-data-habis/bab-peta/src/film.js
+- S0 · lanyard badge + crowd of badges · :39
+- S1 · the hall: stage screen + rows of heads in the foreground · :64
+- S2 · minyak bumi: a drop full of words falls and splashes · :80
+- S3 · the evidence: The Verge headline + the quote, typed · :103
+- S4 · Sumur Huruf: one well (the internet), its level of words sinking · :112
+- S5 · the chart, rebuilt: three model bars vs the stock column of words · :132
+- S6 · the map: five chapter tiles in one row; the camera visits each, chapter 4 is the biggest · :158
+- S7 · the B-roll: hands typing + this morning's upload · :217
+- Sutskever · :239
+- NeurIPS [push] · :240
+- Minyak bumi [whip] · :242
+- The Verge [rise] · :243
+- Sumur [push] · :244
+- Grafik 1/10 [cut] · :245
+- Peta 5 bab [whip] · :247
+- Upload tadi pagi [cut] · :248
+### bab-1 · aset/ai-data-habis/bab-1/src/film.js
+- S0 · internet kan luas: the server room opens wide, then the doubt · :45
+- S1 · Mata Mesin (screen space, own camera) overlay: the unit's name before the scan starts · :55
+- S2 · pretraining: library footage + the greedy stage named · :66
+- S3 · ibarat sekolah: a river of words is swallowed by the model's slot, faster on "semua" · :76
+- S4 · Epoch's count: question → full page (evidFull) → the 300 cast in words · :101
+- S5 · arXiv paper: filtered + re-read counted in · :123
+- S6 · 300 cells of stock (1 cell = 1 T tokens); each newer model eats a bigger bite, in reading order · :132
+- S7 · when: two growth curves (fast/slow) cross the stock line between 2026 and 2032; we are at 2026 · :164
+- S8 · habis ≠ lenyap: document footage + an old blog card still online · :196
+- S9 · what "habis" means: the training-data bar runs into the wall of stock · :215
+- S10 · santri yang khatam: fourteen kitab ticked off one by one; the books stay · :227
+- S11 · a year later, Sutskever on Dwarkesh · :250
+- S12 · scarce goods: the gate footage, then fence bars slam down over it · :258
+- Internet luas · :274
+- Mata Mesin (token) [cut] · :275
+- Pretraining [cut] · :276
+- Ibarat sekolah [push] · :277
+- Epoch 300 T [whip] · :278
+- arXiv disaring [rise] · :279
+- 300 kotak dimakan [whip] · :280
+- Linimasa 2026–2032 [push] · :282
+- Habis ≠ lenyap [whip] · :283
+- Jatah mentok [push] · :284
+- Santri khatam [rise] · :285
+- Dwarkesh [whip] · :286
+- Pagar [push] · :287
+### bab-2 · aset/ai-data-habis/bab-2/src/film.js
+- S0 · tulisanmu: a post card becomes "bahan", then a price tag swings onto it · :108
+- S1 · robots.txt: a browser types the address, the file reads out, then flips into the sign on a fence · :125
+- S2 · the crawler: node-network footage, page cards sucked into it · :160
+- S3 · Consent in Crisis on arXiv + what C4 is · :176
+- S4 · the chart, redrawn: 5 % of all C4 vs 28 %+ of its critical sources locked in one year · :186
+- S5 · the library padlocked: Ahpo's A03 collage in four parallax planes, fence drops, padlock slams · :209
+- S6 · July 2025, Cloudflare: date, then the full article (in post), then the gate that bounces the bots · :230
+- S7 · a new site asks first: the setting defaults to "no", unless they pay per crawl · :258
+- S8a · signature: the fence bars part and become a ticket booth · :290
+- S8b · Reddit → Google: the report, a receipt printing out, and the caveat · :306
+- S9 · books: Anthropic sued by authors · :333
+- S10 · the judge: two columns split by a divider · :351
+- S11 · US$1.5 billion settlement: the letter-filled number shatters into "US$3.000 per karya" · :369
+- S12 · turning point: words fall like rain into a tank — and now there's a meter on it · :383
+- S13 · Indonesia: Sahabat-AI (GoTo × Indosat) and the media partners, highlighted name by name · :418
+- S14 · the purpose: an AI that understands our language and context · :434
+- S15 · news has a price — and your comments? A generic social card gets a "Rp ???" tag · :442
+- S16 · fences higher, booths pricier — three ways out · :461
+- Tulisanmu berlabel harga · :486
+- robots.txt → papan [whip] · :487
+- Robot penyedot [push] · :488
+- Consent in Crisis [rise] · :489
+- Grafik 28 %+ dikunci [whip] · :490
+- Perpustakaan digembok [push] · :491
+- Cloudflare [whip] · :492
+- Situs baru + pay per crawl [rise] · :493
+- Pagar jadi loket [push] · :494
+- Reddit → Google [whip] · :495
+- Anthropic digugat [truck] · :496
+- Kata hakim [push] · :497
+- US$1,5 M pecah [whip] · :498
+- Hujan → meteran [rise] · :499
+- Sahabat-AI [whip] · :500
+- Tujuannya [push] · :501
+- Komentarmu berapa? [whip] · :502
+- Tiga jalan keluar [push] · :503
+### bab-3 · aset/ai-data-habis/bab-3/src/film.js
+- S1 + S18 · the three paths (opener, recap) · :123
+- S2 · AI ngajarin AI: a big teacher-robot writes a practice sheet, the sheet slides to the student-robot · :148
+- S3 · Phi-4: the arXiv page, then the student bar overtakes the teacher bar (illustration, not a score) · :171
+- S4 · AI Index 2026: the report as a source card, our own type carries the claim; then the stamp · :193
+- S5 · AI belajar sendiri · :213
+- S6 · bicycle: wobble → jatuh → coba lagi → berhasil; the smile turns into a +1 point · :225
+- S7 · AlphaGo Zero: Go footage + the Nature page; "contoh main manusia" struck, only the rules · :267
+- S8 · split-flap scoreboard 100 : 0 · :282
+- S9 · DeepSeek-R1 · :300
+- S10 · ampuh buat soal yang jawabannya pasti · :314
+- S11 · the ladder hits the ceiling: "mentok di bekal model dasarnya" · :327
+- S12 · Era of Experience: human text runs into a wall, experience runs off the edge · :354
+- S13 · jalan ketiga: real world (robot arm footage) · :371
+- S14 · Michael Frank, Stanford · :381
+- S15 · GPT-3's book tower (the camera tilts up with it) vs one thin book · :389
+- S16 · ±33.000× — the numeral is made of words (huruf sebagai materi) · :415
+- S17 · deadpan: minta susu · :438
+- S18 · recap: the three paths, two fade, path one keeps one big question · :445
+- S19 · bridge: a robot reads a sheet written by a robot; the room dims; the question · :457
+- Tiga jalan keluar · :473
+- AI ngajarin AI [whip] · :474
+- Phi-4 [push] · :475
+- AI Index 2026 [rise] · :476
+- AI belajar sendiri [whip] · :477
+- Belajar sepeda [truck] · :478
+- AlphaGo Zero [whip] · :479
+- Papan skor 100 : 0 [push] · :480
+- DeepSeek-R1 [whip] · :481
+- Soal yang pasti [rise] · :482
+- Mentok di plafon [push] · :483
+- Era of Experience [whip] · :484
+- Dunia nyata [push] · :485
+- Michael Frank [whip] · :486
+- Menara buku [rise] · :487
+- ±33.000× [push] · :488
+- Minta susu [whip] · :489
+- Satu pertanyaan gede [push] · :490
+- Tulisan AI? [push] · :491
+### bab-4 · aset/ai-data-habis/bab-4/src/st1.js
+- Pembuka · fotokopi · :16
+- Model collapse [cut] · :19
+- Bukti: Nature 2024 [whip] · :41
+- Cacatnya permanen [push] · :49
+- Pinggiran hilang [whip] · :70
+- Ekor = langka [push] · :99
+- Resep kue kampung [whip] · :119
+- Kelompok terpinggirkan [push] · :137
+- Suara siapa [rise] · :159
+- MAD [whip] · :173
+- Tanpa data asli [push] · :185
+- Dampak 2 · seragam [whip] · :199
+- Keragaman turun [push] · :213
+- AI mirip satu sama lain [whip] · :236
+- Beranda paduan suara [push] · :264
+- Dampak 3 · Thompson [rise] · :292
+- Terkubur terjemahan [push] · :303
+- Opini · bahasa daerah [whip] · :325
+- Ungkapan khas pudar [push] · :350
+### bab-4 · aset/ai-data-habis/bab-4/src/st2.js
+- Dampak 4 · barang antik [cut] · :14
+- Baja tua PRA-1945 [whip] · :25
+- lowbackgroundsteel.ai [push] · :49
+- Arsip sebelum banjir [whip] · :57
+- wordfreq berhenti [push] · :77
+- delve ×10 [whip] · :93
+- SynthID [push] · :114
+- Tanda air rapuh [whip] · :134
+- Pasti makin bodoh? [rise] · :153
+- Skenario diganti [push] · :164
+- Skenario disimpan [push] · :183
+- AI Index 2026 [whip] · :201
+- Kaca pindai · pulih [cut] · :207
+- AlphaGeometry · pemeriksa [cut] · :210
+- Skor 25/30 [push] · :233
+- AlphaProof [whip] · :248
+- Perak IMO 2024 [push] · :261
+- Wasit [whip] · :279
+- Manusia [push] · :296
+- Indonesia [rise] · :307
+### bab-5 · aset/ai-data-habis/bab-5/src/film.js
+- S1: timbangan huruf · :118
+- S4a: jaringan sel · :125
+- S8: umpan fiktif (no platform logo) · :141
+- S1 helpers · :217
+- S8 / S10 per-frame composites · :252
+- Timbangan huruf · :286
+- Common Crawl [whip] · :296
+- Ekor bahasa daerah [rise] · :320
+- Sahabat-AI [whip] · :342
+- Lima bahasa [push] · :362
+- Bacaan lokal [truck] · :375
+- Rancangan Perpres [rise] · :381
+- Tunggu tanda tangan [push] · :391
+- Postingan publik [whip] · :404
+- Akun privat [push] · :429
+- Sisi lain [whip] · :461
+- Penjaga [rise] · :472
+### puncak · aset/ai-data-habis/puncak/src/film.js
+- S4 camera: sink through the prose → grab the falling anchor → overtake it in the slow-mo and pull back → slam  · :133
+- S2/S3: three paths (S2 nodes, S3 lines into the anchor ring) · :212
+- Pertanyaan awal · :274
+- Tiga jalan [whip] · :292
+- Jangkar [push] · :304
+- Lautan & dasar [push] · :326
+### penutup · aset/ai-data-habis/penutup/src/film.js
+- S1 · Intinya · :58
+- S2 · Suara asli (+ the dive) · :86
+- S3 · Giliran kamu: the comment box · :156
+- S4 · Berikutnya: the next-video card · :197
+- S5 · Kuota aman: the hook's notification comes back · :237
+- Intinya · :323
+- Suara asli [push] · :324
+- Giliran kamu [cut] · :325
+- Berikutnya [whip] · :326
+- Kuota aman [rise] · :327
+
